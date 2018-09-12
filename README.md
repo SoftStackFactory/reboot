@@ -41,13 +41,13 @@ ionic serve
 This should deploy the an instance of the app running locally at:
 
 ```
-http://localhost:8100/
+http://localhost:3000/
 ```
 
 
 ### Branches
 
-Retire Now employs a release branch methodology for maintaining our branches. When working with new branches, create branches off of `dev` only.
+Reboot employs a release branch methodology for maintaining our branches. When working with new branches, create branches off of `dev` only.
 
 `master` - Current release working production branch
 
@@ -56,7 +56,7 @@ Retire Now employs a release branch methodology for maintaining our branches. Wh
 Whenever you pick up working on the application, make sure that you fetch the current state of the application. This can be done by using the command:  
 
 ```
-git fetch
+git pull
 ```
 
 Then, you'll need to checkout a branch to work from. Most of the time it will be dev:
@@ -105,7 +105,7 @@ This will always reflect `origin/master`.
 
 This will be a working development branch. The repo admin will have access to this and will deploy it on a regular release schedule.
 
-This will live at the following url: `http://reboot.herokuapp.com/`
+This will live at the following url: `http://ssf-reboot.herokuapp.com/`
 
 #### Locally
 
