@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-navbar text-center> <!--'text-center' attribute can be placed here too-->
+  <ion-navbar> <!--'text-center' attribute can be placed here too-->
     <ion-grid> 
       <ion-row>
-        <ion-col col-1>
+        <ion-col>
           <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-col>
-        <ion-col col-1 push-4>
+        <ion-col pull-3 text-center>
           <ion-title>Profile</ion-title>
         </ion-col>
       </ion-row>
@@ -20,20 +20,38 @@
   <ion-grid>
 
     <ion-row justify-content-center>
-      <ion-col col-12 col-md-4 col-xl-2 align-self-center>
+      <ion-col col-12 col-md-4 col-xl-2 text-center>
         <ion-icon name="contact"></ion-icon>
       </ion-col>
     </ion-row>
 
     <ion-row justify-content-center>
-      <ion-col col-12 col-md-4 col-xl-2 align-self-center>
+      <ion-col class='name' col-12 col-md-4 col-xl-2 text-center>
         Peter Horton
       </ion-col>    
     </ion-row>
     
+    <ion-row justify-content-center>
+      <ion-col col-5 align-self-center>
+        <ion-list>
+          <ion-item>
+            <ion-label color="dark">Name</ion-label>
+            <ion-input placeholder="Peter Horton" text-center></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="dark">Email</ion-label>
+            <ion-input placeholder="peterh@mail.com" text-center></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
     <ion-row>
-      <ion-col>
-        
+      <ion-col col-2 push-4>
+        <button ion-button outline color="dark">Edit Profile</button>
+      </ion-col>
+      <ion-col col-2 push-5>
+        <button ion-button outline color="dark">Logout</button>
       </ion-col>
     </ion-row>
 
