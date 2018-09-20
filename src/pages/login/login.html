@@ -5,60 +5,55 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  
+    <div style="display: flex; justify-content: center; align-items: center; background-image: url('../assets/imgs/background.png')" width="900px" height="6000px">
+    <!-- <img id="background" src="../assets/imgs/background.png"> --><br><br><br><br><br><br><br><br><br><br><br>
+    <h1 style="font-family: arial; font-size: 70px; color: white">InTransition</h1>
+    </div>
 </ion-header>
 
 
 <ion-content padding>
-
+    
   <ion-grid fixed>
 
     <ion-row>
       <ion-col>
-        <h1>In Transition</h1>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <h2>Transitioning from the military to civilian environment is more than just a job change.</h2>
+        <h2 text-center>Transitioning from the military to civilian environment is more than just a job change.</h2>
         <br>
-        <h2>It's a life change.</h2>
+        <h2 text-center>It's a life change.</h2>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-item>
-          <ion-label color="primary" stacked>Stacked Label</ion-label>
-          <ion-input type="email" placeholder="Email Input"></ion-input>
-        </ion-item>
+        <div>
+          <ion-label color="primary" stacked>Email Address</ion-label>
+          <ion-input type="email" icon="person"></ion-input>
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-          <ion-item>
-              <ion-label color="primary" stacked>Stacked Label</ion-label>
-              <ion-input type="password" placeholder="Password Input"></ion-input>
-            </ion-item>
+          <div no-lines>
+              <ion-label color="primary" stacked>Password</ion-label>
+              <ion-icon style="position:absolute; top: 50px; left: 20px" name="lock"></ion-icon>
+              <i class="icon ion-search placeholder-icon"></i>
+              <ion-input type="password"></ion-input>
+          </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
         <ion-col>
-            <ion-item>
                 <button ion-button block>Block Button</button>
-              </ion-item>
         </ion-col>
     </ion-row>
 
     <ion-row>
         <ion-col>
-            <ion-item>
                 <h3>If you don't have an account yet, you can register now.</h3>
                 <button ion-button block>Sign up</button>
-              </ion-item>
         </ion-col>
     </ion-row>
 
