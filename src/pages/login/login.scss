@@ -1,14 +1,15 @@
 page-login {
 
+    #background {
+        position: absolute;
+        top: -300px;
+        clip: rect(0px,900px,600px,0px);
+    }
+    
+    ion-input {
+        border: 1px solid rgb(229, 230, 230);
+        box-shadow: none;
+    }
+
 }
 
-#background {
-    position: absolute;
-    top: -300px;
-    clip: rect(0px,900px,600px,0px);
-}
-
-ion-input {
-    border: 1px solid rgb(229, 230, 230);
-    box-shadow: none;
-}
