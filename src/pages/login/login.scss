@@ -1,14 +1,52 @@
 page-login {
+    
+    #header {
+        display: flex;
+        padding: 65px;
+        justify-content: center; 
+        align-items: center; 
 
-    #background {
-        position: absolute;
-        top: -300px;
-        clip: rect(0px,900px,600px,0px);
+        background-position: 0px -250px; 
+        background-size: 100% 500%; 
+        background-image: url('../assets/imgs/background.png');
+    }
+
+    #title {
+        letter-spacing: 3px; 
+        font-weight: bold; 
+        font-family: proxima-nova; 
+        font-size: 70px; 
+        color: white;
+    }
+
+    .labels {
+        color: rgb(96,96,96); 
+        font-size: 25px;
     }
     
     ion-input {
         border: 1px solid rgb(229, 230, 230);
-        box-shadow: none;
+        background-color: rgb(248, 248, 248); 
+        padding-left: 60px; 
+        font-size: 25px
+    }
+
+    ion-icon {
+        color: rgb(130,180,64); 
+        font-size: 35px; 
+        position: absolute; 
+        top: 65px; 
+        left: 20px
+    }
+
+    #loginbutton {
+        background-color: rgb(130,180,64); 
+        font-size: 25px
+    }
+
+    #signupbutton {
+        background-color: rgb(42,61,79); 
+        font-size: 25px
     }
 
 }

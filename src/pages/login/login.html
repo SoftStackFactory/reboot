@@ -9,11 +9,10 @@
 
 <ion-content>
 
-    <div style="display: flex; padding: 30px; justify-content: center; align-items: center; background-position: 0px -250px; background-size: 100% 500%; background-image: url('../assets/imgs/background.png')" width="900px" height="6000px">
-      <!-- <img id="background" src="../assets/imgs/background.png"> --><br><br><br><br><br><br><br><br><br><br><br>
-      <h1 style="letter-spacing: 3px; font-weight: bold; font-family: proxima-nova; font-size: 70px; color: white">INTRANSITION</h1>
-      </div>
-    
+  <div id="header">
+    <h1 id="title">INTRANSITION</h1>
+  </div>
+
   <ion-grid fixed>
 
     <br>
@@ -33,11 +32,9 @@
     <ion-row>
       <ion-col col-1></ion-col>
       <ion-col>
-        <div>
-          <ion-label style="color: rgb(96,96,96); font-size: 25px" color="primary" stacked>EMAIL ADDRESS</ion-label>
-          <ion-input style="background-color: rgb(248, 248, 248); padding-left: 60px; font-size: 25px" type="email" icon="person"></ion-input>
-          <ion-icon style="color: rgb(130,180,64); font-size: 35px; position: absolute; top: 65px; left: 20px" name="person"></ion-icon>
-        </div>
+        <ion-label class="labels" style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
+        <ion-input type="email"></ion-input>
+        <ion-icon name="person"></ion-icon>
       </ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
@@ -45,44 +42,44 @@
     <ion-row>
       <ion-col col-1></ion-col>
       <ion-col>
-          <div no-lines>
-              <ion-label style="color: rgb(96,96,96); font-size: 25px" color="primary" stacked>PASSWORD</ion-label>
-              <ion-input style="background-color: rgb(248, 248, 248); padding-left: 60px; font-size: 25px;" type="password"></ion-input>
-              <ion-icon style="color: rgb(130,180,64); font-size: 30px; position: absolute; top: 65px; left: 20px" name="lock"></ion-icon>
-          </div>
+        <ion-label class="labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
+        <ion-input type="password"></ion-input>
+        <ion-icon name="lock"></ion-icon>
       </ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
-    <br><br>
+    <br>
+    <br>
 
     <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col>
-                <button style="background-color: rgb(130,180,64); font-size: 25px" ion-button block>LOGIN</button>
-        </ion-col>
-        <ion-col col-2></ion-col>
+      <ion-col col-2></ion-col>
+      <ion-col>
+        <button id="loginbutton" ion-button block>LOGIN</button>
+      </ion-col>
+      <ion-col col-2></ion-col>
     </ion-row>
 
-    <br><br><br>
+    <br>
+    <br>
+    <br>
 
     <ion-row>
-        <ion-col col-1></ion-col>
-        <ion-col>
-                <h3 text-center>If you don't have an account yet, you can register now.</h3>
-        </ion-col>
-        <ion-col col-1></ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <h3 text-center>If you don't have an account yet, you can register now.</h3>
+      </ion-col>
+      <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col>
-                <button style="background-color: rgb(42,61,79); font-size: 25px" ion-button block>SIGN UP</button>
-        </ion-col>
-        <ion-col col-2></ion-col>
+      <ion-col col-2></ion-col>
+      <ion-col>
+        <button id="signupbutton" ion-button block>SIGN UP</button>
+      </ion-col>
+      <ion-col col-2></ion-col>
     </ion-row>
 
   </ion-grid>
 
 </ion-content>
-
