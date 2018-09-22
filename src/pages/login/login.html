@@ -5,56 +5,81 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <div style="display: flex; justify-content: center; align-items: center; background-image: url('../assets/imgs/background.png')" width="900px" height="6000px">
-    <!-- <img id="background" src="../assets/imgs/background.png"> --><br><br><br><br><br><br><br><br><br><br><br>
-    <h1 style="font-family: arial; font-size: 70px; color: white">InTransition</h1>
-    </div>
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
+    <div style="display: flex; padding: 30px; justify-content: center; align-items: center; background-position: 0px -250px; background-size: 100% 500%; background-image: url('../assets/imgs/background.png')" width="900px" height="6000px">
+      <!-- <img id="background" src="../assets/imgs/background.png"> --><br><br><br><br><br><br><br><br><br><br><br>
+      <h1 style="letter-spacing: 3px; font-weight: bold; font-family: proxima-nova; font-size: 70px; color: white">INTRANSITION</h1>
+      </div>
     
   <ion-grid fixed>
 
+    <br>
+
     <ion-row>
+      <ion-col col-1></ion-col>
       <ion-col>
         <h2 text-center>Transitioning from the military to civilian environment is more than just a job change.</h2>
         <br>
         <h2 text-center>It's a life change.</h2>
       </ion-col>
+      <ion-col col-1></ion-col>
     </ion-row>
 
+    <br>
+
     <ion-row>
+      <ion-col col-1></ion-col>
       <ion-col>
         <div>
-          <ion-label color="primary" stacked>Email Address</ion-label>
-          <ion-input type="email" icon="person"></ion-input>
+          <ion-label style="color: rgb(96,96,96); font-size: 25px" color="primary" stacked>EMAIL ADDRESS</ion-label>
+          <ion-input style="background-color: rgb(248, 248, 248); padding-left: 60px; font-size: 25px" type="email" icon="person"></ion-input>
+          <ion-icon style="color: rgb(130,180,64); font-size: 35px; position: absolute; top: 65px; left: 20px" name="person"></ion-icon>
         </div>
       </ion-col>
+      <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row>
+      <ion-col col-1></ion-col>
       <ion-col>
           <div no-lines>
-              <ion-label color="primary" stacked>Password</ion-label>
-              <ion-icon style="position: absolute; top: 46px; left: 20px" name="lock"></ion-icon>
-              <i class="icon ion-search placeholder-icon"></i>
-              <ion-input style="padding-left: 30px;" type="password"></ion-input>
+              <ion-label style="color: rgb(96,96,96); font-size: 25px" color="primary" stacked>PASSWORD</ion-label>
+              <ion-input style="background-color: rgb(248, 248, 248); padding-left: 60px; font-size: 25px;" type="password"></ion-input>
+              <ion-icon style="color: rgb(130,180,64); font-size: 30px; position: absolute; top: 65px; left: 20px" name="lock"></ion-icon>
           </div>
       </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <br><br>
+
+    <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col>
+                <button style="background-color: rgb(130,180,64); font-size: 25px" ion-button block>LOGIN</button>
+        </ion-col>
+        <ion-col col-2></ion-col>
+    </ion-row>
+
+    <br><br><br>
+
+    <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+                <h3 text-center>If you don't have an account yet, you can register now.</h3>
+        </ion-col>
+        <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row>
+        <ion-col col-2></ion-col>
         <ion-col>
-                <button ion-button block>Block Button</button>
+                <button style="background-color: rgb(42,61,79); font-size: 25px" ion-button block>SIGN UP</button>
         </ion-col>
-    </ion-row>
-
-    <ion-row>
-        <ion-col>
-                <h3>If you don't have an account yet, you can register now.</h3>
-                <button ion-button block>Sign up</button>
-        </ion-col>
+        <ion-col col-2></ion-col>
     </ion-row>
 
   </ion-grid>
