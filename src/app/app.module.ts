@@ -15,6 +15,8 @@ import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -30,7 +32,8 @@ import { TimelinePage } from '../pages/timeline/timeline';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
