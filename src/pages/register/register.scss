@@ -1,3 +1,64 @@
 page-register {
+    .ion-card {
+        position: relative;
+        text-align: center;
+        overflow:hidden;
+        width: 100%;
+      }
+      img {
+        width: 100%;
+        height: 200px; 
+        object-fit: cover;
+      }
+      .message {
+        text-align: center;
+        position: relative;
+        margin: auto;
+        font-size: 1.5em;
+        margin-bottom: 50px;
+        width: 85%
+      }
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 4.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+      }
+      .input {
+        margin: auto;
+        display: block;
+        width: 80%;
+        height: 55px;
+        padding-left: 10px;
+        background-color: rgb(247, 247, 247);
+        border-radius: 5px;
+        border-color: rgb(229, 227, 227);
+        padding-top: 7px; 
+        margin-top:10px;
+      }
+      ::-webkit-input-placeholder { 
+        font-size: 1.5em;
+        color: rgb(136, 136, 136);
+      }
+      #login-button {
+        margin: auto;
+        display: block; 
+        position: relative;
+        text-align: center;
+      }
+      #register-button{
+        text-align: center;
+        position: relative;
+        margin: auto;
+        display: block; 
+      }
+      #sign-in {
+        text-align: center;
+        position: relative;
+        margin: auto;
+        display: block;  
+      }
 
 }
