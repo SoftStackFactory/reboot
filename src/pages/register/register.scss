@@ -21,7 +21,7 @@ page-register {
       .card-title {
         position: absolute;
         top: 36%;
-        font-size: 4.0em;
+        font-size:8vw;
         width: 100%;
         font-weight: bold;
         color: #fff;
@@ -29,36 +29,47 @@ page-register {
       .input {
         margin: auto;
         display: block;
+        font-size: 20px;
         width: 80%;
         height: 55px;
         padding-left: 10px;
-        background-color: rgb(247, 247, 247);
+        background-color: rgb(249, 247, 247);
         border-radius: 5px;
-        border-color: rgb(229, 227, 227);
+        border-color: rgb(242, 239, 239);
         padding-top: 7px; 
         margin-top:10px;
+        outline: none;
+        border:1px solid #cccccc
       }
       ::-webkit-input-placeholder { 
-        font-size: 1.5em;
+        font-size: 20px;
         color: rgb(136, 136, 136);
-      }
-      #login-button {
-        margin: auto;
-        display: block; 
-        position: relative;
-        text-align: center;
       }
       #register-button{
         text-align: center;
         position: relative;
-        margin: auto;
+        margin: 30px auto;
         display: block; 
+        width: 60%;
+        height: 55px;
+        background-color: rgb(117, 197, 74);
       }
       #sign-in {
         text-align: center;
         position: relative;
-        margin: auto;
+        margin: 10px auto;
         display: block;  
       }
+      #login-button {
+        height: 55px;
+        margin: 10px auto;
+        display: block; 
+        position: relative;
+        text-align: center;
+        width: 60%;
+        background-color: rgb(26, 39, 71);
+      }
+     
+    
 
 }
