@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Slides } from 'ionic-angular';
+
+
 
 /**
  * Generated class for the WizardPage page.
@@ -13,7 +15,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'wizard.html',
 })
 export class WizardPage {
-
+  @ViewChild(Slides) slides: Slides;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
