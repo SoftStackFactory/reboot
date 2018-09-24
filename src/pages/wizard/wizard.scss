@@ -7,5 +7,30 @@ page-wizard {
         display: block;
         width: 70%;
         margin: -450px auto;
+        font-size: 22px;
+    }
+    #dashImg {
+        width: 70%;
+        height: 80%;
+    }
+
+    #self {
+        width: 70%;
+        height: 70%;
+    }
+    #time {
+        width: 70%;
+    }
+    img {
+        margin-top: 10px;
+    }
+    .buttons {
+        position: relative;
+    //    display: block;
+        top: 500px;
+    }
+    .button1{
+        width: 200px;
+        background-color: rgb(26, 39, 71);
     }
 }
