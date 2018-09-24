@@ -1,3 +1,38 @@
 page-assessment {
+    .toolbar-background {
+        background-color: #19334d;
+    }
 
+    .toolbar-title-md {
+        color: white;
+    }
+
+    .title-color {
+        color: white;
+    }
+
+    ion-content {
+        font-size: 20px
+    }
+
+    ion-icon {
+        font-size: 200px;
+    }
+
+    .name {
+        font-size: 25px;
+    }
+
+    .ratings {
+        
+    }
+
+    ion-segment-button {
+        font-size: 20px;
+    }
+
+    .question {
+        font-size: 20px;
+        color: black;
+    }
 }

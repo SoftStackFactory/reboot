@@ -1,19 +1,149 @@
-<!--
-  Generated template for the AssessmentPage page.
+<ion-header class="title">
+    <ion-navbar> <!--'text-center' attribute can be placed here too-->
+      <ion-grid> 
+        <ion-row>
+          <ion-col>
+            <button class="title-color" ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col pull-3 text-center>
+            <ion-title class="title-color">LIFE BALANCE WHEEL</ion-title>
+          </ion-col>
+        </ion-row>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Assessment</ion-title>
-  </ion-navbar>
-</ion-header>
+      </ion-grid>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-grid>
+  
+      <ion-row justify-content-center>
+        <ion-col class='name' col-md-6 text-center>
+          Self Assessment Test
+        </ion-col>    
+      </ion-row>
 
-
-<ion-content padding>
-
-</ion-content>
+      <ion-row justify-content-center>
+          <ion-col col-md-11>
+            Do you want to improve your overall well-being? Start by taking this test and see where you're at.
+          </ion-col>    
+        </ion-row>
+      
+      <ion-row justify-content-center>
+        <ion-col col-3 push-1>
+          <ion-list class="ratings">
+              <p>5 = great</p>
+              <p>4 = pretty good</p>
+              <p>3 = okay</p>
+              <p>2 = not good</p>
+              <p>1 = bad</p>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row justify-content-center>
+        <ion-col col-8>
+          <ion-item-group>
+            <ion-item-divider class="question">1. How do you feel about your finances?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">2. How do you feel about your personal growth?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">3. How do you feel about your health?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">4. How do you feel about your family?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">5. How do you feel about your relationships?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">6. How do you feel about your social life?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">7. How do you feel about your attitude?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+          <ion-item-group>
+            <ion-item-divider class="question">8. How do you feel about your career?</ion-item-divider>
+              <ion-item>
+                <ion-segment [(ngModel)]="rating" color="primary">
+                  <ion-segment-button value="1" (ionSelect)="rating()">1</ion-segment-button>
+                  <ion-segment-button value="2" (ionSelect)="rating()">2</ion-segment-button>
+                  <ion-segment-button value="3" (ionSelect)="rating()">3</ion-segment-button>
+                  <ion-segment-button value="4" (ionSelect)="rating()">4</ion-segment-button>
+                  <ion-segment-button value="5" (ionSelect)="rating()">5</ion-segment-button>
+                </ion-segment>
+              </ion-item>
+          </ion-item-group>
+        </ion-col>
+      </ion-row>
+  
+    </ion-grid>
+  </ion-content>
