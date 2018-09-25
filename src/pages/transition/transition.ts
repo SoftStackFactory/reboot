@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-// import { Chart } from 'chart.js';
+import { Chart } from 'chart.js';
 // import { Plotly } from 'plotly.js-dist';
 
 /**
