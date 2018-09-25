@@ -1,3 +1,83 @@
 page-register {
+    .ion-card {
+        position: relative;
+        text-align: center;
+        overflow:hidden;
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 15vw; 
+        object-fit: cover;
+        max-height: 400px;
+       // display: flex;
+      }
+      .card-title {
+        // justify-content: center;
+        // align-items: center;
+        margin: auto;
+        position: absolute;
+        top: 36%;
+        font-size:8vw;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+      }
+      .message {
+        text-align: center;
+        position: relative;
+        margin: auto;
+        font-size: 2.5vw;
+        margin-bottom: 50px;
+        width: 85%
+      }
+      
+      .input {
+        margin: auto;
+        display: block;
+        font-size: 3vw;
+        width: 80%;
+        height: 6vw;
+        max-height: 100px;
+        padding-left: 10px;
+        background-color: rgb(249, 247, 247);
+        border-radius: 5px;
+        border-color: rgb(242, 239, 239);
+        padding-top: 7px; 
+        margin-top:10px;
+        outline: none;
+        border:1px solid #cccccc
+      }
+      ::-webkit-input-placeholder { 
+        font-size: 3vw;
+        color: rgb(136, 136, 136);
+      }
+      #register-button{
+        text-align: center;
+        position: relative;
+        margin: 30px auto;
+        display: block; 
+        width: 60%;
+        height: 55px;
+        background-color: rgb(117, 197, 74);
+      }
+      #sign-in {
+        text-align: center;
+        position: relative;
+        margin: 10px auto;
+        display: block;  
+      }
+      #login-button {
+        height: 55px;
+        margin: 10px auto;
+        display: block; 
+        position: relative;
+        text-align: center;
+        width: 60%;
+        background-color: rgb(26, 39, 71);
+      }
+     
+    
 
 }
