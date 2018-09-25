@@ -5,33 +5,41 @@ page-register {
         overflow:hidden;
         width: 100%;
       }
+
       img {
         width: 100%;
-        height: 200px; 
+        height: 15vw; 
         object-fit: cover;
-      }
-      .message {
-        text-align: center;
-        position: relative;
-        margin: auto;
-        font-size: 1.5em;
-        margin-bottom: 50px;
-        width: 85%
+        max-height: 400px;
+       // display: flex;
       }
       .card-title {
+        // justify-content: center;
+        // align-items: center;
+        margin: auto;
         position: absolute;
-        top: 36%;
+       // top: 36%;
         font-size:8vw;
         width: 100%;
         font-weight: bold;
         color: #fff;
       }
+      .message {
+        text-align: center;
+        position: relative;
+        margin: auto;
+        font-size: 2.5vw;
+        margin-bottom: 50px;
+        width: 85%
+      }
+      
       .input {
         margin: auto;
         display: block;
-        font-size: 20px;
+        font-size: 3vw;
         width: 80%;
-        height: 55px;
+        height: 6vw;
+        max-height: 100px;
         padding-left: 10px;
         background-color: rgb(249, 247, 247);
         border-radius: 5px;
@@ -42,7 +50,7 @@ page-register {
         border:1px solid #cccccc
       }
       ::-webkit-input-placeholder { 
-        font-size: 20px;
+        font-size: 3vw;
         color: rgb(136, 136, 136);
       }
       #register-button{
