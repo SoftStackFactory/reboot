@@ -39,8 +39,8 @@ export class DashboardPage {
       options: {
         layout: {
           padding: {
-            top: 40,
-            bottom: 40
+            top: 50,
+            bottom: 50
           }
         },
         legend: {
@@ -53,14 +53,14 @@ export class DashboardPage {
             align: 'end',
             offset: function (context) {
               let chart: any = document.getElementById('canvas').getAttribute('width');
-              return chart / 6 - 100;
+              return chart / 6 - 110;
             },
             backgroundColor: function (context) {
               return context.dataset.backgroundColor;
             },
             borderColor: 'black',
             rotation: function (context) { if (context.dataIndex === 0 || context.dataIndex === 1 || context.dataIndex === 6 || context.dataIndex === 7) { return 45 / 2 + (45 * context.dataIndex) } else { return 45 / 2 + (45 * context.dataIndex) + 180 } },
-            borderRadius: 25,
+            borderRadius: 5,
             borderWidth: 2,
             color: 'white',
             font: {
