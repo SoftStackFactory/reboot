@@ -2,6 +2,11 @@ page-dashboard {
 
     #hello {
         font-weight: bold;
+        font-size: 40px;
+    }
+
+    #welcome {
+        font-size: 20px;
     }
 
     .cards {
@@ -10,16 +15,18 @@ page-dashboard {
 
     .headers {
         font-weight: bold; 
-        font-size: 20px;
+        font-size: 30px;
     }
 
     #separationContent {
         padding-bottom: 0px;
+        font-size: 20px;
     }
 
     #separationLink {
         float: right; 
         padding-bottom: 10px;
+        font-size: 20px;
     }
 
     .linkIcons {
@@ -53,11 +60,12 @@ page-dashboard {
 
     #networkingImage {
         width: 50%; 
-        height: 200px
+        height: 300px
     }
 
     #networkingAdvice {
         width: 50%; 
+        font-size: 20px;
         padding-left: 20px;
     }
 
@@ -65,5 +73,6 @@ page-dashboard {
         padding-top: 0px; 
         position: relative; 
         top: -7px;
+        font-size: 20px;
     }
 }

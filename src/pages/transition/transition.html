@@ -15,5 +15,20 @@
 
 
 <ion-content padding>
+<h1>CHART GOES HERE</h1>
+
+<ion-list>
+    <ion-card *ngFor="let area of areas">
+        <ion-card-header>
+          {{area.title}} <button (click)="toggleSection(area)">View</button>
+        </ion-card-header>
+        <ion-card-content *ngIf="area.expand">
+          {{area.description}}
+        </ion-card-content>
+    </ion-card>
+
+</ion-list>
+
+
 
 </ion-content>
