@@ -18,4 +18,22 @@
   <canvas id="canvas"></canvas>
   <div id="myDiv"></div>
   <div id="chartDiv"></div>
+
+  <ion-card *ngFor="let area of areas">
+      <ion-card-header>
+        <strong>{{area.title}}</strong>
+      </ion-card-header>
+      <ion-card-content>
+        {{area.description}}
+      </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <ion-card-header>
+        <strong>Final Step</strong>
+      </ion-card-header>
+      <ion-card-content>
+        <p>When you have scored all areas join the points on each section to draw a wheel. This will show you how balanced overall your life is and what areas you really need to focus on. Put a date on it and review it at least every 6 months.</p>>
+      </ion-card-content>
+  </ion-card>
+
 </ion-content>
