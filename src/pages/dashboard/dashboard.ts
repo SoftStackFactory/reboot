@@ -26,10 +26,10 @@ export class DashboardPage {
     this.chart = new Chart('canvas', {
       type: 'polarArea',
       data: {
-        labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "relationships", "social life", "attitude"],
+        labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
         datasets: [
           {
-            backgroundColor: ["rgba(0,0,255, .5)", "rgba(255,0,0, .5)", "rgba(128,0,128, .5)", "rgba(0,128,0, .5)", "rgba(255,165,0)", "rgba(0,128,128, .5)", "rgba(255,0,255, .5)", "rgba(0,255,0, .5)"],
+            backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
             data: [10, 9, 4, 10, 7, 8, 5, 1]
           }
