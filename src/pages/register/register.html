@@ -26,7 +26,7 @@
     </strong><p>
   </div>  
     <form class="form" [formGroup]='validate' (ngSubmit)='regform()'>
-      <input class="input" type="text" #first placeholder="First Name" formControlName='first'> <br>
+      <ion-input class="input" type="text" #first placeholder="First Name" formControlName='first'></ion-input> <br>
       <input class="input" type="text" #last placeholder="Last Name" formControlName='last'> <br>
       <input class="input" type="email" #email placeholder="Email Address" formControlName='email'> <br>
       <input class="input" type="password" #pass placeholder="Password" formControlName='password'> <br>
