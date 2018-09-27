@@ -1,83 +1,132 @@
 page-register {
-    .ion-card {
-        position: relative;
-        text-align: center;
-        overflow:hidden;
-        width: 100%;
-      }
+  .ion-card {
+    display: flex;
+      justify-content: center; 
+      align-items: center; 
+      //position: relative;
+      height: 25vw;
+      width: 100%;
+      background-position: 0px -250px; 
+      background-size: 100% 500%; 
+      background-image: url('../assets/imgs/background.png');
+      max-height: 380px ;
+     
+    }
+    // #text-size {
+    //   font-size: 32px;
+    //   width: 70%;
+    //    height: 40%;
+    //   max-width: 3050px;
+    //   border: 10px solid greenyellow;
+    // }
 
-      img {
-        width: 100%;
-        height: 15vw; 
-        object-fit: cover;
-        max-height: 400px;
-       // display: flex;
+    .card-title {
+      text-align: center;
+      margin: auto;
+      letter-spacing: .2vw; 
+      font-weight: bold; 
+      font-family: proxima-nova; 
+      font-size: 6vw; 
+      color: white;
+    }
+    .message {
+      //border: 10px solid greenyellow;
+      text-align: center;
+      position: relative;
+      margin: 3vh auto 5vh auto ;
+     //height: 10vh;
+      width: 80%;
+      max-width: 2800px;
+      font-size: 3vw;
+    }
+    @media screen and (min-width:2300px) {
+      .message  {
+        font-size: 60px;
+        margin: 5vh auto 5vh auto ;
       }
+    }
+
+    .input {
+      margin: .4vw auto;
+      display: block;
+      font-size: 3vw;
+      width: 80%;
+      height: 8vw;
+      max-height: 70px;
+      max-width: 1000px;
+      padding-left: 10px;
+      background-color: rgb(249, 247, 247);
+      border-radius: 5px;
+      border-color: rgb(242, 239, 239);
+      //padding-top: 7px; 
+      //margin-top:10px;
+      outline: none;
+      border:1px solid #cccccc
+    }
+    ::-webkit-input-placeholder { 
+      font-size: 3vw;
+      color: rgb(136, 136, 136);
+    }
+
+     @media screen and (min-width:1800px) {
+      ::-webkit-input-placeholder  {
+        font-size: 1.3vw;
+       // padding-top: -570px;
+        position: relative;
+        top: -13px;
+      }
+    }
+    #register-button{
+      text-align: center;
+      position: relative;
+      margin: 6vw auto;
+      display: block; 
+      width: 60%;
+      height: 8vw;
+      max-height: 70px;
+      background-color: rgb(130,180,64);
+      font-size: 3vw;
+      max-width: 600px;
+    }
+
+    #sign-in {
+      text-align: center;
+      position: relative;
+      margin: 7vw auto 0px auto;
+      display: block;
+      font-size: 2.2vw;  
+    }
+    #login-button {
+      height: 8vw;
+      max-height: 70px;
+      max-width: 600px;
+      margin: 10px auto;
+      display: block; 
+      position: relative;
+      text-align: center;
+      width: 60%;
+      background-color: rgb(42,61,79); 
+      font-size: 3vw;
+    }
+
+    @media (min-width: 2300px) {
+     
+    }
+    @media screen and (min-width:1150px) {
       .card-title {
-        // justify-content: center;
-        // align-items: center;
-        margin: auto;
-        position: absolute;
-        top: 36%;
-        font-size:8vw;
-        width: 100%;
-        font-weight: bold;
-        color: #fff;
-      }
-      .message {
-        text-align: center;
-        position: relative;
-        margin: auto;
-        font-size: 2.5vw;
-        margin-bottom: 50px;
-        width: 85%
-      }
-      
-      .input {
-        margin: auto;
-        display: block;
-        font-size: 3vw;
-        width: 80%;
-        height: 6vw;
-        max-height: 100px;
-        padding-left: 10px;
-        background-color: rgb(249, 247, 247);
-        border-radius: 5px;
-        border-color: rgb(242, 239, 239);
-        padding-top: 7px; 
-        margin-top:10px;
-        outline: none;
-        border:1px solid #cccccc
-      }
-      ::-webkit-input-placeholder { 
-        font-size: 3vw;
-        color: rgb(136, 136, 136);
-      }
-      #register-button{
-        text-align: center;
-        position: relative;
-        margin: 30px auto;
-        display: block; 
-        width: 60%;
-        height: 55px;
-        background-color: rgb(117, 197, 74);
-      }
+        font-size: 200px;
+     }
       #sign-in {
-        text-align: center;
-        position: relative;
-        margin: 10px auto;
-        display: block;  
+        margin: 50px auto 0px auto;
+        font-size: 40px;
       }
       #login-button {
-        height: 55px;
-        margin: 10px auto;
-        display: block; 
-        position: relative;
-        text-align: center;
-        width: 60%;
-        background-color: rgb(26, 39, 71);
+            font-size: 40px;
       }
-     
-    
-
+      #register-button{
+        margin: 3vw auto;
+        font-size: 40px;
+      }
+     }
+  
 }
