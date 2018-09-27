@@ -29,7 +29,7 @@ export class DashboardPage {
         labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "relationships", "social life", "attitude"],
         datasets: [
           {
-            backgroundColor: ["blue", "red", "purple", "green", "orange", "teal", "magenta", "lime"],
+            backgroundColor: ["rgba(0,0,255, .5)", "rgba(255,0,0, .5)", "rgba(128,0,128, .5)", "rgba(0,128,0, .5)", "rgba(255,165,0)", "rgba(0,128,128, .5)", "rgba(255,0,255, .5)", "rgba(0,255,0, .5)"],
             borderColor: "black",
             data: [10, 9, 4, 10, 7, 8, 5, 1]
           }
@@ -62,10 +62,11 @@ export class DashboardPage {
             rotation: function (context) { if (context.dataIndex === 0 || context.dataIndex === 1 || context.dataIndex === 6 || context.dataIndex === 7) { return 45 / 2 + (45 * context.dataIndex) } else { return 45 / 2 + (45 * context.dataIndex) + 180 } },
             borderRadius: 5,
             borderWidth: 2,
-            color: 'white',
+            color: 'black',
             font: {
               weight: 'bold',
-              size: '20'
+              size: '20',
+              family: 'Lato'
             },
             formatter: function (value, context) {
               return context.chart.data.labels[context.dataIndex] + ' ' + context.chart.data.datasets[0].data[context.dataIndex];
