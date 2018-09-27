@@ -1,3 +1,132 @@
 page-register {
+  .ion-card {
+    display: flex;
+      justify-content: center; 
+      align-items: center; 
+      //position: relative;
+      height: 25vw;
+      width: 100%;
+      background-position: 0px -250px; 
+      background-size: 100% 500%; 
+      background-image: url('../assets/imgs/background.png');
+      max-height: 380px ;
+     
+    }
+    // #text-size {
+    //   font-size: 32px;
+    //   width: 70%;
+    //    height: 40%;
+    //   max-width: 3050px;
+    //   border: 10px solid greenyellow;
+    // }
 
+    .card-title {
+      text-align: center;
+      margin: auto;
+      letter-spacing: .2vw; 
+      font-weight: bold; 
+      font-family: proxima-nova; 
+      font-size: 6vw; 
+      color: white;
+    }
+    .message {
+      //border: 10px solid greenyellow;
+      text-align: center;
+      position: relative;
+      margin: 3vh auto 5vh auto ;
+     //height: 10vh;
+      width: 80%;
+      max-width: 2800px;
+      font-size: 3vw;
+    }
+    @media screen and (min-width:2300px) {
+      .message  {
+        font-size: 60px;
+        margin: 5vh auto 5vh auto ;
+      }
+    }
+
+    .input {
+      margin: .4vw auto;
+      display: block;
+      font-size: 3vw;
+      width: 80%;
+      height: 8vw;
+      max-height: 70px;
+      max-width: 1000px;
+      padding-left: 10px;
+      background-color: rgb(249, 247, 247);
+      border-radius: 5px;
+      border-color: rgb(242, 239, 239);
+      //padding-top: 7px; 
+      //margin-top:10px;
+      outline: none;
+      border:1px solid #cccccc
+    }
+    ::-webkit-input-placeholder { 
+      font-size: 3vw;
+      color: rgb(136, 136, 136);
+    }
+
+     @media screen and (min-width:1800px) {
+      ::-webkit-input-placeholder  {
+        font-size: 1.3vw;
+       // padding-top: -570px;
+        position: relative;
+        top: -13px;
+      }
+    }
+    #register-button{
+      text-align: center;
+      position: relative;
+      margin: 6vw auto;
+      display: block; 
+      width: 60%;
+      height: 8vw;
+      max-height: 70px;
+      background-color: rgb(130,180,64);
+      font-size: 3vw;
+      max-width: 600px;
+    }
+
+    #sign-in {
+      text-align: center;
+      position: relative;
+      margin: 7vw auto 0px auto;
+      display: block;
+      font-size: 2.2vw;  
+    }
+    #login-button {
+      height: 8vw;
+      max-height: 70px;
+      max-width: 600px;
+      margin: 10px auto;
+      display: block; 
+      position: relative;
+      text-align: center;
+      width: 60%;
+      background-color: rgb(42,61,79); 
+      font-size: 3vw;
+    }
+
+    @media (min-width: 2300px) {
+     
+    }
+    @media screen and (min-width:1150px) {
+      .card-title {
+        font-size: 200px;
+     }
+      #sign-in {
+        margin: 50px auto 0px auto;
+        font-size: 40px;
+      }
+      #login-button {
+            font-size: 40px;
+      }
+      #register-button{
+        margin: 3vw auto;
+        font-size: 40px;
+      }
+     }
+  
 }

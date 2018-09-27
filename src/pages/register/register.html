@@ -14,6 +14,27 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content >
+  <div class="ion-card">
+    <div class="card-title">INTRANSITION</div>
+  </div>
+  <div class="message">
+    <p>Transitioning from the military to civilian environment<br>
+      is more than a job change 
+    </p>
+    <p><strong>It's a life change
+    </strong><p>
+  </div>  
+    <form class="form">
+      <input class="input" type="text" #first placeholder="First Name" > <br>
+      <input class="input" type="text" #last placeholder="First Last"> <br>
+      <input class="input" type="email" #email placeholder="Email Address"> <br>
+      <input class="input" type="password" #pass placeholder="Password"> <br>
+      <input class="input" type="password" #repass placeholder="Password Confirmation">
+    </form>
+    <button id="register-button"color="secondary" ion-button>REGISTER </button>
+    <div class='login2'>
+      <p id="sign-in">If you already have an account, sign in.</p>
+    <button id="login-button"color="primary" ion-button>LOGIN</button>
+      </div>
 </ion-content>
