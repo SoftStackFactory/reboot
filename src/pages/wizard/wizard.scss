@@ -5,6 +5,31 @@ page-wizard {
       ion-slide.swiper-slide {
         align-items: flex-start;
     }
+    .nav-start {
+        position: fixed;
+       // top: 10%;
+       // display: position;
+        background-color: rgb(26, 39, 71);
+        width: 100%;
+        z-index: 2;
+        height: 5.2%;
+    }
+   
+    .start {
+        height: 85%;
+        //float:left;
+        color: black;
+        //margin: auto;
+        background-color: aliceblue;
+    }
+    #end {
+        //margin: auto;
+        height: 85%;
+        float:right;
+        color: black;
+        background-color: aliceblue;
+    }
+
     .top {
         position: relative;
         display: block;
