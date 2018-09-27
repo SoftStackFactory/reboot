@@ -71,12 +71,6 @@ export class DashboardPage {
               return context.chart.data.labels[context.dataIndex] + ' ' + context.chart.data.datasets[0].data[context.dataIndex];
             }
           }
-        },
-
-
-        title: {
-          display: false,
-          text: 'Color test'
         }
       }
     });
