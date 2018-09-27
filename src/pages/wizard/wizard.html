@@ -5,39 +5,70 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Register</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content >
-    <div class="ion-card">
-     
-        <h1 class="card-title">INTRANSITION</h1>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Wizard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <div class="nav-start">
+    <button ion-button class="start">Exit</button>
+    <button ion-button class="start">Back</button>
+
+    <button ion-button id="end">Start</button>
+  </div>
+  <ion-slides pager>
+    <ion-slide  >
+      <div class='top'>
+        <h1>Welcome</h1>
+        <p> InTranshition is an app designed for Veterans to transition into the civial environment.
+            This wizard will guide you through the app <br><br>
+           <strong> Scroll to the right to begin.</strong>
+        </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class='top'>
+        <h1>Home Dasboard</h1>
       
-    </div>
-    
-    <div class="message">
-      <p>Transitioning from the military to civilian environment<br>
-        is more than a job change 
-      </p>
-      <p><strong>It's a life change
-      </strong><p>
-    </div>  
-    <form class="form">
-      <input class="input" type="text" #first placeholder="First Name" > <br>
-      <input class="input" type="text" #last placeholder="First Last"> <br>
-      <input class="input" type="email" #email placeholder="Email Address"> <br>
-      <input class="input" type="password" #pass placeholder="Password"> <br>
-      <input class="input" type="password" #repass placeholder="Password Confirmation">
-    </form>
-    <button id="register-button"color="secondary" ion-button>REGISTER </button>
-    <div class='login2'>
-      <p id="sign-in">If you already have an account, sign in.</p>
-    <button id="login-button"color="primary" ion-button>LOGIN</button>
+        <p>Here you will find links to the timeline and self assessment section.<br><br>
+            Usefull tips and links are also available to check out. </p>
+        <img id='dashImg' src='../../assets/imgs/dashboard.png'>
+      </div>
+    </ion-slide>
+    <ion-slide>
+        <div class='top'>
+          <h1>Self Assessment</h1>
+          <p>Here you will be promted to take your self assessment to assess your finances, relationships, family, and more!</p>
+          <img id="self" src='../../assets/imgs/asssesment.png'>
+      </div>
+    </ion-slide>
+    <ion-slide>
+        <div class='top'>
+            <h1>Life Balance Wheel</h1>
+            <p>This chart will display the results of your self assesment by category.</p>
+            <img src='../../assets/imgs/whell.png'>
+      </div>
+    </ion-slide>
+    <ion-slide>
+        <div class='top'>
+            <h1>Timeline</h1>
+            <p>This is a timeline that will make your transition to the civilian life smoother. Each section has a to-do item that you need to accomplish.</p>
+            <img id="time" src='../../assets/imgs/timeline.png'>
+      </div>
+    </ion-slide>
+    <ion-slide>
+        <div class='top'>
+            <h1>Thanks for using the Wizard</h1>
+            <p>You may begin by taking the self assesment.</p>
+            
+      </div>
+      <div class='buttons'>
+        <button class='button1' ion-button>Dashboard</button>
+        <button class='button1' ion-button>Take Assesment</button>
       </div>
   </ion-content>
   
