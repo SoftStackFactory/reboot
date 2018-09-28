@@ -18,9 +18,13 @@
   <canvas id="canvas" height="25" width="50"></canvas>
 
 <ion-list>
-    <ion-card *ngFor="let area of areas">
-        <ion-card-header>
-          {{area.title}} <button (click)="toggleSection(area)">View</button>
+    <ion-card *ngFor="let area of areas; let i = index">
+        <ion-card-header style="font-size: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center">
+          {{area.title}}
+          <ion-range style="width: 80%; float: right" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)"></ion-range>
+          </div>
+          <button style="float: right" (click)="toggleSection(area)">View</button>
         </ion-card-header>
         <ion-card-content *ngIf="area.expand">
           {{area.description}}

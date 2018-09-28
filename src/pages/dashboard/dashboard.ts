@@ -23,6 +23,7 @@ export class DashboardPage {
   }
 
   ionViewDidLoad() {
+
     this.chart = new Chart('canvas', {
       type: 'polarArea',
       data: {
@@ -31,12 +32,20 @@ export class DashboardPage {
           {
             backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
-            data: [10, 9, 4, 10, 7, 8, 5, 1]
+            data: [0, 9, 4, 0, 7, 8, 5, 1]
           }
         ]
       },
 
       options: {
+        scale: {
+          ticks: {
+            beginAtZero: true,
+            min: 0,
+            max: 10,
+            stepSize: 1
+          },
+        },
         layout: {
           padding: {
             top: 50,
@@ -75,6 +84,7 @@ export class DashboardPage {
         }
       }
     });
+  this.chart.scales.scale.max = 10;
   }
 
 }
