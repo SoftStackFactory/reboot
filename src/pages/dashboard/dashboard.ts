@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
@@ -17,6 +17,7 @@ import 'chartjs-plugin-datalabels';
 })
 export class DashboardPage {
 
+  @ViewChild('canvas') canvas;
   chart: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -24,7 +25,7 @@ export class DashboardPage {
 
   ionViewDidLoad() {
 
-    this.chart = new Chart('canvas', {
+    this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: {
         labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
