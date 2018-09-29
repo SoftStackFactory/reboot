@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
@@ -17,13 +17,14 @@ import 'chartjs-plugin-datalabels';
 })
 export class DashboardPage {
 
+  @ViewChild('canvas') canvas;
   chart: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    this.chart = new Chart('canvas', {
+    this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: {
         labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
@@ -31,7 +32,7 @@ export class DashboardPage {
           {
             backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
-            data: [10, 9, 4, 10, 7, 8, 5, 1]
+            data: [0, 0, 0, 0, 0, 0, 0, 0]
           }
         ]
       },
@@ -39,8 +40,8 @@ export class DashboardPage {
       options: {
         layout: {
           padding: {
-            top: 50,
-            bottom: 50
+            top: 55,
+            bottom: 55
           }
         },
         legend: {
@@ -52,8 +53,8 @@ export class DashboardPage {
             anchor: 'start',
             align: 'end',
             offset: function (context) {
-              let chart: any = document.getElementById('canvas').getAttribute('width');
-              return chart / 6 - 110;
+              let chart = context.chart.width;
+              return chart / 3.8 - 40;
             },
             backgroundColor: function (context) {
               return context.dataset.backgroundColor;
@@ -63,10 +64,14 @@ export class DashboardPage {
             borderRadius: 5,
             borderWidth: 2,
             color: 'black',
-            font: {
-              weight: 'bold',
-              size: '20',
-              family: 'Lato'
+            font: function (context) {
+              var width = context.chart.width;
+              var size = Math.round(width / 60);
+              return {
+                size: size,
+                weight: 600,
+                font: 'Lato'
+              };
             },
             formatter: function (value, context) {
               return context.chart.data.labels[context.dataIndex] + ' ' + context.chart.data.datasets[0].data[context.dataIndex];
