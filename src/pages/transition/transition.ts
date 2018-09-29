@@ -96,7 +96,7 @@ export class TransitionPage {
             data: [0, 0, 0, 0, 0, 0, 0, 0]
           }
         ]
-      }, 
+      },
 
       options: {
         scale: {
@@ -133,14 +133,14 @@ export class TransitionPage {
             borderRadius: 5,
             borderWidth: 2,
             color: 'black',
-            font: function(context) {
+            font: function (context) {
               var width = context.chart.width;
               var size = Math.round(width / 60);
-                return {
-                  size: size,
-                  weight: 600,
-                  font: 'Lato'
-                };
+              return {
+                size: size,
+                weight: 600,
+                font: 'Lato'
+              };
             },
             formatter: function (value, context) {
               return context.chart.data.labels[context.dataIndex] + ' ' + context.chart.data.datasets[0].data[context.dataIndex];
@@ -151,9 +151,9 @@ export class TransitionPage {
     });
   }
 
-  toggleSection(area){
+  toggleSection(area) {
     console.log(area);
-    if(area.expand){
+    if (area.expand) {
       area.expand = false;
     } else {
       area.expand = true;
