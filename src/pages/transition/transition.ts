@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
@@ -17,6 +17,8 @@ import 'chartjs-plugin-datalabels';
   templateUrl: 'transition.html',
 })
 export class TransitionPage {
+
+  @ViewChild('canvas') canvas;
 
   areas: Array<any>;
   chart: any;
@@ -83,7 +85,7 @@ export class TransitionPage {
   }
 
   ionViewDidLoad() {
-    this.chart = new Chart('canvas', {
+    this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: {
         labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
@@ -162,7 +164,5 @@ export class TransitionPage {
     this.chart.data.datasets[0].data[categoryIndex] = newNumber;
     this.chart.update();
   }
-
-  
 
 }
