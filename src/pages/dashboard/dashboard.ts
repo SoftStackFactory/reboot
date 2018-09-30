@@ -91,8 +91,6 @@ export class DashboardPage {
     this.chart.config.options.scale.ticks.min = 0;
     this.chart.config.options.scale.ticks.max = 10;
     this.chart.config.options.scale.ticks.stepSize = 1;
-    this.chart.data.datasets.data = [0, 0, 0, 0, 0, 0, 0, 0];
-    this.chart.data.datasets.data[0] = 0;
     this.chart.update();
   }
 
