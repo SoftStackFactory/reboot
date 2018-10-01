@@ -17,9 +17,10 @@
     </p>
     <p><strong>It's a life change
     </strong><p>
-  </div>  
+  </div>
+
     <form class="form" [formGroup]='validate' (ngSubmit)='regform()'>
-      <ion-item>
+      <ion-item class="input" no-lines>
         <ion-input 
           class="input" 
           type="text" 
@@ -29,11 +30,11 @@
           [class.invalid]="!validate.controls.first.valid && (validate.controls.first.dirty || submitAttempt)">
         </ion-input> 
       </ion-item>
-      <ion-item *ngIf="!validate.controls.first.valid  && (validate.controls.first.dirty || submitAttempt)">
+      <ion-item class="input" no-lines *ngIf="!validate.controls.first.valid  && (validate.controls.first.dirty || submitAttempt)">
         <p>Enter a valid name</p>
       </ion-item><br>
 
-      <ion-item>
+      <ion-item class="input" no-lines>
         <ion-input 
           class="input" 
           type="text" 
@@ -42,12 +43,12 @@
           formControlName='last'
           [class.invalid]="!validate.controls.last.valid && (validate.controls.last.dirty || submitAttempt)"></ion-input> 
       </ion-item>
-      <ion-item *ngIf="!validate.controls.last.valid  && (validate.controls.last.dirty || submitAttempt)">
+      <ion-item class="input" no-lines *ngIf="!validate.controls.last.valid  && (validate.controls.last.dirty || submitAttempt)">
         <p>Enter a valid name</p>
       </ion-item><br>
       
       
-      <ion-item>
+      <ion-item class="input" no-lines>
         <ion-input 
           class="input" 
           type="email" 
@@ -56,12 +57,12 @@
           formControlName='email'
           [class.invalid]="!validate.controls.email.valid && (validate.controls.email.dirty || submitAttempt)"></ion-input> 
       </ion-item>
-      <ion-item *ngIf="!validate.controls.email.valid  && (validate.controls.email.dirty || submitAttempt)">
+      <ion-item class="input" no-lines *ngIf="!validate.controls.email.valid  && (validate.controls.email.dirty || submitAttempt)">
         <p>Enter a valid email</p>
       </ion-item><br>
       
       
-      <ion-item>
+      <ion-item class="input" no-lines>
         <ion-input 
           class="input" 
           type="password" 
@@ -70,12 +71,12 @@
           formControlName='password'
           [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)"></ion-input> 
       </ion-item>
-      <ion-item *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
+      <ion-item class="input" no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
         <p>Enter a password between 6-30 characters using only letters and numbers</p>
       </ion-item><br>
       
       
-      <ion-item>
+      <ion-item class="input" no-lines>
         <ion-input 
           class="input" 
           type="password" 
@@ -84,7 +85,7 @@
           formControlName='passwordCheck'
           [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)"></ion-input>
       </ion-item>
-      <ion-item *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
+      <ion-item class="input" no-lines *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
         <p>Passwords do not match</p>
       </ion-item>
 
