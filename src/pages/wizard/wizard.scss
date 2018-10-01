@@ -1,9 +1,9 @@
 page-wizard {
     ion-slide {
-        background-color: rgb(188, 208, 226);
-      }
+        background-color: rgb(188, 208, 226);  
+    }
       ion-slide.swiper-slide {
-        align-items: flex-start;
+       align-items: flex-start;
     }
     .nav-start {
         position: fixed;
@@ -14,15 +14,8 @@ page-wizard {
         min-height: 40px;
        // margin-top: .5px;
     }
-   
-    @media screen and (min-width:1000px) {
-       .nav-start{
-        height: 5.5vw;
-        }
-      }
-
     .start {
-        font-size:2.5vw ;
+        font-size:2.5vw;
         height: 85%;
         color: black;
         background-color: aliceblue;
@@ -38,25 +31,37 @@ page-wizard {
         color: black;
         background-color: aliceblue;
     }
-
-    .top {
+    .top-simple {
         position: relative;
         display: block;
         width: 70%;
-        margin: 10vw auto 0px auto;
-        font-size: 22px;
-        top: 20px;
+        margin: auto;
+          font-size: 2.5vw;
+          top: 8vw;
     }
+    .top-demo {
+        position: relative;
+        display: block;
+       width: 70%;
+      margin: auto;
+        font-size: 2.5vw;
+        top: 8vw;
+    } 
+    .top-simple h1 {
+        font-size: 3.5vw;
+    } 
+    .top-demo h1 {
+        font-size: 3.5vw;
+    }  
     #dashImg {
         width: 70%;
         height: 80%;
     }
-
     #self {
         width: 70%;
         height: 70%;
     }
-    #time {
+    #timeline {
         width: 80%;
     }
     img {
@@ -64,10 +69,61 @@ page-wizard {
     }
     .buttons {
         position: relative;
-        margin-top: 100px; 
+        margin-top: 15vw; 
     }
     .button1{
         width: 200px;
         background-color: rgb(26, 39, 71);
+    }
+  
+    @media screen and (min-width:750px) {
+        .nav-start{
+         height: 5.5vw;
+         max-height: 70px;
+         }
+         .start {
+              font-size:2vw ;
+
+         }
+         #end {
+            font-size:2vw ;
+         }
+         .button1{
+            height: 4.8vw;
+            width: 20vw;
+         }
+         .top-demo h1 {
+
+         }
+        }
+    @media screen and (orientation:landscape) { 
+        ion-slide.swiper-slide {
+            align-items: center;
+         }
+         .top-simple {
+            top: auto;
+         }
+        .top-demo{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            margin: auto;
+            top: auto;
+          //  flex-direction: row;
+        }
+        .top-demo .top-message {
+            margin-right: 5vw;
+        }
+        #dashImg {
+            width: 50%;
+            height: 80%;
+        }
+        #self {
+            width: 50%;
+            height: 70%;
+        }
+        #timeline {
+            width: 55%;
+        }
     }
 }
