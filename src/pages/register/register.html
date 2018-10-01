@@ -31,7 +31,7 @@
         </ion-input> 
       </ion-item>
       <ion-item class="input" no-lines *ngIf="!validate.controls.first.valid  && (validate.controls.first.dirty || submitAttempt)">
-        <p>Enter a valid name</p>
+        <p class="invalid-text">Enter a valid name</p>
       </ion-item><br>
 
       <ion-item class="input" no-lines>
@@ -44,7 +44,7 @@
           [class.invalid]="!validate.controls.last.valid && (validate.controls.last.dirty || submitAttempt)"></ion-input> 
       </ion-item>
       <ion-item class="input" no-lines *ngIf="!validate.controls.last.valid  && (validate.controls.last.dirty || submitAttempt)">
-        <p>Enter a valid name</p>
+        <p class="invalid-text">Enter a valid name</p>
       </ion-item><br>
       
       
@@ -58,7 +58,7 @@
           [class.invalid]="!validate.controls.email.valid && (validate.controls.email.dirty || submitAttempt)"></ion-input> 
       </ion-item>
       <ion-item class="input" no-lines *ngIf="!validate.controls.email.valid  && (validate.controls.email.dirty || submitAttempt)">
-        <p>Enter a valid email</p>
+        <p class="invalid-text">Enter a valid email</p>
       </ion-item><br>
       
       
@@ -72,7 +72,7 @@
           [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)"></ion-input> 
       </ion-item>
       <ion-item class="input" no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
-        <p>Enter a password between 6-30 characters using only letters and numbers</p>
+        <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
       </ion-item><br>
       
       
@@ -86,7 +86,7 @@
           [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)"></ion-input>
       </ion-item>
       <ion-item class="input" no-lines *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
-        <p>Passwords do not match</p>
+        <p class="invalid-text">Passwords do not match</p>
       </ion-item>
 
       <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid">REGISTER </button>
