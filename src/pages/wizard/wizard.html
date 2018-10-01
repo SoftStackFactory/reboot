@@ -71,6 +71,39 @@
       </div>
     </ion-slide>
     <ion-slide>
+        <div class='top-form-page'>
+            <div class="top-message">
+              <h1>Tell more about yourself</h1>
+              <p>By filling out this this short questionare, we can personalize the app for a better experience!</p>
+            </div>
+          </div>
+          <div class='input-form'>
+              <input class="input-item" type="text" #first placeholder="Military Branch" > <br>
+              
+              <ion-list radio-group >
+
+                  <ion-list-header>
+                    Have you been injured or wounded?
+                  </ion-list-header>
+                
+                  <ion-item>
+                    <ion-label> yes</ion-label>
+                    <ion-radio value="yes"></ion-radio>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-label>no</ion-label>
+                    <ion-radio value="no"></ion-radio>
+                  </ion-item>
+                </ion-list>
+                <ion-item>
+                <ion-label>Date Enlisted</ion-label>
+              <ion-datetime displayFormat="MM/DD/YYYY"  pickerFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+            </ion-item>
+            </div>
+      
+    </ion-slide>
+    <ion-slide>
       <div class='top-simple'>
         <div class="top-message">
           <h1>Thanks for using the Wizard</h1>
@@ -82,5 +115,6 @@
         <button class='button1' ion-button>Take Assesment</button>
       </div>
     </ion-slide>
+    
   </ion-slides>
 </ion-content>

@@ -37,7 +37,7 @@ page-wizard {
         width: 70%;
         margin: auto;
           font-size: 2.5vw;
-          top: 8vw;
+          top: 10vw;
     }
     .top-demo {
         position: relative;
@@ -73,7 +73,9 @@ page-wizard {
     }
     .button1{
         width: 200px;
+        height: 4.5vh;
         background-color: rgb(26, 39, 71);
+
     }
   
     @media screen and (min-width:750px) {
@@ -88,6 +90,7 @@ page-wizard {
          #end {
             font-size:2vw ;
          }
+        
          .button1{
             height: 4.8vw;
             width: 20vw;
@@ -125,5 +128,40 @@ page-wizard {
         #timeline {
             width: 55%;
         }
+        .top-form-page {
+        position: relative;
+        display: block;
+        top: 10px;
+        }
+        .buttons {
+            margin-top: 5vw; 
+         }
+         .button1 {
+             height: 5vw;
+         }
+
     }
+    .input-form {
+        position: relative;
+        margin-top: 10vh; 
+    }
+    .input-item {
+       margin: .4vw auto;
+      display: block;
+      font-size: 3vw;
+      width: 80%;
+      height: 8vw;
+      max-height: 70px;
+      max-width: 1000px;
+      padding-left: 10px;
+      background-color: rgb(249, 247, 247);
+      border-radius: 5px;
+      border-color: rgb(242, 239, 239);
+      //padding-top: 7px; 
+      //margin-top:10px;
+      outline: none;
+      border:1px solid #cccccc
+    } 
+   
+
 }
