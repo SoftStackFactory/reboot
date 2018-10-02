@@ -38,12 +38,11 @@ export class DashboardPage {
       },
 
       options: {
-        scale: {
+        scales: {
           ticks: {
             beginAtZero: true,
             min: 0,
-            max: 10,
-            stepSize: 1
+            max: 10
           },
         },
         layout: {
