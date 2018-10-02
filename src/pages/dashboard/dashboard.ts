@@ -64,12 +64,12 @@ export class DashboardPage {
               return chart / 3.6 - 55;
             },
             backgroundColor: function (context) {
-              return context.dataset.backgroundColor;
+              return ["rgba(0,0,255, .2)", "rgba(255,0,0, .2)", "rgba(128,0,128, .2)", "rgba(0,128,0, .2)", "rgba(255,165,0, .2)", "rgba(0,128,128, .2)", "rgba(255,0,255, .2)", "rgba(0,255,0, .2)"];
             },
             borderColor: 'black',
             rotation: function (context) { if (context.dataIndex === 0 || context.dataIndex === 1 || context.dataIndex === 6 || context.dataIndex === 7) { return 45 / 2 + (45 * context.dataIndex) } else { return 45 / 2 + (45 * context.dataIndex) + 180 } },
             borderRadius: 5,
-            borderWidth: 2,
+            borderWidth: 0,
             color: 'black',
             font: function (context) {
               var width = context.chart.width;
