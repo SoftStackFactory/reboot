@@ -1,9 +1,27 @@
 page-transition {
 
+    #category {
+        font-size: 24px;
+    }
+
+    #categoryAndRange {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center
+    }
+
+    #range {
+        width: 80%;
+    }
 
     button {
         color: #488aff;
         float: right;
         background-color: white;
+        font-size: 20px;
+    }
+
+    #areaDescription {
+        font-size: 20px;
     }
 }
