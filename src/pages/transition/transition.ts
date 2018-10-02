@@ -123,7 +123,7 @@ export class TransitionPage {
             borderColor: 'black',
             rotation: function (context) { if (context.dataIndex === 0 || context.dataIndex === 1 || context.dataIndex === 6 || context.dataIndex === 7) { return 45 / 2 + (45 * context.dataIndex) } else { return 45 / 2 + (45 * context.dataIndex) + 180 } },
             borderRadius: 5,
-            borderWidth: 200,
+            borderWidth: 0,
             color: 'black',
             font: function (context) {
               var width = context.chart.width;
