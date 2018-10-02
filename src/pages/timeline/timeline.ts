@@ -21,4 +21,13 @@ export class TimelinePage {
     console.log('ionViewDidLoad TimelinePage');
   }
 
+  toggleSection(number){
+    var x = document.getElementById(number);
+    if( x.style.display === "initial" ){
+      x.style.display = "none";
+    } else if ( x.style.display === "none" ){
+      x.style.display = "initial";
+    }
+  }
+
 }
