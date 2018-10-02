@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RegisterPage} from '../register/register';
 
+import {UserProvider} from '../../providers/user/user'
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,21 +22,22 @@ export class LoginPage {
     password: ''
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _userService: UserProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-<<<<<<< Updated upstream
   login() {
-    console.log(this.user)
+    this._userService.login(this.user)
+      .subscribe(
+        (res) => alert("you're logged in!"),
+        (err) => alert("Invalid credentials")
+      )
   }
 
-=======
   toRegisterPage() {
     this.navCtrl.push(RegisterPage)
   }
->>>>>>> Stashed changes
 }
