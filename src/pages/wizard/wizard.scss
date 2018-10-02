@@ -77,6 +77,11 @@ page-wizard {
         background-color: rgb(26, 39, 71);
 
     }
+    .top-form-page {
+        position: relative;
+        display: block;
+        top: 60px; 
+       }
   
     @media screen and (min-width:750px) {
         .nav-start{
@@ -128,11 +133,10 @@ page-wizard {
         #timeline {
             width: 55%;
         }
-        .top-form-page {
-        position: relative;
-        display: block;
-        top: 10px;
-        }
+    //     .top-form-page {
+        
+    //    top: -100px;
+    //     }
         .buttons {
             margin-top: 5vw; 
          }

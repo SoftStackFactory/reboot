@@ -16,9 +16,9 @@
 <ion-content >
   
   <div class="nav-start">
-    <button ion-button class="start">Exit</button>
-    <button ion-button class="start">Back</button>
-    <button ion-button id="end">Start</button>
+    <button ion-button (click)="exit()"class="start">Exit</button>
+    <button ion-button (click)="back()"class="start">Back</button>
+    <button ion-button (click)="next()" id="end">Next</button>
   </div>
   <ion-slides pager>
     <ion-slide>
@@ -77,30 +77,31 @@
               <p>By filling out this this short questionare, we can personalize the app for a better experience!</p>
             </div>
           </div>
+          <form [formGroup]="todo" (ngSubmit)="logForm()">
           <div class='input-form'>
-              <input class="input-item" type="text" #first placeholder="Military Branch" > <br>
-              
-              <ion-list radio-group >
-
+              <input class="input-item" formControlName="branch" type="text" #first placeholder="Military Branch" > <br>
+              <ion-list radio-group  formControlName="injured" >
                   <ion-list-header>
                     Have you been injured or wounded?
                   </ion-list-header>
-                
                   <ion-item>
                     <ion-label> yes</ion-label>
                     <ion-radio value="yes"></ion-radio>
-                  </ion-item>
+                  </ion-item> 
                 
-                  <ion-item>
+                   <ion-item>
                     <ion-label>no</ion-label>
                     <ion-radio value="no"></ion-radio>
                   </ion-item>
                 </ion-list>
                 <ion-item>
                 <ion-label>Date Enlisted</ion-label>
-              <ion-datetime displayFormat="MM/DD/YYYY"  pickerFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+              <ion-datetime formControlName="EnlistingDate"  displayFormat="MM/DD/YYYY"  pickerFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
             </ion-item>
+            <button ion-button type="submit" (click)="onSubmit()" [disabled]="!todo.valid"> Submit </button>
             </div>
+          </form>
+        
       
     </ion-slide>
     <ion-slide>
