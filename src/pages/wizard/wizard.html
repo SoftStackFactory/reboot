@@ -16,11 +16,11 @@
 <ion-content >
   
   <div class="nav-start">
-    <button ion-button (click)="exit()"class="start">Exit</button>
+    <button ion-button (click)="exit()"  class="start">Exit</button>
     <button ion-button (click)="back()"class="start">Back</button>
-    <button ion-button (click)="next()" id="end">Next</button>
+    <button ion-button  (click)="next()" id="end">Next</button>
   </div>
-  <ion-slides pager>
+  <ion-slides pager (ionSlideDidChange)="slideChanged()">
     <ion-slide>
       <div class='top-simple'> 
         <h1>Welcome</h1>
