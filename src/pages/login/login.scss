@@ -53,5 +53,45 @@ page-login {
         font-size: 25px
     }
 
+    @media screen and (orientation:portrait){
+
+    }
+
+    @media screen and (orientation:landscape){
+        .button{
+            margin:auto;
+            width:60%;
+            height: 2.1em;
+        }
+        #loginbutton {
+            background-color: rgb(130,180,64); 
+            font-size: 25px;
+        }
+    
+        #signupbutton {
+            background-color: rgb(42,61,79); 
+            font-size: 25px
+        }
+
+        #header {
+            padding: 20px;
+        }
+
+        .inputs {
+            margin: auto;
+            width: 70%;
+        }
+        
+        .icons {
+            left: 140px;
+        }
+
+        .labels {
+            padding-left: 15%;
+        }
+
+        
+    }
+
 }
 
