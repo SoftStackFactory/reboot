@@ -28,19 +28,34 @@ page-login {
         font-size: 25px;
     }
     
+    #email:before {
+        font-family: "Font Awesome 5 Free";
+        font-size: 30px;
+        font-weight: 900;
+        color: rgb(130,180,64);
+        content: "\f007";
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    #password:before {
+        font-family: "Font Awesome 5 Free";
+        font-size: 30px;
+        font-weight: 900;
+        color: rgb(130,180,64);
+        content: "\f023";
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
     .inputs {
+        position: relative;
         border: 1px solid rgb(229, 230, 230);
         background-color: rgb(248, 248, 248); 
         padding-left: 60px; 
         font-size: 25px
-    }
-
-    .icons {
-        color: rgb(130,180,64); 
-        font-size: 35px; 
-        position: absolute; 
-        top: 60px; 
-        left: 20px
     }
 
     #loginbutton {

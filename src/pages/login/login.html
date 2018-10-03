@@ -39,8 +39,7 @@
       <ion-col col-1></ion-col>
       <ion-col>
         <ion-label class="labels" style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
-        <ion-input [(ngModel)] = "user.email" class="inputs" type="email"></ion-input> 
-        <ion-icon class="icons" name="person"></ion-icon>
+        <ion-input [(ngModel)] = "user.email" class="inputs" id="email" type="email"></ion-input> 
       </ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
@@ -49,8 +48,9 @@
       <ion-col col-1></ion-col>
       <ion-col>
         <ion-label class="labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
-        <ion-input [(ngModel)] = "user.password"class="inputs" type="password"></ion-input>
-        <ion-icon class="icons" name="lock"></ion-icon>
+        <div>
+        <ion-input [(ngModel)] = "user.password"class="inputs" id="password" type="password"><button ion-button>Hi</button></ion-input>
+        </div>
       </ion-col>
       <ion-col col-1></ion-col>
     </ion-row>

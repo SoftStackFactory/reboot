@@ -38,6 +38,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "@ionic/app-scripts": "3.2.0",
     "ng2-charts": "^1.6.0",
     "typescript": "~2.6.2"
