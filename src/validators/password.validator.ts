@@ -1,3 +1,5 @@
+import { AbstractControl } from '@angular/forms'
+
 export const PasswordValidator = (control: AbstractControl): {[key: string]: boolean} => {
     const password = control.get('password');
     const passwordCheck = control.get('passwordCheck');
