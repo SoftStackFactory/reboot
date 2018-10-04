@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { RegisterPage} from '../register/register';
+import { RegisterPage } from '../register/register';
 
-import {UserProvider} from '../../providers/user/user'
+import { UserProvider } from '../../providers/user/user'
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the LoginPage page.
@@ -32,12 +33,19 @@ export class LoginPage {
   login() {
     this._userService.login(this.user)
       .subscribe(
-        (res) => alert("you're logged in!"),
+        (res) => {
+          alert("you're logged in!")
+          this.navCtrl.setRoot(DashboardPage);
+        },
         (err) => alert("Invalid credentials")
       )
   }
 
   toRegisterPage() {
     this.navCtrl.push(RegisterPage)
+  }
+
+  toDashboard() {
+    this.navCtrl.setRoot(DashboardPage);
   }
 }
