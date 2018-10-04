@@ -15,6 +15,10 @@ import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 
+import { TimelineComponent } from '../components/timeline/timeline';
+import { TimelineItemComponent } from '../components/timeline/timeline';
+import { TimelineTimeComponent } from '../components/timeline/timeline';
+
 import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -28,7 +32,10 @@ import { ChartsModule } from 'ng2-charts';
     ProfilePage,
     TransitionPage,
     AssessmentPage,
-    TimelinePage
+    TimelinePage,
+    TimelineComponent,
+    TimelineItemComponent,
+    TimelineTimeComponent
   ],
   imports: [
     BrowserModule,
