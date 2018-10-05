@@ -12,7 +12,8 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve --no-devapp --no-open --port 3000 --address localhost",
-    "test": "jest",
+    "test": "jest --coverage --forceExit --detectOpenHandles",
+    "test-ci": "jest --ci --coverage --verbose --forceExit --detectOpenHandles",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage || true"
   },
