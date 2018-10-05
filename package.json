@@ -11,7 +11,10 @@
     "build": "ionic-app-scripts build --prod",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve --no-devapp --no-open --port 3000 --address localhost"
+    "ionic:serve": "ionic-app-scripts serve --no-devapp --no-open --port 3000 --address localhost",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage || true"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
@@ -39,8 +42,13 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
+    "@types/jest": "^23.3.3",
+    "cordova-plugin-ionic": "^5.2.4",
+    "jest": "^23.6.0",
     "ng2-charts": "^1.6.0",
-    "typescript": "~2.6.2"
+    "reflect-metadata": "^0.1.12",
+    "ts-jest": "^23.10.3",
+    "typescript": "^2.7.2"
   },
   "description": "An Ionic project"
 }
