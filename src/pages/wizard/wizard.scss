@@ -1,21 +1,21 @@
 page-wizard {
     ion-slide {
-        background-color: rgb(188, 208, 226);
-      }
+        background-color: rgb(188, 208, 226);  
+    }
       ion-slide.swiper-slide {
-        align-items: flex-start;
+       align-items: flex-start;
     }
     .nav-start {
         position: fixed;
         background-color: rgb(26, 39, 71);
         width: 100%;
         z-index: 2;
-        height: 5.2%;
+        height: 4.5vw;
+        min-height: 40px;
        // margin-top: .5px;
     }
-   
     .start {
-        font-size:2.5vw ;
+        font-size:2.5vw;
         height: 85%;
         color: black;
         background-color: aliceblue;
@@ -31,25 +31,37 @@ page-wizard {
         color: black;
         background-color: aliceblue;
     }
-
-    .top {
+    .top-simple {
         position: relative;
         display: block;
         width: 70%;
-        margin: 10vw auto 0px auto;
-        font-size: 22px;
-        top: 20px;
+        margin: auto;
+          font-size: 2.5vw;
+          top: 10vw;
     }
+    .top-demo {
+        position: relative;
+        display: block;
+       width: 70%;
+      margin: auto;
+        font-size: 2.5vw;
+        top: 8vw;
+    } 
+    .top-simple h1 {
+        font-size: 3.5vw;
+    } 
+    .top-demo h1 {
+        font-size: 3.5vw;
+    }  
     #dashImg {
         width: 70%;
         height: 80%;
     }
-
     #self {
         width: 70%;
         height: 70%;
     }
-    #time {
+    #timeline {
         width: 80%;
     }
     img {
@@ -57,10 +69,103 @@ page-wizard {
     }
     .buttons {
         position: relative;
-        margin-top: 100px; 
+        margin-top: 15vw; 
     }
     .button1{
         width: 200px;
+        height: 4.5vh;
         background-color: rgb(26, 39, 71);
+
     }
+    .top-form-page {
+        position: relative;
+        display: block;
+        top: 60px; 
+       }
+  
+    @media screen and (min-width:750px) {
+        .nav-start{
+         height: 5.5vw;
+         max-height: 70px;
+         }
+         .start {
+              font-size:2vw ;
+
+         }
+         #end {
+            font-size:2vw ;
+         }
+        
+         .button1{
+            height: 4.8vw;
+            width: 20vw;
+         }
+         .top-demo h1 {
+
+         }
+        }
+    @media screen and (orientation:landscape) { 
+        ion-slide.swiper-slide {
+            align-items: center;
+         }
+         .top-simple {
+            top: auto;
+         }
+        .top-demo{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            margin: auto;
+            top: auto;
+          //  flex-direction: row;
+        }
+        .top-demo .top-message {
+            margin-right: 5vw;
+        }
+        #dashImg {
+            width: 50%;
+            height: 80%;
+        }
+        #self {
+            width: 50%;
+            height: 70%;
+        }
+        #timeline {
+            width: 55%;
+        }
+    //     .top-form-page {
+        
+    //    top: -100px;
+    //     }
+        .buttons {
+            margin-top: 5vw; 
+         }
+         .button1 {
+             height: 5vw;
+         }
+
+    }
+    .input-form {
+        position: relative;
+        margin-top: 10vh; 
+    }
+    .input-item {
+       margin: .4vw auto;
+      display: block;
+      font-size: 3vw;
+      width: 80%;
+      height: 8vw;
+      max-height: 70px;
+      max-width: 1000px;
+      padding-left: 10px;
+      background-color: rgb(249, 247, 247);
+      border-radius: 5px;
+      border-color: rgb(242, 239, 239);
+      //padding-top: 7px; 
+      //margin-top:10px;
+      outline: none;
+      border:1px solid #cccccc
+    } 
+   
+
 }

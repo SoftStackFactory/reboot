@@ -15,20 +15,20 @@
 
 
 <ion-content padding>
-<h1>CHART GOES HERE</h1>
-
-<ion-list>
-    <ion-card *ngFor="let area of areas">
-        <ion-card-header>
-          {{area.title}} <button (click)="toggleSection(area)">View</button>
-        </ion-card-header>
-        <ion-card-content *ngIf="area.expand">
-          {{area.description}}
-        </ion-card-content>
+  <canvas #canvas id="canvas"></canvas>
+  <ion-list>
+    <ion-card *ngFor="let area of areas; let i = index">
+      <ion-card-header>
+        <div id="categoryAndRange">
+          <h1 id="category">{{area.title}}</h1>
+          <ion-range id="range" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)"></ion-range>
+        </div>
+        <button (click)="toggleSection(area)">View</button>
+      </ion-card-header>
+      <ion-card-content id="areaDescription" *ngIf="area.expand">
+        {{area.description}}
+      </ion-card-content>
     </ion-card>
-
-</ion-list>
-
-
+  </ion-list>
 
 </ion-content>

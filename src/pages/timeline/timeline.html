@@ -17,108 +17,141 @@
 <ion-content padding>
 	<section class="cd-timeline">
 		<div class="cd-timeline__container">
-			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--1">
-					<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
-				</div> <!-- cd-timeline__img -->
+
+			<!-- Taking out Joining and Serving since the main focus is Getting out -->
+			
+			<!-- <div class="cd-timeline__block">
+				<div class="cd-timeline__img cd-timeline__img--1"></div>
 
 				<div class="cd-timeline__content">
-					<h2>Joining</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Jan 14</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+					<div (click)="toggleSection(1)">
+						<h2>Joining</h2>
+					</div>
+					<div id="1" style="display:none">			
+					</div>
+				</div> 
+			</div> 
 
 			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--2">
-					<!-- <img src="img/cd-icon-movie.svg" alt="Movie"> -->
-				</div> <!-- cd-timeline__img -->
+				<div class="cd-timeline__img cd-timeline__img--2"></div> 
 
 				<div class="cd-timeline__content">
-					<h2>Serving</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Jan 18</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+					<div (click)="toggleSection(2)">
+						<h2>Serving</h2>
+					</div>
+					<div id="2" style="display:none"></div>
+				</div>
+			</div>  -->
 
 			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--3">
-					<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
-				</div> <!-- cd-timeline__img -->
+					<div class="cd-timeline__img cd-timeline__img--3"></div> 
+					<div class="cd-timeline__content">
+						<div (click)="toggleSection(3)">
+							<h2>Getting Out</h2>
+						</div>
+								
+						<div id='3' style='display:none'>
+							<p>Understand the process of separating</p>
+							<ion-item>
+								<ion-label>Meet with separation counselor</ion-label>
+								<ion-checkbox color="dark" checked="false"></ion-checkbox>
+							</ion-item>
+							<ion-item>
+								<ion-label>Take career test</ion-label>
+								<ion-checkbox color="dark" checked="false"></ion-checkbox>
+								<span class="cd-timeline__date">Jan 24</span>
+							</ion-item>
+							<p>Complete my paperwork</p>
+							<ion-item>
+								<ion-label>Fill out these specific papers</ion-label>
+								<ion-checkbox color="dark" checked="false"></ion-checkbox>
+							</ion-item>
+							<p>Engage VA to access benefits</p>
+							<ion-item>
+								<ion-label>Find out what benefits I will have after separation</ion-label>
+								<ion-checkbox color="dark" checked="false"></ion-checkbox>
+							</ion-item>					
+						</div>
+		
+					</div> 
+			</div>
+
+			<div class="cd-timeline__block">
+				<div class="cd-timeline__img cd-timeline__img--4"></div> 
 
 				<div class="cd-timeline__content">
-					<h2>Getting Out</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Jan 24</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+					<div (click)="toggleSection(4)">
+						<h2>Starting Up</h2>
+					</div>
+									
+					<div id='4' style='display:none'>
+						<p>Finding something to do</p>
+								<ion-item>
+									<ion-label>Go to Career Center</ion-label>
+									<ion-checkbox color="dark" checked="false"></ion-checkbox>
+								</ion-item>
+								<ion-item>
+									<ion-label>Vocational Rehab & Employment</ion-label>
+									<ion-checkbox color="dark" checked="false"></ion-checkbox>
+									<span class="cd-timeline__date">Jan 24</span>
+								</ion-item>
+								<p>Re-establishing and creating relationships</p>
+								<ion-item>
+									<ion-label>Check out Vet Center</ion-label>
+									<ion-checkbox color="dark" checked="false"></ion-checkbox>
+								</ion-item>
+								<p>Balancing finances</p>
+								<ion-item>
+									<ion-label>Open a saving account</ion-label>
+									<ion-checkbox color="dark" checked="false"></ion-checkbox>
+								</ion-item>					
+							</div>
+				</div>
+			</div>
 
 			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--4">
-					<!-- <img src="img/cd-icon-location.svg" alt="Location"> -->
-				</div> <!-- cd-timeline__img -->
+				<div class="cd-timeline__img cd-timeline__img--5"></div>
 
 				<div class="cd-timeline__content">
-					<h2>Starting Up</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Feb 14</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+						<div (click)="toggleSection(5)">
+								<h2>Taking care of yourself</h2>
+							</div>
+							<div id="5" style="display:none"></div>
+				</div> 
+			</div> 
 
 			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--5">
-					<!-- <img src="img/cd-icon-location.svg" alt="Location"> -->
-				</div> <!-- cd-timeline__img -->
-
-				<div class="cd-timeline__content">
-					<h2>Taking care of yourself</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Feb 18</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
-
-			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--6">
-					<!-- <img src="img/cd-icon-movie.svg" alt="Movie"> -->
-        </div> <!-- cd-timeline__img -->
+				<div class="cd-timeline__img cd-timeline__img--6"></div>
         
-        <div class="cd-timeline__content">
-					<h2>Reinventing myself</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Feb 18</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+        		<div class="cd-timeline__content">
+					<div (click)="toggleSection(6)">
+						<h2>Reinventing myself</h2>
+					</div>
+					<div id="6" style="display:none"></div>
+				</div>
+			</div> 
 
 			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--7">
-					<!-- <img src="img/cd-icon-movie.svg" alt="Movie"> -->
-        </div> <!-- cd-timeline__img -->
+				<div class="cd-timeline__img cd-timeline__img--7"></div> 
         
-        <div class="cd-timeline__content">
+        		<div class="cd-timeline__content">
+				<div (click)="toggleSection(7)">
 					<h2>Putting down roots</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-					<a href="#0" class="cd-timeline__read-more">Read more</a>
-					<span class="cd-timeline__date">Feb 18</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+				</div>
+				<div id="7" style="display:none"></div>
+				</div>
+			</div> 
 
 			<div class="cd-timeline__block">
-				<div class="cd-timeline__img cd-timeline__img--movie">
-					<!-- <img src="img/cd-icon-movie.svg" alt="Movie"> -->
-				</div> <!-- cd-timeline__img -->
+				<div class="cd-timeline__img cd-timeline__img--movie"></div> 
 
 				<div class="cd-timeline__content">
-					<h2>What's next?</h2>
-					<p>This is the content of the last section</p>
-					<span class="cd-timeline__date">Feb 26</span>
-				</div> <!-- cd-timeline__content -->
-			</div> <!-- cd-timeline__block -->
+					<div (click)="toggleSection(8)">
+						<h2>What's next?</h2>
+					</div>
+					<div id="8" style="display:none"></div>
+				</div>
+			</div> 
 		</div>
-	</section> <!-- cd-timeline -->
+	</section> 
 </ion-content>
