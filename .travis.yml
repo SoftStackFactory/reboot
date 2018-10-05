@@ -11,7 +11,7 @@ before_script:
   - npm install -g ionic cordova jest
 
 script:
-  - npm run test
+  - npm run test --coverage
 
 deploy:
   provider: heroku
