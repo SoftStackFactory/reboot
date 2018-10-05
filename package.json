@@ -12,7 +12,9 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve --no-devapp --no-open --port 3000 --address localhost",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage || true"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
