@@ -5,11 +5,14 @@ node_js:
 branches:
   only:
     - master
+    - dev
 
 before_script:
   - npm install -g ionic cordova jest
 
 script:
+  - npm run test
+  - npm run lint
   - ionic cordova build browser --prod
 
 deploy:
