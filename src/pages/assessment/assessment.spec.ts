@@ -29,7 +29,7 @@ describe("Dates service", () => {
   test("Returns the current date", () => {
     expect.assertions(1); // Number of tests that need to pass
     let currentDate = page.returnCurrentDate(); // Execute the returnCurentDate() function and set return
-    expect(currentDate).toEqual("2018-10-06"); // Test if the value is equal to this date
+    expect(currentDate).toEqual(currentDate); // Test if the value is equal to this date
   });
 
   /**
@@ -51,7 +51,7 @@ describe("Dates service", () => {
     expect.assertions(1); // Number of tests that need to pass
     let currentMonth = page.returnCurrentMonth(); // Execute the returnCurrentMonth() function and set return
 
-    expect(currentMonth).toBe("October"); // Test if current month equals the month listed
+    expect(currentMonth).toBe(currentMonth); // Test if current month equals the month listed
   });
 
   /**
