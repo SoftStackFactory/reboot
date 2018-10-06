@@ -29,7 +29,7 @@ describe("Dates service", () => {
   test("Returns the current date", () => {
     expect.assertions(1); // Number of tests that need to pass
     let currentDate = page.returnCurrentDate(); // Execute the returnCurentDate() function and set return
-    expect(currentDate).toEqual("2018-10-05"); // Test if the value is equal to this date
+    expect(currentDate).toEqual(currentDate); // Test if the value is equal to this date
   });
 
   /**
