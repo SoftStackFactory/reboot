@@ -20,11 +20,3 @@ notifications:
 
 script:
   - npm run test-ci
-
-deploy:
-  provider: heroku
-  api_key:
-    secure: KEY
-  app: ssf-reboot
-  on:
-    repo: SoftStackFactory/reboot
