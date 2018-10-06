@@ -18,8 +18,7 @@ script:
 - npm run test-ci
 deploy:
   provider: heroku
-  api_key:
-    secure: "wqSEBZgnte5hd6F/aKVMfXYsrvdgE1vDYJ5zdlKWkmsfdlDT5OdYjO+ZkxO81f3OFADyAkbHXHRZUa6dzJnWIvWeTpOSNiuUWoGLpda5kn4JovZTzMJfZz1JMTkjNJKqsjoWq2RLTIouzX2zPPgpGZhL6vU+0OBRM8HWQzHHbLsLS7t6pg1uNT7r6DdOP1YxG3jNEkO5NZzMHbUFmMd19Gt9GXXvtE1wQty9gw0fK8e9PdyWnXprbSOVT/xVoK43hMPE3YCId2q8ryAJPfL4S7pLkBnq2/d9UtbM3PraG+dKT9uxylnAWBlLQ5q4H5RJwgVo4Dnk8e9F/QrCWAmYTwDtjX7ds+KyucKM+ArSuDsQPBgu5s1Z4/hSut6P5QQJm92w3BlhJWC0ZYEk52RJkIWZRYU2JJkWh1svmrs54UXL7008QmuATB1Ei1+WzBj8N73RX5iYOAv/RanO4+B++1uKIOuAaTDXSGecXVWLIhYMwLUmdY4sz+7yVow/H1aaIBXYTDH63umVlwLhN1T60FZak/WzBX+kwu1wJrSsHMCVWC/ZdoSfoc5xsbhedKhsR2/sg5bf3zsCJ8rtt4T8YYdg9x2XStlN6POjOrdc2+iUlJododF4LkYXWD5uphC6bLtU+uDO7IG2kA+/Qxe0PzAEEhZysRpfb+uRlBKQv2k="
+  api_key: $HEROKU_KEY
   app: ssf-reboot
   on:
     repo: SoftStackFactory/reboot
