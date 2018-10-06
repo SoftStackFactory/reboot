@@ -10,6 +10,14 @@ branches:
 before_script:
   - npm install -g ionic cordova jest
 
+notifications:
+  webhooks:
+    urls:
+      - https://hooks.glip.com/webhook/6d688e2d-f076-4521-8213-f2479e99afe6
+    on_success: change # default: always
+    on_failure: always # default: always
+    on_start: change   # default: never
+
 script:
   - npm run test-ci
 
