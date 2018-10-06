@@ -1,30 +1,25 @@
 language: node_js
 node_js:
-  - "8.9.4"
-
+- 8.9.4
 branches:
   only:
-    - master
-    - dev
-
+  - master
+  - dev
 before_script:
-  - npm install -g ionic cordova jest
-
+- npm install -g ionic cordova jest
 notifications:
   webhooks:
     urls:
-      - https://hooks.glip.com/webhook/6d688e2d-f076-4521-8213-f2479e99afe6
-    on_success: change # default: always
-    on_failure: always # default: always
-    on_start: change   # default: never
-
+    - https://hooks.glip.com/webhook/6d688e2d-f076-4521-8213-f2479e99afe6
+    on_success: change
+    on_failure: always
+    on_start: change
 script:
-  - npm run test-ci
-
+- npm run test-ci
 deploy:
   provider: heroku
   api_key:
-    secure: "H9cs2JrRioukvFUsTLT8Bd54FM3cIuMi7UlABDxgmUjmxx0MUOVPTJCLU0gH9N5vV5BXc+TF9KG3btI/vlEtKMtiGdW59kBZQCLBNqCBYb0Wp3cSRObeT/45XkH79+4G2+6lCZdjDLoSdk4fM3o9Aw5PZGQDXRNqRlOPo5sjVRLbucPcIhuPV5GewZCV+F5L2yd2i2W6iFIIueh00Iuj0Q/oay2ToNqcdkrym7/wiF52aDSNn01yyrT8CqfCchssOlE6AyM71Rb4i937PMunfLaExHl+LW0cKZ37KMCPUS+bonh2v4YFavml8OphQYe+sU7WoZ7o9brBfCDO2JovBdYGCv8L4F3U0YFo0iMqO9gy0x/g8ko8aSqtWRflzJm5m8kXs3L5NbM1pOREW8yA3p89agP9rF2i0U4Drew2w5lG9cQOFG5IYhPkSZXALdJoDzsLPg0onLAzJjnQttem8uhzXRnsozJbnZiw1VRhF1D5CiyZM0Trz8iVI4nV6cUduMDJkNnvxbjSkqsXbxis4cqQwF9yJJMJFuXKHXN/wH+eQLvX4TJR9n3NtaDcIzq3ddItJpFZz/tHkvJ+C4Sk0fbeggpdRWw21kdQ5ZTejbXtXS3xtTAEr3DKN4r0Bo55EZvSONH0x6MB3MqkrZN6vbMW0fsLVvCwZP6jFQRQgJs="
+    secure: woLLSwCvMCRBdNcC6QBMIm05RSZQu/0IWYC0M6fcZoLYtITut0rqYWL875k9p4JW30CaWxHoZybwLP5DRcuy7Zn4aO+UwPmuwq8lfPz9NfVGcm2CLTqGdVneE/9YeqzJYCCKjLR+VPpBM1NZUVdoPB+uykTP8twZy5k/sxFX4yubigzMd4V9OfaEhEmgUjN//0GCXm7OvkCL4iMu8+VDcRYpdIMUqEZC/VeomeySISdsV5u6b4A1OfDtXZW5pG5jGN8QoTtc/T1HI8C3zrcdsm3HiJNwDZfClmGdV5KsQxo1L7azHtWBHo3H8pQdMeJwA85F56boLC/NUgqw5aEt3/UM3/l3kJC5jaZbTVma4VWWLhbM1AN9rr0uRXGIVPz2UmATMq1c7OaYsCkrQP70V6QeSDWeID1oemYaA24eT42QIgYl1Zo+h8c9BzRMmwJIoLbVCm2V+KFWbH2sjLxLssiNf/lzWz5VkaAjCIEVwpmQaTRsyXocGRDmyojIYsXCaqTju5vSTdCrdfaRjj2j46Ogx2+kuT146PY1s7f7dUJ0kFAIqMg34LihcAQAne6r+0eJJBryxLrMPXvyZk33o23jGTwklKD+AH1uWThGi+ErJOdYiKpR3+6+bLdyDq7r59isXmuqbtq+NoCZUnL4YO/MeRsBYwFzGjJwXzqxcWY=
   app: ssf-reboot
   on:
     repo: SoftStackFactory/reboot
