@@ -35,11 +35,13 @@ export class WizardPage {
    // this.lockNextSlide()
   }
 
-//radio alert for qestionare 1: marine branches
-  showRadio() {
+//radio alert for qestionnaire 1: marine branches
+  branchDisplay: any = 'select';
+  showRadioBranch() {
     let alert = this.alertCtrl.create(
-      {title:"Military Branched", 
-      cssClass: "branchRadio"})
+      {title:"Military Branch", 
+      cssClass: "branchRadio", 
+      message: "Select One"})
 
     alert.addInput({
       type: 'radio',
@@ -75,21 +77,24 @@ export class WizardPage {
       value: 'Navy',
       checked: false
     });
-   
 
     alert.addButton('Cancel');
     alert.addButton({
       text: 'OK',
       handler: data => {
       console.log("OK", data);
+      this.branchDisplay = data;
       }
     });
     alert.present();
   }
-  // end of 1st alert
+  // alert question for military rank
+  
   showRadioRank() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Lightsaber color');
+    let alert = this.alertCtrl.create({
+      message:"Select One"
+    });
+    alert.setTitle('Military Rank');
 
     alert.addInput({
       type: 'radio',
@@ -117,6 +122,7 @@ export class WizardPage {
       text: 'OK',
       handler: data => {
       console.log("OK", data);
+      
       }
     });
     alert.present();
@@ -124,6 +130,87 @@ export class WizardPage {
   
   logForm(){
     console.log(this.todo.value)
+  }
+  //alert for question 2: are you a vet or active member?
+  vetSelection: boolean = false;
+  activeSelection: boolean = false;
+  vetDisplay: string = "select";
+  showVetOptions() {
+    let alert = this.alertCtrl.create({
+      message: "Select One"
+    });
+  alert.setTitle('Military Status');
+
+  alert.addInput({
+    type: 'radio',
+    label: 'Veteran',
+    value: 'Veteran',
+    checked: false
+  });
+
+  alert.addInput({
+    type: 'radio',
+    label: 'Active',
+    value: 'Active',
+    checked: false
+  });
+  alert.addButton('Cancel');
+  alert.addButton({
+    text: 'OK',
+    handler: data => {
+    console.log("OK", data);
+      if(data == "Active") {
+        this.activeSelection = true;
+        this.vetSelection = false;
+      }
+      else if(data == "Veteran") {
+        this.activeSelection = false;
+        this.vetSelection = true;
+      }
+      this.vetDisplay = data;
+    }
+  });
+  alert.present();
+}
+// question 3 servive disability
+  hasDisability: boolean = false;
+  disabilityDisplay: string = 'select';
+  showRadioDisability() {
+    let alert = this.alertCtrl.create(
+      {
+        title:"Military Branch", 
+        cssClass: "branchRadio", 
+        message: "Select One"
+      })
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Yes',
+      value: 'Yes',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'No',
+      value: 'No',
+      checked: false
+    });
+   
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+      console.log("OK", data);
+      if(data == "Yes") {
+        this.hasDisability = true;
+      }
+      this.disabilityDisplay = data;
+    }
+    });
+
+    alert.present(); 
   }
 
   nextButton: boolean = true;

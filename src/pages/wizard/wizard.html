@@ -104,7 +104,7 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <span class='question'> Select your Branch of Service </span>
-            <a class="select" (click)="showRadio()">select</a>
+            <a class="select" (click)="showRadioBranch()">{{branchDisplay}}</a>
           </ion-item>
         </ion-item-group>
       </ion-card>
@@ -114,9 +114,17 @@
           <ion-item-divider class='q-group' color="light">
               Question 2
           </ion-item-divider>
-          <ion-item>
-              <span class='question'> Select your Military Rank </span>
-              <a class="select" (click)="showRadioRank()">select</a>
+          <ion-item class="q-wrapper">
+            <span class='question'>Are you an active member or a veteran? </span>
+            <a class="select" (click)="showVetOptions()">{{vetDisplay}}</a>
+          </ion-item>
+          <ion-item class="q-wrapper" *ngIf="vetSelection">
+            <ion-label> <span class='question'> Choose Separation Date</span><a class="select">Select</a></ion-label>
+            <ion-datetime class='date'displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+          </ion-item>
+          <ion-item class="q-wrapper" *ngIf="activeSelection">
+            <ion-label> Choose Separation Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
           </ion-item>
         </ion-item-group>
       </ion-card>
@@ -124,11 +132,15 @@
       <ion-card>
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-          Question 1
+          Question 3
           </ion-item-divider>
           <ion-item>
-            <span class='question'> Are you an active member or a veteran?</span>
-            <a class="select" (click)="showRadioRank()">select</a>
+            <span class='question'>Do you have any service disability</span>
+            <a class="select" (click)="showRadioDisability()">{{disabilityDisplay}}</a>
+          </ion-item>
+          <ion-item *ngIf="hasDisability">
+           
+            <ion-input type="number" placeholder='what Percetange?'></ion-input>
           </ion-item>
         </ion-item-group>
       </ion-card> 
