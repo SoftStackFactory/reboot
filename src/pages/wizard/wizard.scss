@@ -52,6 +52,14 @@ page-wizard {
         font-size: 2.5vw;
         top: 10vw;
     }
+    .top-non-flex{
+        position: relative;
+        //display: block;
+        // width: 70%;
+        margin: auto;
+        font-size: 2.5vw;
+        top: 10vw;
+    }
     .h1{
         font-weight: bold;
         font-size: 3.5vw;
@@ -125,7 +133,8 @@ page-wizard {
     // }
        
     .non-flex-header {
-        margin-top: 100px;
+        position: relative;
+      //  margin-top: 100px;
     } 
     
     .q-group {

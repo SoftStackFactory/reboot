@@ -90,12 +90,14 @@
     </ion-slide>
 
     <ion-slide class='quest-slide'>
-      <ion-list class="non-flex-header" >
-        <ion-list-header>
-          <h1 class="h1">Questionnaire 2/3</h1>
+      <div class='top-non-flex'>
+        <ion-list class="non-flex-header" >
+          <ion-list-header>
+            <h1 class="h1">Questionnaire 2/3</h1>
+          </ion-list-header>
           <p class='h2'>Tell us about yourself</p>
-        </ion-list-header>
-      </ion-list>
+        </ion-list>
+     
         
       <ion-card class="card-size">
         <ion-item-group>
@@ -107,6 +109,7 @@
             <a class="select" (click)="showRadioBranch()">{{branchDisplay}}</a>
           </ion-item>
         </ion-item-group>
+     
       </ion-card>
 
       <ion-card>
@@ -143,7 +146,8 @@
             <ion-input type="number" placeholder='what Percetange?'></ion-input>
           </ion-item>
         </ion-item-group>
-      </ion-card> 
+      </ion-card>
+    </div> 
     </ion-slide>
   
     <ion-slide class="demo-slide">
