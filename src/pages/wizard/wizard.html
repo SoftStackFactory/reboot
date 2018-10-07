@@ -97,37 +97,51 @@
           </ion-list-header>
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
-     
         
       <ion-card class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-            Question 1 
+              Select your Branch of Service
           </ion-item-divider>
-          <ion-item class="q-wrapper">
-            <span class='question'> Select your Branch of Service </span>
-            <a class="select" (click)="showRadioBranch()">{{branchDisplay}}</a>
+          <ion-item class="">
+            <span class='question'>{{branchDisplay}}</span>
+            <a class="select" (click)="showRadioBranch()">Select</a>
           </ion-item>
         </ion-item-group>
-     
       </ion-card>
 
       <ion-card>
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Question 2
+              Are you an active member or a veteran?
+          </ion-item-divider>
+          <ion-item class="">
+            <span class='question'>{{vetDisplay}}</span>
+            <a class="select" (click)="showVetOptions()">Select</a>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+
+      <ion-card *ngIf="vetSelection">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+            Choose Date Separated
           </ion-item-divider>
           <ion-item class="q-wrapper">
-            <span class='question'>Are you an active member or a veteran? </span>
-            <a class="select" (click)="showVetOptions()">{{vetDisplay}}</a>
-          </ion-item>
-          <ion-item class="q-wrapper" *ngIf="vetSelection">
-            <ion-label> <span class='question'> Choose Separation Date</span><a class="select">Select</a></ion-label>
             <ion-datetime class='date'displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+            <ion-label ><a class="select">Select</a></ion-label>
           </ion-item>
-          <ion-item class="q-wrapper" *ngIf="activeSelection">
-            <ion-label> Choose Separation Date</ion-label>
+      </ion-item-group>
+      </ion-card>    
+
+      <ion-card *ngIf="activeSelection">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+            Choose Separation Date
+          </ion-item-divider>
+          <ion-item class="q-wrapper">
             <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+            <ion-label><a class="select" >Select</a></ion-label>
           </ion-item>
         </ion-item-group>
       </ion-card>
@@ -135,18 +149,26 @@
       <ion-card>
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-          Question 3
+              Do you have any service disability?
           </ion-item-divider>
           <ion-item>
-            <span class='question'>Do you have any service disability</span>
-            <a class="select" (click)="showRadioDisability()">{{disabilityDisplay}}</a>
-          </ion-item>
-          <ion-item *ngIf="hasDisability">
-           
-            <ion-input type="number" placeholder='what Percetange?'></ion-input>
+            <span class='question'>{{disabilityDisplay}}</span>
+            <a class="select" (click)="showRadioDisability()">Select</a>
           </ion-item>
         </ion-item-group>
       </ion-card>
+
+      <ion-card  *ngIf="hasDisability">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+            What Percentage?
+          </ion-item-divider>
+          <ion-item>
+            <ion-input type="number" placeholder='Input Answer here..'></ion-input>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+
     </div> 
     </ion-slide>
   

@@ -36,7 +36,7 @@ export class WizardPage {
   }
 
 //radio alert for qestionnaire 1: marine branches
-  branchDisplay: any = 'select';
+  branchDisplay: any = '';
   showRadioBranch() {
     let alert = this.alertCtrl.create(
       {title:"Military Branch", 
@@ -46,7 +46,7 @@ export class WizardPage {
     alert.addInput({
       type: 'radio',
       label: 'Army',
-      value: 'army',
+      value: 'Army',
       checked: false
     });
 
@@ -106,14 +106,14 @@ export class WizardPage {
     alert.addInput({
       type: 'radio',
       label: 'Sergent',
-      value: 'sergent',
+      value: 'Sergent',
       checked: false
     });
 
     alert.addInput({
       type: 'radio',
       label: 'First Sergent',
-      value: 'first sergent',
+      value: 'first Sergent',
       checked: false
     });
 
@@ -122,7 +122,6 @@ export class WizardPage {
       text: 'OK',
       handler: data => {
       console.log("OK", data);
-      
       }
     });
     alert.present();
@@ -134,7 +133,7 @@ export class WizardPage {
   //alert for question 2: are you a vet or active member?
   vetSelection: boolean = false;
   activeSelection: boolean = false;
-  vetDisplay: string = "select";
+  vetDisplay: string = "";
   showVetOptions() {
     let alert = this.alertCtrl.create({
       message: "Select One"
@@ -174,7 +173,7 @@ export class WizardPage {
 }
 // question 3 servive disability
   hasDisability: boolean = false;
-  disabilityDisplay: string = 'select';
+  disabilityDisplay: string = '';
   showRadioDisability() {
     let alert = this.alertCtrl.create(
       {

@@ -89,7 +89,7 @@ page-wizard {
         
     }
     .date {
-        
+        float: left;
     }
     #end-wizard-h{
         white-space: normal
@@ -147,6 +147,11 @@ page-wizard {
      .q-wrapper {
        display: flex;
        justify-content: space-between;
+       flex-direction: row-reverse;
+       padding-left: 0px; 
+     }
+     #select {
+         float: left !important;
      }
      
      .select {
