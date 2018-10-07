@@ -10,8 +10,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
+  regUrl: string = "https://j-reboot-backend.herokuapp.com/api/appUsers"
+
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
+  }
+
+  sendReg(user) {
+    console.log('sendReg() runs')
+    return this.http.post(this.regUrl, user)
   }
 
 }

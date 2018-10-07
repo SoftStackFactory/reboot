@@ -19,9 +19,10 @@
     </strong><p>
   </div>
 
-    <form class="form" [formGroup]='validate' (ngSubmit)='regform()'>
+    <form class="form" [formGroup]='validate' (ngSubmit)='submitReg()'>
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.firstName"
           class="input" 
           type="text" 
           #first 
@@ -36,6 +37,7 @@
 
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.lastName"
           class="input" 
           type="text" 
           #last 
@@ -50,6 +52,7 @@
       
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.email"
           class="input" 
           type="email" 
           #email 
@@ -64,6 +67,7 @@
       
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.password"
           class="input" 
           type="password" 
           #pass 
@@ -89,7 +93,7 @@
         <p class="invalid-text">Passwords do not match</p>
       </ion-item>
 
-      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid">REGISTER </button>
+      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid" (click)='submitReg()'>REGISTER</button>
     </form>
     
     <div class='login2'>
