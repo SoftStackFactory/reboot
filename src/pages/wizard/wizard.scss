@@ -11,13 +11,12 @@ page-wizard {
     }
       
     .nav-start {
-        position: fixed;
+        position: absolute;
         background-color: rgb(26, 39, 71);
         width: 100%;
-        z-index: 2;
         height: 4.5vw;
         min-height: 40px;
-       // margin-top: .5px;
+       //margin-top: .5px;
     }
     .start {
         font-size:2.5vw;
@@ -79,9 +78,6 @@ page-wizard {
     }
     #timeline {
         width: 80%;
-    }
-    .img-card {
-        margin-top: 10px;
     }
     img {
        // margin-top: 10px auto auto auto;
@@ -170,9 +166,6 @@ page-wizard {
             height: 4.8vw;
             width: 20vw;
          }
-        //  .top-demo h1 {
-
-        //  }
         }
     @media screen and (orientation:landscape) { 
         .demo-slide {
@@ -203,17 +196,11 @@ page-wizard {
         #timeline {
             width: 55%;
         }
-    //     .top-form-page {
-        
-    //    top: -100px;
-    //     }
         .buttons {
             margin-top: 5vw; 
          }
          .button1 {
              height: 5vw;
          }
-         
-
     }
 }
