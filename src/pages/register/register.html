@@ -38,6 +38,7 @@
         <ion-col col-10>
           <ion-item no-lines>
             <ion-input 
+              class="inputs"
               type="text" 
               #first 
               placeholder="First Name" 
@@ -59,7 +60,8 @@
               #last 
               placeholder="Last Name" 
               formControlName='last'
-              [class.invalid]="!validate.controls.last.valid && (validate.controls.last.dirty || submitAttempt)"></ion-input> 
+              [class.invalid]="!validate.controls.last.valid && (validate.controls.last.dirty || submitAttempt)">
+            </ion-input> 
           </ion-item>
           <ion-item no-lines *ngIf="!validate.controls.last.valid  && (validate.controls.last.dirty || submitAttempt)">
             <p class="invalid-text">Enter a valid name</p>
@@ -75,7 +77,8 @@
               #email 
               placeholder="Email Address" 
               formControlName='email'
-              [class.invalid]="!validate.controls.email.valid && (validate.controls.email.dirty || submitAttempt)"></ion-input> 
+              [class.invalid]="!validate.controls.email.valid && (validate.controls.email.dirty || submitAttempt)">
+            </ion-input> 
           </ion-item>
           <ion-item no-lines *ngIf="!validate.controls.email.valid  && (validate.controls.email.dirty || submitAttempt)">
             <p class="invalid-text">Enter a valid email</p>
@@ -91,7 +94,8 @@
               #pass 
               placeholder="Password" 
               formControlName='password'
-              [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)"></ion-input> 
+              [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)">
+            </ion-input> 
           </ion-item>
           <ion-item no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
             <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
@@ -107,7 +111,8 @@
               #repass 
               placeholder="Password Confirmation" 
               formControlName='passwordCheck'
-              [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)"></ion-input>
+              [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)">
+            </ion-input>
           </ion-item>
           <ion-item no-lines *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
             <p class="invalid-text">Passwords do not match</p>

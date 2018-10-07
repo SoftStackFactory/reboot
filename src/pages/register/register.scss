@@ -14,7 +14,6 @@ page-register {
     padding: 65px;
     justify-content: center; 
     align-items: center; 
-
     background-position: 0px -250px; 
     background-size: 100% 500%; 
     background-image: url('../assets/imgs/background.png');
@@ -30,8 +29,13 @@ page-register {
 
   #lifechange {
     font-weight: bold;
-}
+  }
 
+  .inputs {
+    font-size: 25px;
+  }
+
+  
   .ion-card {
     display: flex;
       justify-content: center; 
@@ -52,7 +56,7 @@ page-register {
     //   max-width: 3050px;
     //   border: 10px solid greenyellow;
     // }
-
+ 
     .card-title {
       text-align: center;
       margin: auto;
@@ -146,11 +150,13 @@ page-register {
     @media (min-width: 2300px) {
      
     }
+
     @media screen and (min-width:1150px) {
       .card-title {
         //edited for portrait mode
         font-size: 100px; //200px;
-     }
+      }
+
       #sign-in {
         margin: 50px auto 0px auto;
         font-size: 40px;
@@ -162,7 +168,12 @@ page-register {
         margin: 3vw auto;
         font-size: 40px;
       }
-     }
+    }
+    
+
+    @media screen and (orientation:landscape){
+
+    }
 
     .invalid {
       border: 1px solid #ea6153;
