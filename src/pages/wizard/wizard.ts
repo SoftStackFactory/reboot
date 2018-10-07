@@ -37,8 +37,9 @@ export class WizardPage {
 
 //radio alert for qestionare 1: marine branches
   showRadio() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Lightsaber color');
+    let alert = this.alertCtrl.create(
+      {title:"Military Branched", 
+      cssClass: "branchRadio"})
 
     alert.addInput({
       type: 'radio',
@@ -50,14 +51,28 @@ export class WizardPage {
     alert.addInput({
       type: 'radio',
       label: 'Air Force',
-      value: 'air force',
+      value: 'Air Force',
       checked: false
     });
 
     alert.addInput({
       type: 'radio',
       label: 'Coast Guards',
-      value: 'coast guards',
+      value: 'Coast Guards',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Marines',
+      value: 'Marines',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Navy',
+      value: 'Navy',
       checked: false
     });
    
