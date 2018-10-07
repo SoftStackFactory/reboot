@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - 8.9.4
+cache:
+  directories:
+    - node_modules
 branches:
   only:
   - master
@@ -11,9 +14,9 @@ notifications:
   webhooks:
     urls:
     - https://hooks.glip.com/webhook/6d688e2d-f076-4521-8213-f2479e99afe6
-    on_success: change
+    on_success: never
     on_failure: always
-    on_start: change
+    on_start: never
 script:
 - npm run test-ci
 deploy:
