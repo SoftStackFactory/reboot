@@ -9,6 +9,7 @@ branches:
   - master
   - dev
 install:
+  - npm i -g npm@5.7.1
   - npm ci
 before_script:
 - npm install -g ionic cordova jest
