@@ -52,16 +52,9 @@ page-wizard {
         font-size: 2.5vw;
         top: 10vw;
     }
-   
-    .top-demo-simple h1 {
-        font-size: 3.5vw;
-    } 
-    .top-demo h1 {
-        font-size: 3.5vw;
-    } 
     .h1{
         font-weight: bold;
-        font-size: 30px;
+        font-size: 3.5vw;
     } 
     .h2 {
         white-space: normal;
@@ -71,12 +64,12 @@ page-wizard {
         top: 20px;
     }
     #dashImg {
-        width: 70%;
-        height: 80%;
+        width: 60%;
+        //height: 80%;
     }
     #self {
-        width: 70%;
-        height: 70%;
+        width: 60%;
+     //   height: 70%;
     }
     #timeline {
         width: 80%;
@@ -86,6 +79,9 @@ page-wizard {
         display: inline;
         box-shadow: 0px 1px 66px -4px rgba(0,0,0,0.68);
         
+    }
+    #end-wizard-h{
+        white-space: normal
     }
     .buttons {
         position: relative;
@@ -97,33 +93,33 @@ page-wizard {
         background-color: rgb(26, 39, 71);
 
     }
-    .top-form-page {
-        position: relative;
-        display: block;
-        top: 60px; 
-       }
+    // .top-form-page {
+    //     position: relative;
+    //     display: block;
+    //     top: 60px; 
+    //    }
   
-    .input-form {
-        position: relative;
-        margin-top: 10vh; 
-    }
-    .input-item {
-      margin: .4vw auto;
-      display: block;
-      font-size: 3vw;
-      width: 80%;
-      height: 8vw;
-      max-height: 70px;
-      max-width: 1000px;
-      padding-left: 10px;
-      background-color: rgb(249, 247, 247);
-      border-radius: 5px;
-      border-color: rgb(242, 239, 239);
-      //padding-top: 7px; 
-      //margin-top:10px;
-      outline: none;
-      border:1px solid #cccccc
-    }
+    // .input-form {
+    //     position: relative;
+    //     margin-top: 10vh; 
+    // }
+    // .input-item {
+    //   margin: .4vw auto;
+    //   display: block;
+    //   font-size: 3vw;
+    //   width: 80%;
+    //   height: 8vw;
+    //   max-height: 70px;
+    //   max-width: 1000px;
+    //   padding-left: 10px;
+    //   background-color: rgb(249, 247, 247);
+    //   border-radius: 5px;
+    //   border-color: rgb(242, 239, 239);
+    //   //padding-top: 7px; 
+    //   //margin-top:10px;
+    //   outline: none;
+    //   border:1px solid #cccccc
+    // }
        
     .non-flex-header {
         margin-top: 100px;
@@ -177,7 +173,7 @@ page-wizard {
          }
         .top-simple {
             top: auto;
-            width: 60%;
+            width: 55%;
          }
         .top-demo{
             display: flex;
@@ -213,8 +209,7 @@ page-wizard {
          }
         //  @media screen and (orientation: portrait) {
         //     .simple-header{
-        //         display: relative;
-        //         top: 100px;
+        //       width: 60%;
         //     } 
         //  }
     }
