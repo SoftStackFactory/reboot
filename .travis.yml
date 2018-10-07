@@ -3,11 +3,14 @@ node_js:
 - 8.9.4
 cache:
   directories:
-    - node_modules
+    - $HOME/.npm
 branches:
   only:
   - master
   - dev
+install:
+  - npm i -g npm@5.7.1
+  - npm ci
 before_script:
 - npm install -g ionic cordova jest
 notifications:
