@@ -58,9 +58,11 @@ page-wizard {
     .top-demo h1 {
         font-size: 3.5vw;
     }  
+    
     #dashImg {
         width: 70%;
         height: 80%;
+        
     }
     #self {
         width: 70%;
@@ -69,8 +71,12 @@ page-wizard {
     #timeline {
         width: 80%;
     }
-    img {
+    .img-card {
         margin-top: 10px;
+    }
+    img {
+       // margin-top: 10px auto auto auto;
+        display: inline;
     }
     .buttons {
         position: relative;
