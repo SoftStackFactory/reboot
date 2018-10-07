@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 
 import { UserProvider } from '../../providers/user/user'
@@ -23,7 +24,14 @@ export class LoginPage {
     password: ''
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _userService: UserProvider) {
+  private loginCreds : FormGroup;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _userService: UserProvider, private formBuilder: FormBuilder) {
+    this.loginCreds = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
+      password: ['', Validators.required],
+    });
   }
 
   ionViewDidLoad() {

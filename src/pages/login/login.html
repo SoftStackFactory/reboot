@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Register</ion-title>
-      </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
@@ -19,7 +19,7 @@
     <h1 id="title">INTRANSITION</h1>
   </div>
 
-  <ion-grid fixed>
+  <!-- <ion-grid fixed>
 
     <br> 
 
@@ -85,6 +85,84 @@
       <ion-col col-2></ion-col>
     </ion-row>
 
-  </ion-grid>
+  </ion-grid> -->
+
+  <form [formGroup]="loginCreds" (ngSubmit)="logForm()">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <h2 text-center>Transitioning from the military to civilian environment is more than just a job change.</h2>
+          <br>
+          <h2 id="lifechange" text-center>It's a life change.</h2>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <ion-label class="labels" style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
+          <ion-input formControlName="email" class="inputs" id="email" type="email"></ion-input>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <ion-item no-lines *ngIf="!loginCreds.controls.email.valid  && (loginCreds.controls.email.dirty || submitAttempt)">
+            <p class="invalid-text">Please enter a valid email</p>
+          </ion-item><br>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <ion-label class="labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
+          <ion-input formControlName="password" class="inputs" id="password" type="password"><button ion-button>Hi</button></ion-input>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <ion-item no-lines *ngIf="!loginCreds.controls.password.valid  && (loginCreds.controls.password.dirty || submitAttempt)">
+            <p class="invalid-text">Please enter a password</p>
+          </ion-item><br>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col>
+          <button (click)="login()" id="loginbutton" type="submit" ion-button block [disabled]="!loginCreds.valid">LOGIN</button>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <h3 text-center>If you don't have an account yet, you can register now.</h3>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row style="padding-bottom:30px;">
+        <ion-col col-2></ion-col>
+        <ion-col>
+          <button (click)="toRegisterPage()" id="signupbutton" ion-button block>SIGN UP</button>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
 
 </ion-content>

@@ -58,6 +58,11 @@ page-login {
         font-size: 25px
     }
 
+    .invalid-text {
+        font-size: 20px;
+        color: #ea6153;
+      }
+
     #loginbutton {
         background-color: rgb(130,180,64); 
         font-size: 25px
@@ -99,6 +104,13 @@ page-login {
         
         .icons {
             left: 140px;
+        }
+
+        .invalid-text {
+            font-size: 20px;
+            color: #ea6153;
+            margin: auto;
+            width: 70%;
         }
 
         .labels {
