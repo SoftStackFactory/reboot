@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Register</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -19,75 +19,7 @@
     <h1 id="title">INTRANSITION</h1>
   </div>
 
-  <!-- <ion-grid fixed>
-
-    <br> 
-
-    <ion-row>
-      <ion-col col-1></ion-col>
-      <ion-col>
-        <h2 text-center>Transitioning from the military to civilian environment is more than just a job change.</h2>
-        <br>
-        <h2 id="lifechange" text-center>It's a life change.</h2>
-      </ion-col>
-      <ion-col col-1></ion-col>
-    </ion-row>
-
-    <br>
-
-    <ion-row>
-      <ion-col col-1></ion-col>
-      <ion-col>
-        <ion-label class="labels" style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
-        <ion-input [(ngModel)] = "user.email" class="inputs" id="email" type="email"></ion-input> 
-      </ion-col>
-      <ion-col col-1></ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-1></ion-col>
-      <ion-col>
-        <ion-label class="labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
-        <div>
-        <ion-input [(ngModel)] = "user.password"class="inputs" id="password" type="password"><button ion-button>Hi</button></ion-input>
-        </div>
-      </ion-col>
-      <ion-col col-1></ion-col>
-    </ion-row>
-
-    <br>
-    <br>
-
-    <ion-row>
-      <ion-col col-2></ion-col>
-      <ion-col>
-        <button (click) = "login()" id="loginbutton" ion-button block>LOGIN</button>
-      </ion-col>
-      <ion-col col-2></ion-col>
-    </ion-row>
-
-    <br>
-    <br>
-
-    <ion-row>
-      <ion-col col-1></ion-col>
-      <ion-col>
-        <h3 text-center>If you don't have an account yet, you can register now.</h3>
-      </ion-col>
-      <ion-col col-1></ion-col>
-    </ion-row>
-
-    <ion-row style="padding-bottom:30px;">
-      <ion-col col-2></ion-col>
-      <ion-col>
-        <button (click)="toRegisterPage()" id="signupbutton" ion-button block>SIGN UP</button>
-      </ion-col>
-      <ion-col col-2></ion-col>
-    </ion-row>
-
-  </ion-grid> -->
-
-  <form [formGroup]="loginCreds" (ngSubmit)="logForm()">
+  <form [formGroup]="loginCreds" (ngSubmit)="login()">
     <ion-grid>
 
       <ion-row>
@@ -103,7 +35,7 @@
       <ion-row>
         <ion-col col-1></ion-col>
         <ion-col>
-          <ion-label class="labels" style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
+          <ion-label class="labels"  style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
           <ion-input formControlName="email" class="inputs" id="email" type="email"></ion-input>
         </ion-col>
         <ion-col col-1></ion-col>
@@ -123,7 +55,7 @@
         <ion-col col-1></ion-col>
         <ion-col>
           <ion-label class="labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
-          <ion-input formControlName="password" class="inputs" id="password" type="password"><button ion-button>Hi</button></ion-input>
+          <ion-input formControlName="password" class="inputs" id="password" type="password"></ion-input>
         </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
@@ -141,7 +73,7 @@
       <ion-row>
         <ion-col col-2></ion-col>
         <ion-col>
-          <button (click)="login()" id="loginbutton" type="submit" ion-button block [disabled]="!loginCreds.valid">LOGIN</button>
+          <button id="loginbutton" type="submit" ion-button block [disabled]="!loginCreds.valid">LOGIN</button>
         </ion-col>
         <ion-col col-2></ion-col>
       </ion-row>
@@ -154,7 +86,7 @@
         <ion-col col-1></ion-col>
       </ion-row>
 
-      <ion-row style="padding-bottom:30px;">
+      <ion-row>
         <ion-col col-2></ion-col>
         <ion-col>
           <button (click)="toRegisterPage()" id="signupbutton" ion-button block>SIGN UP</button>

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 import { RegisterPage } from '../register/register';
+import { DashboardPage } from '../dashboard/dashboard';
 
 import { UserProvider } from '../../providers/user/user'
-import { DashboardPage } from '../dashboard/dashboard';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -18,11 +20,6 @@ import { DashboardPage } from '../dashboard/dashboard';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  user: any = {
-    email: '',
-    password: ''
-  }
 
   private loginCreds : FormGroup;
 
@@ -39,11 +36,11 @@ export class LoginPage {
   }
 
   login() {
-    this._userService.login(this.user)
+    this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
           alert("you're logged in!")
-          this.navCtrl.setRoot(DashboardPage);
+         this.toDashboard();
         },
         (err) => alert("Invalid credentials")
       )
