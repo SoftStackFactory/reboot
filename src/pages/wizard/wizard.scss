@@ -16,6 +16,7 @@ page-wizard {
         width: 100%;
         height: 4.5vw;
         min-height: 40px;
+        z-index: 2px;
        //margin-top: .5px;
     }
     .start {
@@ -35,23 +36,24 @@ page-wizard {
         color: black;
         background-color: aliceblue;
     }
-    .top-simple {
+    .top-demo {
         position: relative;
         display: block;
-        width: 70%;
+        // width: 70%;
         margin: auto;
         font-size: 2.5vw;
         top: 10vw;
     }
-    .top-demo {
+    .top-simple {
         position: relative;
         display: block;
-        width: 70%;
+        // width: 70%;
         margin: auto;
         font-size: 2.5vw;
-        top: 8vw;
-    } 
-    .top-simple h1 {
+        top: 10vw;
+    }
+   
+    .top-demo-simple h1 {
         font-size: 3.5vw;
     } 
     .top-demo h1 {
@@ -83,6 +85,7 @@ page-wizard {
        // margin-top: 10px auto auto auto;
         display: inline;
         box-shadow: 0px 1px 66px -4px rgba(0,0,0,0.68);
+        
     }
     .buttons {
         position: relative;
@@ -122,9 +125,10 @@ page-wizard {
       border:1px solid #cccccc
     }
        
-    .Questionnaire-h1 {
+    .non-flex-header {
         margin-top: 100px;
     } 
+    
     .q-group {
         padding: 20px auto;
        // margin: 20px auto;
@@ -173,6 +177,7 @@ page-wizard {
          }
         .top-simple {
             top: auto;
+            width: 60%;
          }
         .top-demo{
             display: flex;
@@ -182,19 +187,23 @@ page-wizard {
             top: auto;
           //  flex-direction: row;
         }
-        .top-demo .top-message {
-            margin-right: 5vw;
+        .demo-header {
+            width: 40%;
+        }
+        
+        img {
+           width: 100px;
         }
         #dashImg {
-            width: 50%;
+            width: 30%;
             height: 80%;
         }
         #self {
-            width: 50%;
+            width: 30%;
             height: 70%;
         }
         #timeline {
-            width: 55%;
+            width: 35%;
         }
         .buttons {
             margin-top: 5vw; 
@@ -202,5 +211,11 @@ page-wizard {
          .button1 {
              height: 5vw;
          }
+        //  @media screen and (orientation: portrait) {
+        //     .simple-header{
+        //         display: relative;
+        //         top: 100px;
+        //     } 
+        //  }
     }
 }
