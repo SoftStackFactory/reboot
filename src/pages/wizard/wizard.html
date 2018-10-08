@@ -19,8 +19,8 @@
     <button ion-button (click)="back()"class="start">Back</button>
     <button ion-button [disabled]='nextButton' (click)="next()" id="end">Next</button>
   </div>
-  <!-- (ionSlideDidChange)="slideChanged()" -->
-  <ion-slides pager>
+ 
+  <ion-slides  (ionSlideDidChange)="slideChanged()" pager>
 
     <ion-slide class="demo-slide">
       <div class='top-simple'>
@@ -98,7 +98,8 @@
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <ion-card class="card-size">
+      <form [formGroup]="todo" (ngSubmit)="logForm()" (ionChange)="formChanged">
+        <ion-card class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Select your Branch of Service
@@ -109,7 +110,7 @@
           </ion-item>
         </ion-item-group>
       </ion-card>
-
+     
       <ion-card>
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
@@ -125,26 +126,20 @@
       <ion-card *ngIf="vetSelection">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-            Choose Date Separated
+           {{vetQuestion}}
           </ion-item-divider>
           <ion-item class="q-wrapper">
-            <ion-datetime class='date'displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+            <ion-datetime 
+              type="date"
+              formControlName="VetQuestionName"
+              class='date'
+              displayFormat="MM/DD/YYYY" 
+            >
+            </ion-datetime>
             <ion-label ><a class="select">Select</a></ion-label>
           </ion-item>
-      </ion-item-group>
-      </ion-card>    
-
-      <ion-card *ngIf="activeSelection">
-        <ion-item-group>
-          <ion-item-divider class='q-group' color="light">
-            Choose Separation Date
-          </ion-item-divider>
-          <ion-item class="q-wrapper">
-            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-            <ion-label><a class="select" >Select</a></ion-label>
-          </ion-item>
         </ion-item-group>
-      </ion-card>
+      </ion-card>    
 
       <ion-card>
         <ion-item-group>
@@ -153,7 +148,7 @@
           </ion-item-divider>
           <ion-item>
             <span class='question'>{{disabilityDisplay}}</span>
-            <a class="select" (click)="showRadioDisability()">Select</a>
+            <a class="select" #disabilityValue (click)="showRadioDisability()">Select</a>
           </ion-item>
         </ion-item-group>
       </ion-card>
@@ -164,11 +159,18 @@
             What Percentage?
           </ion-item-divider>
           <ion-item>
-            <ion-input type="number" placeholder='Input Answer here..'></ion-input>
+            <ion-input 
+            type="number"
+            placeholder='Input Answer here..'
+            formControlName="PercentageQuestionName"
+            [required]="disabilityRequired"
+            >
+          </ion-input>
           </ion-item>
         </ion-item-group>
       </ion-card>
-
+      <button ion-button type="submit" [disabled]="!todo.valid" >submit</button>
+    </form>
     </div> 
     </ion-slide>
   
@@ -178,7 +180,7 @@
             <ion-list-header>
               <h1 id="end-wizard-h" class="h1">Thank you for using the Wizard</h1>
             </ion-list-header>
-            <p class="h2">You may begin by taking the self assesment. </p>
+            <p class="h2">You may begin by taking the self assesment.</p>
           </ion-list >
         </div>
       <!-- <div class='top-simple'>
