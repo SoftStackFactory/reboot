@@ -85,7 +85,7 @@ page-register {
 
     .input {
       margin: .4vw auto;
-      display: block;
+      display: flex;
       font-size: 3vw;
       width: 80%;
       height: 8vw;
@@ -113,6 +113,7 @@ page-register {
         top: -13px;
       }
     }
+
     #register-button{
       text-align: center;
       position: relative;
@@ -172,7 +173,9 @@ page-register {
     
 
     @media screen and (orientation:landscape){
-
+      #header {
+        padding: 20px;
+      }
     }
 
     .invalid {
