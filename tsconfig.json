@@ -4,6 +4,7 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "skipLibCheck" : true,
     "lib": [
       "dom",
       "es2015"
@@ -13,13 +14,20 @@
     "sourceMap": true,
     "target": "es5"
   },
+  "baseUrl": "./src",
+  "paths": {
+    "@app/env": [
+      "environments/environment"
+    ]
+  },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "src/**/*.spec.ts",
-    "src/**/__tests__/*.ts"
+    "src/**/__tests__/*.ts",
+    "src/unit-tests"
   ],
   "compileOnSave": false,
   "atom": {
