@@ -114,7 +114,8 @@ page-register {
     }
     @media screen and (min-width:1150px) {
       .card-title {
-        font-size: 200px;
+        //edited for portrait mode
+        font-size: 100px; //200px;
      }
       #sign-in {
         margin: 50px auto 0px auto;
@@ -128,5 +129,14 @@ page-register {
         font-size: 40px;
       }
      }
+
+    .invalid {
+      border: 1px solid #ea6153;
+    }
+
+    .invalid-text {
+      font-size: 20px;
+      color: #ea6153;
+    }
   
 }

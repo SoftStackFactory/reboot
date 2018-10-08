@@ -13,15 +13,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
+  
   <div class="nav-start">
-    <button ion-button class="start">Exit</button>
-    <button ion-button class="start">Back</button>
-    <button ion-button id="end">Start</button>
+    <button ion-button (click)="exit()"  class="start">Exit</button>
+    <button ion-button (click)="back()"class="start">Back</button>
+    <button ion-button  (click)="next()" id="end">Next</button>
   </div>
-  <ion-slides pager>
+  <ion-slides pager (ionSlideDidChange)="slideChanged()">
     <ion-slide>
-      <div class='top'>
+      <div class='top-simple'> 
         <h1>Welcome</h1>
         <p> InTranshition is an app designed for Veterans to transition into the civial environment.
           This wizard will guide you through the app <br><br>
@@ -30,47 +31,91 @@
       </div>
     </ion-slide>
     <ion-slide>
-      <div class='top'>
-        <h1>Home Dasboard</h1>
-
-        <p>Here you will find links to the timeline and self assessment section.<br><br>
-          Usefull tips and links are also available to check out. </p>
+      <div class='top-demo'>
+        <div class="top-message">
+          <h1>Home Dasboard</h1>
+          <p>Here you will find links to the timeline and self assessment section.<br><br>
+            Usefull tips and links are also available to check out. </p>
+        </div>
         <img id='dashImg' src='../../assets/imgs/dashboard.png'>
       </div>
     </ion-slide>
     <ion-slide>
-      <div class='top'>
+      <div class='top-demo'>
+        <div class="top-message">
         <h1>Self Assessment</h1>
         <p>Here you will be promted to take your self assessment to assess your finances, relationships, family, and
           more!</p>
+        </div>
         <img id="self" src='../../assets/imgs/asssesment.png'>
       </div>
     </ion-slide>
     <ion-slide>
-      <div class='top'>
+      <div class='top-demo'>
+        <div class="top-message">
         <h1>Life Balance Wheel</h1>
         <p>This chart will display the results of your self assesment by category.</p>
+          </div>
         <img src='../../assets/imgs/whell.png'>
       </div>
     </ion-slide>
     <ion-slide>
-      <div class='top'>
-        <h1>Timeline</h1>
-        <p>This is a timeline that will make your transition to the civilian life smoother. Each section has a to-do
-          item that you need to accomplish.</p>
+      <div class='top-demo'>
+        <div class="top-message">
+          <h1>Timeline</h1>
+          <p>This is a timeline that will make your transition to the civilian life smoother. Each section has a to-do
+            item that you need to accomplish.</p>
+        </div>
+      
         <img id="time" src='../../assets/imgs/timeline.png'>
       </div>
     </ion-slide>
     <ion-slide>
-      <div class='top'>
-        <h1>Thanks for using the Wizard</h1>
-        <p>You may begin by taking the self assesment.</p>
-
+        <div class='top-form-page'>
+            <div class="top-message">
+              <h1>Tell more about yourself</h1>
+              <p>By filling out this this short questionare, we can personalize the app for a better experience!</p>
+            </div>
+          </div>
+          <form [formGroup]="todo" (ngSubmit)="logForm()">
+          <div class='input-form'>
+              <input class="input-item" formControlName="branch" type="text" #first placeholder="Military Branch" > <br>
+              <ion-list radio-group  formControlName="injured" >
+                  <ion-list-header>
+                    Have you been injured or wounded?
+                  </ion-list-header>
+                  <ion-item>
+                    <ion-label> yes</ion-label>
+                    <ion-radio value="yes"></ion-radio>
+                  </ion-item> 
+                
+                   <ion-item>
+                    <ion-label>no</ion-label>
+                    <ion-radio value="no"></ion-radio>
+                  </ion-item>
+                </ion-list>
+                <ion-item>
+                <ion-label>Date Enlisted</ion-label>
+              <ion-datetime formControlName="EnlistingDate"  displayFormat="MM/DD/YYYY"  pickerFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+            </ion-item>
+            <button ion-button type="submit" (click)="onSubmit()" [disabled]="!todo.valid"> Submit </button>
+            </div>
+          </form>
+        
+      
+    </ion-slide>
+    <ion-slide>
+      <div class='top-simple'>
+        <div class="top-message">
+          <h1>Thanks for using the Wizard</h1>
+          <p>You may begin by taking the self assesment.</p>
+        </div>
       </div>
       <div class='buttons'>
         <button class='button1' ion-button>Dashboard</button>
         <button class='button1' ion-button>Take Assesment</button>
       </div>
     </ion-slide>
+    
   </ion-slides>
 </ion-content>

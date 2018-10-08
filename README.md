@@ -1,6 +1,9 @@
+![Travis CI Status](https://travis-ci.org/SoftStackFactory/reboot.svg?branch=master "Travis CI Status")
+
+
 # Reboot
 
-Reboot is:
+Reboot is an ionic application that assists verterans reintegrate into civilian life by assisting them and providing information and resources along the way. 
 
 ## Getting Started
 

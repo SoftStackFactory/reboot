@@ -1,9 +1,3 @@
-<!--
-  Generated template for the RegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -12,7 +6,6 @@
     <ion-title>Register</ion-title>
   </ion-navbar>
 </ion-header>
-
 
 <ion-content >
   <div class="ion-card">
@@ -24,17 +17,84 @@
     </p>
     <p><strong>It's a life change
     </strong><p>
-  </div>  
-    <form class="form">
-      <input class="input" type="text" #first placeholder="First Name" > <br>
-      <input class="input" type="text" #last placeholder="First Last"> <br>
-      <input class="input" type="email" #email placeholder="Email Address"> <br>
-      <input class="input" type="password" #pass placeholder="Password"> <br>
-      <input class="input" type="password" #repass placeholder="Password Confirmation">
+  </div>
+
+    <form class="form" [formGroup]='validate' (ngSubmit)='regform()'>
+      <ion-item class="input" no-lines>
+        <ion-input 
+          class="input" 
+          type="text" 
+          #first 
+          placeholder="First Name" 
+          formControlName='first' 
+          [class.invalid]="!validate.controls.first.valid && (validate.controls.first.dirty || submitAttempt)">
+        </ion-input> 
+      </ion-item>
+      <ion-item class="input" no-lines *ngIf="!validate.controls.first.valid  && (validate.controls.first.dirty || submitAttempt)">
+        <p class="invalid-text">Enter a valid name</p>
+      </ion-item><br>
+
+      <ion-item class="input" no-lines>
+        <ion-input 
+          class="input" 
+          type="text" 
+          #last 
+          placeholder="Last Name" 
+          formControlName='last'
+          [class.invalid]="!validate.controls.last.valid && (validate.controls.last.dirty || submitAttempt)"></ion-input> 
+      </ion-item>
+      <ion-item class="input" no-lines *ngIf="!validate.controls.last.valid  && (validate.controls.last.dirty || submitAttempt)">
+        <p class="invalid-text">Enter a valid name</p>
+      </ion-item><br>
+      
+      
+      <ion-item class="input" no-lines>
+        <ion-input 
+          class="input" 
+          type="email" 
+          #email 
+          placeholder="Email Address" 
+          formControlName='email'
+          [class.invalid]="!validate.controls.email.valid && (validate.controls.email.dirty || submitAttempt)"></ion-input> 
+      </ion-item>
+      <ion-item class="input" no-lines *ngIf="!validate.controls.email.valid  && (validate.controls.email.dirty || submitAttempt)">
+        <p class="invalid-text">Enter a valid email</p>
+      </ion-item><br>
+      
+      
+      <ion-item class="input" no-lines>
+        <ion-input 
+          class="input" 
+          type="password" 
+          #pass 
+          placeholder="Password" 
+          formControlName='password'
+          [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)"></ion-input> 
+      </ion-item>
+      <ion-item class="input" no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
+        <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
+      </ion-item><br>
+      
+      
+      <ion-item class="input" no-lines>
+        <ion-input 
+          class="input" 
+          type="password" 
+          #repass 
+          placeholder="Password Confirmation" 
+          formControlName='passwordCheck'
+          [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="input" no-lines *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
+        <p class="invalid-text">Passwords do not match</p>
+      </ion-item>
+
+      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid">REGISTER </button>
     </form>
-    <button id="register-button"color="secondary" ion-button>REGISTER </button>
+    
     <div class='login2'>
       <p id="sign-in">If you already have an account, sign in.</p>
-    <button id="login-button"color="primary" ion-button>LOGIN</button>
-      </div>
+      <button id="login-button"color="primary" ion-button>LOGIN</button>
+    </div>
+    
 </ion-content>
