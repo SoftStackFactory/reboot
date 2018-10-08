@@ -5,7 +5,7 @@ timeline {
     }
 
     .label-ios{
-        margin: 11px 8px -15px 0 !important;
+        margin: auto !important;
     }
 
     
@@ -117,12 +117,17 @@ timeline {
         margin: 13px 8px -15px 0;
     }
 
-        &:before {
-            left: 3% !important;
-        }
-        .list, .list-md{
-            margin-left:3% !important;
-        }
+    &:before {
+        left: 3% !important;
+    }
+    .list, .list-md{
+        margin-left:3% !important;
+    }
+
+    .checkbox-ios {
+        // position: absolute !important;
+        margin: -6px 14px 8px -35px !important;
+    }
         
 
     @media screen and (max-width: map-get($grid-breakpoints,'lg')){

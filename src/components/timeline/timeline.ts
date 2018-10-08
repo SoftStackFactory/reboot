@@ -17,9 +17,11 @@ export class TimelineComponent {
   public list = [
     {
       title: 'Getting Out',
+      checkmark: false,
       children: [
         {
           title: 'Understanding the process of separating',
+          checkmark: false,
           children: [
             {
               title: 'Meet with separation counselor',
@@ -35,6 +37,7 @@ export class TimelineComponent {
         },
         {
           title: 'Completing my paperwork',
+          checkmark: false,
           children: [
             {
               title: 'Fill out specific paperwork',
@@ -45,6 +48,7 @@ export class TimelineComponent {
         },
         {
           title: 'Engaging VA to access benefits',
+          checkmark: false,
           children: [
             {
               title: 'Find out what benefits I will have after separation',
@@ -58,6 +62,7 @@ export class TimelineComponent {
     },
     {
       title: 'Starting Up',
+      checkmark: false,
       children: [
         {
           title: 'Find something to do',
@@ -76,6 +81,7 @@ export class TimelineComponent {
         },
         {
           title: 'Re-establishing and creating relationships',
+          checkmark: false,
           children: [
             {
               title: 'Check out vet center',
@@ -86,6 +92,7 @@ export class TimelineComponent {
         },
         {
           title: 'Balancing finances',
+          checkmark: false,
           children: [
             {
               title: 'Open a savings account',
@@ -99,16 +106,19 @@ export class TimelineComponent {
     },
     {
       title: 'Taking care of myself',
+      checkmark: false,
       children: [],
       itemExpand: false
     },
     {
       title: 'Reinventing myself',
+      checkmark: false,
       children: [],
       itemExpand: false
     },
     {
       title: 'Putting down roots',
+      checkmark: false,
       children: [],
       itemExpand: false
     }
