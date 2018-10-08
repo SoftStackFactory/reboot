@@ -17,6 +17,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage || true"
   },
+  "config": {
+    "ionic_webpack": "./config/webpack.config.js"
+  },
   "dependencies": {
     "@angular/animations": "5.2.11",
     "@angular/common": "5.2.11",
