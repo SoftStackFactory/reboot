@@ -11,6 +11,32 @@ timeline {
     
 }
 
+.cd-timeline__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .cd-timeline__img img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+  }
+
+  .cd-timeline__img.cd-timeline__img--5 {
+    background: #64c5b1;
+  }
+
 .timeline {
     margin: 30px 0 0 0;
     padding: 0;
@@ -87,14 +113,18 @@ timeline {
           }
         }
     }
-    @media screen and (max-width: 1024px) {
-        &:before {
-            left: 3%;
-        }
-        .list-ios{
-            margin-left:3%;
-        }
+    .label-md{
+        margin: 13px 8px -15px 0;
     }
+
+        &:before {
+            left: 3% !important;
+        }
+        .list, .list-md{
+            margin-left:3% !important;
+        }
+        
+
     @media screen and (max-width: map-get($grid-breakpoints,'lg')){
         .list-ios{
             margin-top: -1px;

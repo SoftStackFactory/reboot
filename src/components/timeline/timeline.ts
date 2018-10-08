@@ -23,10 +23,12 @@ export class TimelineComponent {
           children: [
             {
               title: 'Meet with separation counselor',
+              checkmark: true,
               children: []
             },
             {
               title: 'Take career test',
+              checkmark: true,
               children: []
             }
           ]
@@ -36,6 +38,7 @@ export class TimelineComponent {
           children: [
             {
               title: 'Fill out specific paperwork',
+              checkmark: true,
               children: []
             }
           ]
@@ -45,6 +48,7 @@ export class TimelineComponent {
           children: [
             {
               title: 'Find out what benefits I will have after separation',
+              checkmark: true,
               children: []
             }
           ]
@@ -60,10 +64,12 @@ export class TimelineComponent {
           children: [
             {
               title: 'Go to Career Center',
+              checkmark: true,
               children: []
             },
             {
               title: 'Vocational Rehab & Employment',
+              checkmark: true,
               children: []
             }
           ]
@@ -73,6 +79,7 @@ export class TimelineComponent {
           children: [
             {
               title: 'Check out vet center',
+              checkmark: true,
               children: []
             }
           ]
@@ -82,6 +89,7 @@ export class TimelineComponent {
           children: [
             {
               title: 'Open a savings account',
+              checkmark: true,
               children: []
             }
           ]
