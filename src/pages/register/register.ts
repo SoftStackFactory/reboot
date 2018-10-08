@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { PasswordValidator } from '../../validators/password.validator';
 import { UserProvider } from '../../providers/user/user';
+import { WizardPage } from '../wizard/wizard'
+import { LoginPage } from '../login/login';
 
 
 
@@ -45,16 +47,19 @@ export class RegisterPage {
     this._user.sendReg(this.registerUser)
       .subscribe( (data: any) => {
         console.log('data from submitReg()', data)
-      }/*,
+      },
       err => {
       console.error('err from register:', err)
-      this.presentToast()
+      //this.presentToast()
       },
       () => {
-      this.navCtrl.setRoot(HomePage, {registered: this.user})
-      }*/
+      this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})
+      }
       ) 
-    
+  }
+
+  goLogin() {
+    this.navCtrl.setRoot(LoginPage)
   }
 
 }

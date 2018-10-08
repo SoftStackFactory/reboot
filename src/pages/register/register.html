@@ -93,12 +93,13 @@
         <p class="invalid-text">Passwords do not match</p>
       </ion-item>
 
-      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid" (click)='submitReg()'>REGISTER</button>
+      <!--<button id="register-button"color="secondary" ion-button [disabled]="!validate.valid" (click)='submitReg()'>REGISTER</button>-->
+      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid" type="submit">REGISTER</button>
     </form>
     
     <div class='login2'>
       <p id="sign-in">If you already have an account, sign in.</p>
-      <button id="login-button"color="primary" ion-button>LOGIN</button>
+      <button id="login-button"color="primary" ion-button (click)="goLogin()">LOGIN</button>
     </div>
     
 </ion-content>
