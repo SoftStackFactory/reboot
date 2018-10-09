@@ -16,6 +16,7 @@ import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { UserProvider } from '../providers/user/user';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
