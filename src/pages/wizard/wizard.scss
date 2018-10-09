@@ -1,18 +1,23 @@
 page-wizard {
-    ion-slide {
-        background-color: rgb(188, 208, 226);  
+    // ion-slide {
+        
+    // }
+    .demo-slide {
+        align-items: flex-start;
     }
-      ion-slide.swiper-slide {
-       align-items: flex-start;
+
+    .quest-slide {
+        align-items: flex-start;
     }
+      
     .nav-start {
-        position: fixed;
+        position: absolute;
         background-color: rgb(26, 39, 71);
         width: 100%;
-        z-index: 2;
         height: 4.5vw;
         min-height: 40px;
-       // margin-top: .5px;
+        z-index: 2px;
+       //margin-top: .5px;
     }
     .start {
         font-size:2.5vw;
@@ -31,41 +36,62 @@ page-wizard {
         color: black;
         background-color: aliceblue;
     }
-    .top-simple {
-        position: relative;
-        display: block;
-        width: 70%;
-        margin: auto;
-          font-size: 2.5vw;
-          top: 10vw;
-    }
     .top-demo {
         position: relative;
         display: block;
-       width: 70%;
-      margin: auto;
+        // width: 70%;
+        margin: auto;
         font-size: 2.5vw;
-        top: 8vw;
+        top: 10vw;
+    }
+    .top-simple {
+        position: relative;
+        display: block;
+        // width: 70%;
+        margin: auto;
+        font-size: 2.5vw;
+        top: 10vw;
+    }
+    .top-question{
+        position: relative;
+        //display: block;
+        // width: 70%;
+        margin: auto;
+      //  font-size: 2.5vw;
+        top: 10vw;
+    }
+    .h1{
+        font-weight: bold;
+        font-size: 20px;
     } 
-    .top-simple h1 {
-        font-size: 3.5vw;
-    } 
-    .top-demo h1 {
-        font-size: 3.5vw;
-    }  
+    .h2 {
+        white-space: normal;
+        font-size: 20px;
+        width: 80%;
+        margin: 15px auto auto auto;
+        top: 20px;
+    }
     #dashImg {
-        width: 70%;
-        height: 80%;
+        width: 60%;
+        //height: 80%;
     }
     #self {
-        width: 70%;
-        height: 70%;
+        width: 60%;
+     //   height: 70%;
     }
     #timeline {
         width: 80%;
     }
     img {
-        margin-top: 10px;
+       // margin-top: 10px auto auto auto;
+        display: inline;
+        box-shadow: 0px 1px 66px -4px rgba(0,0,0,0.68);
+    }
+    .date {
+        float: left;
+    }
+    #end-wizard-h{
+        white-space: normal
     }
     .buttons {
         position: relative;
@@ -77,13 +103,67 @@ page-wizard {
         background-color: rgb(26, 39, 71);
 
     }
-    .top-form-page {
-        position: relative;
-        display: block;
-        top: 60px; 
-       }
+    // .top-form-page {
+    //     position: relative;
+    //     display: block;
+    //     top: 60px; 
+    //    }
   
-    @media screen and (min-width:750px) {
+    // .input-form {
+    //     position: relative;
+    //     margin-top: 10vh; 
+    // }
+    // .input-item {
+    //   margin: .4vw auto;
+    //   display: block;
+    //   font-size: 3vw;
+    //   width: 80%;
+    //   height: 8vw;
+    //   max-height: 70px;
+    //   max-width: 1000px;
+    //   padding-left: 10px;
+    //   background-color: rgb(249, 247, 247);
+    //   border-radius: 5px;
+    //   border-color: rgb(242, 239, 239);
+    //   //padding-top: 7px; 
+    //   //margin-top:10px;
+    //   outline: none;
+    //   border:1px solid #cccccc
+    // }
+   
+    .question-header {
+        position: relative;
+    } 
+    .q-group {
+        padding: 20px auto;
+       // margin: 20px auto;
+        text-align: left;
+        font-size: 25px;
+     }
+     
+     .q-wrapper {
+       display: flex;
+       justify-content: space-between;
+       flex-direction: row-reverse;
+       padding-left: 0px; 
+     }
+     #select {
+         float: left !important;
+     }
+     
+     .select {
+       float: right;
+       /* margin-left: 30%; */
+     }
+     
+     .view{ 
+       float: right;
+     }
+     
+    //  .card-size {
+     
+    //  }
+     @media screen and (min-width:750px) {
         .nav-start{
          height: 5.5vw;
          max-height: 70px;
@@ -100,16 +180,41 @@ page-wizard {
             height: 4.8vw;
             width: 20vw;
          }
-         .top-demo h1 {
-
-         }
         }
+
+        @media screen and (min-width: 1000px) {
+            .h1 {
+               font-size: 40px;
+           }
+           .h2 {
+               font-size: 28px;
+           }
+           @media screen and (orientation: landscape) {
+            .question-header .h1 {
+               font-size: 35px;
+             } 
+             .question-header {
+                 margin-bottom: 10px;
+             }
+           }
+       }
+       @media screen and (min-width: 700px) and (orientation: portrait){
+        .h1 {
+            font-size: 40px;
+        }
+        .h2 {
+            font-size: 28px;
+        }
+       }
+
     @media screen and (orientation:landscape) { 
-        ion-slide.swiper-slide {
+        
+        .demo-slide {
             align-items: center;
          }
-         .top-simple {
+        .top-simple {
             top: auto;
+            width: 55%;
          }
         .top-demo{
             display: flex;
@@ -119,53 +224,54 @@ page-wizard {
             top: auto;
           //  flex-direction: row;
         }
-        .top-demo .top-message {
-            margin-right: 5vw;
+        .demo-header {
+            width: 40%;
+        }
+        
+        img {
+           width: 100px;
         }
         #dashImg {
-            width: 50%;
+            width: 30%;
             height: 80%;
         }
         #self {
-            width: 50%;
+            width: 30%;
             height: 70%;
         }
         #timeline {
-            width: 55%;
+            width: 35%;
         }
-    //     .top-form-page {
+        // .question-header {
+        //    display: flex;
+        //    justify-content: space-around;
+        //   //  margin-top: 100px;
+        // }      
+        .question-header {
+        //    position: relative;
+        //    top: 1vh;
+        }
+        .top-question {
+            position: relative;
+            top: 60px;
+        }
         
-    //    top: -100px;
-    //     }
+        .top-question .h1 {
+            margin: 0px;
+            font-size: 25px;
+            
+        }
+        .top-question .h2 {
+            margin: 0px auto 0px auto;
+            font-size: 20px;
+        }
         .buttons {
             margin-top: 5vw; 
          }
          .button1 {
              height: 5vw;
          }
-
+      
     }
-    .input-form {
-        position: relative;
-        margin-top: 10vh; 
-    }
-    .input-item {
-       margin: .4vw auto;
-      display: block;
-      font-size: 3vw;
-      width: 80%;
-      height: 8vw;
-      max-height: 70px;
-      max-width: 1000px;
-      padding-left: 10px;
-      background-color: rgb(249, 247, 247);
-      border-radius: 5px;
-      border-color: rgb(242, 239, 239);
-      //padding-top: 7px; 
-      //margin-top:10px;
-      outline: none;
-      border:1px solid #cccccc
-    } 
    
-
 }

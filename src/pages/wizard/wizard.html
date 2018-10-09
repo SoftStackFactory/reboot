@@ -14,103 +14,181 @@
 </ion-header>
 
 <ion-content >
-  
   <div class="nav-start">
     <button ion-button (click)="exit()"  class="start">Exit</button>
     <button ion-button (click)="back()"class="start">Back</button>
-    <button ion-button  (click)="next()" id="end">Next</button>
+    <button ion-button [disabled]='nextButton' (click)="next()" id="end">Next</button>
   </div>
-  <ion-slides pager (ionSlideDidChange)="slideChanged()">
-    <ion-slide>
-      <div class='top-simple'> 
-        <h1>Welcome</h1>
-        <p> InTranshition is an app designed for Veterans to transition into the civial environment.
-          This wizard will guide you through the app <br><br>
-          <strong> Scroll to the right to begin.</strong>
-        </p>
+ 
+  <ion-slides  (ionSlideDidChange)="slideChanged()" pager>
+
+    <ion-slide class="demo-slide">
+      <div class='top-simple'>
+        <ion-list class="simple-header" >
+          <ion-list-header>
+            <h1 class="h1">Welcome Austin!!</h1>
+          </ion-list-header>
+          <p class="h2">InTranshition is an app designed for Veterans to transition into the civial environment.
+            This wizard will guide you through the app.<br><br>
+            <strong> Scroll to the right to begin.</strong>
+          </p>
+        </ion-list>
       </div>
     </ion-slide>
-    <ion-slide>
+
+    <ion-slide class="demo-slide">
       <div class='top-demo'>
-        <div class="top-message">
-          <h1>Home Dasboard</h1>
-          <p>Here you will find links to the timeline and self assessment section.<br><br>
-            Usefull tips and links are also available to check out. </p>
-        </div>
+        <ion-list class="demo-header" >
+          <ion-list-header>
+            <h1 class="h1">Home Dasboard</h1>
+          </ion-list-header>
+          <p class="h2">Here you will find links to the timeline and self assessment section.
+          Usefull tips and links are also available to check out.</p>
+        </ion-list>
         <img id='dashImg' src='../../assets/imgs/dashboard.png'>
       </div>
     </ion-slide>
-    <ion-slide>
+
+    <ion-slide class="demo-slide">
       <div class='top-demo'>
-        <div class="top-message">
-        <h1>Self Assessment</h1>
-        <p>Here you will be promted to take your self assessment to assess your finances, relationships, family, and
-          more!</p>
-        </div>
+        <ion-list class="demo-header" >
+          <ion-list-header>
+            <h1 class="h1">Self Assesment</h1>
+          </ion-list-header>
+          <p class='h2'>Here you will be promted to take your self assessment to assess your finances, relationships, family, and
+            more!
+          </p>
+        </ion-list>
         <img id="self" src='../../assets/imgs/asssesment.png'>
       </div>
     </ion-slide>
-    <ion-slide>
+
+
+    <ion-slide class="demo-slide">
       <div class='top-demo'>
-        <div class="top-message">
-        <h1>Life Balance Wheel</h1>
-        <p>This chart will display the results of your self assesment by category.</p>
-          </div>
+        <ion-list class="demo-header">
+          <ion-list-header>
+            <h1 class="h1">Life Balance Wheel</h1>
+          </ion-list-header>
+          <p class='h2'>This chart will display the results of your self assesment by category.</p>
+        </ion-list>
         <img src='../../assets/imgs/whell.png'>
       </div>
     </ion-slide>
-    <ion-slide>
+
+    <ion-slide class="demo-slide">
       <div class='top-demo'>
-        <div class="top-message">
-          <h1>Timeline</h1>
-          <p>This is a timeline that will make your transition to the civilian life smoother. Each section has a to-do
-            item that you need to accomplish.</p>
-        </div>
-      
+        <ion-list class="demo-header" >
+          <ion-list-header>
+            <h1 class="h1">Timeline</h1>
+          </ion-list-header>
+          <p class='h2'>This is a timeline that will make your transition to the civilian life smoother. Each section has a to-do
+              item that you need to accomplish.</p>
+        </ion-list >
         <img id="time" src='../../assets/imgs/timeline.png'>
       </div>
     </ion-slide>
-    <ion-slide>
-        <div class='top-form-page'>
-            <div class="top-message">
-              <h1>Tell more about yourself</h1>
-              <p>By filling out this this short questionare, we can personalize the app for a better experience!</p>
-            </div>
-          </div>
-          <form [formGroup]="todo" (ngSubmit)="logForm()">
-          <div class='input-form'>
-              <input class="input-item" formControlName="branch" type="text" #first placeholder="Military Branch" > <br>
-              <ion-list radio-group  formControlName="injured" >
-                  <ion-list-header>
-                    Have you been injured or wounded?
-                  </ion-list-header>
-                  <ion-item>
-                    <ion-label> yes</ion-label>
-                    <ion-radio value="yes"></ion-radio>
-                  </ion-item> 
-                
-                   <ion-item>
-                    <ion-label>no</ion-label>
-                    <ion-radio value="no"></ion-radio>
-                  </ion-item>
-                </ion-list>
-                <ion-item>
-                <ion-label>Date Enlisted</ion-label>
-              <ion-datetime formControlName="EnlistingDate"  displayFormat="MM/DD/YYYY"  pickerFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-            </ion-item>
-            <button ion-button type="submit" (click)="onSubmit()" [disabled]="!todo.valid"> Submit </button>
-            </div>
-          </form>
+
+    <ion-slide class='quest-slide'>
+      <div class='top-question'>
+        <ion-list class="question-header" >
+          <ion-list-header class='inner-question-header' >
+            <h1 class="h1">Questionnaire 1/3</h1> 
+          </ion-list-header>
+          <p class='h2'>Tell us about yourself</p>
+        </ion-list>
         
-      
+      <form [formGroup]="todo" (ngSubmit)="logForm()" (ionChange)="formChanged">
+        <ion-card class="card-size">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+              Select your Branch of Service
+          </ion-item-divider>
+          <ion-item class="">
+            <span class='question'>{{branchDisplay}}</span>
+            <a class="select" (click)="showRadioBranch()">Select</a>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+     
+      <ion-card>
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+              Are you an active member or a veteran?
+          </ion-item-divider>
+          <ion-item class="">
+            <span class='question'>{{vetDisplay}}</span>
+            <a class="select" (click)="showVetOptions()">Select</a>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+
+      <ion-card *ngIf="vetSelection">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+           {{vetQuestion}}
+          </ion-item-divider>
+          <ion-item class="q-wrapper">
+            <ion-datetime 
+              type="date"
+              formControlName="VetQuestionName"
+              class='date'
+              displayFormat="MM/DD/YYYY" 
+            >
+            </ion-datetime>
+            <ion-label ><a class="select">Select</a></ion-label>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>    
+
+      <ion-card>
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+              Do you have any service disability?
+          </ion-item-divider>
+          <ion-item>
+            <span class='question'>{{disabilityDisplay}}</span>
+            <a class="select" #disabilityValue (click)="showRadioDisability()">Select</a>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+
+      <ion-card  *ngIf="hasDisability">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+            What Percentage?
+          </ion-item-divider>
+          <ion-item>
+            <ion-input 
+            type="number"
+            placeholder='Input Answer here..'
+            formControlName="PercentageQuestionName"
+            [required]="disabilityRequired"
+            >
+          </ion-input>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+      <button ion-button type="submit" [disabled]="!todo.valid" >submit</button>
+    </form>
+    </div> 
     </ion-slide>
-    <ion-slide>
-      <div class='top-simple'>
+  
+    <ion-slide class="demo-slide">
+        <div class='top-simple'>
+          <ion-list class="simple-header" >
+            <ion-list-header>
+              <h1 id="end-wizard-h" class="h1">Thank you for using the Wizard</h1>
+            </ion-list-header>
+            <p class="h2">You may begin by taking the self assesment.</p>
+          </ion-list >
+        </div>
+      <!-- <div class='top-simple'>
         <div class="top-message">
           <h1>Thanks for using the Wizard</h1>
           <p>You may begin by taking the self assesment.</p>
         </div>
-      </div>
+      </div> -->
       <div class='buttons'>
         <button class='button1' ion-button>Dashboard</button>
         <button class='button1' ion-button>Take Assesment</button>
