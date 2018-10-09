@@ -47,6 +47,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "@ionic/app-scripts": "^3.2.0",
     "@types/jest": "^23.3.3",
     "jest": "^23.6.0",

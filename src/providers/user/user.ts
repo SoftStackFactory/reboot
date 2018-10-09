@@ -14,4 +14,7 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
 
+  login(creds) {
+    return this.http.post('https://reboot-ssf.herokuapp.com/api/appUsers/login', creds);
+  }
 }
