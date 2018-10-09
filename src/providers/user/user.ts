@@ -21,4 +21,8 @@ export class UserProvider {
     return this.http.post(this.regUrl, user)
   }
 
+
+  login(creds) {
+    return this.http.post('https://reboot-ssf.herokuapp.com/api/appUsers/login', creds);
+  }
 }
