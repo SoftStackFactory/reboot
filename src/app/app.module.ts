@@ -15,6 +15,11 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
+import { TimelineComponent } from '../components/timeline/timeline';
+import { TimelineItemComponent } from '../components/timeline/timeline';
+import { TimelineTimeComponent } from '../components/timeline/timeline';
+
+import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -29,7 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     ProfilePage,
     TransitionPage,
     AssessmentPage,
-    TimelinePage
+    TimelinePage,
+    TimelineComponent,
+    TimelineItemComponent,
+    TimelineTimeComponent
   ],
   imports: [
     BrowserModule,
