@@ -21,39 +21,46 @@
 
     <ion-row justify-content-center>
       <ion-col col-12 col-md-4 col-xl-2 text-center>
-        <ion-icon name="contact"></ion-icon>
+        <ion-icon id="pic-con" name="contact"></ion-icon>
       </ion-col>
     </ion-row>
 
-    <ion-row justify-content-center>
-      <ion-col class='name' col-12 col-md-4 col-xl-2 text-center>
+    <ion-row class="section"justify-content-center>
+      <ion-col class='name' col-12 text-center>
         Peter Horton
       </ion-col>    
     </ion-row>
     
-    <ion-row justify-content-center>
-      <ion-col col-5 align-self-center>
+    <ion-row class="section" justify-content-center>
+      <ion-col  class="user-info-colum" align-self-center>
         <ion-list>
           <ion-item>
-            <ion-label color="dark">Name</ion-label>
-            <ion-input placeholder="Peter Horton" text-center></ion-input>
-          </ion-item>
+           
+            <ion-label class= "label"color="dark">Name</ion-label>
+             <div class="user-info" item-content text-center><p  text-center>Peter Horton<p></div>
+             </ion-item>
           <ion-item>
-            <ion-label color="dark">Email</ion-label>
-            <ion-input placeholder="peterh@mail.com" text-center></ion-input>
+            <ion-label class= "label" color="dark">Email</ion-label>
+            <div class="user-info" item-content text-center><p>phorton@gmail.com<p></div>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col col-2 push-4>
-        <button ion-button outline color="dark">Edit Profile</button>
+    <!-- <ion-row  justify-content-center>
+      <ion-col col-3  >
+        <button ion-button class="buttons" outline color="dark">Edit Profile</button>
       </ion-col>
-      <ion-col col-2 push-5>
-        <button ion-button outline color="dark">Logout</button>
+      <ion-col col-3 >
+        <button ion-button outline class="buttons" color="dark">Logout</button>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
   </ion-grid>
+  <div class="buttons-div">
+  <button ion-button class="buttons1" outline color="dark">Edit Profile</button>
+
+  <button ion-button outline class="buttons1" color="dark">Logout</button>
+  </div>
+  
 </ion-content>
