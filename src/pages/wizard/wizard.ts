@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides, AlertController} from 'ionic-angular';
+import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { createOfflineCompileUrlResolver } from '@angular/compiler';
 
 /**
  * Generated class for the WizardPage page.
@@ -17,14 +18,17 @@ export class WizardPage {
 
   private todo : FormGroup;
   percentQrequired: any = "required"
+ // index: number;
 
   @ViewChild(Slides) slides: Slides;
-
+ 
   constructor( public alertCtrl: AlertController, 
               public navCtrl: NavController,
               private formBuilder: FormBuilder, 
-              public navParams: NavParams ) {
-      let required = 
+              public navParams: NavParams, 
+              public plt: Platform
+             ) {
+      // let required = null;
       this.todo = this.formBuilder.group({
         VetQuestionName: ['', Validators.compose([Validators.required])],
         PercentageQuestionName: ["", Validators.compose([ Validators.maxLength(3), Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')])]
@@ -38,13 +42,96 @@ export class WizardPage {
         console.log("not valid", val) 
       } 
     })
+   
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad WizardPage');
-    console.log('Number of slides are :dcdcd');
-   // this.lockNextSlide()
+    console.log(this.nextButton)
+
+    //===> checks if slide is the beggining <==
+  //   if (this.slides.isBeginning()){
+  //     console.log("beg")
+  //   } else {
+  //     console.log("not beg")
+  //     let index = this.slides.getActiveIndex() 
+  //   console.log(index);
+  //   }
+  //  this.lockNextSlide()
+   //==> when platform is ready, calls a function
+   this.plt.ready().then((readySource) => {
+    console.log('Platform ready from', readySource);
+   let index = this.slides.getActiveIndex() 
+   console.log(index);
+    });
+  // this.slideChanged(null)
+  setTimeout( _ => {
+
+  this.slideChanged(null) 
+    if (this.slides.isBeginning()){
+      console.log("beg")
+    } else {
+      console.log("not beg")
+      let index = this.slides.getActiveIndex() 
+      console.log(index);
+    }
+   //this.lockNextSlide()
+  },
+   300 )
+  
   }
+
+  ionViewWillLoad() {
+    //this.nextButton = false;
+    console.log("will")
+  }
+  // formChanged() {
+  //   if(this.disabilityDisplay == "Yes"){
+  //     if(this.todo.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
+  //       console.log("valid", "yesDisability" )
+  //     } 
+  //   } else if(this.disabilityDisplay == "No") {
+  //     if(this.branchDisplay !="" && this.vetDisplay !='' ) {
+
+  //     }
+  //   }
+  // }
+
+  nextButton: boolean = false;
+  shouldLockSwipeToNext: boolean = false;
+  slideChanged(event) {
+    console.log(event)
+    let index = this.slides.realIndex; 
+    console.log(index);
+    if(index == (5 || 6) ) {
+      this.nextButton = true;
+      this.shouldLockSwipeToNext = true;
+      this.lockNextSlide()
+      console.log(5)
+    }else {
+        this.nextButton = false;
+        this.shouldLockSwipeToNext = false;
+        this.lockNextSlide()
+        console.log(5)
+    }
+  }
+
+  lockNextSlide(){
+      //  shouldLockSwipeToNext can be either true/false
+    this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
+  }
+ 
+  //when navigating to the new slide when user clicks submit 
+  onSubmit() {  
+    this.shouldLockSwipeToNext = false;
+    this.lockNextSlide()
+    this.next();
+    }
+
+  next() {
+    this.slides.slideNext(500);
+  }
+
 
 //radio alert for qestionnaire 1: marine branches
   branchDisplay: any = '';
@@ -194,49 +281,6 @@ export class WizardPage {
     alert.present(); 
   }
 
-  formChanged() {
-    if(this.disabilityDisplay == "Yes"){
-      if(this.todo.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
-        console.log("valid", "yesDisability" )
-      } 
-    } else if(this.disabilityDisplay == "No") {
-      if(this.branchDisplay !="" && this.vetDisplay !='' ) {
-
-      }
-    }
-  }
-
-  nextButton: boolean = true;
-  shouldLockSwipeToNext= false;
-  slideChanged() {
-    let index = this.slides.getActiveIndex() 
-    console.log(index);
-    if(index == 5) {
-      this.shouldLockSwipeToNext = true;
-      this.lockNextSlide()
-    } else {
-        this.shouldLockSwipeToNext = false;
-        this.lockNextSlide()
-    }
-  }
-
-  lockNextSlide(){
-     ; //  shouldLockSwipeToNext can be either true/false
-    this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
-    console.log('Number of slides are :'); 
-  }
- 
-  //when navigating to the new slide when user clicks submit 
-  onSubmit() {  
-    this.shouldLockSwipeToNext = false;
-    this.lockNextSlide()
-    this.next();
-    }
-
-  next() {
-    this.slides.slideNext(500);
-  }
-
   //questionnaire ######2222222
   // show employed question
   showUnemployed: boolean = false;
@@ -272,10 +316,8 @@ export class WizardPage {
         this.showUnemployed = false;
          }
         } 
-
     });
     alert.present();
-
   }
 
   //question 2) Married
