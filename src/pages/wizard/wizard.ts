@@ -109,9 +109,10 @@ export class WizardPage {
   vetSelection: boolean = false;
   vetDisplay: string = "";
   vetQuestion: string = "";
+
   showVetOptions() {
     let alert = this.alertCtrl.create({
-      message: "Select One"
+      message: "Select one"
     });
     alert.setTitle('Military Status');
 
@@ -144,7 +145,7 @@ export class WizardPage {
       }
     });
     alert.present();
-}
+  }
 // question 3 servive disability
   hasDisability: boolean = false;
   disabilityDisplay: string = '';
@@ -152,7 +153,7 @@ export class WizardPage {
   showRadioDisability() {
     let alert = this.alertCtrl.create(
       {
-        title:"Military Branch", 
+        title:"Dissability", 
         cssClass: "branchRadio", 
         message: "Select One"
       })
@@ -236,6 +237,92 @@ export class WizardPage {
     this.slides.slideNext(500);
   }
 
+  //questionnaire ######2222222
+  // show employed question
+  showUnemployed: boolean = false;
+  employedAnswer: string= "";
+  showEmployedRadio() {
+    let alert = this.alertCtrl.create({
+      message: "Select one"
+    });
+    alert.setTitle('Employment');
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Employed',
+      value: 'Employed',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Unemployed',
+      value: 'Unemployed',
+      checked: false
+    });
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        console.log("OK", data);
+        this.employedAnswer = data;
+        if(data == "Unemployed"){
+          this.showUnemployed = true;
+        } else if(data == "Employed"){
+        this.showUnemployed = false;
+         }
+        } 
+
+    });
+    alert.present();
+
+  }
+
+  //question 2) Married
+  marriedAnswer: string = '';
+  showMarriedAlert() {
+    let alert = this.alertCtrl.create(
+      {
+        title:"Married Status", 
+        cssClass: "branchRadio", 
+        message: "Select One"
+      })
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Yes',
+      value: 'Yes',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'No',
+      value: 'No',
+      checked: false
+    });
+  
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        console.log("OK", data);
+        this.marriedAnswer = data;
+        if(data == "Yes") {
+          
+        } else if(data == "No"){
+         
+        }
+      
+      }
+    });
+
+    alert.present(); 
+  }
+
+  logForm2() {
+    
+  }
   // showRadioRank() {
   //   let alert = this.alertCtrl.create({
   //     message:"Select One"
@@ -272,5 +359,5 @@ export class WizardPage {
   //   });
   //   alert.present();
   // }
-
 }
+
