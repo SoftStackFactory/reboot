@@ -96,20 +96,7 @@
           </ion-item><br>
         </ion-col>
       </ion-row>
-      
-      <ion-item class="input" no-lines>
-        <ion-input 
-          [(ngModel)]="registerUser.password"
-          class="input" 
-          type="password" 
-          #pass 
-          placeholder="Password" 
-          formControlName='password'
-          [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)"></ion-input> 
-      </ion-item>
-      <ion-item class="input" no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
-        <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
-      </ion-item><br>
+
       
       <ion-row justify-content-center>
         <ion-col col-10>
@@ -152,5 +139,4 @@
       <button id="login-button"color="primary" ion-button (click)="goLogin()">LOGIN</button>
     </div>
     
-    </ion-grid>
 </ion-content>

@@ -21,7 +21,6 @@ import { TimelineTimeComponent } from '../components/timeline/timeline';
 
 import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
