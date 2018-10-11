@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import  { ENV }  from  '@app /env';
+
 /*
   Generated class for the UserProvider provider.
 
@@ -10,7 +12,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
-  regUrl: string = "https://j-reboot-backend.herokuapp.com/api/appUsers"
+  requestUrl: string = ENV.url
 
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
@@ -18,11 +20,11 @@ export class UserProvider {
 
   sendReg(user) {
     console.log('sendReg() runs')
-    return this.http.post(this.regUrl, user)
+    return this.http.post(this.requestUrl, user)
   }
 
 
   login(creds) {
-    return this.http.post('https://reboot-ssf.herokuapp.com/api/appUsers/login', creds);
+    return this.http.post(this.requestUrl + '/login', creds);
   }
 }
