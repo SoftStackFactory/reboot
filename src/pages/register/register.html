@@ -16,7 +16,7 @@
     <div class="card-title">INTRANSITION</div>
   </div>
 -->
-
+  <ion-grid>
     <form class="form" [formGroup]='validate' (ngSubmit)='submitReg()'>
       <ion-item class="input" no-lines>
         <ion-input 
@@ -105,5 +105,6 @@
       <p id="sign-in">If you already have an account, sign in.</p>
       <button id="login-button"color="primary" ion-button (click)="goLogin()">LOGIN</button>
     </div>
+  </ion-grid>
     
 </ion-content>
