@@ -42,6 +42,10 @@ page-register {
   }
 
   .inputs {
+    position: relative;
+    border: 1px solid #e5e6e6;
+    background-color: #f8f8f8;
+    padding-left: 60px;
     font-size: 25px;
   }
 
@@ -185,6 +189,11 @@ page-register {
     @media screen and (orientation:landscape){
       #header {
         padding: 20px;
+      }
+
+      page-login .inputs {
+        margin: auto;
+        width: 70%;
       }
     }
 
