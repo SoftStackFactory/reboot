@@ -98,18 +98,18 @@ export class WizardPage implements OnInit {
 
   secondFormFunct() {
     this.secondForm = this.formBuilder.group({
-      lastEmployed: ["", Validators.required] 
+      lastEmployed: ["", ] 
     });
 
     this.secondForm.statusChanges
       .subscribe(val => {
         console.log("status changed")
         console.log
-        if(this.firstForm.valid == true) {
+        if(this.secondForm.valid == true) {
           console.log("valid", val)
           this.nextButton = false;
           this.shouldLockSwipeToNext = false;
-        }else if( this.firstForm.valid == false) {
+        }else if( this.secondForm.valid == false) {
           console.log("not valid", val) 
           this.nextButton = true;
           this.shouldLockSwipeToNext = true;
@@ -143,14 +143,10 @@ export class WizardPage implements OnInit {
   slideChanged() {
     let index = this.slides.realIndex; 
     console.log(index);
-    if(index == 5 && !this.firstForm.valid) {
+    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid))  {
       this.nextButton = true;
       this.shouldLockSwipeToNext = true;
-    }else if(index == 6 && !this.secondForm.valid) {
-      this.nextButton = true;
-      this.shouldLockSwipeToNext = true;
-    }
-    else {
+    }else {
         this.nextButton = false;
         this.shouldLockSwipeToNext = false;
     }
@@ -316,23 +312,25 @@ export class WizardPage implements OnInit {
         this._disabilityValue = data; 
         console.log("OK", data);
         const percentQuestion = this.firstForm.get('percentQuestionName')
-        if( data !== undefined) {
+        
           if(data == "Yes") {
             this.hasDisability = true;
             console.log(this.hasDisability, "Yes has disability")
             percentQuestion.setValidators(Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')]));
             console.log("if -setValidators")
-          } else if(data == "No"){          
+          }else if(data == 'No'){          
             this.hasDisability = false; 
             console.log(this.hasDisability, "NO has disability")
             percentQuestion.clearValidators() 
             console.log("else -clearValidators")
+          }else if (data === undefined) {
+            this.hasDisability = false;
+            percentQuestion.clearValidators()
+            console.log("else undefined -clearValidators", data)
           }
           percentQuestion.updateValueAndValidity()
           console.log("handler: updateValue")
-        }else {
-
-        }
+        
       
       }
     });
@@ -371,12 +369,23 @@ export class WizardPage implements OnInit {
         this.employedAnswer = data;
         console.log(this.secondForm.valid, "2ndformValid?")
         console.log(this.secondForm, "2ndform")
+        const lastEmployed = this.secondForm.get("lastEmployed")
         if(data == "Unemployed"){
           this.showUnemployed = true;
-        } else if(data == "Employed"){
-        this.showUnemployed = false;
-         }
-        } 
+          lastEmployed.setValidators(Validators.required)
+          console.log("if -setValidators")
+        } else if(data === "Employed") {
+          this.showUnemployed = false;
+          lastEmployed.clearValidators()
+          console.log("else -clearValidators", data)
+        } else if (data === undefined) {
+          this.showUnemployed = false;
+          lastEmployed.clearValidators()
+          console.log("else -clearValidators", data)
+        }
+        lastEmployed.updateValueAndValidity()
+        console.log("handler: updateValue")
+      } 
     });
     alert.present();
   }
