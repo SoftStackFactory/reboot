@@ -78,6 +78,7 @@ export class WizardPage implements OnInit {
     this.firstForm.statusChanges
       .subscribe(val => {
         console.log("status changed")
+        console.log
         if(this.firstForm.valid == true) {
           console.log("valid", val)
           this.nextButton = false;
@@ -94,6 +95,9 @@ export class WizardPage implements OnInit {
   //   //this.nextButton = false;
   //   console.log("will")
   // }
+  formChanged() {
+    console.log(this.firstForm)
+  }
   // formChanged() {
   //   if(this.disabilityDisplay == "Yes"){
   //     if(this.firstForm.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
@@ -283,7 +287,6 @@ export class WizardPage implements OnInit {
         this._disabilityValue = data; 
         console.log("OK", data);
         const percentQuestion = this.firstForm.get('percentQuestionName')
-        console.log(this._disabilityValue, "disabilityValue")
         if( data !== undefined) {
           if(data == "Yes") {
             this.hasDisability = true;
