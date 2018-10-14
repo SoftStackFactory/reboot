@@ -238,25 +238,25 @@
           <p class='h2'>Continue</p>
         </ion-list>
           
-        <form [formGroup]="secondForm" (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
+        <form [formGroup]="thirdForm" (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
 
-          <ion-card  *ngIf="hasDisability">
+          <ion-card >
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
                 What is your military rank?
               </ion-item-divider>
               <ion-item>
                 <ion-input 
-                type="number"
+                type="text"
                 placeholder='Input Answer here..'
-                
+                formControlName="rank"
                 >
                 </ion-input>
               </ion-item>
             </ion-item-group>
           </ion-card>
 
-          <ion-card  *ngIf="hasDisability">
+          <ion-card >
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
                 What is your MOS/NEC?
@@ -265,7 +265,7 @@
                 <ion-input 
                 type="number"
                 placeholder='Input Answer here..'
-                
+                formControlName="MOS"
                 >
                 </ion-input>
               </ion-item>

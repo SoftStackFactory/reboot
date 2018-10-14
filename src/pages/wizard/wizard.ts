@@ -36,6 +36,7 @@ export class WizardPage implements OnInit {
       // let required = null;
     this.firstFormFunct(); 
     this.secondFormFunct();
+    this.thirdFormFunct();
   }
 
   ngOnInit() {}
@@ -117,7 +118,31 @@ export class WizardPage implements OnInit {
         this.lockNextSlide()
       })
 
-  }
+  };
+
+  thirdFormFunct() {
+    this.thirdForm = this.formBuilder.group({
+      rank: ["", Validators.compose([ Validators.required])],
+      MOS: ["", Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$') ]) ]
+    });
+
+    this.thirdForm.statusChanges
+      .subscribe(val => {
+        console.log("status changed")
+        console.log()
+        if(this.thirdForm.valid == true) {
+          console.log("valid", val)
+          this.nextButton = false;
+          this.shouldLockSwipeToNext = false;
+        }else if( this.thirdForm.valid == false) {
+          console.log("not valid", val) 
+          this.nextButton = true;
+          this.shouldLockSwipeToNext = true;
+        } 
+        this.lockNextSlide()
+      })
+
+  };
   // ionViewWillLoad() {
   //   //this.nextButton = false;
   //   console.log("will")
@@ -143,7 +168,7 @@ export class WizardPage implements OnInit {
   slideChanged() {
     let index = this.slides.realIndex; 
     console.log(index);
-    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid))  {
+    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7 && !this.thirdForm.valid))  {
       this.nextButton = true;
       this.shouldLockSwipeToNext = true;
     }else {
