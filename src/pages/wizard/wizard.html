@@ -188,7 +188,7 @@
       <ion-card>
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Are you employed or unmployed?
+              Are you employed or unemployed?
           </ion-item-divider>
           <ion-item class="">
             <span class='question'>{{employedAnswer}}</span>
@@ -200,11 +200,16 @@
       <ion-card *ngIf="showUnemployed">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-           For How Long //alert with options || input date, or time?
+           When were you last employed?
           </ion-item-divider>
           <ion-item class="q-wrapper">
-           {{employedAnswer}}
-            <ion-label> <a class="select"> Select </a> </ion-label>
+            <ion-datetime 
+              type="date"
+              class='date'
+              displayFormat="MM/YYYY" 
+            >
+            </ion-datetime>
+            <ion-label ><a class="select">Select</a></ion-label>
           </ion-item>
         </ion-item-group>
       </ion-card>    
@@ -222,7 +227,7 @@
       </ion-card>
 
      
-      <button ion-button type="submit" [disabled]="" (click)="onSubmit()" >submit</button>
+      <!-- <button ion-button type="submit" [disabled]="" (click)="onSubmit()" >submit</button> -->
     </form>
     </div> 
     </ion-slide>

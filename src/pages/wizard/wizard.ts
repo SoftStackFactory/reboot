@@ -95,9 +95,9 @@ export class WizardPage implements OnInit {
   //   //this.nextButton = false;
   //   console.log("will")
   // }
-  formChanged() {
-    console.log(this.firstForm)
-  }
+  // formChanged() {
+  //   console.log(this.firstForm)
+  // }
   // formChanged() {
   //   if(this.disabilityDisplay == "Yes"){
   //     if(this.firstForm.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
