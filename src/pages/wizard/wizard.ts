@@ -17,6 +17,9 @@ import { createOfflineCompileUrlResolver } from '@angular/compiler';
 export class WizardPage implements OnInit {
 
   private firstForm : FormGroup;
+  private secondForm : FormGroup;
+  private thirdForm : FormGroup;
+
   get percentQuestion() {
     return this.firstForm.get('percentQuestionName')
   }
@@ -31,7 +34,8 @@ export class WizardPage implements OnInit {
               public plt: Platform
              ) {
       // let required = null;
-    this.formFunct() 
+    this.firstFormFunct(); 
+    this.secondFormFunct();
   }
 
   ngOnInit() {}
@@ -53,7 +57,7 @@ export class WizardPage implements OnInit {
   }, 300 );
  };
   
-  formFunct() {
+  firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       vetQuestionName: ['', Validators.compose([Validators.required])],
       percentQuestionName: ["", Validators.compose([ Validators.maxLength(3), Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')])]
@@ -91,6 +95,29 @@ export class WizardPage implements OnInit {
         this.lockNextSlide()
       })
   };
+
+  secondFormFunct() {
+    this.secondForm = this.formBuilder.group({
+      lastEmployed: ["", Validators.required] 
+    });
+
+    this.secondForm.statusChanges
+      .subscribe(val => {
+        console.log("status changed")
+        console.log
+        if(this.firstForm.valid == true) {
+          console.log("valid", val)
+          this.nextButton = false;
+          this.shouldLockSwipeToNext = false;
+        }else if( this.firstForm.valid == false) {
+          console.log("not valid", val) 
+          this.nextButton = true;
+          this.shouldLockSwipeToNext = true;
+        } 
+        this.lockNextSlide()
+      })
+
+  }
   // ionViewWillLoad() {
   //   //this.nextButton = false;
   //   console.log("will")
@@ -116,17 +143,18 @@ export class WizardPage implements OnInit {
   slideChanged() {
     let index = this.slides.realIndex; 
     console.log(index);
-    if(index == (5 || 6) && !this.firstForm.valid) {
+    if(index == 5 && !this.firstForm.valid) {
       this.nextButton = true;
       this.shouldLockSwipeToNext = true;
-      this.lockNextSlide()
-      console.log(5)
-    }else {
+    }else if(index == 6 && !this.secondForm.valid) {
+      this.nextButton = true;
+      this.shouldLockSwipeToNext = true;
+    }
+    else {
         this.nextButton = false;
         this.shouldLockSwipeToNext = false;
-        this.lockNextSlide()
-        console.log(5)
     }
+    this.lockNextSlide()
   }
 
   lockNextSlide(){
@@ -202,8 +230,9 @@ export class WizardPage implements OnInit {
   // alert question for military rank
   
   logForm(){
-    console.log(this.firstForm.value)
+    console.log(this.firstForm)
   }
+
   //alert for question 2: are you a vet or active member?
   vetSelection: boolean = false;
   vetDisplay: string = "";
@@ -340,6 +369,8 @@ export class WizardPage implements OnInit {
       handler: data => {
         console.log("OK", data);
         this.employedAnswer = data;
+        console.log(this.secondForm.valid, "2ndformValid?")
+        console.log(this.secondForm, "2ndform")
         if(data == "Unemployed"){
           this.showUnemployed = true;
         } else if(data == "Employed"){
@@ -391,8 +422,8 @@ export class WizardPage implements OnInit {
     alert.present(); 
   }
 
-  logForm2() {
-    
+  logFormTwo(){
+    console.log(this.secondForm)
   }
   // showRadioRank() {
   //   let alert = this.alertCtrl.create({

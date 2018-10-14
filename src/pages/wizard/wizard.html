@@ -163,7 +163,6 @@
             type="number"
             placeholder='Input Answer here..'
             formControlName="percentQuestionName"
-            
             >
           </ion-input>
           </ion-item>
@@ -183,7 +182,7 @@
           <p class='h2'>Continue </p>
         </ion-list>
         
-      <form [formGroup]="" (ngSubmit)="logForm2()" (ionChange)="formChanged">
+      <form [formGroup]="secondForm" (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
      
       <ion-card>
         <ion-item-group>
@@ -207,6 +206,7 @@
               type="date"
               class='date'
               displayFormat="MM/YYYY" 
+              formControlName="lastEmployed"
             >
             </ion-datetime>
             <ion-label ><a class="select">Select</a></ion-label>
@@ -224,9 +224,7 @@
             <a class="select" (click)='showMarriedAlert()'>Select</a>
           </ion-item>
         </ion-item-group>
-      </ion-card>
-
-     
+      </ion-card>     
       <!-- <button ion-button type="submit" [disabled]="" (click)="onSubmit()" >submit</button> -->
     </form>
     </div> 
