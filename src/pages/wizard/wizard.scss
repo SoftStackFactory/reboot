@@ -285,5 +285,13 @@ page-wizard {
          }
       
     }
+    .invalid {
+        border: 1px solid #ea6153;
+      }
+      
+    .invalid-text {
+        font-size: 20px;
+        color: #ea6153;
+    }
    
 }
