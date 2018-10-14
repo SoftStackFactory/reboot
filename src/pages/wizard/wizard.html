@@ -140,9 +140,9 @@
             </ion-datetime>
             <ion-label ><a class="select" >Select</a></ion-label>
           </ion-item>
-        <ion-item class="" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched)">
-          <p class="">Enter a valid name</p>
-        </ion-item>
+          <ion-item class="" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched)">
+          <p class="">Enter a date</p>
+          </ion-item>
         </ion-item-group>
       </ion-card>    
 
@@ -168,8 +168,12 @@
             type="number"
             placeholder='Input Answer here..'
             formControlName="percentQuestionName"
+            [class.invalid]="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty)">
             >
           </ion-input>
+          </ion-item>
+          <ion-item class="" no-lines *ngIf="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty)">
+            <p class="">Enter a valid percent number from 1-100</p>
           </ion-item>
         </ion-item-group>
       </ion-card>
