@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
 
 /**
@@ -61,7 +61,7 @@ export class WizardPage implements OnInit {
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       vetQuestionName: ['', Validators.compose([Validators.required])],
-      percentQuestionName: ["", Validators.compose([ Validators.maxLength(3), Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')])]
+      percentQuestionName: ["",]
     });
 
     // this.firstForm.get('vetQuestionName').valueChanges
@@ -95,6 +95,10 @@ export class WizardPage implements OnInit {
         } 
         this.lockNextSlide()
       })
+  };
+  ondate() {
+    const date1 = this.firstForm.get('vetQuestionName')
+    console.log(date1)
   };
 
   secondFormFunct() {
@@ -188,6 +192,7 @@ export class WizardPage implements OnInit {
     this.shouldLockSwipeToNext = false;
     this.lockNextSlide()
     this.next();
+    console.log()
     }
 
   next() {

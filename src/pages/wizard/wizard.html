@@ -98,11 +98,11 @@
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged">
+      <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged()">
         <ion-card class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Select your military branch
+            Select your military branch
           </ion-item-divider>
           <ion-item class="">
             <span class='question'>{{branchDisplay}}</span>
@@ -114,7 +114,7 @@
       <ion-card>
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Are you an active member or a veteran?
+            Are you an active member or a veteran?
           </ion-item-divider>
           <ion-item class="">
             <span class='question'>{{vetDisplay}}</span>
@@ -130,14 +130,19 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-datetime 
+              #vetQuestionName
               type="date"
               formControlName="vetQuestionName"
               class='date'
               displayFormat="MM/YYYY" 
+              [class.invalid]="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched)">
             >
             </ion-datetime>
-            <ion-label ><a class="select">Select</a></ion-label>
+            <ion-label ><a class="select" >Select</a></ion-label>
           </ion-item>
+        <ion-item class="" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched)">
+          <p class="">Enter a valid name</p>
+        </ion-item>
         </ion-item-group>
       </ion-card>    
 
@@ -168,8 +173,11 @@
           </ion-item>
         </ion-item-group>
       </ion-card>
-      <!-- <button ion-button type="submit" (click)="onSubmit()" [disabled]="!todo.valid" >submit</button> -->
+
+      <button ion-button type="submit" (click)="onSubmit()" [disabled]="!firstForm.valid" >submit</button><br>
+      <button ion-button (click)="ondate()">  </button>
     </form>
+    
     </div> 
     </ion-slide>
 
