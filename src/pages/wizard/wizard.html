@@ -99,7 +99,8 @@
         </ion-list>
         
       <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged()">
-        <ion-card class="card-size">
+
+        <ion-card [class.invalid]="!branchValid && branchTouched" class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Select your military branch
@@ -108,6 +109,9 @@
             <span class='question'>{{branchDisplay}}</span>
             <a class="select" (click)="showRadioBranch()">Select</a>
           </ion-item>
+          <ion-item  no-lines *ngIf="!branchValid && branchTouched" >
+            <p class="invalid-text">Enter an option</p>
+           </ion-item>
         </ion-item-group>
       </ion-card>
      

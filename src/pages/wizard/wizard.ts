@@ -201,8 +201,10 @@ export class WizardPage implements OnInit {
 
 //radio alert for qestionnaire 1: marine branches
   branchDisplay: any = '';
+  branchValid: boolean= false;
+  branchTouched: boolean = false;
   showRadioBranch() {
-    let alert = this.alertCtrl.create(
+    let branchAlert = this.alertCtrl.create(
       {title:"Military Branch", 
       cssClass: "branchRadio", 
       message: "Select One", 
@@ -240,19 +242,38 @@ export class WizardPage implements OnInit {
       ],
         buttons : [
         {
-           text: "Cancel"
+           text: "Cancel",
+           handler: _ => {
+            if(this.branchDisplay == undefined || '') {
+              this.branchValid = false;
+              console.log("cancel")
+            } else{
+              return
+            }
+           }
         },
         {
           text: "Ok",
           handler: data => {
-          console.log(data, alert);
-          this.branchDisplay = data;
-          console.log(this.firstForm, this.firstForm.valid)
-        }
+            if(data) {
+              this.branchValid = true;
+            } else {
+              this.branchValid = false;
+            }
+            this.branchDisplay = data;
+          }
         }]});
-
-    alert.present();
+    branchAlert.didLeave
+        .subscribe( _ => {
+          this.branchTouched = true;
+          console.log("didEnter")
+        })
+    branchAlert.present();
+   
   }
+  
+  
+  
   // alert question for military rank
   
   logForm(){
