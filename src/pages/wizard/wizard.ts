@@ -246,8 +246,14 @@ export class WizardPage implements OnInit {
     alert.present();
   }
 // question 3 servive disability
+  private _disabilityValue: string = '';
+  // public get disabilityValue(): string {
+  //   return this._disabilityValue;
+  // }
+  // public set disabilityValue(value: string) {
+  //   this._disabilityValue = value;
+  // }
   hasDisability: boolean = false;
-  disabilityValue: string = '';
   showRadioDisability() {
     let alert = this.alertCtrl.create(
       {
@@ -274,10 +280,10 @@ export class WizardPage implements OnInit {
     alert.addButton({
       text: 'OK',
       handler: data => {
-        this.disabilityValue = data; 
+        this._disabilityValue = data; 
         console.log("OK", data);
         const percentQuestion = this.firstForm.get('percentQuestionName')
-        console.log(percentQuestion, "percentQuestion")
+        console.log(this._disabilityValue, "disabilityValue")
         if( data !== undefined) {
           if(data == "Yes") {
             this.hasDisability = true;
