@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
@@ -14,10 +14,12 @@ import { createOfflineCompileUrlResolver } from '@angular/compiler';
   selector: 'page-wizard',
   templateUrl: 'wizard.html',
 })
-export class WizardPage {
+export class WizardPage implements OnInit {
 
-  private todo : FormGroup;
-  percentQrequired: any = "required"
+  private firstForm : FormGroup;
+  get percentQuestion() {
+    return this.firstForm.get('percentQuestionName')
+  }
  // index: number;
 
   @ViewChild(Slides) slides: Slides;
@@ -29,81 +31,88 @@ export class WizardPage {
               public plt: Platform
              ) {
       // let required = null;
-      this.todo = this.formBuilder.group({
-        VetQuestionName: ['', Validators.compose([Validators.required])],
-        PercentageQuestionName: ["", Validators.compose([ Validators.maxLength(3), Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')])]
-    });
-
-    this.todo.statusChanges.subscribe(val => {
-      console.log("status changed")
-      if(this.todo.valid == true) {
-        console.log("valid", val)
-      } else if( this.todo.valid == false) {
-        console.log("not valid", val) 
-      } 
-    })
-   
+    this.formFunct() 
   }
+
+  ngOnInit() {}
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad WizardPage');
-    console.log(this.nextButton)
-
-    //===> checks if slide is the beggining <==
-  //   if (this.slides.isBeginning()){
-  //     console.log("beg")
-  //   } else {
-  //     console.log("not beg")
-  //     let index = this.slides.getActiveIndex() 
-  //   console.log(index);
-  //   }
+   // ===> checks if slide is the beggining <==
+    // if (this.slides.isBeginning()){
+    //   console.log("beg")
+    // } else {
+    //   console.log("not beg")
+    //   let index = this.slides.getActiveIndex() 
+    // console.log(index);
+    // }
   //  this.lockNextSlide()
-   //==> when platform is ready, calls a function
-   this.plt.ready().then((readySource) => {
-    console.log('Platform ready from', readySource);
-   let index = this.slides.getActiveIndex() 
-   console.log(index);
-    });
-  // this.slideChanged(null)
+ 
   setTimeout( _ => {
-
-  this.slideChanged(null) 
-    if (this.slides.isBeginning()){
-      console.log("beg")
-    } else {
-      console.log("not beg")
-      let index = this.slides.getActiveIndex() 
-      console.log(index);
-    }
-   //this.lockNextSlide()
-  },
-   300 )
+  this.slideChanged() 
+  }, 300 );
+ };
   
-  }
+  formFunct() {
+    this.firstForm = this.formBuilder.group({
+      vetQuestionName: ['', Validators.compose([Validators.required])],
+      percentQuestionName: ["", Validators.compose([ Validators.maxLength(3), Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')])]
+    });
 
-  ionViewWillLoad() {
-    //this.nextButton = false;
-    console.log("will")
-  }
+    // this.firstForm.get('vetQuestionName').valueChanges
+    //   .subscribe( value => {
+    //     console.log(value, "value changed")
+    //     const percentQuestion = this.firstForm.get('percentQuestionName')
+    //     console.log(percentQuestion, "percentQuestion")
+    //     if(value) {
+    //       percentQuestion.setValidators(Validators.required);
+    //       console.log("if -setValidators")
+    //     } else {
+    //       percentQuestion.clearValidators() 
+    //       console.log("else -clearValidators")
+    //     }        
+    //     percentQuestion.updateValueAndValidity()
+    //     console.log("subscribe: updateValue")
+    //   });
+
+    this.firstForm.statusChanges
+      .subscribe(val => {
+        console.log("status changed")
+        if(this.firstForm.valid == true) {
+          console.log("valid", val)
+          this.nextButton = false;
+          this.shouldLockSwipeToNext = false;
+        }else if( this.firstForm.valid == false) {
+          console.log("not valid", val) 
+          this.nextButton = true;
+          this.shouldLockSwipeToNext = true;
+        } 
+        this.lockNextSlide()
+      })
+  };
+  // ionViewWillLoad() {
+  //   //this.nextButton = false;
+  //   console.log("will")
+  // }
   // formChanged() {
   //   if(this.disabilityDisplay == "Yes"){
-  //     if(this.todo.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
+  //     if(this.firstForm.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
   //       console.log("valid", "yesDisability" )
   //     } 
   //   } else if(this.disabilityDisplay == "No") {
   //     if(this.branchDisplay !="" && this.vetDisplay !='' ) {
 
   //     }
-  //   }
-  // }
+  //    }
+  //  }
 
+  // "if slide is questionnaire, then block slide-to-next option"
   nextButton: boolean = false;
   shouldLockSwipeToNext: boolean = false;
-  slideChanged(event) {
-    console.log(event)
+  slideChanged() {
     let index = this.slides.realIndex; 
     console.log(index);
-    if(index == (5 || 6) ) {
+    if(index == (5 || 6) && !this.firstForm.valid) {
       this.nextButton = true;
       this.shouldLockSwipeToNext = true;
       this.lockNextSlide()
@@ -131,7 +140,6 @@ export class WizardPage {
   next() {
     this.slides.slideNext(500);
   }
-
 
 //radio alert for qestionnaire 1: marine branches
   branchDisplay: any = '';
@@ -174,15 +182,15 @@ export class WizardPage {
       ],
         buttons : [
         {
-            text: "Cancel"
+           text: "Cancel"
         },
         {
-            text: "Ok",
-            handler: data => {
-            console.log(data, alert);
-            this.branchDisplay = data;
-            console.log(this.todo, this.todo.valid)
-            }
+          text: "Ok",
+          handler: data => {
+          console.log(data, alert);
+          this.branchDisplay = data;
+          console.log(this.firstForm, this.firstForm.valid)
+        }
         }]});
 
     alert.present();
@@ -190,7 +198,7 @@ export class WizardPage {
   // alert question for military rank
   
   logForm(){
-    console.log(this.todo.value)
+    console.log(this.firstForm.value)
   }
   //alert for question 2: are you a vet or active member?
   vetSelection: boolean = false;
@@ -221,13 +229,17 @@ export class WizardPage {
       text: 'OK',
       handler: data => {
         console.log("OK", data);
-        this.vetSelection = true;
         this.vetDisplay = data;
+        console.log(data, "DATA");
         if(data == "Active") {
+          this.vetSelection = true;
           this.vetQuestion = "When is your separation date?"
           console.log(this.vetQuestion)
-        } else if(data == "Veteran") {
+        }else if(data == "Veteran") {
+          this.vetSelection = true;
           this.vetQuestion = "When was your sepatation date?"
+        }else if(data === undefined) {
+          this.vetSelection = false;
         }
       }
     });
@@ -235,8 +247,7 @@ export class WizardPage {
   }
 // question 3 servive disability
   hasDisability: boolean = false;
-  disabilityDisplay: string = '';
-  disabilityRequired: boolean= true;
+  disabilityValue: string = '';
   showRadioDisability() {
     let alert = this.alertCtrl.create(
       {
@@ -259,22 +270,32 @@ export class WizardPage {
       checked: false
     });
    
-
     alert.addButton('Cancel');
     alert.addButton({
       text: 'OK',
       handler: data => {
+        this.disabilityValue = data; 
         console.log("OK", data);
-        if(data == "Yes") {
-          this.disabilityRequired = true;
-          this.hasDisability = true;
-        } else if(data == "No"){
-          this.disabilityRequired = false;
-          this.percentQrequired = null;
-          this.hasDisability = false; 
-          console.log(this.hasDisability)
+        const percentQuestion = this.firstForm.get('percentQuestionName')
+        console.log(percentQuestion, "percentQuestion")
+        if( data !== undefined) {
+          if(data == "Yes") {
+            this.hasDisability = true;
+            console.log(this.hasDisability, "Yes has disability")
+            percentQuestion.setValidators(Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')]));
+            console.log("if -setValidators")
+          } else if(data == "No"){          
+            this.hasDisability = false; 
+            console.log(this.hasDisability, "NO has disability")
+            percentQuestion.clearValidators() 
+            console.log("else -clearValidators")
+          }
+          percentQuestion.updateValueAndValidity()
+          console.log("handler: updateValue")
+        }else {
+
         }
-        this.disabilityDisplay = data;
+      
       }
     });
 
@@ -355,7 +376,6 @@ export class WizardPage {
         } else if(data == "No"){
          
         }
-      
       }
     });
 

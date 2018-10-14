@@ -20,7 +20,7 @@
     <button ion-button [disabled]='nextButton' (click)="next()" id="end">Next</button>
   </div>
  
-  <ion-slides  (ionSlideDidChange)="slideChanged($event)"  pager>
+  <ion-slides  (ionSlideWillChange)="slideChanged()"  pager>
 
     <ion-slide  class="demo-slide">
       <div class='top-simple'>
@@ -28,7 +28,7 @@
           <ion-list-header>
             <h1 class="h1">Welcome Austin!!</h1>
           </ion-list-header>
-          <p class="h2">InTransition is an app designed for Veterans to transition into the civial environment.
+          <p class="h2">InTransition is an app designed for Veterans to transition into the civil environment.
             This wizard will guide you through the app.<br><br>
             <strong> Scroll to the right to begin.</strong>
           </p>
@@ -98,7 +98,7 @@
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <form [formGroup]="todo" (ngSubmit)="logForm()" (ionChange)="formChanged">
+      <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged">
         <ion-card class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
@@ -131,7 +131,7 @@
           <ion-item class="q-wrapper">
             <ion-datetime 
               type="date"
-              formControlName="VetQuestionName"
+              formControlName="vetQuestionName"
               class='date'
               displayFormat="MM/DD/YYYY" 
             >
@@ -147,7 +147,7 @@
               Do you have any service disability?
           </ion-item-divider>
           <ion-item>
-            <span class='question'>{{disabilityDisplay}}</span>
+            <span class='question'>{{disabilityValue}}</span>
             <a class="select" #disabilityValue (click)="showRadioDisability()">Select</a>
           </ion-item>
         </ion-item-group>
@@ -162,8 +162,8 @@
             <ion-input 
             type="number"
             placeholder='Input Answer here..'
-            formControlName="PercentageQuestionName"
-            [required]="disabilityRequired"
+            formControlName="percentQuestionName"
+            
             >
           </ion-input>
           </ion-item>
