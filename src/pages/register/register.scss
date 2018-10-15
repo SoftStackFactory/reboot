@@ -45,7 +45,7 @@ page-register {
     position: relative;
     border: 1px solid #e5e6e6;
     background-color: #f8f8f8;
-    padding-left: 60px;
+    padding-left: 10px;
     font-size: 25px;
   }
 
@@ -90,12 +90,12 @@ page-register {
       max-width: 2800px;
       font-size: 3vw;
     }
-    @media screen and (min-width:2300px) {
+   /* @media screen and (min-width:2300px) {
       .message  {
         font-size: 60px;
         margin: 5vh auto 5vh auto ;
       }
-    }
+    } 
 
     .input {
       margin: .4vw auto;
@@ -113,7 +113,7 @@ page-register {
       //margin-top:10px;
       outline: none;
       border:1px solid #cccccc
-    }
+    } 
     ::-webkit-input-placeholder { 
       font-size: 3vw;
       color: rgb(136, 136, 136);
@@ -126,7 +126,7 @@ page-register {
         position: relative;
         top: -13px;
       }
-    }
+    } */
 
     #register-button{
       text-align: center;
@@ -194,6 +194,16 @@ page-register {
       page-login .inputs {
         margin: auto;
         width: 70%;
+        font-size: 25px;
+      }
+
+      #loginButton {
+        font-size: 25px;
+        height: 2.1em;
+      }
+      #regButton{
+        font-size: 25px;
+        height: 2.1em;
       }
     }
 

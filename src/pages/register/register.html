@@ -28,7 +28,7 @@
 
     <form class="form" [formGroup]='validate' (ngSubmit)='submitReg()'>
       <ion-row justify-content-center>
-        <ion-col col-10>
+        <ion-col col-10 col-xl-7>
           <ion-item no-lines>
             <ion-input 
               [(ngModel)]="registerUser.firstName"
@@ -47,7 +47,7 @@
       </ion-row>
 
       <ion-row justify-content-center>
-        <ion-col col-10>
+        <ion-col col-10 col-xl-7>
           <ion-item no-lines>
             <ion-input 
               [(ngModel)]="registerUser.lastName"
@@ -65,7 +65,7 @@
       </ion-row>
       
       <ion-row justify-content-center>
-        <ion-col col-10>
+        <ion-col col-10 col-xl-7>
           <ion-item no-lines>
             <ion-input 
               [(ngModel)]="registerUser.email"
@@ -84,7 +84,7 @@
 
       <div formGroupName="pass">
         <ion-row justify-content-center>
-          <ion-col col-10>
+          <ion-col col-10 col-xl-7>
             <ion-item no-lines>
               <ion-input  
                 class="inputs"
@@ -102,7 +102,7 @@
         </ion-row>
         
         <ion-row justify-content-center>
-          <ion-col col-10>
+          <ion-col col-10 col-xl-7>
             <ion-item no-lines>
               <ion-input 
                 class="inputs"
@@ -122,7 +122,7 @@
 
 
       <ion-row justify-content-center>
-        <ion-col col-8>
+        <ion-col col-8 col-xl-5>
           <button id="regButton" ion-button block [disabled]="!validate.valid" type="submit">REGISTER</button>
         </ion-col>
       </ion-row>
@@ -130,10 +130,13 @@
   
     <ion-row justify-content-center>
       <ion-col col-8>
-        <div>
-          <h3 text-center>Login if you already have an account.</h3>
-          <button id="loginButton" ion-button block (click)="goLogin()">LOGIN</button>
-        </div>
+        <h3 text-center>Login if you already have an account.</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center>
+      <ion-col class="button-col" col-8 col-xl-5>
+        <button id="loginButton" ion-button block (click)="goLogin()">LOGIN</button>
       </ion-col>
     </ion-row>
   </ion-grid>

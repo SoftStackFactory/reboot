@@ -17,7 +17,7 @@ export class UserProvider {
   }
 
   sendReg(user) {
-    console.log('sendReg() runs')
+    console.log('sendReg() runs', user)
     return this.http.post(this.regUrl, user)
   }
 
