@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import  {  ENV  }  from  '@app/env';
 
-/*
+/* 
   Generated class for the UserProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
@@ -20,11 +20,11 @@ export class UserProvider {
 
   sendReg(user) {
     console.log('sendReg() runs')
-    return this.http.post(this.requestUrl, user)
+    return this.http.post(this.requestUrl + 'appUsers', user)
   }
 
 
   login(creds) {
-    return this.http.post(this.requestUrl + '/login', creds);
+    return this.http.post(this.requestUrl + 'appUsers/login', creds);
   }
 }
