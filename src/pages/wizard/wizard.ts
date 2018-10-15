@@ -337,29 +337,29 @@ export class WizardPage implements OnInit {
   disabilityTouched: boolean= false;
 
   showRadioDisability() {
-    let alert = this.alertCtrl.create(
+    let disabilityAlert = this.alertCtrl.create(
       {
         title:"Dissability", 
         cssClass: "branchRadio", 
         message: "Select One"
       })
 
-    alert.addInput({
+      disabilityAlert.addInput({
       type: 'radio',
       label: 'Yes',
       value: 'Yes',
       checked: false
     });
 
-    alert.addInput({
+    disabilityAlert.addInput({
       type: 'radio',
       label: 'No',
       value: 'No',
       checked: false
     });
    
-    alert.addButton('Cancel');
-    alert.addButton({
+    disabilityAlert.addButton('Cancel');
+    disabilityAlert.addButton({
       text: 'OK',
       handler: data => {
         const percentQuestion = this.firstForm.get('percentQuestionName')
@@ -376,16 +376,19 @@ export class WizardPage implements OnInit {
         }
         percentQuestion.updateValueAndValidity()
         this.disabilityQValue = data; 
-        this.disabilityTouched = true;
-      }
+      }      
     });
-
-    alert.present(); 
+    disabilityAlert.didLeave
+      .subscribe( _ => {
+        this.disabilityTouched = true;
+      })
+    disabilityAlert.present(); 
   }
 
   //questionnaire ######2222222
   // show employed question
-  showUnemployed: boolean = false;
+  employedInvalid: boolean = true;
+  employedTouched: boolean = false;
   employedAnswer: string= "";
   showEmployedRadio() {
     let alert = this.alertCtrl.create({
@@ -410,70 +413,72 @@ export class WizardPage implements OnInit {
     alert.addButton({
       text: 'OK',
       handler: data => {
-        console.log("OK", data);
-        this.employedAnswer = data;
-        console.log(this.secondForm.valid, "2ndformValid?")
-        console.log(this.secondForm, "2ndform")
         const lastEmployed = this.secondForm.get("lastEmployed")
         if(data == "Unemployed"){
-          this.showUnemployed = true;
+          this.employedInvalid = false;
           lastEmployed.setValidators(Validators.required)
-          console.log("if -setValidators")
         } else if(data === "Employed") {
-          this.showUnemployed = false;
+          this.employedInvalid = false;
           lastEmployed.clearValidators()
-          console.log("else -clearValidators", data)
-        } else if (data === undefined) {
-          this.showUnemployed = false;
+        } else {
+          this.employedInvalid = true;
           lastEmployed.clearValidators()
-          console.log("else -clearValidators", data)
         }
+        this.employedAnswer = data;
         lastEmployed.updateValueAndValidity()
-        console.log("handler: updateValue")
       } 
     });
+    alert.didLeave
+    .subscribe( _ => {
+      this.employedTouched = true;
+    })
+
     alert.present();
   }
 
   //question 2) Married
   marriedAnswer: string = '';
+  marriedValid: boolean = false;
+  marriedTouched: boolean = false;
   showMarriedAlert() {
-    let alert = this.alertCtrl.create(
+    let marriedAlert = this.alertCtrl.create(
       {
         title:"Married Status", 
         cssClass: "branchRadio", 
         message: "Select One"
       })
 
-    alert.addInput({
+      marriedAlert.addInput({
       type: 'radio',
       label: 'Yes',
       value: 'Yes',
       checked: false
     });
 
-    alert.addInput({
+    marriedAlert.addInput({
       type: 'radio',
       label: 'No',
       value: 'No',
       checked: false
     });
   
-    alert.addButton('Cancel');
-    alert.addButton({
+    marriedAlert.addButton('Cancel');
+    marriedAlert.addButton({
       text: 'OK',
       handler: data => {
-        console.log("OK", data);
         this.marriedAnswer = data;
-        if(data == "Yes") {
-          
-        } else if(data == "No"){
-         
+        if(data) {
+          this.marriedValid = true; 
+        }else {
+          this.marriedValid = false; 
         }
       }
     });
-
-    alert.present(); 
+    marriedAlert.didLeave
+    .subscribe( _ => {
+      this.marriedTouched = true;
+    })
+    marriedAlert.present(); 
   }
 
   logFormTwo(){

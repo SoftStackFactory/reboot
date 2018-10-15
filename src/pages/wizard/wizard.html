@@ -163,7 +163,7 @@
           </ion-item>
           <ion-item  no-lines *ngIf="!disabilityValid && disabilityTouched" >
               <p class="invalid-text">Enter an option</p>
-            </ion-item>
+          </ion-item>
         </ion-item-group>
       </ion-card>
 
@@ -178,7 +178,6 @@
             type="number"
             placeholder='Input Answer here..'
             formControlName="percentQuestionName"
-           
             >
           </ion-input>
           </ion-item>
@@ -205,7 +204,7 @@
         
       <form [formGroup]="secondForm" (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
      
-      <ion-card>
+      <ion-card [class.invalid]="employedInvalid && employedTouched">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Are you employed or unemployed?
@@ -214,10 +213,13 @@
             <span class='question'>{{employedAnswer}}</span>
             <a class="select" (click)="showEmployedRadio()"> Select</a>
           </ion-item>
+          <ion-item *ngIf="employedInvalid && employedTouched" >
+              <p class="invalid-text">Enter an option</p>
+          </ion-item>
         </ion-item-group>
       </ion-card>
 
-      <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="showUnemployed">
+      <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="employedAnswer == 'Unemployed'">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
            When were you last employed?
@@ -238,7 +240,7 @@
         </ion-item-group>
       </ion-card>    
 
-      <ion-card>
+      <ion-card  [class.invalid]="!marriedValid && marriedTouched">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Are you married?
@@ -246,6 +248,9 @@
           <ion-item class="">
             <span class='question'>{{marriedAnswer}}</span>
             <a class="select" (click)='showMarriedAlert()'>Select</a>
+          </ion-item>
+          <ion-item *ngIf="!marriedValid && marriedTouched" >
+              <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
       </ion-card>     
