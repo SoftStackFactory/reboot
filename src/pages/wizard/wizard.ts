@@ -200,7 +200,7 @@ export class WizardPage implements OnInit {
   }
 
 //radio alert for qestionnaire 1: marine branches
-  branchDisplay: any = '';
+  branchValue: any = '';
   branchValid: boolean= false;
   branchTouched: boolean = false;
   showRadioBranch() {
@@ -244,12 +244,9 @@ export class WizardPage implements OnInit {
         {
            text: "Cancel",
            handler: _ => {
-            if(this.branchDisplay == undefined || '') {
-              this.branchValid = false;
-              console.log("cancel")
-            } else{
-              return
-            }
+            // if(this.branchValue == undefined || '') {
+            //   this.branchValid = false;
+            // }
            }
         },
         {
@@ -260,19 +257,16 @@ export class WizardPage implements OnInit {
             } else {
               this.branchValid = false;
             }
-            this.branchDisplay = data;
+            this.branchValue = data;
           }
         }]});
     branchAlert.didLeave
         .subscribe( _ => {
           this.branchTouched = true;
-          console.log("didEnter")
         })
     branchAlert.present();
    
   }
-  
-  
   
   // alert question for military rank
   
@@ -281,59 +275,67 @@ export class WizardPage implements OnInit {
   }
 
   //alert for question 2: are you a vet or active member?
-  vetSelection: boolean = false;
-  vetDisplay: string = "";
-  vetQuestion: string = "";
-
+  vetValue: string = "";
+  SeparationQuestion: string = "";
+  vetValid: boolean = false;  
+  vetTouched: boolean = false;
   showVetOptions() {
-    let alert = this.alertCtrl.create({
+    let vetAlert = this.alertCtrl.create({
       message: "Select one"
     });
-    alert.setTitle('Military Status');
+    vetAlert.setTitle('Military Status');
 
-    alert.addInput({
+    vetAlert.addInput({
       type: 'radio',
       label: 'Veteran',
       value: 'Veteran',
       checked: false
     });
 
-    alert.addInput({
+    vetAlert.addInput({
       type: 'radio',
       label: 'Active',
       value: 'Active',
       checked: false
     });
-    alert.addButton('Cancel');
-    alert.addButton({
+    vetAlert.addButton({
+      text:'Cancel'
+    });
+    vetAlert.addButton({
       text: 'OK',
       handler: data => {
-        console.log("OK", data);
-        this.vetDisplay = data;
-        console.log(data, "DATA");
-        if(data == "Active") {
-          this.vetSelection = true;
-          this.vetQuestion = "When is your separation date?"
-          console.log(this.vetQuestion)
-        }else if(data == "Veteran") {
-          this.vetSelection = true;
-          this.vetQuestion = "When was your sepatation date?"
+        if(data){
+          if(data == "Active") {
+            this.SeparationQuestion = "When is your separation date?"
+          }else {
+            this.SeparationQuestion = "When was your sepatation date?"
+          }
+          this.vetValid = true;
         }else if(data === undefined) {
-          this.vetSelection = false;
+          this.vetValid = false;
         }
+        this.vetValue = data;
       }
     });
-    alert.present();
+    vetAlert.didLeave
+    .subscribe( _ => {
+      this.vetTouched = true;
+    })
+    vetAlert.present();
   }
 // question 3 servive disability
-  private _disabilityValue: string = '';
+  //private _disabilityValue: string = '';
   // public get disabilityValue(): string {
   //   return this._disabilityValue;
   // }
   // public set disabilityValue(value: string) {
   //   this._disabilityValue = value;
   // }
-  hasDisability: boolean = false;
+ 
+  disabilityValid: boolean = false;
+  disabilityQValue: string = "";
+  disabilityTouched: boolean= false;
+
   showRadioDisability() {
     let alert = this.alertCtrl.create(
       {
@@ -360,29 +362,21 @@ export class WizardPage implements OnInit {
     alert.addButton({
       text: 'OK',
       handler: data => {
-        this._disabilityValue = data; 
-        console.log("OK", data);
         const percentQuestion = this.firstForm.get('percentQuestionName')
-        
-          if(data == "Yes") {
-            this.hasDisability = true;
-            console.log(this.hasDisability, "Yes has disability")
+        if(data) {
+          if(data == "Yes") {  
             percentQuestion.setValidators(Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')]));
-            console.log("if -setValidators")
-          }else if(data == 'No'){          
-            this.hasDisability = false; 
-            console.log(this.hasDisability, "NO has disability")
+          }else if(data == 'No' ){           
             percentQuestion.clearValidators() 
-            console.log("else -clearValidators")
-          }else if (data === undefined) {
-            this.hasDisability = false;
-            percentQuestion.clearValidators()
-            console.log("else undefined -clearValidators", data)
           }
-          percentQuestion.updateValueAndValidity()
-          console.log("handler: updateValue")
-        
-      
+          this.disabilityValid = true;
+        }else {
+          percentQuestion.clearValidators() 
+          this.disabilityValid = false;
+        }
+        percentQuestion.updateValueAndValidity()
+        this.disabilityQValue = data; 
+        this.disabilityTouched = true;
       }
     });
 
