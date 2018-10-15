@@ -100,7 +100,7 @@
         
       <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged()">
 
-        <ion-card [class.invalid]="!branchValid && branchTouched" class="card-size">
+        <ion-card [class.invalid]="!branchValid && (branchTouched || submitIntent)" class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Select your military branch
@@ -109,13 +109,13 @@
             <span class='question'>{{branchValue}}</span>
             <a class="select" (click)="showRadioBranch()">Select</a>
           </ion-item>
-          <ion-item  no-lines *ngIf="!branchValid && branchTouched" >
+          <ion-item  no-lines *ngIf="!branchValid && (branchTouched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
            </ion-item>
         </ion-item-group>
       </ion-card>
      
-      <ion-card [class.invalid]="!vetValid && vetTouched">
+      <ion-card [class.invalid]="!vetValid && (vetTouched || submitIntent)">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Are you an active member or a veteran?
@@ -124,13 +124,13 @@
             <span class='question'>{{vetValue}}</span>
             <a class="select" (click)="showVetOptions()">Select</a>
           </ion-item>
-          <ion-item  no-lines *ngIf="!vetValid && vetTouched" >
+          <ion-item  no-lines *ngIf="!vetValid && (vetTouched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched)" *ngIf="vetValid">
+      <ion-card [class.invalid]="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched ||submitIntent)" *ngIf="vetValid">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
            {{SeparationQuestion}}
@@ -146,7 +146,7 @@
             </ion-datetime>
             <ion-label ><a class="select" >Select</a></ion-label>
           </ion-item>
-          <ion-item class="input" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched)">
+          <ion-item class="input" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched || submitIntent)">
             <p class="invalid-text">Enter a date</p>
           </ion-item>
         </ion-item-group>
@@ -161,13 +161,13 @@
             <span class='question'>{{disabilityQValue}}</span>
             <a class="select" #disabilityValue (click)="showRadioDisability()"> Select </a>
           </ion-item>
-          <ion-item  no-lines *ngIf="!disabilityValid && disabilityTouched" >
+          <ion-item  no-lines *ngIf="!disabilityValid && (disabilityTouched || submitIntent)" >
               <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty)" *ngIf="disabilityQValue == 'Yes'">
+      <ion-card [class.invalid]="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty || submitIntent)" *ngIf="disabilityQValue == 'Yes'">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             What is your assigned disability rating (Percent)?
@@ -181,13 +181,13 @@
             >
           </ion-input>
           </ion-item>
-          <ion-item class="input" *ngIf="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty)">
+          <ion-item class="input" *ngIf="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty || submitIntent)">
             <p class="invalid-text" invalid-text>Enter a valid percent number from 1-100 </p>
           </ion-item>
         </ion-item-group>
       </ion-card>
 
-      <button ion-button type="submit" (click)="onSubmit()" [disabled]="!firstForm.valid" >submit</button><br>
+      <button ion-button type="submit" (click)="onSubmitOne()"  >submit</button><br>
     </form>
     
     </div> 

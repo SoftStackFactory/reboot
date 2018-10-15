@@ -185,12 +185,18 @@ export class WizardPage implements OnInit {
   }
  
   //when navigating to the new slide when user clicks submit 
-  onSubmit() {  
-    this.shouldLockSwipeToNext = false;
-    this.lockNextSlide()
-    this.next();
-    console.log()
+  submitIntent: boolean = false;
+  onSubmitOne() {  
+    if(this.branchValid && this.vetValid && this.disabilityValid && this.firstForm.valid) {
+      this.shouldLockSwipeToNext = false;
+      this.lockNextSlide()
+      this.next();
+      console.log("valid")
+    } else {
+      console.log("inavalid")
     }
+    this.submitIntent = true;
+  }
 
   next() {
     this.slides.slideNext(500);
