@@ -108,8 +108,6 @@ export class WizardPage implements OnInit {
 
     this.secondForm.statusChanges
       .subscribe(val => {
-        console.log("status changed")
-        console.log
         if(this.secondForm.valid == true) {
           console.log("valid", val)
           this.nextButton = false;
@@ -121,13 +119,12 @@ export class WizardPage implements OnInit {
         } 
         this.lockNextSlide()
       })
-
   };
 
   thirdFormFunct() {
     this.thirdForm = this.formBuilder.group({
-      rank: ["", Validators.compose([ Validators.required])],
-      MOS: ["", Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$') ]) ]
+      rank: ["", Validators.compose([ Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
+      MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
     });
 
     this.thirdForm.statusChanges
