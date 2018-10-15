@@ -307,9 +307,66 @@
             </ion-item-group>
           </ion-card>
 
+            <ion-card [class.invalid]="!thirdForm.controls.answer.valid && (thirdForm.controls.answer.dirty)">
+              <ion-item-group>
+                <ion-item-divider class='q-group' color="light">
+                  Choose an answer
+                </ion-item-divider>
+                <ion-item>
+                  <ion-label>Gender</ion-label>
+                  <ion-select 
+                  formControlName="answer">
+                    <ion-option value="f">Female</ion-option>
+                    <ion-option value="m">Male</ion-option>
+                  </ion-select>
+                </ion-item>                
+                <ion-item class="input" *ngIf="!thirdForm.controls.answer.valid && (thirdForm.controls.answer.dirty)">
+                  <p class="invalid-text" invalid-text>Enter a valid answer</p>
+                </ion-item>
+              </ion-item-group>
+            </ion-card>
+            <button ion-button (click)= "onSelect()"> Button</button>
+           
+    
+
         </form>
       </div>
 
+    </ion-slide>
+
+    <ion-slide class='quest-slide'>
+      <div class='top-question'>
+        <ion-list class="question-header" >
+          <ion-list-header class='inner-question-header' >
+            <h1 class="h1">Questionnaire 4</h1> 
+          </ion-list-header>
+          <p class='h2'>Tell us about yourself</p>
+        </ion-list>
+
+        <!-- <form [formGroup]="forthForm" (ngSubmit)="logFormTwo()" (ionChange)="forthForm()">
+        <ion-card [class.invalid]="!forthForm.controls.answer.valid && (forthForm.controls.answer.dirty)">
+          <ion-item-group>
+            <ion-item-divider class='q-group' color="light">
+              Choose an answer
+            </ion-item-divider>
+            <ion-item>
+              <ion-input 
+              type="text"
+              placeholder='Input Answer here..'
+              formControlName="answer"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-item class="input" *ngIf="!forthForm.controls.answer.valid && (forthForm.controls.answer.dirty)">
+              <p class="invalid-text" invalid-text>Enter a valid answer</p>
+            </ion-item>
+          </ion-item-group>
+        </ion-card>
+        </form> -->
+
+
+
+      </div>
     </ion-slide>
   
     <ion-slide class="demo-slide">

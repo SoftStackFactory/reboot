@@ -37,6 +37,7 @@ export class WizardPage implements OnInit {
     this.firstFormFunct(); 
     this.secondFormFunct();
     this.thirdFormFunct();
+    
   }
 
   ngOnInit() {}
@@ -124,7 +125,8 @@ export class WizardPage implements OnInit {
   thirdFormFunct() {
     this.thirdForm = this.formBuilder.group({
       rank: ["", Validators.compose([ Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
-      MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
+      MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ], 
+      answer: ['', Validators.required]
     });
 
     this.thirdForm.statusChanges
@@ -486,8 +488,14 @@ export class WizardPage implements OnInit {
     marriedAlert.present(); 
   }
 
+  gender: any;
+
+  onSelect() {
+    console.log(this.gender)
+  }
+
   logFormTwo(){
-    console.log(this.secondForm)
+    console.log(this.thirdForm)
   }
   // showRadioRank() {
   //   let alert = this.alertCtrl.create({
