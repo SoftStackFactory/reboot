@@ -169,7 +169,7 @@ export class WizardPage implements OnInit {
   slideChanged() {
     let index = this.slides.realIndex; 
     console.log(index);
-    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7 && !this.thirdForm.valid))  {
+    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7 && !this.thirdForm.valid) || (index == 8))  {
       this.nextButton = true;
       this.shouldLockSwipeToNext = true;
     }else {
@@ -278,7 +278,8 @@ export class WizardPage implements OnInit {
   vetTouched: boolean = false;
   showVetOptions() {
     let vetAlert = this.alertCtrl.create({
-      message: "Select one"
+      message: "Select one",
+      cssClass: "branchRadio"
     });
     vetAlert.setTitle('Military Status');
 
@@ -389,7 +390,8 @@ export class WizardPage implements OnInit {
   employedAnswer: string= "";
   showEmployedRadio() {
     let alert = this.alertCtrl.create({
-      message: "Select one"
+      message: "Select one",
+      cssClass: "branchRadio"
     });
     alert.setTitle('Employment');
 
