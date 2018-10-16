@@ -20,15 +20,15 @@
     <button ion-button [disabled]='nextButton' (click)="next()" id="end">Next</button>
   </div>
  
-  <ion-slides  (ionSlideDidChange)="slideChanged()" pager>
+  <ion-slides  (ionSlideWillChange)="slideChanged()"  pager>
 
-    <ion-slide class="demo-slide">
+    <ion-slide  class="demo-slide">
       <div class='top-simple'>
         <ion-list class="simple-header" >
           <ion-list-header>
             <h1 class="h1">Welcome Austin!!</h1>
           </ion-list-header>
-          <p class="h2">InTranshition is an app designed for Veterans to transition into the civial environment.
+          <p class="h2">InTransition is an app designed for Veterans to transition into the civil environment.
             This wizard will guide you through the app.<br><br>
             <strong> Scroll to the right to begin.</strong>
           </p>
@@ -98,80 +98,275 @@
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <form [formGroup]="todo" (ngSubmit)="logForm()" (ionChange)="formChanged">
-        <ion-card class="card-size">
+      <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged()">
+
+        <ion-card [class.invalid]="!branchValid && (branchTouched || submitIntent)" class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Select your Branch of Service
+            Select your military branch
           </ion-item-divider>
           <ion-item class="">
-            <span class='question'>{{branchDisplay}}</span>
+            <span class='question'>{{branchValue}}</span>
             <a class="select" (click)="showRadioBranch()">Select</a>
           </ion-item>
+          <ion-item  no-lines *ngIf="!branchValid && (branchTouched || submitIntent)" >
+            <p class="invalid-text">Enter an option</p>
+           </ion-item>
         </ion-item-group>
       </ion-card>
      
-      <ion-card>
+      <ion-card [class.invalid]="!vetValid && (vetTouched || submitIntent)">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Are you an active member or a veteran?
+            Are you an active member or a veteran?
           </ion-item-divider>
           <ion-item class="">
-            <span class='question'>{{vetDisplay}}</span>
+            <span class='question'>{{vetValue}}</span>
             <a class="select" (click)="showVetOptions()">Select</a>
+          </ion-item>
+          <ion-item  no-lines *ngIf="!vetValid && (vetTouched || submitIntent)" >
+            <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
       </ion-card>
 
-      <ion-card *ngIf="vetSelection">
+      <ion-card [class.invalid]="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched ||submitIntent)" *ngIf="vetValid">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-           {{vetQuestion}}
+           {{SeparationQuestion}}
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-datetime 
+              #vetQuestionName
               type="date"
-              formControlName="VetQuestionName"
+              formControlName="vetQuestionName"
               class='date'
-              displayFormat="MM/DD/YYYY" 
+              displayFormat="MM/YYYY"
             >
             </ion-datetime>
-            <ion-label ><a class="select">Select</a></ion-label>
+            <ion-label ><a class="select" >Select</a></ion-label>
+          </ion-item>
+          <ion-item class="input" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched || submitIntent)">
+            <p class="invalid-text">Enter a date</p>
           </ion-item>
         </ion-item-group>
       </ion-card>    
 
-      <ion-card>
+      <ion-card [class.invalid]="!disabilityValid && disabilityTouched">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Do you have any service disability?
           </ion-item-divider>
           <ion-item>
-            <span class='question'>{{disabilityDisplay}}</span>
-            <a class="select" #disabilityValue (click)="showRadioDisability()">Select</a>
+            <span class='question'>{{disabilityQValue}}</span>
+            <a class="select" #disabilityValue (click)="showRadioDisability()"> Select </a>
+          </ion-item>
+          <ion-item  no-lines *ngIf="!disabilityValid && (disabilityTouched || submitIntent)" >
+              <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
       </ion-card>
 
-      <ion-card  *ngIf="hasDisability">
+      <ion-card [class.invalid]="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty || submitIntent)" *ngIf="disabilityQValue == 'Yes'">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-            What Percentage?
+            What is your assigned disability rating (Percent)?
           </ion-item-divider>
           <ion-item>
             <ion-input 
+            class="input" 
             type="number"
             placeholder='Input Answer here..'
-            formControlName="PercentageQuestionName"
-            [required]="disabilityRequired"
+            formControlName="percentQuestionName"
             >
           </ion-input>
           </ion-item>
+          <ion-item class="input" *ngIf="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty || submitIntent)">
+            <p class="invalid-text" invalid-text>Enter a valid percent number from 1-100 </p>
+          </ion-item>
         </ion-item-group>
       </ion-card>
-      <button ion-button type="submit" [disabled]="!todo.valid" >submit</button>
+
+      <button ion-button type="submit" (click)="onSubmitOne()"  >submit</button><br>
+    </form>
+    
+    </div> 
+    </ion-slide>
+
+    <ion-slide class='quest-slide'>
+      <div class='top-question'>
+        <ion-list class="question-header" >
+          <ion-list-header class='inner-question-header' >
+            <h1 class="h1">Questionnaire 2/3</h1> 
+          </ion-list-header>
+          <p class='h2'>Continue </p>
+        </ion-list>
+        
+      <form [formGroup]="secondForm" (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
+     
+      <ion-card [class.invalid]="employedInvalid && employedTouched">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+              Are you employed or unemployed?
+          </ion-item-divider>
+          <ion-item class="">
+            <span class='question'>{{employedAnswer}}</span>
+            <a class="select" (click)="showEmployedRadio()"> Select</a>
+          </ion-item>
+          <ion-item *ngIf="employedInvalid && employedTouched" >
+              <p class="invalid-text">Enter an option</p>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+
+      <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="employedAnswer == 'Unemployed'">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+           When were you last employed?
+          </ion-item-divider>
+          <ion-item class="q-wrapper">
+            <ion-datetime 
+              type="date"
+              class='date'
+              displayFormat="MM/YYYY" 
+              formControlName="lastEmployed"
+            >
+            </ion-datetime>
+            <ion-label ><a class="select">Select</a></ion-label>
+          </ion-item>
+          <ion-item class="input" *ngIf="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)">
+            <p class="invalid-text" invalid-text>Enter a date</p>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>    
+
+      <ion-card  [class.invalid]="!marriedValid && marriedTouched">
+        <ion-item-group>
+          <ion-item-divider class='q-group' color="light">
+              Are you married?
+          </ion-item-divider>
+          <ion-item class="">
+            <span class='question'>{{marriedAnswer}}</span>
+            <a class="select" (click)='showMarriedAlert()'>Select</a>
+          </ion-item>
+          <ion-item *ngIf="!marriedValid && marriedTouched" >
+              <p class="invalid-text">Enter an option</p>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>     
+      <!-- <button ion-button type="submit" [disabled]="" (click)="onSubmit()" >submit</button> -->
     </form>
     </div> 
+    </ion-slide>
+    <ion-slide class= 'quest-slide'>
+      <div class='top-question'>
+        <ion-list class="question-header" >
+          <ion-list-header class='inner-question-header' >
+            <h1 class="h1">Questionnaire 3/3</h1> 
+          </ion-list-header>
+          <p class='h2'>Continue</p>
+        </ion-list>
+          
+        <form [formGroup]="thirdForm"  (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
+
+          <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
+            <ion-item-group>
+              <ion-item-divider class='q-group' color="light">
+                What is your military rank?
+              </ion-item-divider>
+              <ion-item>
+                <ion-input 
+                type="text"
+                placeholder='Input Answer here..'
+                formControlName="rank"
+                >
+                </ion-input>
+              </ion-item>
+              <ion-item class="input" *ngIf="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
+                <p class="invalid-text" invalid-text>Enter a valid answer</p>
+              </ion-item>
+            </ion-item-group>
+          </ion-card>
+
+          <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" >
+            <ion-item-group>
+              <ion-item-divider class='q-group' color="light">
+                What is your MOS/NEC?
+              </ion-item-divider>
+              <ion-item>
+                <ion-input 
+                type="number"
+                placeholder='Input Answer here..'
+                formControlName="MOS"
+                >
+                </ion-input>
+              </ion-item>
+              <ion-item class="input" *ngIf="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)">
+                <p class="invalid-text" invalid-text>Enter a valid number. Only 9 digits</p>
+              </ion-item>
+            </ion-item-group>
+          </ion-card>
+
+            <ion-card [class.invalid]="!thirdForm.controls.answer.valid && (thirdForm.controls.answer.dirty)">
+              <ion-item-group>
+                <ion-item-divider class='q-group' color="light">
+                  Choose an answer
+                </ion-item-divider>
+                <ion-item>
+                  <ion-label>Gender</ion-label>
+                  <ion-select 
+                  formControlName="answer">
+                    <ion-option value="f">Female</ion-option>
+                    <ion-option value="m">Male</ion-option>
+                  </ion-select>
+                </ion-item>                
+                <ion-item class="input" *ngIf="!thirdForm.controls.answer.valid && (thirdForm.controls.answer.dirty)">
+                  <p class="invalid-text" invalid-text>Enter a valid answer</p>
+                </ion-item>
+              </ion-item-group>
+            </ion-card>
+            <button ion-button (click)= "onSelect()"> Button</button>
+           
+    
+
+        </form>
+      </div>
+
+    </ion-slide>
+
+    <ion-slide class='quest-slide'>
+      <div class='top-question'>
+        <ion-list class="question-header" >
+          <ion-list-header class='inner-question-header' >
+            <h1 class="h1">Questionnaire 4</h1> 
+          </ion-list-header>
+          <p class='h2'>Tell us about yourself</p>
+        </ion-list>
+
+        <!-- <form [formGroup]="forthForm" (ngSubmit)="logFormTwo()" (ionChange)="forthForm()">
+        <ion-card [class.invalid]="!forthForm.controls.answer.valid && (forthForm.controls.answer.dirty)">
+          <ion-item-group>
+            <ion-item-divider class='q-group' color="light">
+              Choose an answer
+            </ion-item-divider>
+            <ion-item>
+              <ion-input 
+              type="text"
+              placeholder='Input Answer here..'
+              formControlName="answer"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-item class="input" *ngIf="!forthForm.controls.answer.valid && (forthForm.controls.answer.dirty)">
+              <p class="invalid-text" invalid-text>Enter a valid answer</p>
+            </ion-item>
+          </ion-item-group>
+        </ion-card>
+        </form> -->
+
+
+
+      </div>
     </ion-slide>
   
     <ion-slide class="demo-slide">
@@ -182,7 +377,7 @@
             </ion-list-header>
             <p class="h2">You may begin by taking the self assesment.</p>
           </ion-list >
-        </div>
+       
       <!-- <div class='top-simple'>
         <div class="top-message">
           <h1>Thanks for using the Wizard</h1>
@@ -193,6 +388,7 @@
         <button class='button1' ion-button>Dashboard</button>
         <button class='button1' ion-button>Take Assesment</button>
       </div>
+    </div>
     </ion-slide>
     
   </ion-slides>
