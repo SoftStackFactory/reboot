@@ -61,9 +61,10 @@ export class WizardPage implements OnInit {
   
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
-      vetOrActive: ['', Validators.compose([Validators.required])],
       branch:  ['', Validators.compose([Validators.required])],
-      vetQuestionName: ['', Validators.compose([Validators.required])],
+      vetOrActive: ['', Validators.compose([Validators.required])],
+      separationDate: ['', Validators.compose([Validators.required])],
+      disability: ['', Validators.compose([Validators.required])],
       percentQuestionName: ["",]
     });
 
@@ -210,7 +211,7 @@ export class WizardPage implements OnInit {
 
 //radio alert for qestionnaire 1: marine branches
   branchValue: any = '';
-  
+
   vetOrActiveOptions: any = {
     title: 'Military Status',
     message: 'Select one option',
@@ -225,8 +226,7 @@ export class WizardPage implements OnInit {
           console.log(data)
         }
       } 
-    ]
-      
+    ]  
   }
       
   
@@ -449,8 +449,8 @@ export class WizardPage implements OnInit {
     console.log(this.gender)
   }
 
-  logFormTwo(){
-    console.log(this.thirdForm)
+  logForm(){
+    console.log(this.firstForm)
   }
   // showRadioRank() {
   //   let alert = this.alertCtrl.create({

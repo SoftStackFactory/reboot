@@ -130,15 +130,14 @@
           <ion-item-divider class='q-group' color="light">
             Are you an active member or a veteran?
           </ion-item-divider>
-          <ion-item class="q-wrapper">
-            <ion-select 
-            formControlName="vetOrActive"
-            [selectOptions] = 'vetOrActiveOptions'>
-            <ion-option value="Veteran">Veteran</ion-option>
-            <ion-option value="Active">Active</ion-option>
-           
-          </ion-select>
+          <ion-item class="">
             <a class="select" >Select</a>
+            <ion-select 
+              formControlName="vetOrActive"
+              [selectOptions] = 'vetOrActiveOptions'>
+              <ion-option value="Veteran">Veteran</ion-option>
+              <ion-option value="Active">Active</ion-option>
+            </ion-select>
           </ion-item>
           <ion-item  *ngIf="" >
             <p class="invalid-text">Enter an option</p>
@@ -146,7 +145,7 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched ||submitIntent)" *ngIf="vetValid">
+      <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValid">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
            {{SeparationQuestion}}
@@ -155,14 +154,14 @@
             <ion-datetime 
               #vetQuestionName
               type="date"
-              formControlName="vetQuestionName"
+              formControlName="separationDate"
               class='date'
               displayFormat="MM/YYYY"
             >
             </ion-datetime>
             <ion-label ><a class="select" >Select</a></ion-label>
           </ion-item>
-          <ion-item class="input" no-lines *ngIf="!firstForm.controls.vetQuestionName.valid && (firstForm.controls.vetQuestionName.touched || submitIntent)">
+          <ion-item class="input" no-lines *ngIf="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched || submitIntent)">
             <p class="invalid-text">Enter a date</p>
           </ion-item>
         </ion-item-group>
@@ -175,7 +174,12 @@
           </ion-item-divider>
           <ion-item>
             <span class='question'>{{disabilityQValue}}</span>
-            <a class="select" #disabilityValue> Select </a>
+            <ion-select 
+              formControlName="disability"
+              [selectOptions] = 'vetOrActiveOptions'>
+              <ion-option value="disability">Yes</ion-option>
+              <ion-option value="noDisability">No</ion-option>
+            </ion-select>
           </ion-item>
           <ion-item  no-lines *ngIf="" >
               <p class="invalid-text">Enter an option</p>
