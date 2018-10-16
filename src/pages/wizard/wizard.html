@@ -145,7 +145,7 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValid">
+      <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValue">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
            {{SeparationQuestion}}

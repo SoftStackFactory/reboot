@@ -54,11 +54,12 @@ export class WizardPage implements OnInit {
     // }
   //  this.lockNextSlide()
  
-  setTimeout( _ => {
-  this.slideChanged() 
-  }, 300 );
+    setTimeout( _ => {
+      this.slideChanged() 
+      }, 300 );
  };
-  
+ vetValue: string = "";
+ SeparationQuestion: string = "";
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       branch:  ['', Validators.compose([Validators.required])],
@@ -99,13 +100,40 @@ export class WizardPage implements OnInit {
         } 
         this.lockNextSlide()
       })
+
+    this.firstForm.controls.vetOrActive.valueChanges
+      .subscribe( val =>{
+        if(val =="Active") {
+          this.SeparationQuestion = "When is your separation date?"
+        }else if(val == "Veteran") {
+          this.SeparationQuestion = "When was your sepatation date?"
+        }else {
+          this.SeparationQuestion = "";
+        }
+      this.vetValue = val;
+       })
   };
+
+    //  data: any= {
+    //     if(){
+    //       if("Active") {
+    //         this.SeparationQuestion = "When is your separation date?"
+    //       }else {
+    //         this.SeparationQuestion = "When was your sepatation date?"
+    //       }
+    //       this.vetValid = true;
+    //     }else if( undefined) {
+    //       this.vetValid = false;
+    //     }
+        
+    //   }
+    
   ondate() {
     const date1 = this.firstForm.get('vetQuestionName')
     console.log(date1)
   };
 
-  secondFormFunct() {
+  secondFormFunct(){
     this.secondForm = this.formBuilder.group({
       lastEmployed: ["", ] 
     });
@@ -193,7 +221,7 @@ export class WizardPage implements OnInit {
   submitIntent: boolean = false;
   onSubmitOne() {  
     console.log(this.firstForm)
-    if( this.vetValid && this.disabilityValid && this.firstForm.valid) {
+    if( this.disabilityValid && this.firstForm.valid) {
       this.shouldLockSwipeToNext = false;
       this.lockNextSlide()
       this.next();
@@ -229,61 +257,12 @@ export class WizardPage implements OnInit {
     ]  
   }
       
-  
   // alert question for military rank
+
+ //alert for question 2: are you a vet or active member?
   
-
-
-  //alert for question 2: are you a vet or active member?
-  vetValue: string = "";
-  SeparationQuestion: string = "";
-  vetValid: boolean = false;  
-  vetTouched: boolean = false;
-  showVetOptions() {
-    let vetAlert = this.alertCtrl.create({
-      message: "Select one",
-      cssClass: "branchRadio"
-    });
-    vetAlert.setTitle('Military Status');
-
-    vetAlert.addInput({
-      type: 'radio',
-      label: 'Veteran',
-      value: 'Veteran',
-      checked: false
-    });
-
-    vetAlert.addInput({
-      type: 'radio',
-      label: 'Active',
-      value: 'Active',
-      checked: false
-    });
-    vetAlert.addButton({
-      text:'Cancel'
-    });
-    vetAlert.addButton({
-      text: 'OK',
-      handler: data => {
-        if(data){
-          if(data == "Active") {
-            this.SeparationQuestion = "When is your separation date?"
-          }else {
-            this.SeparationQuestion = "When was your sepatation date?"
-          }
-          this.vetValid = true;
-        }else if(data === undefined) {
-          this.vetValid = false;
-        }
-        this.vetValue = data;
-      }
-    });
-    vetAlert.didLeave
-    .subscribe( _ => {
-      this.vetTouched = true;
-    })
-    vetAlert.present();
-  }
+    
+   
 // question 3 servive disability
   //private _disabilityValue: string = '';
   // public get disabilityValue(): string {
