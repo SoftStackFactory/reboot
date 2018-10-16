@@ -187,7 +187,7 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty || submitIntent)" *ngIf="disabilityQValue == 'Yes'">
+      <ion-card [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)" *ngIf="disabilityQValue == 'disability'">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             What is your assigned disability rating (Percent)?
@@ -197,11 +197,11 @@
             class="input" 
             type="number"
             placeholder='Input Answer here..'
-            formControlName="percentQuestionName"
+            formControlName="percentQuestion"
             >
           </ion-input>
           </ion-item>
-          <ion-item class="input" *ngIf="!firstForm.controls.percentQuestionName.valid && (firstForm.controls.percentQuestionName.dirty || submitIntent)">
+          <ion-item class="input" *ngIf="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)">
             <p class="invalid-text" invalid-text>Enter a valid percent number from 1-100 </p>
           </ion-item>
         </ion-item-group>

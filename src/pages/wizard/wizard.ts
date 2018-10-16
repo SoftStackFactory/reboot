@@ -60,13 +60,17 @@ export class WizardPage implements OnInit {
  };
  vetValue: string = "";
  SeparationQuestion: string = "";
+ // disability question properties
+ 
+ disabilityQValue: string = "";
+ 
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       branch:  ['', Validators.compose([Validators.required])],
       vetOrActive: ['', Validators.compose([Validators.required])],
       separationDate: ['', Validators.compose([Validators.required])],
       disability: ['', Validators.compose([Validators.required])],
-      percentQuestionName: ["",]
+      percentQuestion: ["",]
     });
 
     // this.firstForm.get('vetQuestionName').valueChanges
@@ -87,14 +91,11 @@ export class WizardPage implements OnInit {
 
     this.firstForm.statusChanges
       .subscribe(val => {
-        console.log("status changed")
-        console.log
+        console.log("status changed", val)
         if(this.firstForm.valid == true) {
-          console.log("valid", val)
           this.nextButton = false;
           this.shouldLockSwipeToNext = false;
         }else if( this.firstForm.valid == false) {
-          console.log("not valid", val) 
           this.nextButton = true;
           this.shouldLockSwipeToNext = true;
         } 
@@ -112,22 +113,21 @@ export class WizardPage implements OnInit {
         }
       this.vetValue = val;
        })
+      
+    this.firstForm.controls.disability.valueChanges
+      .subscribe( data => {
+        const percentQuestion = this.firstForm.get('percentQuestion')
+        if(data == "disability") {  
+          percentQuestion.setValidators(Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')]));
+        }else {           
+          percentQuestion.clearValidators() 
+        }
+        percentQuestion.updateValueAndValidity()
+        this.disabilityQValue = data; 
+      })
   };
-
-    //  data: any= {
-    //     if(){
-    //       if("Active") {
-    //         this.SeparationQuestion = "When is your separation date?"
-    //       }else {
-    //         this.SeparationQuestion = "When was your sepatation date?"
-    //       }
-    //       this.vetValid = true;
-    //     }else if( undefined) {
-    //       this.vetValid = false;
-    //     }
-        
-    //   }
-    
+ 
+  
   ondate() {
     const date1 = this.firstForm.get('vetQuestionName')
     console.log(date1)
@@ -221,7 +221,7 @@ export class WizardPage implements OnInit {
   submitIntent: boolean = false;
   onSubmitOne() {  
     console.log(this.firstForm)
-    if( this.disabilityValid && this.firstForm.valid) {
+    if( this.firstForm.valid) {
       this.shouldLockSwipeToNext = false;
       this.lockNextSlide()
       this.next();
@@ -239,7 +239,6 @@ export class WizardPage implements OnInit {
 
 //radio alert for qestionnaire 1: marine branches
   branchValue: any = '';
-
   vetOrActiveOptions: any = {
     title: 'Military Status',
     message: 'Select one option',
@@ -258,72 +257,7 @@ export class WizardPage implements OnInit {
   }
       
   // alert question for military rank
-
- //alert for question 2: are you a vet or active member?
-  
-    
-   
-// question 3 servive disability
-  //private _disabilityValue: string = '';
-  // public get disabilityValue(): string {
-  //   return this._disabilityValue;
-  // }
-  // public set disabilityValue(value: string) {
-  //   this._disabilityValue = value;
-  // }
- 
-  disabilityValid: boolean = false;
-  disabilityQValue: string = "";
-  disabilityTouched: boolean= false;
-
-  showRadioDisability() {
-    let disabilityAlert = this.alertCtrl.create(
-      {
-        title:"Dissability", 
-        cssClass: "branchRadio", 
-        message: "Select One"
-      })
-
-      disabilityAlert.addInput({
-      type: 'radio',
-      label: 'Yes',
-      value: 'Yes',
-      checked: false
-    });
-
-    disabilityAlert.addInput({
-      type: 'radio',
-      label: 'No',
-      value: 'No',
-      checked: false
-    });
-   
-    disabilityAlert.addButton('Cancel');
-    disabilityAlert.addButton({
-      text: 'OK',
-      handler: data => {
-        const percentQuestion = this.firstForm.get('percentQuestionName')
-        if(data) {
-          if(data == "Yes") {  
-            percentQuestion.setValidators(Validators.compose([ Validators.maxLength(3), Validators.required, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')]));
-          }else if(data == 'No' ){           
-            percentQuestion.clearValidators() 
-          }
-          this.disabilityValid = true;
-        }else {
-          percentQuestion.clearValidators() 
-          this.disabilityValid = false;
-        }
-        percentQuestion.updateValueAndValidity()
-        this.disabilityQValue = data; 
-      }      
-    });
-    disabilityAlert.didLeave
-      .subscribe( _ => {
-        this.disabilityTouched = true;
-      })
-    disabilityAlert.present(); 
-  }
+ //alert for question 2: are you a vet or active member?  
 
   //questionnaire ######2222222
   // show employed question
