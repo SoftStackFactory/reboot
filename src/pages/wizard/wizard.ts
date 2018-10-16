@@ -61,6 +61,8 @@ export class WizardPage implements OnInit {
   
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
+      vetOrActive: ['', Validators.compose([Validators.required])],
+      branch:  ['', Validators.compose([Validators.required])],
       vetQuestionName: ['', Validators.compose([Validators.required])],
       percentQuestionName: ["",]
     });
@@ -189,7 +191,8 @@ export class WizardPage implements OnInit {
   //when navigating to the new slide when user clicks submit 
   submitIntent: boolean = false;
   onSubmitOne() {  
-    if(this.branchValid && this.vetValid && this.disabilityValid && this.firstForm.valid) {
+    console.log(this.firstForm)
+    if( this.vetValid && this.disabilityValid && this.firstForm.valid) {
       this.shouldLockSwipeToNext = false;
       this.lockNextSlide()
       this.next();
@@ -203,81 +206,33 @@ export class WizardPage implements OnInit {
   next() {
     this.slides.slideNext(500);
   }
+ 
 
 //radio alert for qestionnaire 1: marine branches
   branchValue: any = '';
-  branchValid: boolean= false;
-  branchTouched: boolean = false;
-  showRadioBranch() {
-    let branchAlert = this.alertCtrl.create(
-      {title:"Military Branch", 
-      cssClass: "branchRadio", 
-      message: "Select One", 
-      inputs : [
-        {
-          type:'radio',
-          label:'Air Force',
-          value:'Air Force',
-          checked: false
-        },
-        {
-            type:'radio',
-            label:'Army',
-            value:'Army',
-            checked: false
-        },
-        {
-            type:'radio',
-            label:'Coast Guards',
-            value:'Coast Guards',
-            checked: false
-        },
-        {
-          type:'radio',
-          label:'Marines',
-          value:'Marines',
-          checked: false
-        },
-        {
-          type:'radio',
-          label:'Navy',
-          value:'Navy',
-          checked: false
+  
+  vetOrActiveOptions: any = {
+    title: 'Military Status',
+    message: 'Select one option',
+    class: 'branchRadio',
+    buttons: [
+      {
+         text: "Cancel",
+      },
+      {
+        text: "Ok",
+        handler: data => {
+          console.log(data)
         }
-      ],
-        buttons : [
-        {
-           text: "Cancel",
-           handler: _ => {
-            // if(this.branchValue == undefined || '') {
-            //   this.branchValid = false;
-            // }
-           }
-        },
-        {
-          text: "Ok",
-          handler: data => {
-            if(data) {
-              this.branchValid = true;
-            } else {
-              this.branchValid = false;
-            }
-            this.branchValue = data;
-          }
-        }]});
-    branchAlert.didLeave
-        .subscribe( _ => {
-          this.branchTouched = true;
-        })
-    branchAlert.present();
-   
+      } 
+    ]
+      
   }
+      
   
   // alert question for military rank
   
-  logForm(){
-    console.log(this.firstForm)
-  }
+
 
   //alert for question 2: are you a vet or active member?
   vetValue: string = "";

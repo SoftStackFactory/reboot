@@ -105,26 +105,42 @@
           <ion-item-divider class='q-group' color="light">
             Select your military branch
           </ion-item-divider>
-          <ion-item class="">
-            <span class='question'>{{branchValue}}</span>
-            <a class="select" >Select</a>
-          </ion-item>
+          <ion-select 
+            formControlName="branch"
+            >
+            <ion-option value="Air Force">Air Force</ion-option>
+            <ion-option value="Army">Army</ion-option>
+            <ion-option value="Coast Guards">Coast Guards</ion-option>
+            <ion-option value="Marines">Marines</ion-option>
+            <ion-option value="Navy">Navy</ion-option>
+          </ion-select>
           <ion-item  no-lines *ngIf="" >
             <p class="invalid-text">Enter an option</p>
            </ion-item>
         </ion-item-group>
       </ion-card>
+
+      <!-- <ion-item class="">
+        <span class='question'>{{branchValue}}</span>
+        <a class="select" >Select</a>
+      </ion-item> -->
      
-      <ion-card [class.invalid]="!vetValid && (vetTouched || submitIntent)">
+      <ion-card [class.invalid]="">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Are you an active member or a veteran?
           </ion-item-divider>
-          <ion-item class="">
-            <span class='question'>{{vetValue}}</span>
-            <a class="select" (click)="showVetOptions()">Select</a>
+          <ion-item class="q-wrapper">
+            <ion-select 
+            formControlName="vetOrActive"
+            [selectOptions] = 'vetOrActiveOptions'>
+            <ion-option value="Veteran">Veteran</ion-option>
+            <ion-option value="Active">Active</ion-option>
+           
+          </ion-select>
+            <a class="select" >Select</a>
           </ion-item>
-          <ion-item  no-lines *ngIf="!vetValid && (vetTouched || submitIntent)" >
+          <ion-item  *ngIf="" >
             <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
@@ -152,16 +168,16 @@
         </ion-item-group>
       </ion-card>    
 
-      <ion-card [class.invalid]="!disabilityValid && disabilityTouched">
+      <ion-card [class.invalid]="">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Do you have any service disability?
           </ion-item-divider>
           <ion-item>
             <span class='question'>{{disabilityQValue}}</span>
-            <a class="select" #disabilityValue (click)="showRadioDisability()"> Select </a>
+            <a class="select" #disabilityValue> Select </a>
           </ion-item>
-          <ion-item  no-lines *ngIf="!disabilityValid && (disabilityTouched || submitIntent)" >
+          <ion-item  no-lines *ngIf="" >
               <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
