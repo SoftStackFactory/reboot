@@ -8,20 +8,19 @@
 </ion-header>
 
 <ion-content >
+  <div id="header">
+    <h1 id="title">INTRANSITION</h1>
+  </div>
+  <!--
   <div class="ion-card">
     <div class="card-title">INTRANSITION</div>
   </div>
-  <div class="message">
-    <p>Transitioning from the military to civilian environment<br>
-      is more than a job change 
-    </p>
-    <p><strong>It's a life change
-    </strong><p>
-  </div>
+-->
 
-    <form class="form" [formGroup]='validate' (ngSubmit)='regform()'>
+    <form class="form" [formGroup]='validate' (ngSubmit)='submitReg()'>
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.firstName"
           class="input" 
           type="text" 
           #first 
@@ -36,6 +35,7 @@
 
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.lastName"
           class="input" 
           type="text" 
           #last 
@@ -50,6 +50,7 @@
       
       <ion-item class="input" no-lines>
         <ion-input 
+          [(ngModel)]="registerUser.email"
           class="input" 
           type="email" 
           #email 
@@ -61,40 +62,81 @@
         <p class="invalid-text">Enter a valid email</p>
       </ion-item><br>
       
-      
-      <ion-item class="input" no-lines>
-        <ion-input 
-          class="input" 
-          type="password" 
-          #pass 
-          placeholder="Password" 
-          formControlName='password'
-          [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)"></ion-input> 
-      </ion-item>
-      <ion-item class="input" no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
-        <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
-      </ion-item><br>
-      
-      
-      <ion-item class="input" no-lines>
-        <ion-input 
-          class="input" 
-          type="password" 
-          #repass 
-          placeholder="Password Confirmation" 
-          formControlName='passwordCheck'
-          [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)"></ion-input>
-      </ion-item>
-      <ion-item class="input" no-lines *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
-        <p class="invalid-text">Passwords do not match</p>
-      </ion-item>
+      <ion-row justify-content-center>
+        <ion-col col-10>
+          <ion-item no-lines>
+            <ion-input 
+              class="inputs"
+              type="text" 
+              #first 
+              placeholder="First Name" 
+              formControlName='first' 
+              [class.invalid]="!validate.controls.first.valid && (validate.controls.first.dirty || submitAttempt)">
+            </ion-input> 
+          </ion-item>
+          <ion-item no-lines *ngIf="!validate.controls.first.valid  && (validate.controls.first.dirty || submitAttempt)">
+            <p class="invalid-text">Enter a valid name</p>
+          </ion-item><br>
+        </ion-col>
+      </ion-row>
 
-      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid">REGISTER </button>
+      <ion-row justify-content-center>
+        <ion-col col-10>
+          <ion-item no-lines>
+            <ion-input 
+              type="text" 
+              #last 
+              placeholder="Last Name" 
+              formControlName='last'
+              [class.invalid]="!validate.controls.last.valid && (validate.controls.last.dirty || submitAttempt)">
+            </ion-input> 
+          </ion-item>
+          <ion-item no-lines *ngIf="!validate.controls.last.valid  && (validate.controls.last.dirty || submitAttempt)">
+            <p class="invalid-text">Enter a valid name</p>
+          </ion-item><br>
+        </ion-col>
+      </ion-row>
+
+      
+      <ion-row justify-content-center>
+        <ion-col col-10>
+          <ion-item no-lines>
+            <ion-input  
+              type="password" 
+              #pass 
+              placeholder="Password" 
+              formControlName='password'
+              [class.invalid]="!validate.controls.password.valid && (validate.controls.password.dirty || submitAttempt)">
+            </ion-input> 
+          </ion-item>
+          <ion-item no-lines *ngIf="!validate.controls.password.valid  && (validate.controls.password.dirty || submitAttempt)">
+            <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
+          </ion-item><br>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row justify-content-center>
+        <ion-col col-10>
+          <ion-item no-lines>
+            <ion-input 
+              type="password" 
+              #repass 
+              placeholder="Password Confirmation" 
+              formControlName='passwordCheck'
+              [class.invalid]="!validate.controls.passwordCheck.valid && (validate.controls.passwordCheck.dirty || submitAttempt)">
+            </ion-input>
+          </ion-item>
+          <ion-item no-lines *ngIf="!validate.controls.passwordCheck.valid  && (validate.controls.passwordCheck.dirty || submitAttempt)">
+            <p class="invalid-text">Passwords do not match</p>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <button id="register-button"color="secondary" ion-button [disabled]="!validate.valid" type="submit">REGISTER</button>
     </form>
     
     <div class='login2'>
       <p id="sign-in">If you already have an account, sign in.</p>
-      <button id="login-button"color="primary" ion-button>LOGIN</button>
+      <button id="login-button"color="primary" ion-button (click)="goLogin()">LOGIN</button>
     </div>
     
 </ion-content>

@@ -1,0 +1,225 @@
+timeline {
+
+    h2{
+        padding-bottom: 15px;
+    }
+
+    .label-ios{
+        margin: auto !important;
+    }
+
+    
+}
+
+.cd-timeline__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .cd-timeline__img img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+  }
+
+  .cd-timeline__img.cd-timeline__img--5 {
+    background: #64c5b1;
+  }
+
+.timeline {
+    margin: 30px 0 0 0;
+    padding: 0;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 10px;
+      background: #afdcf8;
+      left: 20%;
+      margin-left: -10px;
+    }
+    timeline-item {
+      position: relative;
+      display: inline-block;
+
+      timeline-time {
+        display: block;
+        width: 20%;
+        padding-right: 50px;
+        position: absolute;
+        span {
+          display: block;
+          text-align: right;
+          &:last-child {
+            font-size: 2.9em;
+            color: #3594cb;
+          }
+        }
+      }
+      /* Right content */
+      ion-card {
+        margin-left: 25% !important;
+        width: 75% !important;
+        position: relative;
+      }
+      ion-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4em;
+        position: absolute;
+        color: #fff;
+        background: #46a4da;
+        border-radius: 50%;
+        box-shadow: 0 0 0 8px #afdcf8;
+        text-align: center;
+        left: 20%;
+        top: 0;
+        margin: 0 0 0 -25px;
+        line-height: 40px;
+        &:after {
+            left: 46px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-left-color: #afdcf8;
+            border-width: 10px;
+            top: 10px;
+          }
+      }
+        &:last-child{
+          width: 100%;
+          ion-icon{
+            box-shadow: none;
+            &:after{
+              border-width: 0;
+            }
+          }
+        }
+    }
+
+
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+        border-bottom: none;
+    }
+
+    .list-ios > .item-block:first-child {
+        border-top: none;
+    }
+
+    .list-ios {
+        margin: -1px 0 20px !important;
+    }
+
+    
+
+    &:before {
+        left: 3% !important;
+    }
+    .list, .list-md{
+        margin-left:3% !important;
+    }
+
+    .item.item-md .checkbox-md {
+        margin: -6px 14px 8px -35px !important;
+        padding-left: 4%;
+        padding-top: 2%;
+    }
+
+    .checkbox-ios {
+        // position: absolute !important;
+        margin: -6px 14px 8px -35px !important;
+        padding-left: 4%;
+        padding-top: 2%;
+    }
+        
+
+    @media screen and (max-width: map-get($grid-breakpoints,'lg')){
+        .list-ios{
+            margin-top: -1px;
+            margin-right: 25px;
+            margin-bottom: 32px;
+            margin-left: 25px;
+        }
+      timeline-item{
+        timeline-time{
+          font-size: 0.7em;
+        }
+      }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,'md')){
+      &:before{
+        left: 30px;
+      }
+      timeline-item{
+        ion-card{
+          margin-left: 80px !important;
+        }
+        ion-icon{
+          left: 30px;
+        }
+        timeline-time{
+          font-size: 0.8em;
+          width: 100%;
+          left: 80px;
+          position: relative;
+          span{
+            text-align: left;
+          }
+
+        }
+      }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, 'sm' )){
+      &:before{
+        display: none;
+      }
+      timeline-item{
+        &:last-child{
+          visibility: hidden;
+        }
+        ion-icon{
+          position: relative;
+          float: right;
+          left: auto;
+          margin: -55px 5px 0 0;
+          &:after{
+            border-left-color: transparent;
+            border-top-color: #afdcf8;
+            top: 46px;
+            left: 10px;
+          }
+        }
+        timeline-time{
+          width: 100%;
+          position: relative;
+          padding: 0 0 20px 0;
+          left: 20px;
+          span{
+            text-align: left;
+          }
+        }
+
+        ion-card{
+          width: calc(100% - 20px) !important;
+          margin-left: 10px !important;
+        }
+      }
+    }
+  }
