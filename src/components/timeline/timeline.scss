@@ -113,9 +113,21 @@ timeline {
           }
         }
     }
-    .label-md{
-        margin: 13px 8px -15px 0;
+
+
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+        border-bottom: none;
     }
+
+    .list-ios > .item-block:first-child {
+        border-top: none;
+    }
+
+    .list-ios {
+        margin: -1px 0 20px !important;
+    }
+
+    
 
     &:before {
         left: 3% !important;
@@ -124,9 +136,17 @@ timeline {
         margin-left:3% !important;
     }
 
+    .item.item-md .checkbox-md {
+        margin: -6px 14px 8px -35px !important;
+        padding-left: 4%;
+        padding-top: 2%;
+    }
+
     .checkbox-ios {
         // position: absolute !important;
         margin: -6px 14px 8px -35px !important;
+        padding-left: 4%;
+        padding-top: 2%;
     }
         
 
