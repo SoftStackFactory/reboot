@@ -32,19 +32,12 @@ export class DashboardPage {
           {
             backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
-            data: [10, 0, 5, 2, 2, 5, 8, 1]
+            data: [1, 1, 1, 1, 1, 1, 1, 2]
           }
         ]
       },
 
       options: {
-        scales: {
-          ticks: {
-            beginAtZero: true,
-            min: 0,
-            max: 10
-          },
-        },
         layout: {
           padding: {
             top: 55,
@@ -87,12 +80,10 @@ export class DashboardPage {
         }
       }
     });
-  //This code down below is to fix a bug where I could not modify the scale in the options
+    //This code down below is to fix a bug where I could not modify the scale in the options
     //key in the above code (It threw a typescript error even though it worked)
-    this.chart.config.options.scale.ticks.beginAtZero = true;
     this.chart.config.options.scale.ticks.min = 0;
     this.chart.config.options.scale.ticks.max = 10;
-    this.chart.config.options.scale.ticks.stepSize = 1;
     this.chart.update();
   }
 
