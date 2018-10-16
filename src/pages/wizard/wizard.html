@@ -100,7 +100,7 @@
         
       <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged()">
 
-        <ion-card [class.invalid]="" class="card-size">
+        <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-size">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Select your military branch
@@ -114,7 +114,7 @@
             <ion-option value="Marines">Marines</ion-option>
             <ion-option value="Navy">Navy</ion-option>
           </ion-select>
-          <ion-item  no-lines *ngIf="" >
+          <ion-item  no-lines *ngIf="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
            </ion-item>
         </ion-item-group>
@@ -125,7 +125,7 @@
         <a class="select" >Select</a>
       </ion-item> -->
      
-      <ion-card [class.invalid]="">
+      <ion-card [class.invalid]="!firstForm.controls.vetOrActive.valid && (firstForm.controls.vetOrActive.touched || submitIntent)">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Are you an active member or a veteran?
@@ -139,7 +139,7 @@
               <ion-option value="Active">Active</ion-option>
             </ion-select>
           </ion-item>
-          <ion-item  *ngIf="" >
+          <ion-item  *ngIf="!firstForm.controls.vetOrActive.valid && (firstForm.controls.vetOrActive.touched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
@@ -167,7 +167,7 @@
         </ion-item-group>
       </ion-card>    
 
-      <ion-card [class.invalid]="">
+      <ion-card [class.invalid]="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Do you have any service disability?
@@ -181,7 +181,7 @@
               <ion-option value="noDisability">No</ion-option>
             </ion-select>
           </ion-item>
-          <ion-item  no-lines *ngIf="" >
+          <ion-item  no-lines *ngIf="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)" >
               <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
