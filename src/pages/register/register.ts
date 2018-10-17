@@ -44,7 +44,7 @@ export class RegisterPage {
 
   submitReg() {
     this.submitAttempt = true
-    console.log('submitReg() runs', this.validate)
+    console.log('submitReg() runs', this.registerUser)
     this._user.sendReg(this.registerUser)
       .subscribe( (data: any) => {
         console.log('data from submitReg()', data)
