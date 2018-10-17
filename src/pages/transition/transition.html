@@ -21,18 +21,21 @@
       <ion-card-header>
         <div id="categoryAndView">
           <h1 id="category">{{area.title}}</h1>
-          <button (click)="toggleSection(area)">View</button>
+          <button id="viewButton" (click)="toggleSection(area)">View</button>
         </div>
       </ion-card-header>
       <ion-card-content id="areaDescription">
         <span> {{area.intro}} </span>
         <span *ngIf="!area.expand; else content"> ... </span>
         <ng-template #content> {{ area.description }} </ng-template><br><br>
-        <p text-center style="font-size: 20px"> RATE HOW WELL YOU'RE DOING BY DRAGGING THE SLIDER TO THE NUMBER </p>
-        <ion-range pin="true" id="range" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)">
-          <ion-label range-left>0</ion-label>
-          <ion-label range-right>10</ion-label>
-        </ion-range>
+        <div id="range">
+          <p text-center id="instructions"> DRAG SLIDER TO RATE FROM 1 - 10
+            HOW WELL YOU ARE DOING IN "{{area.title | uppercase}}" </p>
+          <ion-range pin="true"  min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)">
+            <ion-label class="rangeLabels" range-left>0</ion-label>
+            <ion-label class="rangeLabels" range-right>10</ion-label>
+          </ion-range>
+        </div>
       </ion-card-content>
     </ion-card>
   </ion-list>
