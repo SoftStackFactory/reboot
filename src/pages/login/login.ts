@@ -27,7 +27,7 @@ export class LoginPage {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
-      password: ['', Validators.required],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9 ]*'), Validators.required])],
     });
   }
 
