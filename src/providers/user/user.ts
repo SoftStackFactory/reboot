@@ -25,6 +25,6 @@ export class UserProvider {
 
 
   login(creds) {
-    return this.http.post(this.requestUrl + 'appUsers/login', creds);
+    return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
 }
