@@ -43,16 +43,6 @@ export class WizardPage implements OnInit {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad WizardPage');
-   // ===> checks if slide is the beggining <==
-    // if (this.slides.isBeginning()){
-    //   console.log("beg")
-    // } else {
-    //   console.log("not beg")
-    //   let index = this.slides.getActiveIndex() 
-    // console.log(index);
-    // }
-  //  this.lockNextSlide()
- 
     setTimeout( _ => {
       this.slideChanged() 
       }, 300 );
@@ -71,22 +61,6 @@ export class WizardPage implements OnInit {
       disability: ['', Validators.compose([Validators.required])],
       percentQuestion: ["",]
     });
-
-    // this.firstForm.get('vetQuestionName').valueChanges
-    //   .subscribe( value => {
-    //     console.log(value, "value changed")
-    //     const percentQuestion = this.firstForm.get('percentQuestionName')
-    //     console.log(percentQuestion, "percentQuestion")
-    //     if(value) {
-    //       percentQuestion.setValidators(Validators.required);
-    //       console.log("if -setValidators")
-    //     } else {
-    //       percentQuestion.clearValidators() 
-    //       console.log("else -clearValidators")
-    //     }        
-    //     percentQuestion.updateValueAndValidity()
-    //     console.log("subscribe: updateValue")
-    //   });
 
     this.firstForm.statusChanges
       .subscribe(val => {
@@ -129,10 +103,12 @@ export class WizardPage implements OnInit {
   employedAnswer: string= "";
   secondFormFunct(){
     this.secondForm = this.formBuilder.group({
-      employment: [''],
-      lastEmployed: ['', Validators.compose([Validators.required])],
+      employment: ['', Validators.compose([Validators.required])],
+      lastEmployed: [''],
       marriage: ['', Validators.compose([Validators.required])],
     });
+    //1 do a [] bracked in "" to have only one subscribe stautsChange
+    //have only one selectOptions
 
     this.secondForm.statusChanges
       .subscribe(val => {
@@ -149,7 +125,7 @@ export class WizardPage implements OnInit {
 
     this.secondForm.controls.employment.valueChanges
       .subscribe( data => {
-        const employmentQuestion = this.secondForm.get('employment')
+        const employmentQuestion = this.secondForm.get('lastEmployed')
         if(data == "Unemployed") { 
           employmentQuestion.setValidators(Validators.compose([ Validators.required]));
         }else {
@@ -165,20 +141,15 @@ export class WizardPage implements OnInit {
   thirdFormFunct() {
     this.thirdForm = this.formBuilder.group({
       rank: ["", Validators.compose([ Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
-      MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ], 
-      answer: ['', Validators.required]
+      MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
     });
 
     this.thirdForm.statusChanges
       .subscribe(val => {
-        console.log("status changed")
-        console.log()
         if(this.thirdForm.valid == true) {
-          console.log("valid", val)
           this.nextButton = false;
           this.shouldLockSwipeToNext = false;
         }else if( this.thirdForm.valid == false) {
-          console.log("not valid", val) 
           this.nextButton = true;
           this.shouldLockSwipeToNext = true;
         } 
@@ -186,25 +157,6 @@ export class WizardPage implements OnInit {
       })
 
   };
-  // ionViewWillLoad() {
-  //   //this.nextButton = false;
-  //   console.log("will")
-  // }
-  // formChanged() {
-  //   console.log(this.firstForm)
-  // }
-  // formChanged() {
-  //   if(this.disabilityDisplay == "Yes"){
-  //     if(this.firstForm.valid == true && this.branchDisplay != '' && this.vetDisplay != "" ) {
-  //       console.log("valid", "yesDisability" )
-  //     } 
-  //   } else if(this.disabilityDisplay == "No") {
-  //     if(this.branchDisplay !="" && this.vetDisplay !='' ) {
-
-  //     }
-  //    }
-  //  }
-
   // "if slide is questionnaire, then block slide-to-next option"
   nextButton: boolean = false;
   shouldLockSwipeToNext: boolean = false;
@@ -245,7 +197,6 @@ export class WizardPage implements OnInit {
     this.slides.slideNext(500);
   }
  
-
 //radio alert for qestionnaire 1: marine branches
   branchValue: any = '';
   vetOrActiveOptions: any = {
@@ -269,9 +220,7 @@ export class WizardPage implements OnInit {
  //alert for question 2: are you a vet or active member?  
 
   //questionnaire ######2222222
-  // show employed question
-  
-
+ 
   //question 2) Married
   marriedAnswer: string = '';
   marriedValid: boolean = false;
