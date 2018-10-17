@@ -36,8 +36,7 @@ export class WizardPage implements OnInit {
       // let required = null;
     this.firstFormFunct(); 
     this.secondFormFunct();
-    this.thirdFormFunct();
-    
+    this.thirdFormFunct(); 
   }
 
   ngOnInit() {}
@@ -122,34 +121,44 @@ export class WizardPage implements OnInit {
         }else {           
           percentQuestion.clearValidators() 
         }
-        percentQuestion.updateValueAndValidity()
+        //percentQuestion.updateValueAndValidity()
         this.disabilityQValue = data; 
       })
   };
  
-  
-  ondate() {
-    const date1 = this.firstForm.get('vetQuestionName')
-    console.log(date1)
-  };
-
+  employedAnswer: string= "";
   secondFormFunct(){
     this.secondForm = this.formBuilder.group({
-      lastEmployed: ["", ] 
+      employment: [''],
+      lastEmployed: ['', Validators.compose([Validators.required])],
+      marriage: ['', Validators.compose([Validators.required])],
     });
 
     this.secondForm.statusChanges
       .subscribe(val => {
         if(this.secondForm.valid == true) {
-          console.log("valid", val)
           this.nextButton = false;
           this.shouldLockSwipeToNext = false;
         }else if( this.secondForm.valid == false) {
-          console.log("not valid", val) 
           this.nextButton = true;
           this.shouldLockSwipeToNext = true;
         } 
         this.lockNextSlide()
+        console.log(this.secondForm)
+      })
+
+    this.secondForm.controls.employment.valueChanges
+      .subscribe( data => {
+        const employmentQuestion = this.secondForm.get('employment')
+        if(data == "Unemployed") { 
+          employmentQuestion.setValidators(Validators.compose([ Validators.required]));
+        }else {
+          employmentQuestion.clearValidators() 
+          return
+        }
+        // employmentQuestion.updateValueAndValidity()
+        this.employedAnswer = data; 
+        return
       })
   };
 
@@ -261,55 +270,7 @@ export class WizardPage implements OnInit {
 
   //questionnaire ######2222222
   // show employed question
-  employedInvalid: boolean = true;
-  employedTouched: boolean = false;
-  employedAnswer: string= "";
-  showEmployedRadio() {
-    let alert = this.alertCtrl.create({
-      message: "Select one",
-      cssClass: "branchRadio"
-    });
-    alert.setTitle('Employment');
-
-    alert.addInput({
-      type: 'radio',
-      label: 'Employed',
-      value: 'Employed',
-      checked: false
-    });
-
-    alert.addInput({
-      type: 'radio',
-      label: 'Unemployed',
-      value: 'Unemployed',
-      checked: false
-    });
-    alert.addButton('Cancel');
-    alert.addButton({
-      text: 'OK',
-      handler: data => {
-        const lastEmployed = this.secondForm.get("lastEmployed")
-        if(data == "Unemployed"){
-          this.employedInvalid = false;
-          lastEmployed.setValidators(Validators.required)
-        } else if(data === "Employed") {
-          this.employedInvalid = false;
-          lastEmployed.clearValidators()
-        } else {
-          this.employedInvalid = true;
-          lastEmployed.clearValidators()
-        }
-        this.employedAnswer = data;
-        lastEmployed.updateValueAndValidity()
-      } 
-    });
-    alert.didLeave
-    .subscribe( _ => {
-      this.employedTouched = true;
-    })
-
-    alert.present();
-  }
+  
 
   //question 2) Married
   marriedAnswer: string = '';
