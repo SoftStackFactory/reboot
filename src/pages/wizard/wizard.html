@@ -321,7 +321,7 @@
                 </ion-input>
               </ion-item>
               <ion-item class="input" *ngIf="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
-                <p class="invalid-text" invalid-text>Enter a valid answer</p>
+                <p class="invalid-text" invalid-text>Enter only letters</p>
               </ion-item>
             </ion-item-group>
           </ion-card>
@@ -344,6 +344,7 @@
               </ion-item>
             </ion-item-group>
           </ion-card>
+          <br><br>
           <button ion-button [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
   
         </form>
