@@ -95,7 +95,7 @@ export class WizardPage implements OnInit {
         }else {           
           percentQuestion.clearValidators() 
         }
-        //percentQuestion.updateValueAndValidity()
+        percentQuestion.updateValueAndValidity()
         this.disabilityQValue = data; 
       })
   };
@@ -122,17 +122,19 @@ export class WizardPage implements OnInit {
         this.lockNextSlide()
         console.log(this.secondForm)
       })
-
+//if error 'infinite loop comment out .upadateValueAndValidity()'
     this.secondForm.controls.employment.valueChanges
       .subscribe( data => {
         const employmentQuestion = this.secondForm.get('lastEmployed')
         if(data == "Unemployed") { 
+          console.log("#1")
           employmentQuestion.setValidators(Validators.compose([ Validators.required]));
         }else {
           employmentQuestion.clearValidators() 
-          return
+          console.log("#2") 
         }
-        // employmentQuestion.updateValueAndValidity()
+        console.log(employmentQuestion, "#3")
+        employmentQuestion.updateValueAndValidity()
         this.employedAnswer = data; 
         return
       })
@@ -143,27 +145,22 @@ export class WizardPage implements OnInit {
       rank: ["", Validators.compose([ Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
       MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
     });
-
-    this.thirdForm.statusChanges
-      .subscribe(val => {
-        if(this.thirdForm.valid == true) {
-          this.nextButton = false;
-          this.shouldLockSwipeToNext = false;
-        }else if( this.thirdForm.valid == false) {
-          this.nextButton = true;
-          this.shouldLockSwipeToNext = true;
-        } 
-        this.lockNextSlide()
-      })
-
   };
   // "if slide is questionnaire, then block slide-to-next option"
+  next() {
+    this.slides.slideNext(500);
+  }
+  lockNextSlide(){
+    //  shouldLockSwipeToNext can be either true/false
+    this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
+  }
+
   nextButton: boolean = false;
   shouldLockSwipeToNext: boolean = false;
   slideChanged() {
     let index = this.slides.realIndex; 
     console.log(index);
-    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7 && !this.thirdForm.valid) || (index == 8))  {
+    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 8 ) || (index == 7))  {
       this.nextButton = true;
       this.shouldLockSwipeToNext = true;
     }else {
@@ -172,144 +169,55 @@ export class WizardPage implements OnInit {
     }
     this.lockNextSlide()
   }
-
-  lockNextSlide(){
-      //  shouldLockSwipeToNext can be either true/false
-    this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
-  }
  
   //when navigating to the new slide when user clicks submit 
-  submitIntent: boolean = false;
-  onSubmitOne() {  
-    console.log(this.firstForm)
-    if( this.firstForm.valid) {
-      this.shouldLockSwipeToNext = false;
-      this.lockNextSlide()
-      this.next();
-      console.log("valid")
-    } else {
-      console.log("inavalid")
-    }
-    this.submitIntent = true;
-  }
-
-  next() {
-    this.slides.slideNext(500);
-  }
- 
-//radio alert for qestionnaire 1: marine branches
-  branchValue: any = '';
-  vetOrActiveOptions: any = {
-    title: 'Military Status',
-    message: 'Select one option',
-    class: 'branchRadio',
-    buttons: [
-      {
-         text: "Cancel",
-      },
-      {
-        text: "Ok",
-        handler: data => {
-          console.log(data)
-        }
-      } 
-    ]  
-  }
-      
-  // alert question for military rank
- //alert for question 2: are you a vet or active member?  
-
-  //questionnaire ######2222222
- 
-  //question 2) Married
-  marriedAnswer: string = '';
-  marriedValid: boolean = false;
-  marriedTouched: boolean = false;
-  showMarriedAlert() {
-    let marriedAlert = this.alertCtrl.create(
-      {
-        title:"Married Status", 
-        cssClass: "branchRadio", 
-        message: "Select One"
-      })
-
-      marriedAlert.addInput({
-      type: 'radio',
-      label: 'Yes',
-      value: 'Yes',
-      checked: false
-    });
-
-    marriedAlert.addInput({
-      type: 'radio',
-      label: 'No',
-      value: 'No',
-      checked: false
-    });
-  
-    marriedAlert.addButton('Cancel');
-    marriedAlert.addButton({
-      text: 'OK',
-      handler: data => {
-        this.marriedAnswer = data;
-        if(data) {
-          this.marriedValid = true; 
-        }else {
-          this.marriedValid = false; 
-        }
-      }
-    });
-    marriedAlert.didLeave
-    .subscribe( _ => {
-      this.marriedTouched = true;
-    })
-    marriedAlert.present(); 
-  }
-
-  gender: any;
-
-  onSelect() {
-    console.log(this.gender)
-  }
-
-  logForm(){
-    console.log(this.firstForm)
-  }
-  // showRadioRank() {
-  //   let alert = this.alertCtrl.create({
-  //     message:"Select One"
-  //   });
-  //   alert.setTitle('Military Rank');
-
-  //   alert.addInput({
-  //     type: 'radio',
-  //     label: 'Private',
-  //     value: 'private',
-  //     checked: false
-  //   });
-
-  //   alert.addInput({
-  //     type: 'radio',
-  //     label: 'Sergent',
-  //     value: 'Sergent',
-  //     checked: false
-  //   });
-
-  //   alert.addInput({
-  //     type: 'radio',
-  //     label: 'First Sergent',
-  //     value: 'first Sergent',
-  //     checked: false
-  //   });
-
-  //   alert.addButton('Cancel');
-  //   alert.addButton({
-  //     text: 'OK',
-  //     handler: data => {
-  //     console.log("OK", data);
-  //     }
-  //   });
-  //   alert.present();
+  //submitIntent: boolean = false;
+  // onSubmitOne() {  
+  //   console.log(this.firstForm)
+  //   if( this.firstForm.valid) {
+  //     this.shouldLockSwipeToNext = false;
+  //     this.lockNextSlide()
+  //     this.next();
+  //     console.log("valid")
+  //   } else {
+  //     console.log("inavalid")
+  //   }
+  //   this.submitIntent = true;
   // }
+
+  customizeSelectOptions(title: string, message: string ) {
+   let obj: object = {
+     title: title,
+     message: message,
+     cssClass: 'branchRadio',
+   }
+   return obj;
+  }
+
+  branchOption = this.customizeSelectOptions("Military Branch", "Select a branch");
+  vetOrActiveOptions = this.customizeSelectOptions("Military Status", "Select one");
+  disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
+  UnemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
+  marriageOptions = this.customizeSelectOptions("Marriage Status","Select one");
+ 
+  onSubmit() {
+    let userData: object = {
+      branch: this.firstForm.value.branch,
+      veteranOrActive: this.firstForm.value.vetOrActive,
+      separationDate: this.firstForm.value.separationDate,
+      disabilityStatus: this.firstForm.value.disability,
+      disabilityPercent: this.firstForm.value.percentQuestion,
+      employmentStatus: this.secondForm.value.employment,
+      lastEmployed: this.secondForm.value.lastEmployed,
+      marriageStatus: this.secondForm.value.marriage,
+      militaryRank: this.thirdForm.value.rank,
+      MOS: this.thirdForm.value.MOS
+    }
+    this.shouldLockSwipeToNext = false;
+    this.lockNextSlide()
+    this.next();
+    this.slides.lockSwipeToPrev(true);
+  }
+
 }
 

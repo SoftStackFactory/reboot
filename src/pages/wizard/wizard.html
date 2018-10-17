@@ -98,7 +98,7 @@
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <form [formGroup]="firstForm" (ngSubmit)="logForm()" (ionChange)="formChanged()">
+      <form [formGroup]="firstForm" >
 
         <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-size">
         <ion-item-group>
@@ -107,7 +107,7 @@
           </ion-item-divider>
           <ion-select 
             formControlName="branch"
-            >
+            [selectOptions] = 'branchOption'>
             <ion-option value="Air Force">Air Force</ion-option>
             <ion-option value="Army">Army</ion-option>
             <ion-option value="Coast Guards">Coast Guards</ion-option>
@@ -176,7 +176,7 @@
             <span class='question'>{{disabilityQValue}}</span>
             <ion-select 
               formControlName="disability"
-              [selectOptions] = 'vetOrActiveOptions'>
+              [selectOptions] = 'disabilityOptions'>
               <ion-option value="disability">Yes</ion-option>
               <ion-option value="noDisability">No</ion-option>
             </ion-select>
@@ -207,8 +207,7 @@
         </ion-item-group>
       </ion-card>
 
-      <button ion-button type="submit" (click)="onSubmitOne()"  >submit</button><br>
-      
+      <!-- <button ion-button type="submit" (click)="onSubmitOne()"  >submit</button><br> -->
         </form>
       </div> 
     </ion-slide>
@@ -233,7 +232,7 @@
             <span class='question'>{{employedAnswer}}</span>
             <ion-select 
               formControlName="employment"
-              [selectOptions] = ''>
+              [selectOptions] = 'UnemployedOptions'>
               <ion-option value="Employed">Employed</ion-option>
               <ion-option value="Unemployed">Unemployed</ion-option>
           </ion-select>
@@ -271,10 +270,10 @@
               Are you married?
           </ion-item-divider>
           <ion-item class="">
-            <span class='question'>{{marriedAnswer}}</span>
+            <span class='question'>frfrf</span>
             <ion-select 
             formControlName="marriage"
-            [selectOptions] = ''>
+            [selectOptions] = 'marriageOptions'>
             <ion-option value="married">Yes</ion-option>
             <ion-option value="notMarried">No</ion-option>
           </ion-select>
@@ -298,7 +297,7 @@
           <p class='h2'>Continue</p>
         </ion-list>
           
-        <form [formGroup]="thirdForm"  (ngSubmit)="logFormTwo()" (ionChange)="formChanged()">
+        <form [formGroup]="thirdForm" >
 
           <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
             <ion-item-group>
@@ -337,7 +336,7 @@
               </ion-item>
             </ion-item-group>
           </ion-card>
-          <button ion-button (click)= "onSelect()"> Button</button>
+          <button ion-button [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
   
         </form>
       </div>
