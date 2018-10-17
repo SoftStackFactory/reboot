@@ -192,7 +192,10 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)" *ngIf="disabilityQValue == 'disability'" class="card-wrapper">
+      <ion-card 
+        [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)"
+        *ngIf="disabilityQValue == 'disability'"
+        class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             What is your assigned disability rating (Percent)?

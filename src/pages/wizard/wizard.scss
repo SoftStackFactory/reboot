@@ -175,6 +175,10 @@ page-wizard {
      max-width: 768px;
      margin: 20px auto 0px auto;
      }
+     .card-end {
+        margin-bottom: 15px; 
+     }
+
      @media screen and (min-width:750px) {
         .nav-start{
          height: 5.5vw;
@@ -267,6 +271,7 @@ page-wizard {
         .top-question {
             position: relative;
             top: 60px;
+            margin-bottom: 25px;
         }
         
         .top-question .h1 {

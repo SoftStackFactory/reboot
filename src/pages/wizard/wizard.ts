@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
@@ -14,7 +14,7 @@ import { createOfflineCompileUrlResolver } from '@angular/compiler';
   selector: 'page-wizard',
   templateUrl: 'wizard.html',
 })
-export class WizardPage implements OnInit {
+export class WizardPage {
 
   private firstForm : FormGroup;
   private secondForm : FormGroup;
@@ -38,20 +38,30 @@ export class WizardPage implements OnInit {
     this.secondFormFunct();
     this.thirdFormFunct(); 
   }
-
-  ngOnInit() {}
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad WizardPage');
     setTimeout( _ => {
       this.slideChanged() 
       }, 300 );
- };
+  };
  vetValue: string = "";
- SeparationQuestion: string = "";
- // disability question properties
- 
+ SeparationQuestion: string = ""; 
  disabilityQValue: string = "";
+ 
+  statusChangeFunct(valid: boolean) {
+    console.log("on new funct")
+    if(valid == true) {
+      console.log(valid, "newFunct-valid")
+      this.nextButton = false;
+      this.shouldLockSwipeToNext = false;
+    }else if( valid == false) {
+      console.log(valid, "newFunct-not valid")
+      this.nextButton = true;
+      this.shouldLockSwipeToNext = true;
+    } 
+    this.lockNextSlide()
+  }
  
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
@@ -64,15 +74,8 @@ export class WizardPage implements OnInit {
 
     this.firstForm.statusChanges
       .subscribe(val => {
-        console.log("status changed", val)
-        if(this.firstForm.valid == true) {
-          this.nextButton = false;
-          this.shouldLockSwipeToNext = false;
-        }else if( this.firstForm.valid == false) {
-          this.nextButton = true;
-          this.shouldLockSwipeToNext = true;
-        } 
-        this.lockNextSlide()
+        console.log("statusChanged1#1", val)
+        this.statusChangeFunct(this.firstForm.valid)
       })
 
     this.firstForm.controls.vetOrActive.valueChanges
@@ -85,6 +88,7 @@ export class WizardPage implements OnInit {
           this.SeparationQuestion = "";
         }
       this.vetValue = val;
+      console.log("vetOrAct.ValueChanges", this.firstForm.valid)
        })
       
     this.firstForm.controls.disability.valueChanges
@@ -112,31 +116,24 @@ export class WizardPage implements OnInit {
 
     this.secondForm.statusChanges
       .subscribe(val => {
-        if(this.secondForm.valid == true) {
-          this.nextButton = false;
-          this.shouldLockSwipeToNext = false;
-        }else if( this.secondForm.valid == false) {
-          this.nextButton = true;
-          this.shouldLockSwipeToNext = true;
-        } 
-        this.lockNextSlide()
-        console.log(this.secondForm)
+        this.statusChangeFunct(this.secondForm.valid)
+        console.log( "statusChanges2#2")
       })
 //if error 'infinite loop comment out .upadateValueAndValidity()'
     this.secondForm.controls.employment.valueChanges
       .subscribe( data => {
         const employmentQuestion = this.secondForm.get('lastEmployed')
         if(data == "Unemployed") { 
-          console.log("#1")
+          console.log("ValueChanges-#1", data)
           employmentQuestion.setValidators(Validators.compose([ Validators.required]));
         }else {
           employmentQuestion.clearValidators() 
-          console.log("#2") 
+          console.log("ValueChanges#2", data) 
         }
-        console.log(employmentQuestion, "#3")
+        console.log(this.secondForm.valid, "ValueChanges#3")
         employmentQuestion.updateValueAndValidity()
+        console.log(this.secondForm.valid, "ValueChanges#4")
         this.employedAnswer = data; 
-        return
       })
   };
 
