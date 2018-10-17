@@ -26,7 +26,7 @@
       <div class='top-simple'>
         <ion-list class="simple-header" >
           <ion-list-header>
-            <h1 class="h1">Welcome Austin!!</h1>
+            <h1 class="h1">Welcome Peter!!</h1>
           </ion-list-header>
           <p class="h2">InTransition is an app designed for Veterans to transition into the civil environment.
             This wizard will guide you through the app.<br><br>
@@ -100,20 +100,24 @@
         
       <form [formGroup]="firstForm" >
 
-        <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-size">
+        <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Select your military branch
           </ion-item-divider>
-          <ion-select 
-            formControlName="branch"
-            [selectOptions] = 'branchOption'>
-            <ion-option value="Air Force">Air Force</ion-option>
-            <ion-option value="Army">Army</ion-option>
-            <ion-option value="Coast Guards">Coast Guards</ion-option>
-            <ion-option value="Marines">Marines</ion-option>
-            <ion-option value="Navy">Navy</ion-option>
-          </ion-select>
+          <ion-item class="q-wrapper">
+            <ion-select 
+              placeholder="Select"
+              formControlName="branch"
+              [selectOptions] = 'branchOption'>
+              <ion-option value="Air Force">Air Force</ion-option>
+              <ion-option value="Army">Army</ion-option>
+              <ion-option value="Coast Guards">Coast Guards</ion-option>
+              <ion-option value="Marines">Marines</ion-option>
+              <ion-option value="Navy">Navy</ion-option>
+            </ion-select>
+          </ion-item>
+          
           <ion-item  no-lines *ngIf="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
            </ion-item>
@@ -122,17 +126,18 @@
 
       <!-- <ion-item class="">
         <span class='question'>{{branchValue}}</span>
-        <a class="select" >Select</a>
+       
       </ion-item> -->
      
-      <ion-card [class.invalid]="!firstForm.controls.vetOrActive.valid && (firstForm.controls.vetOrActive.touched || submitIntent)">
+      <ion-card [class.invalid]="!firstForm.controls.vetOrActive.valid && (firstForm.controls.vetOrActive.touched || submitIntent)" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             Are you an active member or a veteran?
           </ion-item-divider>
-          <ion-item class="">
+          <ion-item class="q-wrapper">
             <a class="select" >Select</a>
             <ion-select 
+              placeholder="Select"
               formControlName="vetOrActive"
               [selectOptions] = 'vetOrActiveOptions'>
               <ion-option value="Veteran">Veteran</ion-option>
@@ -145,13 +150,14 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValue">
+      <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValue" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
            {{SeparationQuestion}}
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-datetime 
+              placeholder="Select"
               #vetQuestionName
               type="date"
               formControlName="separationDate"
@@ -159,7 +165,6 @@
               displayFormat="MM/YYYY"
             >
             </ion-datetime>
-            <ion-label ><a class="select" >Select</a></ion-label>
           </ion-item>
           <ion-item class="input" no-lines *ngIf="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched || submitIntent)">
             <p class="invalid-text">Enter a date</p>
@@ -167,14 +172,14 @@
         </ion-item-group>
       </ion-card>    
 
-      <ion-card [class.invalid]="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)">
+      <ion-card [class.invalid]="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Do you have any service disability?
           </ion-item-divider>
-          <ion-item>
-            <span class='question'>{{disabilityQValue}}</span>
+          <ion-item class="q-wrapper">
             <ion-select 
+              placeholder="Select"
               formControlName="disability"
               [selectOptions] = 'disabilityOptions'>
               <ion-option value="disability">Yes</ion-option>
@@ -187,7 +192,7 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)" *ngIf="disabilityQValue == 'disability'">
+      <ion-card [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)" *ngIf="disabilityQValue == 'disability'" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
             What is your assigned disability rating (Percent)?
@@ -223,14 +228,14 @@
         
       <form [formGroup]="secondForm">
      
-      <ion-card [class.invalid]="!secondForm.controls.employment.valid && secondForm.controls.employment.touched">
+      <ion-card [class.invalid]="!secondForm.controls.employment.valid && secondForm.controls.employment.touched" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Are you employed or unemployed?
           </ion-item-divider>
-          <ion-item class="">
-            <span class='question'>{{employedAnswer}}</span>
+          <ion-item class="q-wrapper">
             <ion-select 
+              placeholder="Select"
               formControlName="employment"
               [selectOptions] = 'UnemployedOptions'>
               <ion-option value="Employed">Employed</ion-option>
@@ -243,20 +248,20 @@
         </ion-item-group>
       </ion-card>
 
-      <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="employedAnswer == 'Unemployed'">
+      <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="employedAnswer == 'Unemployed'" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
            When were you last employed?
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-datetime 
+              placeholder="Select"
               type="date"
               class='date'
               displayFormat="MM/YYYY" 
               formControlName="lastEmployed"
             >
             </ion-datetime>
-            <ion-label ><a class="select">Select</a></ion-label>
           </ion-item>
           <ion-item class="input" *ngIf="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)">
             <p class="invalid-text" invalid-text>Enter a date</p>
@@ -264,14 +269,14 @@
         </ion-item-group>
       </ion-card>    
 
-      <ion-card  [class.invalid]="!secondForm.controls.marriage.valid && (secondForm.controls.marriage.touched)">
+      <ion-card  [class.invalid]="!secondForm.controls.marriage.valid && (secondForm.controls.marriage.touched)" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
               Are you married?
           </ion-item-divider>
-          <ion-item class="">
-            <span class='question'>frfrf</span>
+          <ion-item class="q-wrapper">
             <ion-select 
+            placeholder="Select"
             formControlName="marriage"
             [selectOptions] = 'marriageOptions'>
             <ion-option value="married">Yes</ion-option>
@@ -299,7 +304,7 @@
           
         <form [formGroup]="thirdForm" >
 
-          <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
+          <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)" class="card-wrapper">
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
                 What is your military rank?
@@ -318,7 +323,7 @@
             </ion-item-group>
           </ion-card>
 
-          <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" >
+          <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" class="card-wrapper">
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
                 What is your MOS/NEC?

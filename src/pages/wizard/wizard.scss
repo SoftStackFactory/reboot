@@ -171,9 +171,10 @@ page-wizard {
        float: right;
      }
      
-    //  .card-size {
-     
-    //  }
+     .card-wrapper {
+     max-width: 768px;
+     margin: 20px auto 0px auto;
+     }
      @media screen and (min-width:750px) {
         .nav-start{
          height: 5.5vw;
