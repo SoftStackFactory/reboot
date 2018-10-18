@@ -15,43 +15,43 @@ timeline {
     position: absolute;
     top: 0;
     left: 0;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
+    z-index: 1000;
     border-radius: 50%;
-    -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-            box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    // -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    //         box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
   }
   
-  .cd-timeline__img img {
-    display: block;
-    width: 24px;
-    height: 24px;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    margin-left: -12px;
-    margin-top: -12px;
-  }
 
   .cd-timeline__img.cd-timeline__img--5 {
     background: #64c5b1;
   }
 
+  .item-ios h2:last-child, .item-ios h3:last-child, .item-ios h4:last-child, .item-ios h5:last-child, .item-ios h6:last-child, .item-ios p:last-child {
+      padding-left: 3%;
+  }
+
+  .item-ios{
+      background-color: transparent !important;
+      padding-left: 10px !important;
+  }
+  
+  .item-checkbox {
+      margin-left: 10%;
+  }
+
+.border-thingy {
+    padding-left: 5%;
+}
 .timeline {
-    margin: 30px 0 0 0;
+    margin-top: 30px;
     padding: 0;
     position: relative;
+    background-image: url('../assets/imgs/blueline.png');
+    background-repeat: repeat-y;
+    background-position: 6.2% top;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 10px;
-      background: #afdcf8;
-      left: 20%;
-      margin-left: -10px;
-    }
     timeline-item {
       position: relative;
       display: inline-block;
@@ -114,27 +114,15 @@ timeline {
         }
     }
 
-
-    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
-        border-bottom: none;
-    }
-
-    .list-ios > .item-block:first-child {
-        border-top: none;
+    .list-ios, .item-block, .item-inner {
+        border-bottom: none !important;
+        border-top: none !important;
     }
 
     .list-ios {
-        margin: -1px 0 20px !important;
+        margin: -1px 0 15px !important;
     }
 
-    
-
-    &:before {
-        left: 3% !important;
-    }
-    .list, .list-md{
-        margin-left:3% !important;
-    }
 
     .item.item-md .checkbox-md {
         margin: -6px 14px 8px -35px !important;
@@ -143,10 +131,13 @@ timeline {
     }
 
     .checkbox-ios {
-        // position: absolute !important;
         margin: -6px 14px 8px -35px !important;
         padding-left: 4%;
         padding-top: 2%;
+    }
+
+    .item-ios h2:last-child, .item-ios h3:last-child, .item-ios h4:last-child, .item-ios h5:last-child, .item-ios h6:last-child, .item-ios p:last-child {
+        padding-left: 6% !important;
     }
         
 
