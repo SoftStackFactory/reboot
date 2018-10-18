@@ -21,12 +21,14 @@
       <ion-card-header>
         <div id="categoryAndRange">
           <h1 id="category">{{area.title}}</h1>
-          <ion-range id="range" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)"></ion-range>
+          <button (click)="toggleSection(area)">View</button>
         </div>
-        <button (click)="toggleSection(area)">View</button>
       </ion-card-header>
-      <ion-card-content id="areaDescription" *ngIf="area.expand">
-        {{area.description}}
+      <ion-card-content id="areaDescription">
+        <span> {{area.intro}} </span>
+        <span *ngIf="!area.expand; else content"> ... </span>
+        <ng-template #content> {{ area.description }} </ng-template>
+        <ion-range id="range" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)"></ion-range>
       </ion-card-content>
     </ion-card>
   </ion-list>
