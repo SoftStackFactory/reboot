@@ -80,12 +80,6 @@ export class TransitionPage {
         intro: 'Attitude is vital and can influence every aspect of your life. Is your glass half full or half empty?',
         description: 'Are you a positive person who notices all the good things that happen and comes up with solutions when things don’t go as planned or do you always expect the worse and the worse always seems to happen?',
         number: 0
-      },
-      {
-        title: 'Final Step',
-        expand: false,
-        description: 'When you have scored all areas join the points on each section to draw a wheel. This will show you how balanced overall your life is and what areas you really need to focus on. Put a date on it and review it at least every 6 months.',
-        number: 0
       }
     ];
 
