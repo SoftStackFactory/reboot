@@ -19,12 +19,12 @@ export class UserProvider {
   }
 
   sendReg(user) {
-    console.log('sendReg() runs')
-    return this.http.post(this.requestUrl + 'appUsers', user)
+    console.log('sendReg() runs', user)
+    return this.http.post(this.requestUrl + '/appUsers', user)
   }
 
 
   login(creds) {
-    return this.http.post(this.requestUrl + 'appUsers/login', creds);
+    return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
 }
