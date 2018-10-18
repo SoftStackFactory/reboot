@@ -6,8 +6,6 @@ import { UserProvider } from '../../providers/user/user';
 import { WizardPage } from '../wizard/wizard'
 import { LoginPage } from '../login/login';
 
-
-
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
@@ -51,7 +49,6 @@ export class RegisterPage {
       },
       err => {
       console.error('err from register:', err)
-      //this.presentToast()
       },
       () => {
       this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})

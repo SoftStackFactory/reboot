@@ -7,14 +7,6 @@ import { DashboardPage } from '../dashboard/dashboard';
 
 import { UserProvider } from '../../providers/user/user'
 
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
