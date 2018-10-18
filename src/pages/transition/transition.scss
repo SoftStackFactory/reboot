@@ -1,28 +1,39 @@
 page-transition {
 
     #category {
-        font-size: 24px;
+        font-size: 30px;
     }
 
-    #categoryAndRange {
+    #categoryAndView {
         display: flex; 
         justify-content: space-between; 
         align-items: center
     }
 
-    #range {
-        margin: auto;
-        width: 100%;
-    }
-
-    button {
+    #viewButton {
         color: #488aff;
         float: right;
         background-color: white;
-        font-size: 20px;
+        font-size: 24px;
     }
 
     #areaDescription {
-        font-size: 20px;
+        font-size: 24px;
     }
+
+    #range {
+        border: 1px solid rgb(100, 100, 100); 
+        background-color: rgb(250, 250, 250)
+    }
+
+    #instructions {
+        font-size: 24px;
+        font-weight: bold; 
+        padding-top: 20px
+    }
+
+    .rangeLabels {
+        font-size: 35px;
+    }
+
 }

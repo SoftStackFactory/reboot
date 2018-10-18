@@ -7,14 +7,6 @@ import { DashboardPage } from '../dashboard/dashboard';
 
 import { UserProvider } from '../../providers/user/user'
 
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -27,7 +19,7 @@ export class LoginPage {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
-      password: ['', Validators.required],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9 ]*'), Validators.required])],
     });
   }
 

@@ -24,9 +24,9 @@ page-profile {
     .label, user-info {
         font-size: 20px;
         color: black;
-         overflow: hidden; 
-         text-overflow: clip;
-         padding: 10px;
+        overflow: hidden; 
+        text-overflow: clip;
+        padding: 10px;
     }
     .label {
         margin: auto;
@@ -36,6 +36,10 @@ page-profile {
     .user-info {
         margin-left: 20%;
         position: relative;
+        
+    }
+    .user-info p{
+        font-size: 20px;
     }
     .user-info-colum {
        width: 80%; 
@@ -52,16 +56,17 @@ page-profile {
         justify-content: center;
     }
     .buttons1 {
-        width: 100px;
+        width: 120px;
         margin: 10px 10px auto 10px;
+        font-size: 18px;
     }
    
     @media screen and (min-width: 768px) {
         .name {
             font-size: 50px;
         }
-        label, user-info {
-            font-size: 40px;
+        .label, .user-info p {
+            font-size: 25px;
         }
         ion-icon {
             font-size: 250px;
@@ -75,10 +80,10 @@ page-profile {
             max-width: 500px;
         }
         .buttons1 {
-            width: 140px;
+            width: 150px;
             height: 50px;
-           margin: 20px 20px auto 20px;
-           font-size: 20px;
+            margin: 20px 20px auto 20px;
+            font-size: 20px;
            
         }
     }

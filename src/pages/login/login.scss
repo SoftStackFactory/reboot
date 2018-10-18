@@ -64,12 +64,14 @@ page-login {
 
     #loginbutton {
         background-color: rgb(130,180,64); 
-        font-size: 25px
+        font-size: 25px;
+        height: 2.1em;
     }
 
     #signupbutton {
         background-color: rgb(42,61,79); 
-        font-size: 25px
+        font-size: 25px;
+        height: 2.1em;
     }
 
     @media screen and (orientation:portrait){
@@ -79,7 +81,7 @@ page-login {
     @media screen and (orientation:landscape){
         .button{
             margin:auto;
-            width:60%;
+            width:80%;
             height: 2.1em;
         }
         #loginbutton {
@@ -98,7 +100,7 @@ page-login {
 
         .inputs {
             margin: auto;
-            width: 70%;
+            width: 80%;
         }
         
         .icons {
