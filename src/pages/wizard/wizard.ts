@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
+import { DashboardPage } from '../../pages/dashboard/dashboard';
+import { TransitionPage } from '../../pages/transition/transition';
 
 /**
  * Generated class for the WizardPage page.
@@ -19,6 +21,7 @@ export class WizardPage {
   private firstForm : FormGroup;
   private secondForm : FormGroup;
   private thirdForm : FormGroup;
+ 
 
   get percentQuestion() {
     return this.firstForm.get('percentQuestionName')
@@ -211,6 +214,13 @@ export class WizardPage {
     this.lockNextSlide()
     this.next();
     this.slides.lockSwipeToPrev(true);
+  }
+
+  setDashboardPage() {
+    this.navCtrl.setRoot(DashboardPage)
+  }
+  setAssestmentPage() {
+    this.navCtrl.setRoot(TransitionPage)
   }
 
 }
