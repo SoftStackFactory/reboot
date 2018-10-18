@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
 
+import { TimelinePage} from '../timeline/timeline';
+
 
 /**
  * Generated class for the DashboardPage page. 
@@ -113,4 +115,7 @@ ionViewDidLoad() {
     this.chart.update();
   }
 
+  toTimeline() {
+    this.navCtrl.setRoot(TimelinePage);
+  }
 }
