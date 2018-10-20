@@ -155,7 +155,6 @@ export class WizardPage {
   next() {
     this.slides.slideNext(500);
   }
-
   back() {
    this.slides.slidePrev(500); 
   }
@@ -177,16 +176,15 @@ export class WizardPage {
     }else {
       this.eneableSwipe()
     }
-    
     if(index == (6 || 9 )) {
-      console.log(this.LockSwipeToPrev, "69#1")
+      // console.log(this.LockSwipeToPrev, "69#1")
       this.LockSwipeToPrev = true
-      console.log(this.LockSwipeToPrev, "69#2")
+      //console.log(this.LockSwipeToPrev, "69#2")
       this.lockPrevSlide()
     }else{
-      console.log(this.LockSwipeToPrev, "else-69#1")
+      //console.log(this.LockSwipeToPrev, "else-69#1")
       this.LockSwipeToPrev = false;
-      console.log(this.LockSwipeToPrev, "else-69#2")
+      //console.log(this.LockSwipeToPrev, "else-69#2")
       this.lockPrevSlide()
     }
     this.lockNextSlide();

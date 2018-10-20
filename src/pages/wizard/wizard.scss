@@ -112,7 +112,6 @@ page-wizard {
         width: 200px;
         height: 4.5vh;
         background-color: rgb(26, 39, 71);
-
     }
     // .top-form-page {
     //     position: relative;
@@ -152,40 +151,40 @@ page-wizard {
         font-size: 25px;
      }
      
-     .q-wrapper {
+    .q-wrapper {
        display: flex;
        justify-content: space-between;
        flex-direction: row-reverse;
        padding-left: 0px; 
      }
-     #select {
+    #select {
          float: left !important;
      }
      
-     .select {
+    .select {
        float: right;
        /* margin-left: 30%; */
      }
      
-     .view{ 
+    .view{ 
        float: right;
      }
      
-     .card-wrapper {
-     max-width: 768px;
-     margin: 20px auto 0px auto;
+    .card-wrapper {
+        max-width: 768px;
+        margin: 20px auto 0px auto;
      }
-     .card-end {
+    .card-end {
         margin-bottom: 15px; 
      }
 
-     @media screen and (min-width:750px) {
+    @media screen and (min-width:750px) {
         .nav-start{
-         height: 5.5vw;
-         max-height: 70px;
+            height: 5.5vw;
+            max-height: 70px;
          }
          .start {
-              font-size:2vw ;
+            font-size:2vw ;
 
          }
          #end {
@@ -196,43 +195,47 @@ page-wizard {
             height: 4.8vw;
             width: 20vw;
          }
-        }
+    }
 
-        @media screen and (min-width: 1000px) {
-            .h1 {
-               font-size: 40px;
-           }
-           .h2 {
-               font-size: 28px;
-           }
-           @media screen and (orientation: landscape) {
-            .question-header .h1 {
-               font-size: 35px;
-             } 
-             .question-header {
-                 margin-bottom: 10px;
-             }
-           }
-       }
-       @media screen and (min-width: 700px) and (orientation: portrait){
+    @media screen and (min-width: 1000px) {
         .h1 {
             font-size: 40px;
         }
         .h2 {
             font-size: 28px;
         }
-       }
+     
+    }
+    @media screen and (max-width: 812px) and (orientation: landscape){
+        .question-header{
+            margin: 0px;
+            top: -30px;
+        }
+        .form {
+            margin-top: -20px;
+        }
+        .inner-question-header, .h2 {
+            margin: 0px auto 0px auto;
+        }
+    }
+    @media screen and (min-width: 700px) and (orientation: portrait){
+        .h1 {
+            font-size: 40px;
+        }
+        .h2 {
+            font-size: 28px;
+        }
+    }
 
-    @media screen and (orientation:landscape) { 
-        
+    @media screen and (orientation:landscape) {
         .demo-slide .slide-zoom {
             display: flex;
             align-items: center;
-         }
+        }
         .top-simple {
             top: auto;
             width: 55%;
-         }
+        }
         .top-demo{
             display: flex;
             justify-content: center;
@@ -244,7 +247,6 @@ page-wizard {
         .demo-header {
             width: 40%;
         }
-        
         img {
            width: 100px;
         }
@@ -264,36 +266,22 @@ page-wizard {
         //    justify-content: space-around;
         //   //  margin-top: 100px;
         // }      
-        .question-header {
-        //    position: relative;
-        //    top: 1vh;
-        }
+        
         .top-question {
             position: relative;
-            top: 60px;
+            top: 80px;
             margin-bottom: 25px;
-        }
-        
-        .top-question .h1 {
-            margin: 0px;
-            font-size: 25px;
-            
-        }
-        .top-question .h2 {
-            margin: 0px auto 0px auto;
-            font-size: 20px;
-        }
+        }       
         .buttons {
             margin-top: 5vw; 
          }
          .button1 {
              height: 5vw;
          }
-      
     }
     .invalid {
         border: 1px solid #ea6153;
-      }
+    }
       
     .invalid-text {
         font-size: 20px;

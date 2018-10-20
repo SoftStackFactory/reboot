@@ -112,7 +112,7 @@
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <form [formGroup]="firstForm" >
+      <form [formGroup]="firstForm" class="form">
 
         <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-wrapper">
         <ion-item-group>
@@ -243,7 +243,7 @@
           <p class='h2'>Continue </p>
         </ion-list>
         
-      <form [formGroup]="secondForm">
+      <form [formGroup]="secondForm" class="form">
      
       <ion-card [class.invalid]="!secondForm.controls.employment.valid && secondForm.controls.employment.touched" class="card-wrapper">
         <ion-item-group>
@@ -319,7 +319,7 @@
           <p class='h2'>Continue</p>
         </ion-list>
           
-        <form [formGroup]="thirdForm" >
+        <form [formGroup]="thirdForm" class="form">
 
           <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)" class="card-wrapper">
             <ion-item-group>
