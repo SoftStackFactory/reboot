@@ -51,7 +51,11 @@ export class WizardPage {
   vetValue: string = "";
   SeparationQuestion: string = ""; 
   disabilityQValue: string = "";
-
+  nextButtonDisabled: boolean = false;
+  shouldLockSwipeToNext: boolean = false;
+  LockSwipeToPrev: boolean = false;
+  employedAnswer: string= "";
+  
   disableSwipe() {
     this.nextButtonDisabled = true;
     this.shouldLockSwipeToNext = true;
@@ -109,8 +113,7 @@ export class WizardPage {
         this.disabilityQValue = data; 
       })
   };
- //
-  employedAnswer: string= "";
+ 
   //declare SecondForm; set contol names; set validators
   secondFormFunct(){
     this.secondForm = this.formBuilder.group({
@@ -145,11 +148,10 @@ export class WizardPage {
       MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
     });
   };
-
-  nextButtonDisabled: boolean = false;
-  shouldLockSwipeToNext: boolean = false;
-  LockSwipeToPrev: boolean = false;
   // called when users click on nav bar 'next' button; only enabled when forms are valid
+  exit() {
+    this.navCtrl.setRoot(DashboardPage)
+  }
   next() {
     this.slides.slideNext(500);
   }
@@ -167,40 +169,28 @@ export class WizardPage {
   //the logic that determines if slide should be lockSwiped 
   
   slideChanged() {
+    
     let index = this.slides.realIndex; 
-    console.log(index)
+    console.log(index);
     if((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9 )) {
       this.disableSwipe()
     }else {
       this.eneableSwipe()
     }
-    if(index == 6 || 9 ) {
+    
+    if(index == (6 || 9 )) {
+      console.log(this.LockSwipeToPrev, "69#1")
       this.LockSwipeToPrev = true
-      console.log("69", this.LockSwipeToPrev)
+      console.log(this.LockSwipeToPrev, "69#2")
+      this.lockPrevSlide()
+    }else{
+      console.log(this.LockSwipeToPrev, "else-69#1")
+      this.LockSwipeToPrev = false;
+      console.log(this.LockSwipeToPrev, "else-69#2")
       this.lockPrevSlide()
     }
-    else{
-      this.LockSwipeToPrev = false
-      console.log('else69', this.LockSwipeToPrev)
-      this.lockPrevSlide()
-    }
-    this.lockNextSlide()
+    this.lockNextSlide();
   }
- 
-  //when navigating to the new slide when user clicks submit 
-  //submitIntent: boolean = false;
-  // onSubmitOne() {  
-  //   console.log(this.firstForm)
-  //   if( this.firstForm.valid) {
-  //     this.shouldLockSwipeToNext = false;
-  //     this.lockNextSlide()
-  //     this.next();
-  //     console.log("valid")
-  //   } else {
-  //     console.log("inavalid")
-  //   }
-  //   this.submitIntent = true;
-  // }
 
   customizeSelectOptions(title: string, message: string ) {
    let obj: object = {
