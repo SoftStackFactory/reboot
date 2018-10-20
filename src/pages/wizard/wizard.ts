@@ -53,12 +53,12 @@ export class WizardPage {
   disabilityQValue: string = "";
 
   disableSwipe() {
-    this.nextButton = true;
+    this.nextButtonDisabled = true;
     this.shouldLockSwipeToNext = true;
   }
  
   eneableSwipe() {
-    this.nextButton = false;
+    this.nextButtonDisabled = false;
     this.shouldLockSwipeToNext = false;
   }
   //callled when status changes for forms
@@ -145,23 +145,44 @@ export class WizardPage {
       MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
     });
   };
+
+  nextButtonDisabled: boolean = false;
+  shouldLockSwipeToNext: boolean = false;
+  LockSwipeToPrev: boolean = false;
   // called when users click on nav bar 'next' button; only enabled when forms are valid
   next() {
     this.slides.slideNext(500);
+  }
+
+  back() {
+   this.slides.slidePrev(500); 
   }
   //shouldLockSwipeToNext variable can be either true/false depending on condition
   lockNextSlide(){
     this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
   }
+  lockPrevSlide() {
+    this.slides.lockSwipeToPrev(this.LockSwipeToPrev)
+  }
   //the logic that determines if slide should be lockSwiped 
-  nextButton: boolean = false;
-  shouldLockSwipeToNext: boolean = false;
+  
   slideChanged() {
     let index = this.slides.realIndex; 
-    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 8 ) || (index == 7))  {
+    console.log(index)
+    if((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9 )) {
       this.disableSwipe()
     }else {
       this.eneableSwipe()
+    }
+    if(index == 6 || 9 ) {
+      this.LockSwipeToPrev = true
+      console.log("69", this.LockSwipeToPrev)
+      this.lockPrevSlide()
+    }
+    else{
+      this.LockSwipeToPrev = false
+      console.log('else69', this.LockSwipeToPrev)
+      this.lockPrevSlide()
     }
     this.lockNextSlide()
   }
@@ -209,11 +230,10 @@ export class WizardPage {
       militaryRank: this.thirdForm.value.rank,
       MOS: this.thirdForm.value.MOS
     }
-    console.log(userData)
+    console.log(userData, this.LockSwipeToPrev)
     this.shouldLockSwipeToNext = false;
     this.lockNextSlide()
     this.next();
-    this.slides.lockSwipeToPrev(true);
   }
 
   setDashboardPage() {

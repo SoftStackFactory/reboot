@@ -16,8 +16,8 @@
 <ion-content >
   <div class="nav-start">
     <button ion-button (click)="exit()"  class="start">Exit</button>
-    <button ion-button (click)="back()"class="start">Back</button>
-    <button ion-button [disabled]='nextButton' (click)="next()" id="end">Next</button>
+    <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+    <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
   </div>
  
   <ion-slides  (ionSlideWillChange)="slideChanged()"  pager>
@@ -30,7 +30,7 @@
           </ion-list-header>
           <p class="h2">InTransition is an app designed for Veterans to transition into the civil environment.
             This wizard will guide you through the app.<br><br>
-            <strong> Scroll to the right to begin.</strong>
+            <strong> Swipe to the right to begin >.</strong>
           </p>
         </ion-list>
       </div>
@@ -86,6 +86,20 @@
               item that you need to accomplish.</p>
         </ion-list >
         <img id="time" src='../../assets/imgs/timeline.png'>
+      </div>
+    </ion-slide>
+
+    <ion-slide  class="demo-slide">
+      <div class='top-simple'>
+        <ion-list class="simple-header" >
+          <ion-list-header>
+            <h1 class="h1">Questionnaire</h1>
+          </ion-list-header>
+          <p class="h2">Please fill out the Questionnaire to get your military information.
+            <br><br>
+            <strong> Swipe to the right to begin ></strong>
+          </p>
+        </ion-list>
       </div>
     </ion-slide>
 
