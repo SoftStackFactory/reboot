@@ -54,7 +54,7 @@ page-wizard {
         position: relative;
         display: block;
         // width: 70%;
-        margin: auto auto 50px auto;
+        margin: auto;
         font-size: 2.5vw;
         top: 10vw;
     }
@@ -200,9 +200,12 @@ page-wizard {
         max-width: 768px;
         margin: 20px auto 0px auto;
      }
-    // .form {
-    //    margin-bottom: 15px; 
-    //  }
+     .submit{
+        margin-top: -12px;
+    }
+    .scroll-content {
+        padding-bottom: 0px!important;
+    }
 
     @media screen and (min-width:768px) {
         .nav-start{
@@ -233,7 +236,12 @@ page-wizard {
         .input, .q-group{
             font-size: 25px;
         }
-       
+        .submit{
+            font-size: 25px ;
+            width: 200px;
+            height: 55px;
+            margin: auto
+        }
     }
 
     @media screen and (min-width: 1000px) {
@@ -263,6 +271,7 @@ page-wizard {
             font-size: 15px;
             padding: 3px;
         }
+      
         @media screen and (orientation: portrait){
             .form{
                 margin: -10px;
