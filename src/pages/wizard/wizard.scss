@@ -3,7 +3,7 @@ page-wizard {
     // }
     ion-slide{
      background-color: white;
-           
+   
   }
     .slide-zoom{
         height:100%;
@@ -26,7 +26,7 @@ page-wizard {
         z-index: 3;
     }
     .start {
-        font-size:2.5vw;
+        font-size:20px;
         height: 85%;
         color: black;
         background-color: aliceblue;
@@ -34,7 +34,7 @@ page-wizard {
         min-width: 65px;
     }
     #end {
-        font-size:2.5vw ;
+        font-size:20px ;
         min-width: 65px;
         width: 10vw;
         height: 85%;
@@ -46,7 +46,7 @@ page-wizard {
         position: relative;
         display: block;
         // width: 70%;
-        margin: auto;
+        margin: auto auto 50px auto;
         font-size: 2.5vw;
         top: 10vw;
     }
@@ -54,7 +54,7 @@ page-wizard {
         position: relative;
         display: block;
         // width: 70%;
-        margin: auto;
+        margin: auto auto 50px auto;
         font-size: 2.5vw;
         top: 10vw;
     }
@@ -62,9 +62,9 @@ page-wizard {
         position: relative;
         //display: block;
         // width: 70%;
-        margin: auto;
+        margin: auto auto 50px auto;
       //  font-size: 2.5vw;
-        top: 10vw;
+        top: 12vw;
     }
     .right-arrow {
         font-size: 3em;
@@ -200,9 +200,9 @@ page-wizard {
         max-width: 768px;
         margin: 20px auto 0px auto;
      }
-    .card-end {
-        margin-bottom: 15px; 
-     }
+    // .form {
+    //    margin-bottom: 15px; 
+    //  }
 
     @media screen and (min-width:768px) {
         .nav-start{
@@ -210,11 +210,11 @@ page-wizard {
             max-height: 70px;
         }
         .start {
-            font-size:2vw ;
+            font-size:25px ;
 
         }
         #end {
-            font-size:2vw ;
+            font-size:25px ;
          }
         
         .button1{
@@ -251,10 +251,10 @@ page-wizard {
             top: -30px;
         }
         .form {
-            margin-top: -20px;
+            margin-top: -25px;
         }
-        .inner-question-header, .h2 {
-            margin: 0px auto 0px auto;
+        .inner-question-header {
+            margin: 7px auto 0px auto;
         }
        
     }
@@ -262,6 +262,11 @@ page-wizard {
         ion-badge{
             font-size: 15px;
             padding: 3px;
+        }
+        @media screen and (orientation: portrait){
+            .form{
+                margin: -10px;
+            }
         }
     }
     @media screen and (max-width: 824px) and (orientation: landscape){
@@ -332,7 +337,7 @@ page-wizard {
          }
     }
     .invalid {
-        border: 1px solid #ea6153;
+        box-shadow: 0px 0px 10px 3px#ea6153;
     }
       
     .invalid-text {
