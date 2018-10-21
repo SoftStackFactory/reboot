@@ -55,6 +55,7 @@ export class WizardPage {
   shouldLockSwipeToNext: boolean = false;
   LockSwipeToPrev: boolean = false;
   employedAnswer: string= "";
+ 
   
   disableSwipe() {
     this.nextButtonDisabled = true;
