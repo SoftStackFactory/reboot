@@ -365,7 +365,7 @@
             </ion-item-group>
           </ion-card>
           <br><br>
-          <button ion-button class="submit"[disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
+          <button ion-button id ="submit" [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
   
         </form>
       </div>
@@ -380,10 +380,20 @@
           <p class="h2">You may begin by taking the self assesment.</p>
         </ion-list >
        
-        <div class='buttons'>
+        <!-- <div class='buttons'>
           <button class='button1' (click)="setDashboardPage()" ion-button>Dashboard</button>
           <button class='button1' (click)="setAssestmentPage()" ion-button>Take Assesment</button>
-        </div>
+        </div> -->
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col col-12 col-sm-5 col-md-auto>
+            <button class="button1"  ion-button>Dashboard</button>
+          </ion-col>
+          <ion-col col-12 col-sm-5 col-md-auto> 
+            <button class='button1' ion-button>Transition</button> 
+          </ion-col>
+        </ion-row>
+    </ion-grid>
       </div>
  
     </ion-slide>

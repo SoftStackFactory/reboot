@@ -1,15 +1,11 @@
 page-wizard {
-    // ion-slides {  
-    // }
     ion-slide{
      background-color: white;
-   
-  }
+     }
     .slide-zoom{
         height:100%;
     }
     .demo-slide {
-       // display: flex;
         align-items: flex-start;
     }
     .quest-slide{
@@ -123,46 +119,7 @@ page-wizard {
     .date {
         float: left;
     }
-    #end-wizard-h{
-        white-space: normal
-    }
-    .buttons {
-        position: relative;
-        margin-top: 15vw; 
-    }
-    .button1{
-        width: 200px;
-        height: 4.5vh;
-        background-color: rgb(26, 39, 71);
-    }
-    // .top-form-page {
-    //     position: relative;
-    //     display: block;
-    //     top: 60px; 
-    //    }
-  
-    // .input-form {
-    //     position: relative;
-    //     margin-top: 10vh; 
-    // }
-    // .input-item {
-    //   margin: .4vw auto;
-    //   display: block;
-    //   font-size: 3vw;
-    //   width: 80%;
-    //   height: 8vw;
-    //   max-height: 70px;
-    //   max-width: 1000px;
-    //   padding-left: 10px;
-    //   background-color: rgb(249, 247, 247);
-    //   border-radius: 5px;
-    //   border-color: rgb(242, 239, 239);
-    //   //padding-top: 7px; 
-    //   //margin-top:10px;
-    //   outline: none;
-    //   border:1px solid #cccccc
-    // }
-   
+      
     .question-header {
         position: relative;
     } 
@@ -170,9 +127,7 @@ page-wizard {
         padding: 20px auto;
         background-color:#f7f7f7!important;
         text-align: left;
-        font-size: 20px;
-        
-        
+        font-size: 20px;        
      }  
     .q-group ion-label{
         white-space: normal;
@@ -189,7 +144,6 @@ page-wizard {
      
     .select {
        float: right;
-       /* margin-left: 30%; */
      }
      
     .view{ 
@@ -200,13 +154,27 @@ page-wizard {
         max-width: 768px;
         margin: 20px auto 0px auto;
      }
-     .submit{
+    #submit{
         margin-top: -12px;
+        width: 168px;
+        height:42px;
+    }
+    #end-wizard-h{
+        white-space: normal
+    }
+    .buttons {
+        position: relative;
+        margin-top: 15vw; 
+    }
+    .button1{
+        width: 138px;
+        height:42px;
+        background-color: rgb(26, 39, 71);
+        padding: 0px;
     }
     .scroll-content {
         padding-bottom: 0px!important;
     }
-
     @media screen and (min-width:768px) {
         .nav-start{
             height: 5.5vw;
@@ -219,10 +187,10 @@ page-wizard {
         #end {
             font-size:25px ;
          }
-        
         .button1{
-            height: 4.8vw;
-            width: 20vw;
+            height: 55px;
+            width: 180px;
+            font-size: 25px;
          }
         .select-placeholder, .select-text{
             font-size: 25px;
@@ -236,22 +204,28 @@ page-wizard {
         .input, .q-group{
             font-size: 25px;
         }
-        .submit{
+        #submit{
             font-size: 25px ;
-            width: 200px;
+            width: 300px;
             height: 55px;
             margin: auto
         }
     }
 
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: 1024px) {
         .h1 {
             font-size: 40px;
         }
         .h2 {
             font-size: 28px;
         }
-     
+        @media screen and(orientation: portrait){
+            .button1{
+                width: 230px;
+                height: 70px;
+            }
+        }
+      
     }
     @media screen and (max-width: 812px) and (orientation: landscape){
         .question-header{
@@ -271,10 +245,13 @@ page-wizard {
             font-size: 15px;
             padding: 3px;
         }
-      
         @media screen and (orientation: portrait){
             .form{
                 margin: -10px;
+            }
+            .button1{
+                width: 50vw;
+                max-width: 500px;
             }
         }
     }
@@ -282,7 +259,7 @@ page-wizard {
         ion-badge{
             font-size: 15px;
             padding: 3px;
-        }
+        } 
     }
     @media screen and (min-width: 700px) and (orientation: portrait){
         .h1 {
@@ -292,7 +269,6 @@ page-wizard {
             font-size: 28px;
         }
     }
-
     @media screen and (orientation:landscape) {
         .demo-slide .slide-zoom {
             display: flex;
@@ -308,7 +284,6 @@ page-wizard {
             align-items: center; 
             margin: auto;
             top: auto;
-          //  flex-direction: row;
         }
         .demo-header {
             width: 40%;
@@ -327,31 +302,24 @@ page-wizard {
         #timeline {
             width: 35%;
         }
-        // .question-header {
-        //    display: flex;
-        //    justify-content: space-around;
-        //   //  margin-top: 100px;
-        // }      
-        
         .top-question {
             position: relative;
             top: 80px;
             margin-bottom: 25px;
-        }       
-        .buttons {
-            margin-top: 5vw; 
-         }
-         .button1 {
-             height: 5vw;
-         }
+        } 
+        @media screen and (min-width: 1366px){
+            .button1 {
+                width: 210px;
+                height: 70px;
+                font-size: 30px;
+            }
+       }     
     }
     .invalid {
         box-shadow: 0px 0px 10px 3px#ea6153;
     }
-      
     .invalid-text {
         font-size: 20px;
         color: #ea6153;
     }
-   
 }
