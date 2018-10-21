@@ -62,9 +62,6 @@ page-wizard {
       //  font-size: 2.5vw;
         top: 12vw;
     }
-    .right-arrow {
-        font-size: 3em;
-    }
     ion-badge{
         position: relative;
         font-size: 25px; 
@@ -141,15 +138,12 @@ page-wizard {
     #select {
          float: left !important;
      }
-     
     .select {
        float: right;
      }
-     
     .view{ 
        float: right;
      }
-     
     .card-wrapper {
         max-width: 768px;
         margin: 20px auto 0px auto;
@@ -211,7 +205,6 @@ page-wizard {
             margin: auto
         }
     }
-
     @media screen and (min-width: 1024px) {
         .h1 {
             font-size: 40px;
@@ -224,8 +217,7 @@ page-wizard {
                 width: 230px;
                 height: 70px;
             }
-        }
-      
+        } 
     }
     @media screen and (max-width: 812px) and (orientation: landscape){
         .question-header{
@@ -238,7 +230,6 @@ page-wizard {
         .inner-question-header {
             margin: 7px auto 0px auto;
         }
-       
     }
     @media screen and (max-width: 767px){
         ion-badge{
@@ -260,6 +251,10 @@ page-wizard {
             font-size: 15px;
             padding: 3px;
         } 
+        .top-simple {
+            top: auto;
+            width: 80%!important;
+         }
     }
     @media screen and (min-width: 700px) and (orientation: portrait){
         .h1 {
@@ -277,7 +272,7 @@ page-wizard {
         .top-simple {
             top: auto;
             width: 55%;
-        }
+         }
         .top-demo{
             display: flex;
             justify-content: center;

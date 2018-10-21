@@ -177,7 +177,7 @@ export class WizardPage {
     }else {
       this.eneableSwipe()
     }
-    if(index == (6 || 9 )) {
+    if(index == 6 || index == 9 ) {
       // console.log(this.LockSwipeToPrev, "69#1")
       this.LockSwipeToPrev = true
       //console.log(this.LockSwipeToPrev, "69#2")
