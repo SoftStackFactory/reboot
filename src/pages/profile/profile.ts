@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,18 +14,12 @@ import { Storage } from '@ionic/storage';
 })
 export class ProfilePage {
 
-  user: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-    this.storage.get('regUser').then((val) => {
-      console.log('regUser from profile:', val);
-      this.user = val
-    });
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter ProfilePage');
-    console.log('user:', this.user)
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProfilePage');
   }
 
 }
