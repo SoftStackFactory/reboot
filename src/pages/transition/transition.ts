@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ChartComponent } from '../../components/chart/chart';
+import { ChartProvider } from '../../providers/chart/chart';
 
 /**
  * Generated class for the TransitionPage page.
@@ -16,10 +17,9 @@ import { ChartComponent } from '../../components/chart/chart';
 export class TransitionPage {
 
   @ViewChild(ChartComponent) chartComponent;
-
   areas: Array<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
     this.areas = [
       {
         title: 'Career',
@@ -82,30 +82,6 @@ export class TransitionPage {
 
   }
 
-/** This block of code is for everything contained in ionViewDidLoad right below it
- *
- Everything above the options property in the chart code relates to the chart data. Everything below that property modifies the display in some way.
- 
- Everything below the plugins property in options relates to the snazzy labels that surround the chart.
-
- The layout.padding property gives room for the snazzy labels.
-
- In plugins.datalabels:
-
-            anchor, align, and offset are all used to position the labels. the anchor value sets the anchor point from which you'll relate a label's position
-            align defines what direction you'll position your labels relative to the anchor point
-            offset defines how far away from the anchor point you will position the labels
-            For more explanation: https://chartjs-plugin-datalabels.netlify.com/positioning.html
-
-            Some properties have functions as their values. This makes the values dynamic, changing based on certain conditions.
-            You'll notice that the functions take an argument called context. This object contains helpful information about the chart. Console log it if you're curious!
-
-            The "rotation" property is what rotates the labels to match where they are around the graph
-            The "BorderRadius property " controls how round the edges of the label containers are.
-            The "Font" and "Offset" functions scale the font and positioning according to the chart's width.
-            The "Formatter" property is what allows us to display the data names and values.
-            */
-
   toggleSection(area) {
     console.log(area);
     if (area.expand) {
@@ -116,8 +92,7 @@ export class TransitionPage {
   }
 
   changeData(categoryIndex, newNumber) {
-    this.chartComponent.chart.data.datasets[0].data[categoryIndex] = newNumber;
+    this.chartProvider.data[categoryIndex] = newNumber;
     this.chartComponent.chart.update();
   }
-
 }

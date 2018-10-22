@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+import { ChartProvider } from '..//../providers/chart/chart';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
 
@@ -18,8 +19,32 @@ export class ChartComponent implements OnInit {
 
   public chart: any;
 
-  constructor() {
+  constructor(public chartProvider: ChartProvider) {
   }
+
+  /** This block of code is for everything contained in ngOnInit right below it
+ *
+ Everything above the options property in the chart code relates to the chart data. Everything below that property modifies the display in some way.
+ 
+ Everything below the plugins property in options relates to the snazzy labels that surround the chart.
+
+ The layout.padding property gives room for the snazzy labels.
+
+ In plugins.datalabels:
+
+            anchor, align, and offset are all used to position the labels. the anchor value sets the anchor point from which you'll relate a label's position
+            align defines what direction you'll position your labels relative to the anchor point
+            offset defines how far away from the anchor point you will position the labels
+            For more explanation: https://chartjs-plugin-datalabels.netlify.com/positioning.html
+
+            Some properties have functions as their values. This makes the values dynamic, changing based on certain conditions.
+            You'll notice that the functions take an argument called context. This object contains helpful information about the chart. Console log it if you're curious!
+
+            The "rotation" property is what rotates the labels to match where they are around the graph
+            The "BorderRadius property " controls how round the edges of the label containers are.
+            The "Font" and "Offset" functions scale the font and positioning according to the chart's width.
+            The "Formatter" property is what allows us to display the data names and values.
+            */
 
   ngOnInit() {
     this.chart = new Chart(this.canvas.nativeElement, {
@@ -30,7 +55,7 @@ export class ChartComponent implements OnInit {
           {
             backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
-            data: [8, 0, 0, 0, 0, 0, 0, 0]
+            data: this.chartProvider.data
           }
         ]
       },
@@ -46,7 +71,7 @@ export class ChartComponent implements OnInit {
         legend: {
           display: false
         },
-        
+
         plugins: {
           datalabels: {
             textAlign: 'center',
