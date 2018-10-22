@@ -15,12 +15,10 @@ import 'chartjs-plugin-datalabels';
 })
 export class ChartComponent implements OnInit {
 
-  @ViewChild('ctx') public canvas;
+  @ViewChild('canvas') canvas;
+  chart: any;
 
-  public chart: any;
-
-  constructor(public chartProvider: ChartProvider) {
-  }
+  constructor(public chartProvider: ChartProvider) { }
 
   /** This block of code is for everything contained in ngOnInit right below it
  *
@@ -106,8 +104,6 @@ export class ChartComponent implements OnInit {
         }
       }
     });
-
-    console.log(this.chart)
 
     //This code down below is to fix a bug where I could not modify the scale in the options
     //key in the above code (It threw a typescript error even though it worked)

@@ -20,7 +20,6 @@ import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
-import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 
 

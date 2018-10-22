@@ -1,18 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ChartComponent } from '../../components/chart/chart';
-import { Chart } from 'chart.js';
-import 'chartjs-plugin-datalabels';
-
-import { TimelinePage} from '../timeline/timeline';
-
-
-/**
- * Generated class for the DashboardPage page. 
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TimelinePage } from '../timeline/timeline';
 
 @Component({
   selector: 'page-dashboard',
@@ -20,10 +8,7 @@ import { TimelinePage} from '../timeline/timeline';
 })
 export class DashboardPage {
 
-  @ViewChild(ChartComponent) chartComponent;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
   toTimeline() {
     this.navCtrl.setRoot(TimelinePage);
