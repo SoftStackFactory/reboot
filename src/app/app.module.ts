@@ -18,6 +18,7 @@ import { TimelinePage } from '../pages/timeline/timeline';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
@@ -41,7 +42,8 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

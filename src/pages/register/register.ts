@@ -3,8 +3,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { PasswordValidator } from '../../validators/password.validator';
 import { UserProvider } from '../../providers/user/user';
-import { WizardPage } from '../wizard/wizard'
+import { WizardPage } from '../wizard/wizard';
 import { LoginPage } from '../login/login';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-register',
@@ -17,7 +18,11 @@ export class RegisterPage {
   private validate: FormGroup
   submitAttempt: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _userService: UserProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private formBuilder: FormBuilder, 
+              public _userService: UserProvider,
+              private storage: Storage) {
     
     this.validate = this.formBuilder.group({
       first: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -42,7 +47,7 @@ export class RegisterPage {
       email: this.validate.value.email,
       password: this.validate.value.pass.password
     }
-    console.log('validate object', this.validate.value)
+    this.storage.set('regUser', this.registerUser)
     this.submitAttempt = true
     console.log('submitReg() runs', this.registerUser)
     this._userService.sendReg(this.registerUser)
@@ -53,7 +58,10 @@ export class RegisterPage {
       console.error('err from register:', err)
       },
       () => {
-      this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})
+        this.storage.get('regUser').then((val) => {
+          console.log('regUser:', val);
+        });
+        this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})
       }
       ) 
   }
