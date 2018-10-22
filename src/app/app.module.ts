@@ -18,7 +18,7 @@ import { TimelinePage } from '../pages/timeline/timeline';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
-
+import { ChartComponent } from '../components/chart/chart';
 import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 
@@ -36,7 +36,8 @@ import { UserProvider } from '../providers/user/user';
     TimelinePage,
     TimelineComponent,
     TimelineItemComponent,
-    TimelineTimeComponent
+    TimelineTimeComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
