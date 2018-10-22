@@ -61,7 +61,7 @@ export class RegisterPage {
         this.storage.get('regUser').then((val) => {
           console.log('regUser:', val);
         });
-        this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})
+        //this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})
       }
       ) 
   }
