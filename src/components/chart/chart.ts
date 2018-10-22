@@ -82,6 +82,7 @@ export class ChartComponent implements OnInit {
       }
     });
 
+    console.log(this.chart)
 
     //This code down below is to fix a bug where I could not modify the scale in the options
     //key in the above code (It threw a typescript error even though it worked)
