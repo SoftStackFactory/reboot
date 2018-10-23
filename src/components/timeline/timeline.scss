@@ -4,12 +4,20 @@ timeline {
         padding-bottom: 15px;
     }
 
-    .label-ios{
+    .label-ios, .label-md {
         margin: auto !important;
     }
 
     .item-ios h2 {
         font-size: 2rem !important;
+    }
+
+    .item-md h2 {
+        margin-left: 3%;
+    }
+
+    .timeline h1:first-child, .timeline h2:first-child, .timeline h3:first-child, .timeline h4:first-child, .timeline h5:first-child, .timeline h6:first-child {
+        margin-left: 6%;
     }
 
     
@@ -36,7 +44,7 @@ timeline {
       padding-left: 3%;
   }
 
-  .item-ios{
+  .item-ios, .item-md{
       background-color: transparent !important;
     //   background-color: lightcoral !important;
       padding-left: 10px !important;
@@ -63,15 +71,18 @@ timeline {
     }
 
     @media screen and (min-width:1360px){
-        background-position: 5.7% top;
+        background-position: 5.79% top;
+    }
+    @media screen and (max-width:1024px){
+        background-position: 5.79% top;
     }
 
-    .list-ios, .item-block, .item-inner {
+    .list-ios, .list-md, .item-block, .item-inner {
         border-bottom: none !important;
         border-top: none !important;
     }
 
-    .list-ios {
+    .list-ios, .list-md {
         margin: -1px 3% 15px 0px !important;
     }
 
