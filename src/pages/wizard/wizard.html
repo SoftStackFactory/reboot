@@ -16,8 +16,8 @@
 <ion-content >
   <div class="nav-start">
     <button ion-button (click)="exit()"  class="start">Exit</button>
-    <button ion-button (click)="back()"class="start">Back</button>
-    <button ion-button [disabled]='nextButton' (click)="next()" id="end">Next</button>
+    <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+    <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
   </div>
  
   <ion-slides  (ionSlideWillChange)="slideChanged()"  pager>
@@ -30,9 +30,10 @@
           </ion-list-header>
           <p class="h2">InTransition is an app designed for Veterans to transition into the civil environment.
             This wizard will guide you through the app.<br><br>
-            <strong> Scroll to the right to begin.</strong>
+            <strong> Swipe to the right to begin &#x27A4;</strong> 
           </p>
-        </ion-list>
+        </ion-list> 
+       
       </div>
     </ion-slide>
 
@@ -89,16 +90,33 @@
       </div>
     </ion-slide>
 
+    <ion-slide  class="demo-slide">
+      <div class='top-simple'>
+        <ion-list class="simple-header" >
+          <ion-list-header>
+            <h1 class="h1">Questionnaire</h1>
+          </ion-list-header>
+          <p class="h2">Please fill out the questionnaire to get your military information.
+            <br><br>
+            <strong> Swipe to the right to begin &#x27A4;</strong>
+          </p>
+        
+        </ion-list>
+      
+      </div>
+    </ion-slide>
+
     <ion-slide class='quest-slide'>
       <div class='top-question'>
         <ion-list class="question-header" >
           <ion-list-header class='inner-question-header' >
-            <h1 class="h1">Questionnaire 1/3</h1> 
+            <h1 class="h1">Questionnaire <ion-badge >1/3</ion-badge></h1>
+            
           </ion-list-header>
           <p class='h2'>Tell us about yourself</p>
         </ion-list>
         
-      <form [formGroup]="firstForm" >
+      <form [formGroup]="firstForm" class="form">
 
         <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-wrapper">
         <ion-item-group>
@@ -106,8 +124,11 @@
             Select your military branch
           </ion-item-divider>
           <ion-item class="q-wrapper">
+          
             <ion-select 
-              placeholder="Select"
+            
+              class='ion-select'
+              placeholder="Select&#x25BC;"
               formControlName="branch"
               [selectOptions] = 'branchOption'>
               <ion-option value="Air Force">Air Force</ion-option>
@@ -115,19 +136,17 @@
               <ion-option value="Coast Guards">Coast Guards</ion-option>
               <ion-option value="Marines">Marines</ion-option>
               <ion-option value="Navy">Navy</ion-option>
+              
             </ion-select>
+         
+         
           </ion-item>
-          
+         
           <ion-item  no-lines *ngIf="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
            </ion-item>
         </ion-item-group>
       </ion-card>
-
-      <!-- <ion-item class="">
-        <span class='question'>{{branchValue}}</span>
-       
-      </ion-item> -->
      
       <ion-card [class.invalid]="!firstForm.controls.vetOrActive.valid && (firstForm.controls.vetOrActive.touched || submitIntent)" class="card-wrapper">
         <ion-item-group>
@@ -137,7 +156,7 @@
           <ion-item class="q-wrapper">
             <a class="select" >Select</a>
             <ion-select 
-              placeholder="Select"
+              placeholder="Select &#x25BC;"
               formControlName="vetOrActive"
               [selectOptions] = 'vetOrActiveOptions'>
               <ion-option value="Veteran">Veteran</ion-option>
@@ -157,7 +176,7 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-datetime 
-              placeholder="Select"
+              placeholder="Select&#x25BC;"
               #vetQuestionName
               type="date"
               formControlName="separationDate"
@@ -179,7 +198,7 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-select 
-              placeholder="Select"
+              placeholder="Select&#x25BC;"
               formControlName="disability"
               [selectOptions] = 'disabilityOptions'>
               <ion-option value="disability">Yes</ion-option>
@@ -223,13 +242,13 @@
     <ion-slide class='quest-slide'>
       <div class='top-question'>
         <ion-list class="question-header" >
-          <ion-list-header class='inner-question-header' >
-            <h1 class="h1">Questionnaire 2/3</h1> 
+          <ion-list-header class='inner-question-header'>
+            <h1 class="h1">Questionnaire <ion-badge>2/3</ion-badge></h1> 
           </ion-list-header>
           <p class='h2'>Continue </p>
         </ion-list>
         
-      <form [formGroup]="secondForm">
+      <form [formGroup]="secondForm" class="form">
      
       <ion-card [class.invalid]="!secondForm.controls.employment.valid && secondForm.controls.employment.touched" class="card-wrapper">
         <ion-item-group>
@@ -238,7 +257,7 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-select 
-              placeholder="Select"
+              placeholder="Select&#x25BC;"
               formControlName="employment"
               [selectOptions] = 'UnemployedOptions'>
               <ion-option value="Employed">Employed</ion-option>
@@ -258,7 +277,7 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-datetime 
-              placeholder="Select"
+              placeholder="Select&#x25BC;"
               type="date"
               class='date'
               displayFormat="MM/YYYY" 
@@ -279,7 +298,7 @@
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-select 
-            placeholder="Select"
+            placeholder="Select&#x25BC;"
             formControlName="marriage"
             [selectOptions] = 'marriageOptions'>
             <ion-option value="married">Yes</ion-option>
@@ -300,12 +319,12 @@
       <div class='top-question'>
         <ion-list class="question-header" >
           <ion-list-header class='inner-question-header' >
-            <h1 class="h1">Questionnaire 3/3</h1> 
+            <h1 class="h1">Questionnaire <ion-badge>3/3</ion-badge> </h1> 
           </ion-list-header>
           <p class='h2'>Continue</p>
         </ion-list>
           
-        <form [formGroup]="thirdForm" >
+        <form [formGroup]="thirdForm" class="form">
 
           <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)" class="card-wrapper">
             <ion-item-group>
@@ -345,7 +364,7 @@
             </ion-item-group>
           </ion-card>
           <br><br>
-          <button ion-button [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
+          <button ion-button id ="submit" [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
   
         </form>
       </div>
@@ -360,10 +379,20 @@
           <p class="h2">You may begin by taking the self assesment.</p>
         </ion-list >
        
-        <div class='buttons'>
+        <!-- <div class='buttons'>
           <button class='button1' (click)="setDashboardPage()" ion-button>Dashboard</button>
           <button class='button1' (click)="setAssestmentPage()" ion-button>Take Assesment</button>
-        </div>
+        </div> -->
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col col-12 col-sm-5 col-md-auto>
+            <button class="button1"  ion-button>Dashboard</button>
+          </ion-col>
+          <ion-col col-12 col-sm-5 col-md-auto> 
+            <button class='button1' ion-button>Transition</button> 
+          </ion-col>
+        </ion-row>
+    </ion-grid>
       </div>
  
     </ion-slide>
