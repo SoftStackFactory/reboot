@@ -18,18 +18,20 @@ export class TimelineComponent {
     {
       title: 'Getting Out',
       checkmark: false,
+      itemExpand: false,
+      dot: true,
       children: [
         {
           title: 'Understanding the process of separating',
           checkmark: false,
           children: [
             {
-              title: 'Meet with separation counselor',
+              title: 'Find out your separation date',
               checkmark: true,
               children: []
             },
             {
-              title: 'Take career test',
+              title: 'Complete Pre-Separation Counseling',
               checkmark: true,
               children: []
             }
@@ -40,7 +42,42 @@ export class TimelineComponent {
           checkmark: false,
           children: [
             {
-              title: 'Fill out specific paperwork',
+              title: 'Prepare a criterion-based Individual Transition Plan (ITP)',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Complete a Continuum of Military Service Opportunity Counseling (Required Active Component Only)',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Evaluate transferability of military skills to civilian workforce',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Complete DoD Standardized Gap Analysis',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Document requirements and eligibility for licensure, certification, and apprenticeship',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Complete an assessment tool to identify personal interests and leanings regarding career selection',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Complete a job application package or receive a job offer letter',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Receive a DOL Gold Card and understand post 9/11 Veterans have priority at DOL American Job Centers',
               checkmark: true,
               children: []
             }
@@ -51,19 +88,24 @@ export class TimelineComponent {
           checkmark: false,
           children: [
             {
-              title: 'Find out what benefits I will have after separation',
+              title: 'Complete the Veteran Affairs (VA) Benefits Briefings I and II',
+              checkmark: true,
+              children: []
+            },
+            {
+              title: 'Register on eBenefits',
               checkmark: true,
               children: []
             }
           ]
         }
-      ],
-      itemExpand: false,
-      dot: true
+      ]
     },
     {
       title: 'Starting Up',
       checkmark: false,
+      itemExpand: false,
+      dot: true,
       children: [
         {
           title: 'Find something to do',
@@ -102,9 +144,7 @@ export class TimelineComponent {
             }
           ]
         }
-      ],
-      itemExpand: false,
-      dot: true
+      ]
     },
     {
       title: 'Taking care of myself',
@@ -116,16 +156,16 @@ export class TimelineComponent {
     {
       title: 'Reinventing myself',
       checkmark: false,
-      children: [],
       itemExpand: false,
-      dot: true
+      dot: true,
+      children: []
     },
     {
       title: 'Putting down roots',
       checkmark: false,
-      children: [],
       itemExpand: false,
-      dot: true
+      dot: true,
+      children: []
     }
   ];
 
