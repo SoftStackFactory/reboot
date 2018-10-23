@@ -58,7 +58,8 @@ export class TimelineComponent {
           ]
         }
       ],
-      itemExpand: false
+      itemExpand: false,
+      dot: true
     },
     {
       title: 'Starting Up',
@@ -102,25 +103,29 @@ export class TimelineComponent {
           ]
         }
       ],
-      itemExpand: false
+      itemExpand: false,
+      dot: true
     },
     {
       title: 'Taking care of myself',
       checkmark: false,
       children: [],
-      itemExpand: false
+      itemExpand: false,
+      dot: true
     },
     {
       title: 'Reinventing myself',
       checkmark: false,
       children: [],
-      itemExpand: false
+      itemExpand: false,
+      dot: true
     },
     {
       title: 'Putting down roots',
       checkmark: false,
       children: [],
-      itemExpand: false
+      itemExpand: false,
+      dot: true
     }
   ];
 

@@ -51,14 +51,19 @@ export class WizardPage {
   vetValue: string = "";
   SeparationQuestion: string = ""; 
   disabilityQValue: string = "";
-
+  nextButtonDisabled: boolean = false;
+  shouldLockSwipeToNext: boolean = false;
+  LockSwipeToPrev: boolean = false;
+  employedAnswer: string= "";
+ 
+  
   disableSwipe() {
-    this.nextButton = true;
+    this.nextButtonDisabled = true;
     this.shouldLockSwipeToNext = true;
   }
  
   eneableSwipe() {
-    this.nextButton = false;
+    this.nextButtonDisabled = false;
     this.shouldLockSwipeToNext = false;
   }
   //callled when status changes for forms
@@ -109,8 +114,7 @@ export class WizardPage {
         this.disabilityQValue = data; 
       })
   };
- //
-  employedAnswer: string= "";
+ 
   //declare SecondForm; set contol names; set validators
   secondFormFunct(){
     this.secondForm = this.formBuilder.group({
@@ -146,40 +150,46 @@ export class WizardPage {
     });
   };
   // called when users click on nav bar 'next' button; only enabled when forms are valid
+  exit() {
+    this.navCtrl.setRoot(DashboardPage)
+  }
   next() {
     this.slides.slideNext(500);
+  }
+  back() {
+   this.slides.slidePrev(500); 
   }
   //shouldLockSwipeToNext variable can be either true/false depending on condition
   lockNextSlide(){
     this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
   }
+  lockPrevSlide() {
+    this.slides.lockSwipeToPrev(this.LockSwipeToPrev)
+  }
   //the logic that determines if slide should be lockSwiped 
-  nextButton: boolean = false;
-  shouldLockSwipeToNext: boolean = false;
+  
   slideChanged() {
+    
     let index = this.slides.realIndex; 
-    if((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 8 ) || (index == 7))  {
+    console.log(index);
+    if((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9 )) {
       this.disableSwipe()
     }else {
       this.eneableSwipe()
     }
-    this.lockNextSlide()
+    if(index == 6 || index == 9 ) {
+      // console.log(this.LockSwipeToPrev, "69#1")
+      this.LockSwipeToPrev = true
+      //console.log(this.LockSwipeToPrev, "69#2")
+      this.lockPrevSlide()
+    }else{
+      //console.log(this.LockSwipeToPrev, "else-69#1")
+      this.LockSwipeToPrev = false;
+      //console.log(this.LockSwipeToPrev, "else-69#2")
+      this.lockPrevSlide()
+    }
+    this.lockNextSlide();
   }
- 
-  //when navigating to the new slide when user clicks submit 
-  //submitIntent: boolean = false;
-  // onSubmitOne() {  
-  //   console.log(this.firstForm)
-  //   if( this.firstForm.valid) {
-  //     this.shouldLockSwipeToNext = false;
-  //     this.lockNextSlide()
-  //     this.next();
-  //     console.log("valid")
-  //   } else {
-  //     console.log("inavalid")
-  //   }
-  //   this.submitIntent = true;
-  // }
 
   customizeSelectOptions(title: string, message: string ) {
    let obj: object = {
@@ -209,11 +219,10 @@ export class WizardPage {
       militaryRank: this.thirdForm.value.rank,
       MOS: this.thirdForm.value.MOS
     }
-    console.log(userData)
+    console.log(userData, this.LockSwipeToPrev)
     this.shouldLockSwipeToNext = false;
     this.lockNextSlide()
     this.next();
-    this.slides.lockSwipeToPrev(true);
   }
 
   setDashboardPage() {
