@@ -18,9 +18,10 @@ import { TimelinePage } from '../pages/timeline/timeline';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
-
-import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from '../components/chart/chart';
+import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserProvider } from '../providers/user/user';
     TimelinePage,
     TimelineComponent,
     TimelineItemComponent,
-    TimelineTimeComponent
+    TimelineTimeComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    ChartProvider
   ]
 })
 export class AppModule {}
