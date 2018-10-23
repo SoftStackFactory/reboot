@@ -13,7 +13,6 @@ import { WizardPage } from '../pages/wizard/wizard';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
-import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
@@ -33,7 +32,6 @@ import { UserProvider } from '../providers/user/user';
     DashboardPage,
     ProfilePage,
     TransitionPage,
-    AssessmentPage,
     TimelinePage,
     TimelineComponent,
     TimelineItemComponent,
@@ -55,7 +53,6 @@ import { UserProvider } from '../providers/user/user';
     DashboardPage,
     ProfilePage,
     TransitionPage,
-    AssessmentPage,
     TimelinePage
   ],
   providers: [

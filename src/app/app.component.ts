@@ -10,7 +10,6 @@ import { WizardPage } from '../pages/wizard/wizard';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
-import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 
 @Component({
@@ -35,7 +34,6 @@ export class MyApp {
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Transition', component: TransitionPage },
-      { title: 'Assessment', component: AssessmentPage },
       { title: 'Timeline', component: TimelinePage }
     ];
 
