@@ -5,15 +5,32 @@
     width: 40vw;
     max-width: 500px;
     //height: 50vw;
-    font-size: 20px;
-    //font-size: 50px;
+     font-size: 20px;
+    // //font-size: 50px;
 }
 
-@media screen and (min-width: 765)  {
-    .branchRadio .alert-wrapper{
-        font-size: 50px;
-    } 
+.alert-head{
+    font-size: 25px;
 }
+.alert-message{
+    font-size: 20px;
+}
+
+@media screen and (min-width: 765px)  {
+    .branchRadio .alert-wrapper{
+        font-size: 30px;
+    }
+    .alert-title{
+        font-size: 35px!important;
+    }
+    .alert-message{
+        font-size: 30px!important;
+    }
+    .alert-button{
+        font-size: 25px!important;
+    }
+}
+
 
 
 // App Global Sass
