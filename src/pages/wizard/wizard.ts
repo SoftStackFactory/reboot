@@ -106,8 +106,8 @@ export class WizardPage {
           this.codeErrorMessage = "Letters and number. 3 max"    
         }else if  (val == "Marines") {     
           console.log(val, "#3")  
-          this.codeErrorMessage = "enter 4 digit number"    
           codeNumber.setValidators( Validators.compose([Validators.maxLength(4),Validators.required ,Validators.pattern('^[0-9]+$')]));
+          this.codeErrorMessage = "enter 4 digit number"      
         }else if  (val == "Navy") { 
           console.log(val, "#4")          
           codeNumber.setValidators( Validators.compose([Validators.maxLength(3),Validators.required,  Validators.pattern('[a-zA-Z ]+$')]));
@@ -174,7 +174,8 @@ export class WizardPage {
   thirdFormFunct() {
     this.thirdForm = this.formBuilder.group({
       rank: ["", Validators.compose([ Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
-      MOS: ["", Validators.compose([ Validators.maxLength(9), Validators.required,  Validators.pattern('[0-9]+')]) ]
+      insignia: ['', Validators.compose([Validators.required])],
+      MOS: ["", Validators.compose([ Validators.required])]
     });
   };
   // called when users click on nav bar 'next' button; only enabled when forms are valid
@@ -233,6 +234,7 @@ export class WizardPage {
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
   UnemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status","Select one");
+  insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
  
   onSubmit() {
     let userData: object = {
@@ -245,6 +247,7 @@ export class WizardPage {
       lastEmployed: this.secondForm.value.lastEmployed,
       maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
+      insignia: this.thirdForm.value.insignia,
       MOS: this.thirdForm.value.MOS
     }
     console.log(userData)

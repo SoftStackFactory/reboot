@@ -342,6 +342,33 @@
             </ion-item-group>
           </ion-card>
 
+
+          <ion-card  [class.invalid]="!thirdForm.controls.insignia.valid && (thirdForm.controls.insignia.touched)" class="card-wrapper">
+            <ion-item-group>
+              <ion-item-divider class='q-group' color="light">
+                What is you Officer Rank Insignia?
+              </ion-item-divider>
+              <ion-item class="q-wrapper">
+                <ion-select 
+                  placeholder="Select&#x25BC;"
+                  formControlName="insignia"
+                  [selectOptions] = 'insigniaOptions'>
+                  <ion-option value="O1">O1</ion-option>
+                  <ion-option value="O2">O2</ion-option>
+                  <ion-option value="O3">O3</ion-option>
+                  <ion-option value="O4">O4</ion-option>
+                  <ion-option value="O5">O5</ion-option>
+                  <ion-option value="O6">O6</ion-option>
+                  <ion-option value="O7">O7</ion-option>
+              </ion-select>
+              </ion-item>
+              <ion-item *ngIf="!thirdForm.controls.insignia.valid && (thirdForm.controls.insignia.touched)" >
+                  <p class="invalid-text">Enter an option</p>
+              </ion-item>
+            </ion-item-group>
+          </ion-card>     
+
+
           <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" class="card-wrapper">
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
