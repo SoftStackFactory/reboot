@@ -124,9 +124,7 @@
             Select your military branch
           </ion-item-divider>
           <ion-item class="q-wrapper">
-          
             <ion-select 
-            
               class='ion-select'
               placeholder="Select&#x25BC;"
               formControlName="branch"
@@ -136,12 +134,8 @@
               <ion-option value="Coast Guards">Coast Guards</ion-option>
               <ion-option value="Marines">Marines</ion-option>
               <ion-option value="Navy">Navy</ion-option>
-              
             </ion-select>
-         
-         
           </ion-item>
-         
           <ion-item  no-lines *ngIf="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" >
             <p class="invalid-text">Enter an option</p>
            </ion-item>
@@ -201,8 +195,8 @@
               placeholder="Select&#x25BC;"
               formControlName="disability"
               [selectOptions] = 'disabilityOptions'>
-              <ion-option value="disability">Yes</ion-option>
-              <ion-option value="noDisability">No</ion-option>
+              <ion-option value="Disability">Yes</ion-option>
+              <ion-option value="No Disability">No</ion-option>
             </ion-select>
           </ion-item>
           <ion-item  no-lines *ngIf="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)" >
@@ -213,7 +207,7 @@
 
       <ion-card 
         [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)"
-        *ngIf="disabilityQValue == 'disability'"
+        *ngIf="disabilityQValue == 'Disability'"
         class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
@@ -229,7 +223,7 @@
           </ion-input>
           </ion-item>
           <ion-item class="input" *ngIf="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)">
-            <p class="invalid-text" invalid-text>Enter a valid percent number from 1-100 </p>
+            <p class="invalid-text" invalid-text>Enter a valid percent number from 1-100</p>
           </ion-item>
         </ion-item-group>
       </ion-card>
@@ -291,21 +285,24 @@
         </ion-item-group>
       </ion-card>    
 
-      <ion-card  [class.invalid]="!secondForm.controls.marriage.valid && (secondForm.controls.marriage.touched)" class="card-wrapper">
+      <ion-card  [class.invalid]="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" class="card-wrapper">
         <ion-item-group>
           <ion-item-divider class='q-group' color="light">
-              Are you married?
+              What is you Marital Status?
           </ion-item-divider>
           <ion-item class="q-wrapper">
             <ion-select 
             placeholder="Select&#x25BC;"
-            formControlName="marriage"
-            [selectOptions] = 'marriageOptions'>
-            <ion-option value="married">Yes</ion-option>
-            <ion-option value="notMarried">No</ion-option>
+            formControlName="marital"
+            [selectOptions] = 'maritalOptions'>
+            <ion-option value="Married">Married</ion-option>
+            <ion-option value="Single">Single</ion-option>
+            <ion-option value="Widowed">Widowed</ion-option>
+            <ion-option value="Divorced">Divorced</ion-option>
+            <ion-option value="Separated">Separated</ion-option>
           </ion-select>
           </ion-item>
-          <ion-item *ngIf="!secondForm.controls.marriage.valid && (secondForm.controls.marriage.touched)" >
+          <ion-item *ngIf="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" >
               <p class="invalid-text">Enter an option</p>
           </ion-item>
         </ion-item-group>
@@ -348,18 +345,18 @@
           <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" class="card-wrapper">
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
-                What is your MOS/NEC?
+                What is your job identifier code?
               </ion-item-divider>
               <ion-item>
                 <ion-input 
-                type="number"
+               
                 placeholder='Input Answer here..'
                 formControlName="MOS"
                 >
                 </ion-input>
               </ion-item>
               <ion-item class="input" *ngIf="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)">
-                <p class="invalid-text" invalid-text>Enter a valid number. Only 9 digits</p>
+                <p class="invalid-text" invalid-text>{{codeErrorMessage}}</p>
               </ion-item>
             </ion-item-group>
           </ion-card>

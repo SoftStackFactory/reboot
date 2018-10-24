@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { TransitionPage } from '../../pages/transition/transition';
+import { stringify } from '@angular/core/src/render3/util';
 
 /**
  * Generated class for the WizardPage page.
@@ -58,8 +59,8 @@ export class WizardPage {
  
   
   disableSwipe() {
-    this.nextButtonDisabled = true;
-    this.shouldLockSwipeToNext = true;
+    // this.nextButtonDisabled = true;
+    // this.shouldLockSwipeToNext = true;
   }
  
   eneableSwipe() {
@@ -76,6 +77,7 @@ export class WizardPage {
     this.lockNextSlide()
   }
   //declare firstForm; set contol names; set validators
+  codeErrorMessage: string = "";
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       branch:  ['', Validators.compose([Validators.required])],
@@ -89,6 +91,32 @@ export class WizardPage {
       .subscribe(val => {
         this.statusChangeFunct(this.firstForm.valid)
       })
+  
+    this.firstForm.controls.branch.valueChanges
+      .subscribe( val =>{
+        const codeNumber = this.thirdForm.get('MOS')
+        console.log(val, "#1")
+        if(val == "Air Force") {  
+          console.log(val, "#2")
+          codeNumber.setValidators( Validators.compose([Validators.maxLength(5),Validators.required ,Validators.pattern('^[A-Za-z0-9]+$')]));
+          this.codeErrorMessage = "Letters and numbers. 5 max"    
+        }else if (val == "Army") { 
+          console.log(val, "#3")       
+          codeNumber.setValidators( Validators.compose([Validators.maxLength(3),Validators.required ,Validators.pattern('[A-Za-z0-9]+$')]));
+          this.codeErrorMessage = "Letters and number. 3 max"    
+        }else if  (val == "Marines") {     
+          console.log(val, "#3")  
+          this.codeErrorMessage = "enter 4 digit number"    
+          codeNumber.setValidators( Validators.compose([Validators.maxLength(4),Validators.required ,Validators.pattern('^[0-9]+$')]));
+        }else if  (val == "Navy") { 
+          console.log(val, "#4")          
+          codeNumber.setValidators( Validators.compose([Validators.maxLength(3),Validators.required,  Validators.pattern('[a-zA-Z ]+$')]));
+          this.codeErrorMessage = "Enter a maximum of 3 letters"
+        }
+        console.log(val, "#5")
+        codeNumber.updateValueAndValidity()
+        this.disabilityQValue = val; 
+      }) 
     //when value changes make separation data appear and change wording depending on conditions
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe( val =>{
@@ -105,7 +133,7 @@ export class WizardPage {
     this.firstForm.controls.disability.valueChanges
       .subscribe( data => {
         const percentQuestion = this.firstForm.get('percentQuestion')
-        if(data == "disability") {  
+        if(data == "Disability") {  
           percentQuestion.setValidators( Validators.compose([Validators.maxLength(3),Validators.required ,Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(1/00)$')]));
         }else {           
           percentQuestion.clearValidators() 
@@ -120,7 +148,7 @@ export class WizardPage {
     this.secondForm = this.formBuilder.group({
       employment: ['', Validators.compose([Validators.required])],
       lastEmployed: [''],
-      marriage: ['', Validators.compose([Validators.required])],
+      marital: ['', Validators.compose([Validators.required])],
     });
     //when status changes call function to lock or unlock swipe dependign if form is valid
     this.secondForm.statusChanges
@@ -204,7 +232,7 @@ export class WizardPage {
   vetOrActiveOptions = this.customizeSelectOptions("Military Status", "Select one");
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
   UnemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
-  marriageOptions = this.customizeSelectOptions("Marriage Status","Select one");
+  maritalOptions = this.customizeSelectOptions("Marital Status","Select one");
  
   onSubmit() {
     let userData: object = {
@@ -215,11 +243,11 @@ export class WizardPage {
       disabilityPercent: this.firstForm.value.percentQuestion,
       employmentStatus: this.secondForm.value.employment,
       lastEmployed: this.secondForm.value.lastEmployed,
-      marriageStatus: this.secondForm.value.marriage,
+      maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
       MOS: this.thirdForm.value.MOS
     }
-    console.log(userData, this.LockSwipeToPrev)
+    console.log(userData)
     this.shouldLockSwipeToNext = false;
     this.lockNextSlide()
     this.next();
@@ -228,6 +256,7 @@ export class WizardPage {
   setDashboardPage() {
     this.navCtrl.setRoot(DashboardPage)
   }
+
   setAssestmentPage() {
     this.navCtrl.setRoot(TransitionPage)
   }
