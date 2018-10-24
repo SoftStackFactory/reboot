@@ -342,11 +342,10 @@
             </ion-item-group>
           </ion-card>
 
-
           <ion-card  [class.invalid]="!thirdForm.controls.insignia.valid && (thirdForm.controls.insignia.touched)" class="card-wrapper">
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
-                What is you Officer Rank Insignia?
+                What is you officer rank insignia?
               </ion-item-divider>
               <ion-item class="q-wrapper">
                 <ion-select 
@@ -366,8 +365,34 @@
                   <p class="invalid-text">Enter an option</p>
               </ion-item>
             </ion-item-group>
+          </ion-card>
+          
+          <ion-card  [class.invalid]="!thirdForm.controls.enlistedPay.valid && (thirdForm.controls.enlistedPay.touched)" class="card-wrapper">
+            <ion-item-group>
+              <ion-item-divider class='q-group' color="light">
+                What is you enlisted pay rank?
+              </ion-item-divider>
+              <ion-item class="q-wrapper">
+                <ion-select 
+                  placeholder="Select&#x25BC;"
+                  formControlName="enlistedPay"
+                  [selectOptions] = 'enlistedPayOptions'>
+                  <ion-option value="e1">e1</ion-option>
+                  <ion-option value="e2">e2</ion-option>
+                  <ion-option value="e3">e3</ion-option>
+                  <ion-option value="e4">e4</ion-option>
+                  <ion-option value="e5">e5</ion-option>
+                  <ion-option value="e6">e6</ion-option>
+                  <ion-option value="e7">e7</ion-option>
+                  <ion-option value="e8">e8</ion-option>
+                  <ion-option value="e9">e9</ion-option>
+              </ion-select>
+              </ion-item>
+              <ion-item *ngIf="!thirdForm.controls.enlistedPay.valid && (thirdForm.controls.enlistedPay.touched)" >
+                  <p class="invalid-text">Enter an option</p>
+              </ion-item>
+            </ion-item-group>
           </ion-card>     
-
 
           <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" class="card-wrapper">
             <ion-item-group>

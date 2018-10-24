@@ -175,6 +175,7 @@ export class WizardPage {
     this.thirdForm = this.formBuilder.group({
       rank: ["", Validators.compose([ Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
       insignia: ['', Validators.compose([Validators.required])],
+      enlistedPay: [''],
       MOS: ["", Validators.compose([ Validators.required])]
     });
   };
@@ -235,6 +236,7 @@ export class WizardPage {
   UnemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status","Select one");
   insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
+  enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
  
   onSubmit() {
     let userData: object = {
@@ -248,6 +250,7 @@ export class WizardPage {
       maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
       insignia: this.thirdForm.value.insignia,
+      enlistedPayOptions: this.thirdForm.value.enlistedPay,
       MOS: this.thirdForm.value.MOS
     }
     console.log(userData)
