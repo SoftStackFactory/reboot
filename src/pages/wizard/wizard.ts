@@ -120,14 +120,18 @@ export class WizardPage {
     //when value changes make separation data appear and change wording depending on conditions
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe( val =>{
+        const enlistedPay = this.thirdForm.get('enlistedPay')
         if(val =="Active") {
           this.SeparationQuestion = "When is your separation date?"
+          enlistedPay.setValidators( Validators.compose([Validators.required,]));
+          console.log(this.thirdForm, "##1")
         }else if(val == "Veteran") {
           this.SeparationQuestion = "When was your sepatation date?"
-        }else {
-          this.SeparationQuestion = "";
+          enlistedPay.clearValidators();
+          console.log(this.thirdForm, "##2")
         }
       this.vetValue = val;
+      enlistedPay.updateValueAndValidity()
       })
     //when value changes for disability question change validator requirements for percentQuestion depending on condition
     this.firstForm.controls.disability.valueChanges
@@ -250,7 +254,7 @@ export class WizardPage {
       maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
       insignia: this.thirdForm.value.insignia,
-      enlistedPayOptions: this.thirdForm.value.enlistedPay,
+      enlistedPay: this.thirdForm.value.enlistedPay,
       MOS: this.thirdForm.value.MOS
     }
     console.log(userData)

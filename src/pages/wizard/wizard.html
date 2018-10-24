@@ -367,7 +367,7 @@
             </ion-item-group>
           </ion-card>
           
-          <ion-card  [class.invalid]="!thirdForm.controls.enlistedPay.valid && (thirdForm.controls.enlistedPay.touched)" class="card-wrapper">
+          <ion-card  [class.invalid]="!thirdForm.controls.enlistedPay.valid && (thirdForm.controls.enlistedPay.touched)" *ngIf="vetValue == 'Active'"class="card-wrapper">
             <ion-item-group>
               <ion-item-divider class='q-group' color="light">
                 What is you enlisted pay rank?
