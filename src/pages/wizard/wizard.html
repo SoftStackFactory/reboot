@@ -39,8 +39,8 @@
 
     <ion-slide class="demo-slide">
       <div class='top-demo'>
-        <ion-list class="demo-header" >
-          <ion-list-header>
+        <ion-list class="demo-header list list-ios">
+          <ion-list-header class='item item-ios list-header list-header-ios'>
             <h1 class="h1">Home Dasboard</h1>
           </ion-list-header>
           <p class="h2">Here you will find links to the timeline and self assessment section.
@@ -52,9 +52,9 @@
 
     <ion-slide class="demo-slide">
       <div class='top-demo'>
-        <ion-list class="demo-header" >
-          <ion-list-header>
-            <h1 class="h1">Self Assesment</h1>
+        <ion-list class="demo-header list list-ios" >
+          <ion-list-header class='item item-ios list-header list-header-ios'>
+            <h1 class="h1">Self Assessment</h1>
           </ion-list-header>
           <p class='h2'>Here you will be promted to take your self assessment to assess your finances, relationships, family, and
             more!
@@ -376,20 +376,20 @@
           <ion-list-header>
             <h1 id="end-wizard-h" class="h1">Thank you for using the Wizard</h1>
           </ion-list-header>
-          <p class="h2">You may begin by taking the self assesment.</p>
+          <p class="h2">You may go to your dashboard or to the transition page to take the assessmentc.</p>
         </ion-list >
        
         <!-- <div class='buttons'>
-          <button class='button1' (click)="setDashboardPage()" ion-button>Dashboard</button>
-          <button class='button1' (click)="setAssestmentPage()" ion-button>Take Assesment</button>
+          <button class='button1'  ion-button>Dashboard</button>
+          <button class='button1'  ion-button>Take Assesment</button>
         </div> -->
       <ion-grid>
         <ion-row justify-content-center>
           <ion-col col-12 col-sm-5 col-md-auto>
-            <button class="button1"  ion-button>Dashboard</button>
+            <button class="button1" (click)="setDashboardPage()" ion-button>Dashboard</button>
           </ion-col>
           <ion-col col-12 col-sm-5 col-md-auto> 
-            <button class='button1' ion-button>Transition</button> 
+            <button class='button1' (click)="setAssestmentPage()" ion-button>Transition</button> 
           </ion-col>
         </ion-row>
     </ion-grid>
