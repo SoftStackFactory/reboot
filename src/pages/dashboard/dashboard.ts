@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TimelinePage } from '../timeline/timeline';
+import { Storage } from '@ionic/storage'; 
 
 @Component({
   selector: 'page-dashboard',
@@ -8,7 +9,14 @@ import { TimelinePage } from '../timeline/timeline';
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) { }
+
+  ionViewWillLoad() {
+    this.storage.get('userData').then((val) => {
+      console.log('val:', val)
+      console.log('val.userId:', val.userId)
+    })
+  }
 
   toTimeline() {
     this.navCtrl.setRoot(TimelinePage);

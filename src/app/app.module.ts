@@ -21,6 +21,7 @@ import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
