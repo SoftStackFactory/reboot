@@ -56,11 +56,11 @@ export class WizardPage {
   shouldLockSwipeToNext: boolean = false;
   LockSwipeToPrev: boolean = false;
   employedAnswer: string= "";
- 
+  codeErrorMessage: string = "";
   
   disableSwipe() {
-    // this.nextButtonDisabled = true;
-    // this.shouldLockSwipeToNext = true;
+    this.nextButtonDisabled = true;
+    this.shouldLockSwipeToNext = true;
   }
  
   eneableSwipe() {
@@ -77,7 +77,7 @@ export class WizardPage {
     this.lockNextSlide()
   }
   //declare firstForm; set contol names; set validators
-  codeErrorMessage: string = "";
+  
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       branch:  ['', Validators.compose([Validators.required])],
@@ -91,44 +91,44 @@ export class WizardPage {
       .subscribe(val => {
         this.statusChangeFunct(this.firstForm.valid)
       })
-  
+  //sets requirements depending on the branch that users select:
+  //1) the observable for branch checks if the vslue changes and runs a function in the parameter
+  //2) gets the form Control 'MOS' and set it as a local variable  
+  //3 sets validators to the local variable depending on the condition: "setValidators"
+  //4 update value and validators: 'updateValueAnValidity()'
     this.firstForm.controls.branch.valueChanges
       .subscribe( val =>{
         const codeNumber = this.thirdForm.get('MOS')
-        console.log(val, "#1")
-        if(val == "Air Force") {  
-          console.log(val, "#2")
+        if(val == "Air Force") { 
           codeNumber.setValidators( Validators.compose([Validators.maxLength(5),Validators.required ,Validators.pattern('^[A-Za-z0-9]+$')]));
           this.codeErrorMessage = "Letters and numbers. 5 max"    
-        }else if (val == "Army") { 
-          console.log(val, "#3")       
+        }else if (val == "Army") {       
           codeNumber.setValidators( Validators.compose([Validators.maxLength(3),Validators.required ,Validators.pattern('[A-Za-z0-9]+$')]));
           this.codeErrorMessage = "Letters and number. 3 max"    
         }else if  (val == "Marines") {     
-          console.log(val, "#3")  
           codeNumber.setValidators( Validators.compose([Validators.maxLength(4),Validators.required ,Validators.pattern('^[0-9]+$')]));
           this.codeErrorMessage = "enter 4 digit number"      
         }else if  (val == "Navy") { 
-          console.log(val, "#4")          
           codeNumber.setValidators( Validators.compose([Validators.maxLength(3),Validators.required,  Validators.pattern('[a-zA-Z ]+$')]));
           this.codeErrorMessage = "Enter a maximum of 3 letters"
+        } else if(val == 'Coast Guards') {
+          codeNumber.setValidators( Validators.compose([Validators.maxLength(9), Validators.required, Validators.pattern('[A-Za-z0-9]+$')]))
+          this.codeErrorMessage = "Max 9 characters"
         }
-        console.log(val, "#5")
         codeNumber.updateValueAndValidity()
         this.disabilityQValue = val; 
       }) 
-    //when value changes make separation data appear and change wording depending on conditions
+    //1) when value changes makes separation data appear and change wording depending on conditions
+    //2) sets validators if 'active'; clears validators if 'veteran'
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe( val =>{
         const enlistedPay = this.thirdForm.get('enlistedPay')
         if(val =="Active") {
           this.SeparationQuestion = "When is your separation date?"
           enlistedPay.setValidators( Validators.compose([Validators.required,]));
-          console.log(this.thirdForm, "##1")
         }else if(val == "Veteran") {
           this.SeparationQuestion = "When was your sepatation date?"
           enlistedPay.clearValidators();
-          console.log(this.thirdForm, "##2")
         }
       this.vetValue = val;
       enlistedPay.updateValueAndValidity()
@@ -201,25 +201,18 @@ export class WizardPage {
     this.slides.lockSwipeToPrev(this.LockSwipeToPrev)
   }
   //the logic that determines if slide should be lockSwiped 
-  
   slideChanged() {
-    
     let index = this.slides.realIndex; 
-    console.log(index);
     if((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9 )) {
       this.disableSwipe()
     }else {
       this.eneableSwipe()
     }
     if(index == 6 || index == 9 ) {
-      // console.log(this.LockSwipeToPrev, "69#1")
       this.LockSwipeToPrev = true
-      //console.log(this.LockSwipeToPrev, "69#2")
       this.lockPrevSlide()
     }else{
-      //console.log(this.LockSwipeToPrev, "else-69#1")
       this.LockSwipeToPrev = false;
-      //console.log(this.LockSwipeToPrev, "else-69#2")
       this.lockPrevSlide()
     }
     this.lockNextSlide();
