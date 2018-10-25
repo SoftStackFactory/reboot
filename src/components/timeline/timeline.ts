@@ -28,11 +28,13 @@ export class TimelineComponent {
             {
               title: 'Find out your separation date',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Complete Pre-Separation Counseling',
               checkmark: true,
+              completed: false,
               children: []
             }
           ]
@@ -44,41 +46,49 @@ export class TimelineComponent {
             {
               title: 'Prepare a criterion-based Individual Transition Plan (ITP)',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Complete a Continuum of Military Service Opportunity Counseling (Required Active Component Only)',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Evaluate transferability of military skills to civilian workforce',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Complete DoD Standardized Gap Analysis',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Document requirements and eligibility for licensure, certification, and apprenticeship',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Complete an assessment tool to identify personal interests and leanings regarding career selection',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Complete a job application package or receive a job offer letter',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Receive a DOL Gold Card and understand post 9/11 Veterans have priority at DOL American Job Centers',
               checkmark: true,
+              completed: false,
               children: []
             }
           ]
@@ -90,11 +100,13 @@ export class TimelineComponent {
             {
               title: 'Complete the Veteran Affairs (VA) Benefits Briefings I and II',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Register on eBenefits',
               checkmark: true,
+              completed: false,
               children: []
             }
           ]
@@ -113,11 +125,13 @@ export class TimelineComponent {
             {
               title: 'Go to Career Center',
               checkmark: true,
+              completed: false,
               children: []
             },
             {
               title: 'Vocational Rehab & Employment',
               checkmark: true,
+              completed: false,
               children: []
             }
           ]
@@ -129,6 +143,7 @@ export class TimelineComponent {
             {
               title: 'Check out vet center',
               checkmark: true,
+              completed: false,
               children: []
             }
           ]
@@ -140,6 +155,7 @@ export class TimelineComponent {
             {
               title: 'Open a savings account',
               checkmark: true,
+              completed: false,
               children: []
             }
           ]

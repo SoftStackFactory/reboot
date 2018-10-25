@@ -5,7 +5,7 @@ timeline {
     }
 
     .label-ios, .label-md {
-        margin: auto !important;
+        // margin: auto !important;
     }
 
     .item-ios h2 {
@@ -20,12 +20,18 @@ timeline {
         margin-left: 6%;
     }
 
+    ion-label.label.label-ios {
+        overflow: visible !important;
+    }
+
+
+
     
 }
 
 .cd-timeline__img {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 25px;
     height: 25px;
@@ -54,6 +60,18 @@ timeline {
       margin-left: 12%;
   }
 
+  //padding for todo item
+  .item-ios.item-block .item-inner{
+    //   padding-left: 20px;
+  }
+
+  .button-inner {
+      flex-flow: flex;
+  }
+  .input-wrapper {
+      overflow: visible !important;
+  }
+
 .border-thingy {
     padding-left: 5%;
 }
@@ -65,13 +83,14 @@ timeline {
     background-image: url('../assets/imgs/blueline.png');
     background-repeat: repeat-y;
     background-position: 6.2% top;
+    // overflow: visible !important;
 
     @media screen and (min-width:1024px){
         background-position: 5.89% top;
     }
 
     @media screen and (min-width:1360px){
-        background-position: 5.79% top;
+        background-position: 5.7% top;
     }
     @media screen and (max-width:1024px){
         background-position: 5.79% top;
@@ -80,21 +99,27 @@ timeline {
     .list-ios, .list-md, .item-block, .item-inner {
         border-bottom: none !important;
         border-top: none !important;
+        padding-right: -1px !important;
+        // overflow: visible !important;
     }
 
     .list-ios, .list-md {
         margin: -1px 3% 15px 0px !important;
+        // overflow: visible !important;
     }
 
+    .item-block {
+        overflow: visible !important;
+    }
 
     .item.item-md .checkbox-md {
-        margin: -6px 14px 8px -35px !important;
+        margin: -6px 17px 8px -20px !important;
         padding-left: 4%;
         padding-top: 2%;
     }
 
     .checkbox-ios {
-        margin: -6px 14px 8px -35px !important;
+        margin: -6px 14px 8px -20px !important;
         padding-left: 4%;
         padding-top: 2%;
     }
