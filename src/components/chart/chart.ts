@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { ChartProvider } from '..//../providers/chart/chart';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
@@ -17,6 +17,8 @@ export class ChartComponent implements OnInit {
 
   @ViewChild('canvas') canvas;
   chart: any;
+
+  @Input() test: any;
 
   constructor(public chartProvider: ChartProvider) { }
 
@@ -53,7 +55,7 @@ export class ChartComponent implements OnInit {
           {
             backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
-            data: this.chartProvider.data
+            data: this.test
           }
         ]
       },

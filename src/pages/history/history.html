@@ -9,11 +9,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>History</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-<p>helloooo</p>
+  <ion-grid *ngFor="let chart of chartHistory">
+
+    <ion-row id="rows" align-items-center>
+      <ion-col col-3></ion-col>
+      <ion-col col-1>
+        <p id="date"> {{ chart.date }} </p>
+      </ion-col>
+      <ion-col col-8>
+        <chart [test]="chart.data"></chart>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

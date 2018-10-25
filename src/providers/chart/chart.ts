@@ -10,4 +10,7 @@ export class ChartProvider {
     console.log('Hello ChartProvider Provider');
   }
 
+  getHistory() {
+    return this.http.get('https://reboot-ssf.herokuapp.com/api/appUsers/5bce484f8e47330014efe009/charts')
+  }
 }

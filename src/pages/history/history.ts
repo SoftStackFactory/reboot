@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ChartComponent } from '../../components/chart/chart';
+import { ChartProvider } from '../../providers/chart/chart';
 
 /**
  * Generated class for the HistoryPage page.
@@ -15,11 +17,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HistoryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  chartHistory: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HistoryPage');
+    this.chartProvider.getHistory()
+      .subscribe((res) => {this.chartHistory = res; console.log(this.chartHistory)},
+      (err) => console.log(err)
+
+      );
   }
 
 }
