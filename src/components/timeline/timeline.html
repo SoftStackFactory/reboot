@@ -6,17 +6,17 @@
         <ng-template #recursiveList let-list>
         <ion-list *ngFor="let item of list">
 
-          <ion-item *ngIf="!item.checkmark" class="mainHeader" (click)="toggleItem(item)" no-padding text-wrap>
+          <ion-item *ngIf="!item.checkmark" (click)="toggleItem(item)" no-padding text-wrap>
               <div *ngIf="item.dot" class="cd-timeline__img cd-timeline__img--5"></div>
             <h2><strong>{{item.title}}</strong></h2>
           </ion-item>
 
-          <ion-item *ngIf="item.checkmark" class="toDo" no-padding text-wrap>
+          <ion-item *ngIf="item.checkmark" no-padding text-wrap>
             <ion-label>{{item.title}}</ion-label>
             <ion-checkbox color="dark" checked="false"></ion-checkbox>
           </ion-item>
 
-          <ion-item *ngIf="item.itemExpand && item.children.length > 0 && !item.checkmark" class="secondHeader" text-wrap>
+          <ion-item *ngIf="item.itemExpand && item.children.length > 0 && !item.checkmark" text-wrap>
             <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
           </ion-item>
 
