@@ -4,10 +4,6 @@ timeline {
         padding-bottom: 15px;
     }
 
-    .label-ios, .label-md {
-        // margin: auto !important;
-    }
-
     .item-ios h2 {
         font-size: 2rem !important;
     }
@@ -23,9 +19,6 @@ timeline {
     ion-label.label.label-ios {
         overflow: visible !important;
     }
-
-
-
     
 }
 
@@ -52,17 +45,11 @@ timeline {
 
   .item-ios, .item-md{
       background-color: transparent !important;
-    //   background-color: lightcoral !important;
       padding-left: 10px !important;
   }
   
   .item-checkbox {
       margin-left: 12%;
-  }
-
-  //padding for todo item
-  .item-ios.item-block .item-inner{
-    //   padding-left: 20px;
   }
 
   .button-inner {
@@ -83,7 +70,6 @@ timeline {
     background-image: url('../assets/imgs/blueline.png');
     background-repeat: repeat-y;
     background-position: 6.2% top;
-    // overflow: visible !important;
 
     @media screen and (min-width:1024px){
         background-position: 5.89% top;
@@ -100,12 +86,10 @@ timeline {
         border-bottom: none !important;
         border-top: none !important;
         padding-right: -1px !important;
-        // overflow: visible !important;
     }
 
     .list-ios, .list-md {
         margin: -1px 3% 15px 0px !important;
-        // overflow: visible !important;
     }
 
     .item-block {
@@ -118,12 +102,6 @@ timeline {
         padding-top: 2%;
     }
 
-    .checkbox-ios {
-        margin: -6px 14px 8px -20px !important;
-        padding-left: 4%;
-        padding-top: 2%;
-    }
-
     .item-ios h2:last-child, .item-ios h3:last-child, .item-ios h4:last-child, .item-ios h5:last-child, .item-ios h6:last-child, .item-ios p:last-child {
         padding-left: 5% !important;
     }
@@ -132,7 +110,4 @@ timeline {
         margin-left: 2%;
     }
         
-
-
- 
   }
