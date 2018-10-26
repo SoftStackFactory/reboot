@@ -14,7 +14,6 @@ export class DashboardPage {
   ionViewWillLoad() {
     this.storage.get('userData').then((val) => {
       console.log('val:', val)
-      console.log('val.userId:', val.userId)
     })
   }
 
