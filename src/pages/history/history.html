@@ -15,7 +15,7 @@
 
 
 <ion-content padding>
-  <ion-grid *ngFor="let chart of chartHistory">
+  <ion-grid *ngFor="let chart of chartProvider.chartHistory">
 
     <ion-row id="rows" align-items-center>
       <ion-col col-3></ion-col>
@@ -23,7 +23,7 @@
         <p id="date"> {{ chart.date }} </p>
       </ion-col>
       <ion-col col-8>
-        <chart [test]="chart.data" [from]="page"></chart>
+        <chart [pageData]="chart.data" [belongsTo]="historyPage"></chart>
       </ion-col>
     </ion-row>
 

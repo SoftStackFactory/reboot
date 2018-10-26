@@ -18,7 +18,6 @@ export class TransitionPage {
 
   @ViewChild(ChartComponent) chartComponent;
   areas: Array<any>;
-  page: any = "transition";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
     this.areas = [
@@ -93,7 +92,7 @@ export class TransitionPage {
   }
 
   changeData(categoryIndex, newNumber) {
-    this.chartProvider.data[categoryIndex] = newNumber;
+    this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
     this.chartComponent.chart.update();
   }
 }
