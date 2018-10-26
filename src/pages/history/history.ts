@@ -18,6 +18,7 @@ import { ChartProvider } from '../../providers/chart/chart';
 export class HistoryPage {
 
   chartHistory: any;
+  page: any = "history";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
   }

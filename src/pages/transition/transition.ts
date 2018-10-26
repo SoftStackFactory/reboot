@@ -18,6 +18,7 @@ export class TransitionPage {
 
   @ViewChild(ChartComponent) chartComponent;
   areas: Array<any>;
+  page: any = "transition";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
     this.areas = [

@@ -13,12 +13,13 @@ import { UserProvider } from '../../providers/user/user'
 })
 export class LoginPage {
 
-  private loginCreds : FormGroup;
+  private loginCreds: FormGroup;
+  loginResponse: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public _userService: UserProvider, private formBuilder: FormBuilder) {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
+      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9 ]*'), Validators.required])],
     });
   }
@@ -31,8 +32,10 @@ export class LoginPage {
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
+          this.loginResponse = res;
+          sessionStorage.setItem('userId', this.loginResponse.userId)
           alert("you're logged in!")
-         this.toDashboard();
+          this.toDashboard();
         },
         (err) => alert("Invalid credentials")
       )

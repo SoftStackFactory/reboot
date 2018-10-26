@@ -8,6 +8,7 @@ import { TimelinePage } from '../timeline/timeline';
 })
 export class DashboardPage {
 
+  page: any = "dashboard";
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
   toTimeline() {
