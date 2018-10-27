@@ -20,18 +20,15 @@ export class ChartComponent implements OnInit {
   /* These @Input variables are essential to being able to customize the charts based on what page is displaying it.
      When you include a <chart> tag onto any page, you can now include these variables as attributes. For example:
      <chart [pageData] = "chartProvider.assessmentChartData" [belongsTo] = "transitionPage"></chart>
-     pageData is how we pass different data arrays into the chart at its creation.
-     belongsTo is mostly just used to differentiate if the component is on the history page or not.
-     More explanation
   */
   @Input() pageData: any; //All chart data lives on the chart provider file and is passed in with this variable.
-  @Input() belongsTo: any;
+  @Input() belongsTo: any; // Mostly just used to differentiate if the component is on the history page or not.
 
   chart: any;
 
   constructor(public chartProvider: ChartProvider) { }
 
-  /** This block of code is for everything contained in ngOnInit right below it
+  /** This comment block is for everything contained in ngOnInit right below it
  *
  Everything above the options property in the chart code relates to the chart data. Everything below that property modifies the display in some way.
  
