@@ -28,10 +28,6 @@ export class UserProvider {
     return this.http.patch(this.requestUrl + '/appUsers/' + id , data)
   }
 
-  // retreiveUserInfo() {
-  //   console.log( , 'retreiveUserInfo')
-  //   return this.http.patch(this.requestUrl + '/appUsers/' + '5bd134f1896194001414e411', data)
-  // }
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
