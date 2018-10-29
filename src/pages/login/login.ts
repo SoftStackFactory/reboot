@@ -8,6 +8,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { UserProvider } from '../../providers/user/user'
 import { ChartProvider } from '../../providers/chart/chart'
 import { Storage } from '@ionic/storage';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -29,7 +30,8 @@ export class LoginPage {
               public _userService: UserProvider, 
               private formBuilder: FormBuilder, 
               private storage: Storage,
-              private _chart: ChartProvider) {
+              private _chart: ChartProvider,
+              private alertCtrl: AlertController) {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
@@ -51,17 +53,11 @@ export class LoginPage {
           this.storage.set('chartData', this.dummyChart)
           this.storage.get('chartData').then((val) => {
             this.getDummyChart = val.Data
-            console.log('getDummyChart storage get:', this.getDummyChart)
           }).then(() => {
-            console.log()
             this._chart.data = this.getDummyChart
           }).then(() => {
             this.toDashboard()
           })
-          console.log('getDummyChart:', this.getDummyChart)
-          //this._chart.data = this.getDummyChart
-          
-         //this.toDashboard();
         },
         (err) => alert("Invalid credentials")
       )
@@ -72,7 +68,18 @@ export class LoginPage {
   }
 
   toDashboard() {
-    alert("you're logged in!")
-    this.navCtrl.setRoot(DashboardPage);
+    //alert("you're logged in!")
+    this.presentAlert()
+    //this.navCtrl.setRoot(DashboardPage);
+  }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Low battery',
+      subTitle: '10% of battery remaining'
+    });
+    alert.present().then(() => {
+      this.navCtrl.setRoot(DashboardPage)
+    });
   }
 }
