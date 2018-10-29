@@ -30,9 +30,12 @@ export class LoginPage {
   login() {
     this._userService.login(this.loginCreds.value)
       .subscribe(
-        (res) => {
+        (res: any) => {
           alert("you're logged in!")
          this.toDashboard();
+         console.log(res, "logedIn!!!")
+         sessionStorage.setItem('token', res.token);
+         sessionStorage.setItem('userId', res.userId);
         },
         (err) => alert("Invalid credentials")
       )

@@ -22,14 +22,16 @@ export class UserProvider {
     console.log('sendReg() runs', user)
     return this.http.post(this.requestUrl + '/appUsers', user)
   }
-
   //update data from wizard page and patch user model
-  updateUserModel(data: any) {
+  updateUserModel(data: any, id) {
     console.log(data, "#1-updateUserModel") 
-    return this.http.patch(this.requestUrl + '/appUsers/' + '5bd134f1896194001414e411', data)
+    return this.http.patch(this.requestUrl + '/appUsers/' + id , data)
   }
 
-
+  // retreiveUserInfo() {
+  //   console.log( , 'retreiveUserInfo')
+  //   return this.http.patch(this.requestUrl + '/appUsers/' + '5bd134f1896194001414e411', data)
+  // }
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
