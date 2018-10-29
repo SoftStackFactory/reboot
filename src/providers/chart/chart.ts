@@ -7,7 +7,7 @@ export class ChartProvider {
   data: any = [0, 0, 0, 0, 0, 0, 0, 0]
 
   constructor(public http: HttpClient) {
-    console.log('Hello ChartProvider Provider');
+    console.log('Hello ChartProvider Provider', this.data);
   }
 
 }
