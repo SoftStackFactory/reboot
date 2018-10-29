@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { RegisterPage } from '../register/register';
@@ -8,7 +8,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { UserProvider } from '../../providers/user/user'
 import { ChartProvider } from '../../providers/chart/chart'
 import { Storage } from '@ionic/storage';
-import { AlertController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-login',
@@ -31,7 +31,7 @@ export class LoginPage {
               private formBuilder: FormBuilder, 
               private storage: Storage,
               private _chart: ChartProvider,
-              private alertCtrl: AlertController) {
+              private toastCtrl: ToastController) {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
@@ -59,7 +59,15 @@ export class LoginPage {
             this.toDashboard()
           })
         },
-        (err) => alert("Invalid credentials")
+        (err) => {
+          let toast = this.toastCtrl.create({
+            message: "Invalid credentials",
+            duration: 2500,
+            position: 'middle'
+          })
+
+          toast.present()
+        }
       )
   }
 
@@ -68,18 +76,16 @@ export class LoginPage {
   }
 
   toDashboard() {
-    //alert("you're logged in!")
-    this.presentAlert()
-    //this.navCtrl.setRoot(DashboardPage);
-  }
-
-  presentAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'Low battery',
-      subTitle: '10% of battery remaining'
+    let toast = this.toastCtrl.create({
+      message: "Login successful!",
+      duration: 2500,
+      position: 'middle'
     });
-    alert.present().then(() => {
+  
+    toast.onDidDismiss(() => {
       this.navCtrl.setRoot(DashboardPage)
     });
+  
+    toast.present();
   }
 }
