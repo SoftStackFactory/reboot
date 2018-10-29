@@ -27,4 +27,9 @@ export class UserProvider {
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
+
+  logoutUser(token:any) {
+    console.log('onservice-logout')
+    return this.http.post(this.requestUrl + "/appUsers/logout", token )
+  }
 }
