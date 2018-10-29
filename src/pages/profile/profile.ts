@@ -27,7 +27,6 @@ export class ProfilePage {
       .subscribe( response => {
         console.log('onsubscibe-logout')
         window.sessionStorage.clear()
-      
       })
   }
 
