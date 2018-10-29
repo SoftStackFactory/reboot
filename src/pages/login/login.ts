@@ -20,6 +20,8 @@ export class LoginPage {
     Data: [8, 2, 5, 10, 3, 5, 6, 8]
   }
 
+  getDummyChart: any
+
   private loginCreds : FormGroup;
 
   constructor(public navCtrl: NavController, 
@@ -47,15 +49,22 @@ export class LoginPage {
           this.storage.remove('chartData')
           this.storage.set('userData', res)
           this.storage.set('chartData', this.dummyChart)
-          alert("you're logged in!")
-         this.toDashboard();
+          this.storage.get('chartData').then((val) => {
+            this.getDummyChart = val.Data
+            console.log('getDummyChart storage get:', this.getDummyChart)
+          }).then(() => {
+            console.log()
+            this._chart.data = this.getDummyChart
+          }).then(() => {
+            this.toDashboard()
+          })
+          console.log('getDummyChart:', this.getDummyChart)
+          //this._chart.data = this.getDummyChart
+          
+         //this.toDashboard();
         },
         (err) => alert("Invalid credentials")
       )
-  }
-
-  ionViewWillLeave() {
-    return this._chart.data = this.dummyChart.Data
   }
 
   toRegisterPage() {
@@ -63,6 +72,7 @@ export class LoginPage {
   }
 
   toDashboard() {
+    alert("you're logged in!")
     this.navCtrl.setRoot(DashboardPage);
   }
 }
