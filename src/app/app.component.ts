@@ -36,7 +36,6 @@ export class MyApp {
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Transition', component: TransitionPage },
-      { title: 'Assessment', component: AssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage }
     ];
