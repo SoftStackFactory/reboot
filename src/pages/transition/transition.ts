@@ -106,7 +106,7 @@ export class TransitionPage {
   }
 
   changeData(categoryIndex, newNumber) {
-    this.chartProvider.data[categoryIndex] = newNumber;
+    this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
     this.chartComponent.chart.update();
   }
 

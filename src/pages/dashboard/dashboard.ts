@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { TimelinePage } from '../timeline/timeline';
 import { Storage } from '@ionic/storage'
+import { ChartProvider } from '../../providers/chart/chart';
+
 
 @Component({
   selector: 'page-dashboard',
@@ -12,7 +14,7 @@ export class DashboardPage {
   name: any
   date: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, private storage: Storage) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams,public chartProvider: ChartProvider, private toastCtrl: ToastController, private storage: Storage) { }
 
   ionViewWillLoad() {
     this.storage.get('userInfo').then((val) => {
