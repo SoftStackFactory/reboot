@@ -200,6 +200,14 @@ page-wizard {
             height: 55px;
             margin: auto
         }
+        @media screen and (orientation: portrait) {
+            .h1 {
+                 font-size: 40px;
+             }
+             .h2 {
+                 font-size: 28px;
+             }   
+        }
     }
     @media screen and (min-width: 1024px) {
         .h1 {
@@ -232,15 +240,15 @@ page-wizard {
         }
     }
   
-    @media screen and (min-width: 700px) and (orientation: portrait){
-        .h1 {
-            font-size: 40px;
-        }
-        .h2 {
-            font-size: 28px;
-        }
-    }
-   
+    // @media screen and (min-width: 700px) and (orientation: portrait){
+    //     .h1 {
+    //         font-size: 40px;
+    //     }
+    //     .h2 {
+    //         font-size: 28px;
+    //     }
+    // }
+
     @media screen and (orientation:landscape) {
         .demo-slide .slide-zoom {
             display: flex;
