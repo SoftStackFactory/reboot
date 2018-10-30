@@ -50,7 +50,6 @@ export class LoginPage {
       .subscribe(
         (res) => {
           console.log('res:', res)
-          this.user = res
           this.userId = res.userId
           this.storage.remove('userData')
           this.storage.remove('chartData')

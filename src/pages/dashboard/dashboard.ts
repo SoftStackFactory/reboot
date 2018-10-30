@@ -17,7 +17,6 @@ export class DashboardPage {
   ionViewWillLoad() {
     this.storage.get('userInfo').then((val) => {
       this.name = val.firstName + ' ' + val.lastName
-      console.log('this.name:', this.name)
     })
     this.storage.get('chartData').then((val) => {
       this.date = val.Date
