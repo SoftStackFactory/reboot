@@ -15,6 +15,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
+import { HistoryPage } from '../pages/history/history';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
@@ -35,6 +36,7 @@ import { UserProvider } from '../providers/user/user';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
+    HistoryPage,
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
@@ -56,7 +58,8 @@ import { UserProvider } from '../providers/user/user';
     ProfilePage,
     TransitionPage,
     AssessmentPage,
-    TimelinePage
+    TimelinePage,
+    HistoryPage
   ],
   providers: [
     StatusBar,

@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { ChartProvider } from '..//../providers/chart/chart';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
@@ -16,17 +16,30 @@ import 'chartjs-plugin-datalabels';
 export class ChartComponent implements OnInit {
 
   @ViewChild('canvas') canvas;
+
+  /* These @Input variables are essential to being able to customize the charts based on what page is displaying it.
+     When you include a <chart> tag onto any page, you can now include these variables as attributes. For example:
+     <chart [pageData] = "chartProvider.assessmentChartData" [belongsTo] = "transitionPage"></chart>
+  */
+  @Input() pageData: any; //All chart data lives on the chart provider file and is passed in with this variable.
+  @Input() belongsTo: any; // Mostly just used to differentiate if the component is on the history page or not.
+
   chart: any;
 
   constructor(public chartProvider: ChartProvider) { }
 
-  /** This block of code is for everything contained in ngOnInit right below it
+  /** This comment block is for everything contained in ngOnInit right below it
  *
  Everything above the options property in the chart code relates to the chart data. Everything below that property modifies the display in some way.
  
  Everything below the plugins property in options relates to the snazzy labels that surround the chart.
 
  The layout.padding property gives room for the snazzy labels.
+
+ I have added ternary operators to the options.layout.padding and options.plugins.datalabels.formatter properties.
+ This is to make it so if the component belongs to the history page, it displays differently than on the transition 
+ and dashboard pages. We don't want to display the labels at all on the history page, so the value of formatter is null
+ and the padding is less because we don't need to make room for the datalabels anymore.
 
  In plugins.datalabels:
 
@@ -53,7 +66,7 @@ export class ChartComponent implements OnInit {
           {
             backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
             borderColor: "black",
-            data: this.chartProvider.data
+            data: this.pageData // This data changes depending on what page owns the component. 
           }
         ]
       },
@@ -61,8 +74,8 @@ export class ChartComponent implements OnInit {
 
         layout: {
           padding: {
-            top: 55,
-            bottom: 55
+            top: this.belongsTo === 'historyPage' ? 5 : 55,
+            bottom: this.belongsTo === 'historyPage' ? 5 : 55
           }
         },
 
@@ -97,9 +110,11 @@ export class ChartComponent implements OnInit {
                 font: 'Lato'
               };
             },
-            formatter: function (value, context) {
-              return context.chart.data.labels[context.dataIndex] + ' ' + context.chart.data.datasets[0].data[context.dataIndex];
-            }
+            formatter: this.belongsTo === 'historyPage' ?
+                function (value, context) { return null }
+              : function (value, context) {
+                return (context.chart.data.labels[context.dataIndex] + ' ' + context.chart.data.datasets[0].data[context.dataIndex]);
+               }
           }
         }
       }
@@ -107,6 +122,7 @@ export class ChartComponent implements OnInit {
 
     //This code down below is to fix a bug where I could not modify the scale in the options
     //key in the above code (It threw a typescript error even though it worked)
+
     this.chart.config.options.scale.ticks.min = 0;
     this.chart.config.options.scale.ticks.max = 10;
     this.chart.update();
