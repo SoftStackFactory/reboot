@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
-import { createOfflineCompileUrlResolver } from '@angular/compiler';
+import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { TransitionPage } from '../../pages/transition/transition';
-import { stringify } from '@angular/core/src/render3/util';
+import { UserProvider} from '../../providers/user/user';
 
 /**
- * Generated class for the WizardPage page.
+ * Generated class for fthe WizardPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -35,7 +35,8 @@ export class WizardPage {
               public navCtrl: NavController,
               private formBuilder: FormBuilder, 
               public navParams: NavParams, 
-              public plt: Platform
+              public plt: Platform,
+              public user: UserProvider
              ) {
       // let required = null;
     this.firstFormFunct(); 
@@ -250,7 +251,12 @@ export class WizardPage {
       enlistedPay: this.thirdForm.value.enlistedPay,
       MOS: this.thirdForm.value.MOS
     }
-    console.log(userData)
+    console.log(userData, this.LockSwipeToPrev)
+    this.user.updateUserModel(userData, window.sessionStorage.getItem('userId'))
+      .subscribe( 
+        (data) => {
+          console.log(data, "YEY!!!!!!")
+      })
     this.shouldLockSwipeToNext = false;
     this.lockNextSlide()
     this.next();

@@ -15,12 +15,14 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
+import { HistoryPage } from '../pages/history/history';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { UserProvider } from '../providers/user/user';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
+    HistoryPage,
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
@@ -43,7 +46,8 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +60,8 @@ import { UserProvider } from '../providers/user/user';
     ProfilePage,
     TransitionPage,
     AssessmentPage,
-    TimelinePage
+    TimelinePage,
+    HistoryPage
   ],
   providers: [
     StatusBar,

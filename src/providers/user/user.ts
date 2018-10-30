@@ -22,7 +22,11 @@ export class UserProvider {
     console.log('sendReg() runs', user)
     return this.http.post(this.requestUrl + '/appUsers', user)
   }
-
+  //update data from wizard page and patch user model
+  updateUserModel(data: any, id) {
+    console.log(data, "#1-updateUserModel") 
+    return this.http.patch(this.requestUrl + '/appUsers/' + id , data)
+  }
 
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
@@ -31,5 +35,10 @@ export class UserProvider {
   logoutUser(token:any) {
     console.log('onservice-logout')
     return this.http.post(this.requestUrl + "/appUsers/logout", token )
+  }
+  
+  getUser(id) {
+    return this.http.get(this.requestUrl + '/appUsers/' + id)
+
   }
 }

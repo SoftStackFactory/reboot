@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { ChartComponent } from '../../components/chart/chart';
 import { ChartProvider } from '../../providers/chart/chart';
+import { Storage } from '@ionic/storage'
 
 /**
  * Generated class for the TransitionPage page.
@@ -18,8 +19,14 @@ export class TransitionPage {
 
   @ViewChild(ChartComponent) chartComponent;
   areas: Array<any>;
+  date: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public chartProvider: ChartProvider, 
+              private storage: Storage, 
+              private toastCtrl: ToastController) {
+
     this.areas = [
       {
         title: 'Career',
@@ -82,6 +89,13 @@ export class TransitionPage {
 
   }
 
+  ionViewWillLoad() {
+    this.storage.get('chartData').then((val) => {
+      this.date = val ? val.Date : '';
+      // console.log('this.date:', this.date, 'val.Date:', val.Date)
+    }).then(() => this.lastDate())
+  }
+
   toggleSection(area) {
     console.log(area);
     if (area.expand) {
@@ -92,7 +106,17 @@ export class TransitionPage {
   }
 
   changeData(categoryIndex, newNumber) {
-    this.chartProvider.data[categoryIndex] = newNumber;
+    this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
     this.chartComponent.chart.update();
+  }
+
+  lastDate() {
+    let toast = this.toastCtrl.create({
+      message: `Your last assessment was ${this.date}`,
+      duration: 2500,
+      position: 'middle'
+    });
+
+    toast.present();
   }
 }
