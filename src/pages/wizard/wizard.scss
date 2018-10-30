@@ -73,12 +73,12 @@ page-wizard {
         padding: 5px;
         margin: 0px !important;
         top: -5px;
-       
     }
     .h1{
         font-weight: bold;
         font-size: 20px;
         margin-right: 5px;
+        white-space: normal;
     } 
     .h2 {
         white-space: normal;
@@ -94,6 +94,7 @@ page-wizard {
     }
     .demo-img{
         width: 60%;
+
     }
     .select-placeholder, .select-text{
         font-size: 20px;
@@ -200,26 +201,25 @@ page-wizard {
             height: 55px;
             margin: auto
         }
-        @media screen and (orientation: portrait) {
-            .h1 {
-                 font-size: 40px;
-             }
-             .h2 {
-                 font-size: 28px;
-             }   
-        }
-    }
-    @media screen and (min-width: 1024px) {
         .h1 {
             font-size: 40px;
         }
         .h2 {
             font-size: 28px;
-        }
+        }   
+
+    }
+    @media screen and (min-width: 1024px) {
         @media screen and(orientation: portrait){
             .button1{
                 width: 230px;
                 height: 70px;
+            }
+            .h1 {
+                font-size: 50px;
+            }
+            .h2 {
+                font-size: 38px;
             }
         } 
     }
@@ -240,15 +240,6 @@ page-wizard {
         }
     }
   
-    // @media screen and (min-width: 700px) and (orientation: portrait){
-    //     .h1 {
-    //         font-size: 40px;
-    //     }
-    //     .h2 {
-    //         font-size: 28px;
-    //     }
-    // }
-
     @media screen and (orientation:landscape) {
         .demo-slide .slide-zoom {
             display: flex;
@@ -270,6 +261,7 @@ page-wizard {
         }
         .demo-img{
             width: 37%;
+            margin-left: 2.2vw;
         } 
         .top-question {
             position: relative;
@@ -282,6 +274,12 @@ page-wizard {
                 height: 70px;
                 font-size: 30px;
             }
+            .h1 {
+                font-size: 50px;
+            }
+            .h2 {
+                font-size: 38px;
+            }
        }   
        @media screen and (max-width: 850px) {
             ion-badge{
@@ -293,7 +291,10 @@ page-wizard {
                 width: 80%;
             }
             .demo-img{
-                width: 10%;
+                width: 25%;
+            }
+            .demo-header {
+                width: 55%;
             }
             .question-header{
                 margin: 0px;
