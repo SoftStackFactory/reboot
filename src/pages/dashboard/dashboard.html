@@ -19,7 +19,7 @@
 
     <ion-row>
       <ion-col>
-        <h1 id="hello" text-center>Hello, Austin!</h1>
+        <h1 id="hello" text-center>Hello, {{ this.name }}!</h1>
       </ion-col>
     </ion-row>
 
@@ -62,8 +62,8 @@
           <ion-card-header class="headers" text-center>
             Transition Readiness Test
           </ion-card-header>
-          <ion-card-content id="lifeWheelContent">
-            <canvas #canvas id="canvas" height="28" width="50"></canvas>
+          <ion-card-content>
+            <chart [pageData] = "chartProvider.mostRecentChart"></chart>
           </ion-card-content>
         </ion-card>
       </ion-col>

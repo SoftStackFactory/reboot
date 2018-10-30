@@ -1,6 +1,9 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+//ToastController width
+$toast-max-width: 1000px;
+
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
@@ -17,8 +20,11 @@ $range-ios-knob-background-color: rgb(76, 122, 223);
 $range-ios-bar-height: 3px;
 $range-ios-tick-width: 5px;
 $range-ios-tick-height: 12px;
-$range-ios-knob-width: 32px;
-$range-ios-knob-height: 32px;
+$range-ios-knob-width: 30px;
+$range-ios-knob-height: 30px;
+$range-ios-pin-font-size: 30px;
+$range-ios-pin-padding-bottom: -1px;
+$range-ios-slider-height: 100px; 
 
 @import "ionic.globals";
 

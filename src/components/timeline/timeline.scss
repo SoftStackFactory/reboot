@@ -4,16 +4,27 @@ timeline {
         padding-bottom: 15px;
     }
 
-    .label-ios{
-        margin: auto !important;
+    .item-ios h2 {
+        font-size: 2rem !important;
     }
 
+    .item-md h2 {
+        margin-left: 3%;
+    }
+
+    .timeline h1:first-child, .timeline h2:first-child, .timeline h3:first-child, .timeline h4:first-child, .timeline h5:first-child, .timeline h6:first-child {
+        margin-left: 6%;
+    }
+
+    ion-label.label.label-ios {
+        overflow: visible !important;
+    }
     
 }
 
 .cd-timeline__img {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 25px;
     height: 25px;
@@ -32,13 +43,20 @@ timeline {
       padding-left: 3%;
   }
 
-  .item-ios{
+  .item-ios, .item-md{
       background-color: transparent !important;
       padding-left: 10px !important;
   }
   
   .item-checkbox {
-      margin-left: 10%;
+      margin-left: 12%;
+  }
+
+  .button-inner {
+      flex-flow: flex;
+  }
+  .input-wrapper {
+      overflow: visible !important;
   }
 
 .border-thingy {
@@ -46,73 +64,12 @@ timeline {
 }
 .timeline {
     margin-top: 30px;
+    margin-right: 5%;
     padding: 0;
     position: relative;
     background-image: url('../assets/imgs/blueline.png');
     background-repeat: repeat-y;
     background-position: 6.2% top;
-
-    timeline-item {
-      position: relative;
-      display: inline-block;
-
-      timeline-time {
-        display: block;
-        width: 20%;
-        padding-right: 50px;
-        position: absolute;
-        span {
-          display: block;
-          text-align: right;
-          &:last-child {
-            font-size: 2.9em;
-            color: #3594cb;
-          }
-        }
-      }
-      /* Right content */
-      ion-card {
-        margin-left: 25% !important;
-        width: 75% !important;
-        position: relative;
-      }
-      ion-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.4em;
-        position: absolute;
-        color: #fff;
-        background: #46a4da;
-        border-radius: 50%;
-        box-shadow: 0 0 0 8px #afdcf8;
-        text-align: center;
-        left: 20%;
-        top: 0;
-        margin: 0 0 0 -25px;
-        line-height: 40px;
-        &:after {
-            left: 46px;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-            border-left-color: #afdcf8;
-            border-width: 10px;
-            top: 10px;
-          }
-      }
-        &:last-child{
-          width: 100%;
-          ion-icon{
-            box-shadow: none;
-            &:after{
-              border-width: 0;
-            }
-          }
-        }
-    }
 
     @media screen and (min-width:1024px){
         background-position: 5.89% top;
@@ -121,34 +78,36 @@ timeline {
     @media screen and (min-width:1360px){
         background-position: 5.7% top;
     }
+    @media screen and (max-width:1024px){
+        background-position: 5.79% top;
+    }
 
-    .list-ios, .item-block, .item-inner {
+    .list-ios, .list-md, .item-block, .item-inner {
         border-bottom: none !important;
         border-top: none !important;
+        padding-right: -1px !important;
     }
 
-    .list-ios {
-        margin: -1px 0 15px !important;
+    .list-ios, .list-md {
+        margin: -1px 3% 15px 0px !important;
     }
 
+    .item-block {
+        overflow: visible !important;
+    }
 
     .item.item-md .checkbox-md {
-        margin: -6px 14px 8px -35px !important;
-        padding-left: 4%;
-        padding-top: 2%;
-    }
-
-    .checkbox-ios {
-        margin: -6px 14px 8px -35px !important;
+        margin: -6px 17px 8px -20px !important;
         padding-left: 4%;
         padding-top: 2%;
     }
 
     .item-ios h2:last-child, .item-ios h3:last-child, .item-ios h4:last-child, .item-ios h5:last-child, .item-ios h6:last-child, .item-ios p:last-child {
-        padding-left: 6% !important;
+        padding-left: 5% !important;
+    }
+
+    h1:first-child,h2:first-child,h3:first-child,h4:first-child, h5:first-child, h6:first-child {
+        margin-left: 2%;
     }
         
-
-
- 
   }

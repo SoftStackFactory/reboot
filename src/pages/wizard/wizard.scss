@@ -1,26 +1,18 @@
 page-wizard {
-  
-    // ion-slides { 
-      
-    // }
     ion-slide{
      background-color: white;
-           
-  }
+     }
     .slide-zoom{
         height:100%;
     }
     .demo-slide {
-       // display: flex;
         align-items: flex-start;
     }
-
     .quest-slide{
         height: 100%;
         overflow-y: scroll;
         align-items: flex-start;
     }
-      
     .nav-start {
         position: absolute;
         background-color: rgb(26, 39, 71);
@@ -28,10 +20,9 @@ page-wizard {
         height: 4.5vw;
         min-height: 40px;
         z-index: 3;
-       //margin-top: .5px;
     }
     .start {
-        font-size:2.5vw;
+        font-size:20px;
         height: 85%;
         color: black;
         background-color: aliceblue;
@@ -39,7 +30,7 @@ page-wizard {
         min-width: 65px;
     }
     #end {
-        font-size:2.5vw ;
+        font-size:20px ;
         min-width: 65px;
         width: 10vw;
         height: 85%;
@@ -51,7 +42,7 @@ page-wizard {
         position: relative;
         display: block;
         // width: 70%;
-        margin: auto;
+        margin: auto auto 50px auto;
         font-size: 2.5vw;
         top: 10vw;
     }
@@ -67,13 +58,30 @@ page-wizard {
         position: relative;
         //display: block;
         // width: 70%;
-        margin: auto;
+        margin: auto auto 50px auto;
       //  font-size: 2.5vw;
-        top: 10vw;
+        top: 12vw;
+    }
+    .list-header-md {
+        padding-left: 0px;
+        margin-bottom: 0px;
+        //min-height: 4rem;
+        border-top: none;
+        font-size: 1.2rem;
+        color: black; 
+    }
+    ion-badge{
+        position: relative;
+        font-size: 25px; 
+        padding: 5px;
+        margin: 0px !important;
+        top: -5px;
+       
     }
     .h1{
         font-weight: bold;
         font-size: 20px;
+        margin-right: 5px;
     } 
     .h2 {
         white-space: normal;
@@ -98,8 +106,60 @@ page-wizard {
         display: inline;
         box-shadow: 0px 1px 66px -4px rgba(0,0,0,0.68);
     }
+    .select-placeholder, .select-text{
+        font-size: 20px;
+    }
+    .select-icon, .select-icon-inner  {
+        border: none!important;
+    }
+    .datetime-text, .datetime-placeholder{
+        font-size: 20px;
+    }
+    .input ::-webkit-input-placeholder{
+        font-size: 20px;
+    }
+    .input{
+        font-size: 20px;
+    }
     .date {
         float: left;
+    }
+      
+    .question-header {
+        position: relative;
+    } 
+    .q-group {
+        padding: 20px auto;
+        background-color:#f7f7f7!important;
+        text-align: left;
+        font-size: 20px;        
+     }  
+    .q-group ion-label{
+        white-space: normal;
+    }
+    .q-wrapper {
+       display: flex;
+       justify-content: space-between;
+       flex-direction: row-reverse;
+       padding-left: 0px; 
+     }
+    #select {
+         float: left !important;
+     }
+    .select {
+       float: right;
+     }
+    .view{ 
+       float: right;
+     }
+    .card-wrapper {
+        max-width: 768px;
+        margin: 20px auto 0px auto;
+     }
+    #submit{
+        margin-top: -12px;
+        width: 168px;
+        height:42px;
     }
     #end-wizard-h{
         white-space: normal
@@ -109,126 +169,114 @@ page-wizard {
         margin-top: 15vw; 
     }
     .button1{
-        width: 200px;
-        height: 4.5vh;
+        width: 138px;
+        height:42px;
         background-color: rgb(26, 39, 71);
-
+        padding: 0px;
     }
-    // .top-form-page {
-    //     position: relative;
-    //     display: block;
-    //     top: 60px; 
-    //    }
-  
-    // .input-form {
-    //     position: relative;
-    //     margin-top: 10vh; 
-    // }
-    // .input-item {
-    //   margin: .4vw auto;
-    //   display: block;
-    //   font-size: 3vw;
-    //   width: 80%;
-    //   height: 8vw;
-    //   max-height: 70px;
-    //   max-width: 1000px;
-    //   padding-left: 10px;
-    //   background-color: rgb(249, 247, 247);
-    //   border-radius: 5px;
-    //   border-color: rgb(242, 239, 239);
-    //   //padding-top: 7px; 
-    //   //margin-top:10px;
-    //   outline: none;
-    //   border:1px solid #cccccc
-    // }
-   
-    .question-header {
-        position: relative;
-    } 
-    .q-group {
-        padding: 20px auto;
-       // margin: 20px auto;
-        text-align: left;
-        font-size: 25px;
-     }
-     
-     .q-wrapper {
-       display: flex;
-       justify-content: space-between;
-       flex-direction: row-reverse;
-       padding-left: 0px; 
-     }
-     #select {
-         float: left !important;
-     }
-     
-     .select {
-       float: right;
-       /* margin-left: 30%; */
-     }
-     
-     .view{ 
-       float: right;
-     }
-     
-     .card-wrapper {
-     max-width: 768px;
-     margin: 20px auto 0px auto;
-     }
-     .card-end {
-        margin-bottom: 15px; 
-     }
-
-     @media screen and (min-width:750px) {
+    .scroll-content {
+        padding-bottom: 0px!important;
+    }
+    @media screen and (min-width:768px) {
         .nav-start{
-         height: 5.5vw;
-         max-height: 70px;
-         }
-         .start {
-              font-size:2vw ;
-
-         }
-         #end {
-            font-size:2vw ;
-         }
-        
-         .button1{
-            height: 4.8vw;
-            width: 20vw;
-         }
+            height: 5.5vw;
+            max-height: 70px;
         }
+        .start {
+            font-size:25px ;
 
-        @media screen and (min-width: 1000px) {
-            .h1 {
-               font-size: 40px;
-           }
-           .h2 {
-               font-size: 28px;
-           }
-           @media screen and (orientation: landscape) {
-            .question-header .h1 {
-               font-size: 35px;
-             } 
-             .question-header {
-                 margin-bottom: 10px;
-             }
-           }
-       }
-       @media screen and (min-width: 700px) and (orientation: portrait){
+        }
+        #end {
+            font-size:25px ;
+         }
+        .button1{
+            height: 55px;
+            width: 180px;
+            font-size: 25px;
+         }
+        .select-placeholder, .select-text{
+            font-size: 25px;
+        }
+        .datetime-text, .datetime-placeholder{
+            font-size: 25px;
+        }
+        .input ::-webkit-input-placeholder{
+            font-size: 25px;
+        }
+        .input, .q-group{
+            font-size: 25px;
+        }
+        #submit{
+            font-size: 25px ;
+            width: 300px;
+            height: 55px;
+            margin: auto
+        }
+    }
+    @media screen and (min-width: 1024px) {
         .h1 {
             font-size: 40px;
         }
         .h2 {
             font-size: 28px;
         }
-       }
-
-    @media screen and (orientation:landscape) { 
-        
+        @media screen and(orientation: portrait){
+            .button1{
+                width: 230px;
+                height: 70px;
+            }
+        } 
+    }
+    @media screen and (max-width: 812px) and (orientation: landscape){
+        .question-header{
+            margin: 0px;
+            top: -30px;
+        }
+        .form {
+            margin-top: -25px;
+        }
+        .inner-question-header {
+            margin: 7px auto 0px auto;
+        }
+    }
+    @media screen and (max-width: 767px){
+        ion-badge{
+            font-size: 15px;
+            padding: 3px;
+        }
+        @media screen and (orientation: portrait){
+            .form{
+                margin: -10px;
+            }
+            .button1{
+                width: 50vw;
+                max-width: 500px;
+            }
+        }
+    }
+    @media screen and (max-width: 824px) and (orientation: landscape){
+        ion-badge{
+            font-size: 15px;
+            padding: 3px;
+        } 
+        .top-simple {
+            top: auto;
+            width: 80%!important;
+         }
+    }
+    @media screen and (min-width: 700px) and (orientation: portrait){
+        .h1 {
+            font-size: 40px;
+        }
+        .h2 {
+            font-size: 28px;
+        }
+    }
+    @media screen and (orientation:landscape) {
         .demo-slide .slide-zoom {
             display: flex;
             align-items: center;
-         }
+        }
         .top-simple {
             top: auto;
             width: 55%;
@@ -239,12 +287,10 @@ page-wizard {
             align-items: center; 
             margin: auto;
             top: auto;
-          //  flex-direction: row;
         }
         .demo-header {
             width: 40%;
         }
-        
         img {
            width: 100px;
         }
@@ -259,45 +305,24 @@ page-wizard {
         #timeline {
             width: 35%;
         }
-        // .question-header {
-        //    display: flex;
-        //    justify-content: space-around;
-        //   //  margin-top: 100px;
-        // }      
-        .question-header {
-        //    position: relative;
-        //    top: 1vh;
-        }
         .top-question {
             position: relative;
-            top: 60px;
+            top: 80px;
             margin-bottom: 25px;
-        }
-        
-        .top-question .h1 {
-            margin: 0px;
-            font-size: 25px;
-            
-        }
-        .top-question .h2 {
-            margin: 0px auto 0px auto;
-            font-size: 20px;
-        }
-        .buttons {
-            margin-top: 5vw; 
-         }
-         .button1 {
-             height: 5vw;
-         }
-      
+        } 
+        @media screen and (min-width: 1366px){
+            .button1 {
+                width: 210px;
+                height: 70px;
+                font-size: 30px;
+            }
+       }     
     }
     .invalid {
-        border: 1px solid #ea6153;
-      }
-      
+        box-shadow: 0px 0px 10px 3px#ea6153;
+    }
     .invalid-text {
         font-size: 20px;
         color: #ea6153;
     }
-   
 }

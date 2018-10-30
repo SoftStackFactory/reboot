@@ -39,9 +39,9 @@
       </ion-row>
 
       <ion-row justify-content-center>
-        <ion-col col-7>
+        <ion-col col-10>
           <ion-item no-lines *ngIf="!loginCreds.controls.email.valid  && (loginCreds.controls.email.dirty || submitAttempt)">
-            <p class="invalid-text">Please enter a valid email</p>
+            <p text-center class="invalid-text">Please enter a valid email</p>
           </ion-item><br>
         </ion-col>
       </ion-row>
@@ -54,9 +54,9 @@
       </ion-row>
 
       <ion-row justify-content-center>
-        <ion-col col-7>
+        <ion-col col-10>
           <ion-item no-lines *ngIf="!loginCreds.controls.password.valid  && (loginCreds.controls.password.dirty || submitAttempt)">
-            <p class="invalid-text">Enter a password between 6-30 characters using only letters and numbers</p>
+            <p text-center class="invalid-text">Password contains 6-30 letters, numbers, or special characters</p>
           </ion-item><br>
         </ion-col>
       </ion-row>
