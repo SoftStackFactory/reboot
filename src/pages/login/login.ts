@@ -30,7 +30,7 @@ export class LoginPage {
               public _userService: UserProvider, 
               private formBuilder: FormBuilder, 
               private storage: Storage,
-              private _chart: ChartProvider,
+              private chartProvider: ChartProvider,
               private toastCtrl: ToastController) {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
