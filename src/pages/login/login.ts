@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
+import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 import { DashboardPage } from '../dashboard/dashboard';
-
 import { UserProvider } from '../../providers/user/user'
+import { Storage } from '@ionic/storage';
 import { ChartProvider } from '../../providers/chart/chart';
 
 @Component({
@@ -14,10 +13,25 @@ import { ChartProvider } from '../../providers/chart/chart';
 })
 export class LoginPage {
 
-  private loginCreds: FormGroup;
+  dummyChart: any = {
+    Date: "10/29/2018",
+    Data: [8, 2, 5, 10, 3, 5, 6, 8]
+  }
+
+  getDummyChart: any
+  user: any
+  userId: any
+
+  private loginCreds : FormGroup;
   loginResponse: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _userService: UserProvider, public chartProvider: ChartProvider, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public _userService: UserProvider, 
+              private formBuilder: FormBuilder, 
+              private storage: Storage,
+              private _chart: ChartProvider,
+              private toastCtrl: ToastController) {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
@@ -35,13 +49,41 @@ export class LoginPage {
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
+          // console.log('res:', res)
+          // this.userId = res.userId
+          // this.storage.remove('userData')
+          // this.storage.remove('chartData')
+          // this.storage.set('userData', res)
+          // this.storage.set('chartData', this.dummyChart)
+          // this.storage.get('chartData').then((val) => {
+          //   this.getDummyChart = val.Data
+          // }).then(() => {
+          //   this._chart.data = this.getDummyChart
+          // }).then(() => {
+          //   this._userService.getUser(this.userId)
+          //     .subscribe(
+          //       (res) => {
+          //         this.storage.set('userInfo', res)
+          //       }
+          //     )
+          // }).then(() => {
+          //   this.toDashboard()
+          // })
           this.loginResponse = res;
           sessionStorage.setItem('userId', this.loginResponse.userId)
           sessionStorage.setItem('token', this.loginResponse.token);
           alert("you're logged in!")
           this.getChartData();
         },
-        (err) => alert("Invalid credentials")
+        (err) => {
+          let toast = this.toastCtrl.create({
+            message: "Invalid credentials",
+            duration: 2500,
+            position: 'middle'
+          })
+
+          toast.present()
+        }
       )
   }
 
@@ -63,6 +105,16 @@ export class LoginPage {
   }
 
   toDashboard() {
-    this.navCtrl.setRoot(DashboardPage);
+    let toast = this.toastCtrl.create({
+      message: "Login successful!",
+      duration: 2500,
+      position: 'middle'
+    });
+  
+    toast.onDidDismiss(() => {
+      this.navCtrl.setRoot(DashboardPage)
+    });
+  
+    toast.present();
   }
 }
