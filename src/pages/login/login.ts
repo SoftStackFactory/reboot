@@ -63,7 +63,6 @@ export class LoginPage {
             this._userService.getUser(this.userId)
               .subscribe(
                 (res) => {
-                  console.log('user res:', res)
                   this.storage.set('userInfo', res)
                 }
               )
