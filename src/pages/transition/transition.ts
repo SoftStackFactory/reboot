@@ -91,8 +91,8 @@ export class TransitionPage {
 
   ionViewWillLoad() {
     this.storage.get('chartData').then((val) => {
-      this.date = val.Date
-      console.log('this.date:', this.date, 'val.Date:', val.Date)
+      this.date = val ? val.Date : '';
+      // console.log('this.date:', this.date, 'val.Date:', val.Date)
     }).then(() => this.lastDate())
   }
 
@@ -112,7 +112,7 @@ export class TransitionPage {
 
   lastDate() {
     let toast = this.toastCtrl.create({
-      message: "Your last assessment was "+ this.date,
+      message: `Your last assessment was ${this.date}`,
       duration: 2500,
       position: 'middle'
     });

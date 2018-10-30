@@ -18,10 +18,10 @@ export class DashboardPage {
 
   ionViewWillLoad() {
     this.storage.get('userInfo').then((val) => {
-      this.name = val.firstName + ' ' + val.lastName
+      this.name = val ? `${val.firstName} ${val.lastName}` : '';
     })
     this.storage.get('chartData').then((val) => {
-      this.date = val.Date
+      this.date = val ? val.Date : '';
     }).then(() => this.lastDate())
   }
 
@@ -31,7 +31,7 @@ export class DashboardPage {
 
   lastDate() {
     let toast = this.toastCtrl.create({
-      message: "Your last assessment was "+ this.date,
+      message: `Your last assessment was ${this.date}`,
       duration: 2500,
       position: 'middle'
     });
