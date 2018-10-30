@@ -27,4 +27,8 @@ export class UserProvider {
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
+
+  getUser(id) {
+    return this.http.get(this.requestUrl + '/appUsers/' + id)
+  }
 }

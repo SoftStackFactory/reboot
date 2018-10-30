@@ -9,11 +9,16 @@ import { Storage } from '@ionic/storage'
 })
 export class DashboardPage {
 
+  name: any
   date: any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, private storage: Storage) { }
 
   ionViewWillLoad() {
+    this.storage.get('userInfo').then((val) => {
+      this.name = val.firstName + ' ' + val.lastName
+      console.log('this.name:', this.name)
+    })
     this.storage.get('chartData').then((val) => {
       this.date = val.Date
     }).then(() => this.lastDate())

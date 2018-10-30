@@ -22,6 +22,8 @@ export class LoginPage {
   }
 
   getDummyChart: any
+  user: any
+  userId: any
 
   private loginCreds : FormGroup;
 
@@ -47,6 +49,9 @@ export class LoginPage {
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
+          console.log('res:', res)
+          this.user = res
+          this.userId = res.userId
           this.storage.remove('userData')
           this.storage.remove('chartData')
           this.storage.set('userData', res)
@@ -55,6 +60,14 @@ export class LoginPage {
             this.getDummyChart = val.Data
           }).then(() => {
             this._chart.data = this.getDummyChart
+          }).then(() => {
+            this._userService.getUser(this.userId)
+              .subscribe(
+                (res) => {
+                  console.log('user res:', res)
+                  this.storage.set('userInfo', res)
+                }
+              )
           }).then(() => {
             this.toDashboard()
           })
