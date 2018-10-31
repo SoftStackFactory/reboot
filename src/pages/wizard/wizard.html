@@ -145,7 +145,6 @@
                   Are you an active member or a veteran?
                 </ion-item-divider>
                 <ion-item class="q-wrapper">
-                  <a class="select" >Select</a>
                   <ion-select 
                     placeholder="Select &#x25BC;"
                     formControlName="vetOrActive"
@@ -197,7 +196,7 @@
                   </ion-select>
                 </ion-item>
                 <ion-item  no-lines *ngIf="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)" >
-                    <p class="invalid-text">Enter an option</p>
+                  <p class="invalid-text">Enter an option</p>
                 </ion-item>
               </ion-item-group>
             </ion-card>
@@ -249,7 +248,7 @@
                   <ion-select 
                     placeholder="Select&#x25BC;"
                     formControlName="employment"
-                    [selectOptions] = 'UnemployedOptions'>
+                    [selectOptions] = 'unemployedOptions'>
                     <ion-option value="Employed">Employed</ion-option>
                     <ion-option value="Unemployed">Unemployed</ion-option>
                   </ion-select>
@@ -284,27 +283,6 @@
             <ion-card  [class.invalid]="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
-                    Are you married?
-                </ion-item-divider>
-                <ion-item class="q-wrapper">
-                  <ion-select 
-                  placeholder="Select&#x25BC;"
-                  formControlName="marital"
-                  [selectOptions] = 'marriageOptions'>
-                  <ion-option value="married">Yes</ion-option>
-                  <ion-option value="notMarried">No</ion-option>
-                </ion-select>
-                </ion-item>
-                <ion-item *ngIf="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" >
-                    <p class="invalid-text">Enter an option</p>
-                </ion-item>
-              </ion-item-group>
-            </ion-card>     
-
-
-            <ion-card  [class.invalid]="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" class="card-wrapper">
-              <ion-item-group>
-                <ion-item-divider class='q-group' color="light">
                     What is you Marital Status?
                 </ion-item-divider>
                 <ion-item class="q-wrapper">
@@ -324,7 +302,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>     
-      <!-- <button ion-button type="submit" [disabled]="" (click)="onSubmit()" >submit</button> -->
+    
           </form>
         </div> 
       </ion-slide> 
@@ -406,7 +384,7 @@
                 </ion-select>
                 </ion-item>
                 <ion-item *ngIf="!thirdForm.controls.enlistedPay.valid && (thirdForm.controls.enlistedPay.touched)" >
-                    <p class="invalid-text">Enter an option</p>
+                  <p class="invalid-text">Enter an option</p>
                 </ion-item>
               </ion-item-group>
             </ion-card>     
