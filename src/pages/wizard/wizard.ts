@@ -231,7 +231,7 @@ export class WizardPage {
   branchOption = this.customizeSelectOptions("Military Branch", "Select a branch");
   vetOrActiveOptions = this.customizeSelectOptions("Military Status", "Select one");
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
-  UnemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
+  unemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status","Select one");
   insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
   enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")

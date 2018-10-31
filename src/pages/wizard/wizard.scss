@@ -56,10 +56,7 @@ page-wizard {
     }
     .top-question{
         position: relative;
-        //display: block;
-        // width: 70%;
         margin: auto auto 50px auto;
-      //  font-size: 2.5vw;
         top: 12vw;
     }
     .list-header-md {
@@ -76,12 +73,12 @@ page-wizard {
         padding: 5px;
         margin: 0px !important;
         top: -5px;
-       
     }
     .h1{
         font-weight: bold;
         font-size: 20px;
         margin-right: 5px;
+        white-space: normal;
     } 
     .h2 {
         white-space: normal;
@@ -90,21 +87,14 @@ page-wizard {
         margin: 15px auto auto auto;
         top: 20px;
     }
-    #dashImg {
-        width: 60%;
-        //height: 80%;
-    }
-    #self {
-        width: 60%;
-     //   height: 70%;
-    }
-    #timeline {
-        width: 80%;
-    }
     img {
        // margin-top: 10px auto auto auto;
         display: inline;
         box-shadow: 0px 1px 66px -4px rgba(0,0,0,0.68);
+    }
+    .demo-img{
+        width: 60%;
+
     }
     .select-placeholder, .select-text{
         font-size: 20px;
@@ -124,7 +114,6 @@ page-wizard {
     .date {
         float: left;
     }
-      
     .question-header {
         position: relative;
     } 
@@ -212,33 +201,29 @@ page-wizard {
             height: 55px;
             margin: auto
         }
-    }
-    @media screen and (min-width: 1024px) {
         .h1 {
             font-size: 40px;
         }
         .h2 {
             font-size: 28px;
-        }
+        }   
+
+    }
+    @media screen and (min-width: 1024px) {
         @media screen and(orientation: portrait){
             .button1{
                 width: 230px;
                 height: 70px;
             }
+            .h1 {
+                font-size: 50px;
+            }
+            .h2 {
+                font-size: 38px;
+            }
         } 
     }
-    @media screen and (max-width: 812px) and (orientation: landscape){
-        .question-header{
-            margin: 0px;
-            top: -30px;
-        }
-        .form {
-            margin-top: -25px;
-        }
-        .inner-question-header {
-            margin: 7px auto 0px auto;
-        }
-    }
+   
     @media screen and (max-width: 767px){
         ion-badge{
             font-size: 15px;
@@ -254,24 +239,7 @@ page-wizard {
             }
         }
     }
-    @media screen and (max-width: 824px) and (orientation: landscape){
-        ion-badge{
-            font-size: 15px;
-            padding: 3px;
-        } 
-        .top-simple {
-            top: auto;
-            width: 80%!important;
-         }
-    }
-    @media screen and (min-width: 700px) and (orientation: portrait){
-        .h1 {
-            font-size: 40px;
-        }
-        .h2 {
-            font-size: 28px;
-        }
-    }
+  
     @media screen and (orientation:landscape) {
         .demo-slide .slide-zoom {
             display: flex;
@@ -291,20 +259,10 @@ page-wizard {
         .demo-header {
             width: 40%;
         }
-        img {
-           width: 100px;
-        }
-        #dashImg {
-            width: 30%;
-            height: 80%;
-        }
-        #self {
-            width: 30%;
-            height: 70%;
-        }
-        #timeline {
-            width: 35%;
-        }
+        .demo-img{
+            width: 37%;
+            margin-left: 2.2vw;
+        } 
         .top-question {
             position: relative;
             top: 80px;
@@ -316,8 +274,41 @@ page-wizard {
                 height: 70px;
                 font-size: 30px;
             }
-       }     
+            .h1 {
+                font-size: 50px;
+            }
+            .h2 {
+                font-size: 38px;
+            }
+       }   
+       @media screen and (max-width: 850px) {
+            ion-badge{
+                font-size: 15px;
+                padding: 3px;
+            } 
+            .top-simple {
+                top: auto;
+                width: 80%;
+            }
+            .demo-img{
+                width: 25%;
+            }
+            .demo-header {
+                width: 55%;
+            }
+            .question-header{
+                margin: 0px;
+                top: -30px;
+            }
+            .form {
+                margin-top: -25px;
+            }
+            .inner-question-header {
+                margin: 7px auto 0px auto;
+            }    
+       }
     }
+       
     .invalid {
         box-shadow: 0px 0px 10px 3px#ea6153;
     }
