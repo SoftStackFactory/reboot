@@ -1,3 +1,5 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/SoftStackFactory/reboot.svg?columns=all)](https://waffle.io/SoftStackFactory/reboot)
+
 ![Travis CI Status](https://travis-ci.org/SoftStackFactory/reboot.svg?branch=master "Travis CI Status")
 
 
