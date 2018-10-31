@@ -8,5 +8,3 @@ Use any of these keywords followed by the issue number: _close, closes, closed, 
 
 1. Resolves #001
 2. Closes #002
-
-_Make sure the Pull Request is appropriately tagged!_
