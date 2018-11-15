@@ -151,8 +151,8 @@
                     placeholder="Select &#x25BC;"
                     formControlName="vetOrActive"
                     [selectOptions] = 'vetOrActiveOptions'>
-                    <ion-option value="Veteran">Veteran</ion-option>
-                    <ion-option value="Active">Active</ion-option>
+                    <ion-option value='Veteran'>Veteran</ion-option>
+                    <ion-option value='Active'>Active</ion-option>
                   </ion-select>
                 </ion-item>
                 <ion-item  *ngIf="!firstForm.controls.vetOrActive.valid && (firstForm.controls.vetOrActive.touched || submitIntent)" >
@@ -167,15 +167,28 @@
                 {{SeparationQuestion}}
                 </ion-item-divider>
                 <ion-item class="q-wrapper">
-                  <ion-datetime 
+                  <ion-datetime *ngIf="firstForm.value.vetOrActive == 'Active'"
                     placeholder="Select&#x25BC;"
                     #vetQuestionName
                     type="date"
                     formControlName="separationDate"
                     class='date'
-                    displayFormat="MM/YYYY"
+                    displayFormat="MM/DD/YYYY" 
+                    pickerFormat="MMMM DD YYYY" 
+                    max="2050"
                   >
                   </ion-datetime>
+                  <ion-datetime *ngIf="firstForm.value.vetOrActive == 'Veteran'"
+                  placeholder="Select&#x25BC;"
+                  #vetQuestionName
+                  type="date"
+                  formControlName="separationDate"
+                  class='date'
+                  displayFormat="MM/DD/YYYY" 
+                  pickerFormat="MMMM DD YYYY" 
+                  [max]="today"
+                >
+                </ion-datetime>
                 </ion-item>
                 <ion-item class="input" no-lines *ngIf="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched || submitIntent)">
                   <p class="invalid-text">Enter a date</p>
