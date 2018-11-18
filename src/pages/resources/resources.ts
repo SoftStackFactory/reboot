@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the ResourcesPage page.
@@ -18,7 +18,7 @@ export class ResourcesPage {
   user: any = {
     firstName : 'Peter',
     lastaname : 'Horton',
-    lowestScore: '3'
+    lowestScore: 3
     }
   
 
@@ -26,39 +26,56 @@ export class ResourcesPage {
     {
       title: 'Carrer',
       message: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve',
+      number: 0
     },
     {
       title: 'Finances',
-      message: 'This is not about how much you have but rather how you relate to money. There are some millionaires who worry themselves sick about money so might score very low here and others who have just enough to get by and simply go with the flow.'
+      message: 'This is not about how much you have but rather how you relate to money. There are some millionaires who worry themselves sick about money so might score very low here and others who have just enough to get by and simply go with the flow.',
+      number: 1
     },
     {
       title: 'Personal Growth',
-      message: 'People who are truly successful commit themselves continually to learning and improving themselves. Are you a 10 – committed to learning as much as you can about life?'
+      message: 'People who are truly successful commit themselves continually to learning and improving themselves. Are you a 10 – committed to learning as much as you can about life?',
+      number: 2
     },
     {
       title: 'Health',
-      message: 'We all take our health for granted until it lets us down. How is yours? Do you look after yourself? Are you eating well? Do you get regular exercise?'
+      message: 'We all take our health for granted until it lets us down. How is yours? Do you look after yourself? Are you eating well? Do you get regular exercise?',
+      number: 3
     },
     {
       title: 'Family',
-      message: 'Family life is very important. Although family life should be loving, caring and supportive it often is not for a variety of reasons such as crying babies, wild teenage sons or daughters or constant arguments and tension.'
+      message: 'Family life is very important. Although family life should be loving, caring and supportive it often is not for a variety of reasons such as crying babies, wild teenage sons or daughters or constant arguments and tension.',
+      number: 4
     },
     {
       title: 'Relationships',
-      message: 'Consider the key relationship you have whether it is with your boyfriend/girlfriend husband/wife/friend or family member.'
+      message: 'Consider the key relationship you have whether it is with your boyfriend/girlfriend husband/wife/friend or family member.',
+      number: 5
     },
     {
       title: 'Social Life',
-      message: 'This can be about the quality of your social life which can score very low for people with busy careers. However you can also decide to score it based on how you interact with people as how often you get to socialise. A vital component of life is the need to get on and interact with people.'
+      message: 'This can be about the quality of your social life which can score very low for people with busy careers. However you can also decide to score it based on how you interact with people as how often you get to socialise. A vital component of life is the need to get on and interact with people.',
+      number: 6
     },
     {
       title: 'Attitude',
-      message: 'Attitude is vital and can influence every aspect of your life. Is your glass half full or half empty?'
+      message: 'Attitude is vital and can influence every aspect of your life. Is your glass half full or half empty?',
+      number: 7
     }
   ]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public modalCtrl: ModalController) {
   }
+
+  openModal() {
+   const resModal = this.modalCtrl.create('ResourceModalPage')
+
+   resModal.present();
+
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourcesPage');
