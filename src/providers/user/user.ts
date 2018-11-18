@@ -16,8 +16,8 @@ export class UserProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');  
-  }
-
+  }  
+ 
   sendReg(user) {
     console.log('sendReg() runs', user)
     return this.http.post(this.requestUrl + '/appUsers', user)

@@ -15,5 +15,35 @@
 
 
 <ion-content padding>
+  <h1>
+    Hello, {{user.firstName}}{{user.lastName}}!
+  </h1>
+    <ion-card>
+      <ion-card-content>
+          This page will provide helpfull resources to aid in your transition. Based on your self assessment, here are some areas which might need more help than others.
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+          Your lowest score on self assessment
+      </ion-card-header>
+      <ion-card-content>
+        <div>{{user.lowestScore}}</div>
+        Maybe you can start here?
+      </ion-card-content>
 
+    </ion-card>
+
+    <ion-card *ngFor="let res of resources">
+        <ion-card-header>
+          {{res.title}}
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{res.message}}
+          <div>
+            Learn more.
+          </div>
+        </ion-card-content>
+      </ion-card>
 </ion-content>
