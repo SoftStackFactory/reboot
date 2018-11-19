@@ -24,14 +24,9 @@ timeline {
     ion-label.label.label-ios {
         overflow: visible !important;
         border-left: thick solid blue;
-    //     margin-top: 30px;
-    // margin-right: 5%;
-    // padding: 0;
-    // position: relative;
-    // background-image: url('../assets/imgs/blueline.png');
-    // background-repeat: repeat-y;
-    // background-position: 6.2% top;
+    
     }
+    
     
 }
 
@@ -75,6 +70,7 @@ timeline {
 
 .border-thingy {
     padding-left: 5%;
+    
 }
 .timeline {
     // margin-top: 30px;
@@ -124,11 +120,12 @@ timeline {
         margin-left: 2%;
     }
 
-    // .titleTest {
-    //     background-color: aqua;
-    // }
+    .bulletItem {
+        background-color: lightgray;
+        border-left: none !important;
+    }
     
     .main-list {
-        background-color: pink;
+        background-color: pink; 
     }
   }
