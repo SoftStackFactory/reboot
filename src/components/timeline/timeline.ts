@@ -23,6 +23,7 @@ export class TimelineComponent {
       children: [
         {
           title: 'Understanding the process of separating',
+          dot: true,
           checkmark: false,
           children: [
             {
@@ -41,6 +42,7 @@ export class TimelineComponent {
         },
         {
           title: 'Completing my paperwork',
+          dot: true,
           checkmark: false,
           children: [
             {
@@ -96,6 +98,7 @@ export class TimelineComponent {
         {
           title: 'Engaging VA to access benefits',
           checkmark: false,
+          dot: true,
           children: [
             {
               title: 'Complete the Veteran Affairs (VA) Benefits Briefings I and II',
@@ -121,6 +124,7 @@ export class TimelineComponent {
       children: [
         {
           title: 'Find something to do',
+          dot: true,
           children: [
             {
               title: 'Go to Career Center',
@@ -138,6 +142,7 @@ export class TimelineComponent {
         },
         {
           title: 'Re-establishing and creating relationships',
+          dot: true,
           checkmark: false,
           children: [
             {
@@ -150,6 +155,7 @@ export class TimelineComponent {
         },
         {
           title: 'Balancing finances',
+          dot: true,
           checkmark: false,
           children: [
             {

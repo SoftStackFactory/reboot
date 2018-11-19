@@ -6,6 +6,8 @@ timeline {
 
     .item-ios h2 {
         font-size: 2rem !important;
+        background-color: aqua;
+        margin-left: 20px;
     }
 
     .item-md h2 {
@@ -16,8 +18,19 @@ timeline {
         margin-left: 6%;
     }
 
+    // Iss196 - First sublabeled block: blue line to whole block; assign green dot, and do not duplicate blue line styling at h2
+    // create new div/element first within - styling to that wrapper(?) to align blue line
+    // try styling border?
     ion-label.label.label-ios {
         overflow: visible !important;
+        border-left: thick solid blue;
+    //     margin-top: 30px;
+    // margin-right: 5%;
+    // padding: 0;
+    // position: relative;
+    // background-image: url('../assets/imgs/blueline.png');
+    // background-repeat: repeat-y;
+    // background-position: 6.2% top;
     }
     
 }
@@ -53,23 +66,24 @@ timeline {
   }
 
   .button-inner {
-      flex-flow: flex;
+      flex-flow: flex;      
   }
   .input-wrapper {
       overflow: visible !important;
+            
   }
 
 .border-thingy {
     padding-left: 5%;
 }
 .timeline {
-    margin-top: 30px;
-    margin-right: 5%;
-    padding: 0;
-    position: relative;
-    background-image: url('../assets/imgs/blueline.png');
-    background-repeat: repeat-y;
-    background-position: 6.2% top;
+    // margin-top: 30px;
+    // margin-right: 5%;
+    // padding: 0;
+    // position: relative;
+    // background-image: url('../assets/imgs/blueline.png');
+    // background-repeat: repeat-y;
+    // background-position: 6.2% top;
 
     @media screen and (min-width:1024px){
         background-position: 5.89% top;
@@ -109,5 +123,12 @@ timeline {
     h1:first-child,h2:first-child,h3:first-child,h4:first-child, h5:first-child, h6:first-child {
         margin-left: 2%;
     }
-        
+
+    // .titleTest {
+    //     background-color: aqua;
+    // }
+    
+    .main-list {
+        background-color: pink;
+    }
   }
