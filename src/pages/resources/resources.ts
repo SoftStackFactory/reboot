@@ -18,7 +18,7 @@ export class ResourcesPage {
   user: any = {
     firstName : 'Peter',
     lastaname : 'Horton',
-    lowestScore: 3
+    lowestScore: 5
     }
   
 
@@ -75,6 +75,7 @@ export class ResourcesPage {
    resModal.present();
 
   }
+
 
 
   ionViewDidLoad() {
