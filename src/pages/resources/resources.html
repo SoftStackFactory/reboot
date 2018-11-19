@@ -29,9 +29,11 @@
           {{user.lowScoreName}}
       </ion-card-header>
       <ion-card-content id="title">
-        <div (click)="openModal()" *ngIf="user.lowestScore <= 3" class="red"> {{user.lowestScore}}</div>
-        <div *ngIf="user.lowestScore > 4" class="yellow"> {{user.lowestScore}}
-        </div>
+        <ion-card id="score-box">
+          <div (click)="openModal()" *ngIf="user.lowestScore <= 3" class="red"> {{user.lowestScore}}</div>
+          <div *ngIf="user.lowestScore > 4" class="yellow"> {{user.lowestScore}}
+          </div>
+        </ion-card>
         Maybe you can start here?
       </ion-card-content>
 
