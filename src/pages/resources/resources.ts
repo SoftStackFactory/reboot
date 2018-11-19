@@ -64,14 +64,16 @@ export class ResourcesPage {
       message: 'Attitude is vital and can influence every aspect of your life. Is your glass half full or half empty?',
       number: 7
     }
-  ]
+  ];
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public modalCtrl: ModalController) {
   }
 
   openModal() {
-   const resModal = this.modalCtrl.create('ResourceModalPage')
+ 
+  const resModal = this.modalCtrl.create('ResourceModalPage')
 
    resModal.present();
 
