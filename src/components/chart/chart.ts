@@ -28,6 +28,7 @@ export class ChartComponent implements OnInit {
   
   constructor(public chartProvider: ChartProvider) { }
 
+  /*The chartData variable allows changes to the base chart data. */
   chartData = { labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
   datasets: [
     {
@@ -39,18 +40,19 @@ export class ChartComponent implements OnInit {
   ]
   }
   chartOptions = {
-
     layout: {
       padding: {
         top: this.belongsTo === 'historyPage' ? 5 : 55,
         bottom: this.belongsTo === 'historyPage' ? 5 : 55
       }
     },
-
     legend: {
       display: false
     },
-
+    'onClick' : function(evt, item) {
+      let clickedOn = this.chart.getElementAtEvent(evt)
+      console.log('2', clickedOn, clickedOn[0]._index)
+    },
     plugins: {
         labels: {
         render: 'label',
@@ -61,15 +63,14 @@ export class ChartComponent implements OnInit {
         position: "outside",
         overlap: true,
       }
-      
-    }
+    },
   }
 
   ngOnInit() {
     this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: this.chartData,
-      options: this.chartOptions
+      options: this.chartOptions,
       
     });
 
@@ -78,6 +79,7 @@ export class ChartComponent implements OnInit {
     this.chart.config.options.scale.ticks.min = 0;
     this.chart.config.options.scale.ticks.max = 10;
     this.chart.update();
+
   }
 
 }
