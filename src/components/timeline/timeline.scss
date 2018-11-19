@@ -4,9 +4,9 @@ timeline {
         padding-bottom: 15px;
     }
 
+    //Item/Label Header styling
     .item-ios h2 {
         font-size: 2rem !important;
-        background-color: aqua;
         margin-left: 20px;
     }
 
@@ -23,7 +23,9 @@ timeline {
     // try styling border?
     ion-label.label.label-ios {
         overflow: visible !important;
-        border-left: thick solid blue;
+        border-left: solid #6A80CC;
+        border-width: 1em;
+        border-radius: 5px;
         padding-left: 3em;
     }
     
