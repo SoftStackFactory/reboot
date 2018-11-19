@@ -14,9 +14,12 @@ export class UserProvider {
 
   requestUrl: string = ENV.url
 
+  userData: any = {};
+
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
+
 
   sendReg(user) {
     console.log('sendReg() runs', user)

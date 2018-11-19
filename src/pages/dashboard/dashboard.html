@@ -37,9 +37,9 @@
 
     <ion-row>
       <ion-col>
-        <ion-card class="cards">
+        <ion-card class="sep">
           <ion-card-header class="headers" text-center>
-            108 Days Until Separation!
+            {{user.userData.daysTilSep}} Days Until Separation!
           </ion-card-header>
           <ion-card-content id="separationContent">
             You're getting close to your separation day! Are you preparing for the transition? Have you checked the
@@ -53,6 +53,23 @@
             </a>
           </ion-card-content>
         </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card class="news">
+          <ion-card-header class="headers" text-center>
+            News Widget
+          </ion-card-header>
+          <ion-card-content id="separationContent">
+            future news headliner will go here
+            <br>
+            <br>
+            <a id="separationLink">More news
+              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+            </a>
+          </ion-card-content>
+        </ion-card>
+
       </ion-col>
     </ion-row>
 

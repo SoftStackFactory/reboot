@@ -5,6 +5,7 @@ import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler'
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { TransitionPage } from '../../pages/transition/transition';
 import { UserProvider } from '../../providers/user/user';
+import * as moment from 'moment';
 
 /**
  * Generated class for fthe WizardPage page.
@@ -37,7 +38,7 @@ export class WizardPage {
     private formBuilder: FormBuilder,
     public navParams: NavParams,
     public plt: Platform,
-    public user: UserProvider
+    public user: UserProvider,
   ) {
     // let required = null;
     this.firstFormFunct();
@@ -50,7 +51,8 @@ export class WizardPage {
     setTimeout(_ => {
       this.slideChanged()
     }, 300);
-  };
+  }
+
   vetValue: string = "";
   SeparationQuestion: string = "";
   disabilityQValue: string = "";
@@ -238,7 +240,7 @@ export class WizardPage {
   enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
 
   onSubmit() {
-    let userData: object = {
+    this.user.userData = {
       branch: this.firstForm.value.branch,
       veteranOrActive: this.firstForm.value.vetOrActive,
       separationDate: this.firstForm.value.separationDate,
@@ -250,10 +252,11 @@ export class WizardPage {
       militaryRank: this.thirdForm.value.rank,
       insignia: this.thirdForm.value.insignia,
       enlistedPay: this.thirdForm.value.enlistedPay,
-      MOS: this.thirdForm.value.MOS
+      MOS: this.thirdForm.value.MOS,
+      daysTilSep: this.calcDate()
     }
-    console.log(userData, this.LockSwipeToPrev)
-    this.user.updateUserModel(userData, window.sessionStorage.getItem('userId'))
+    console.log(this.user.userData, this.LockSwipeToPrev)
+    this.user.updateUserModel(this.user.userData, window.sessionStorage.getItem('userId'))
       .subscribe(
         (data) => {
           console.log(data, "YEY!!!!!!")
@@ -269,6 +272,13 @@ export class WizardPage {
 
   setAssestmentPage() {
     this.navCtrl.setRoot(TransitionPage)
+  }
+
+  calcDate() {
+    let sepDate = moment(this.firstForm.value.separationDate, "YYYY-MM-DD").toDate().getTime();
+    let now = new Date().getTime();
+    let diff = sepDate - now;
+    return Math.ceil(diff/86400000);
   }
 
 }

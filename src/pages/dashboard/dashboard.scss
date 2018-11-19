@@ -10,8 +10,15 @@ page-dashboard {
     }
 
     .cards {
-        background-color: rgb(250,250,250);
+        background-color: color($colors, light)
     }
+
+    .sep {
+        background-color: color($colors, light);
+    }
+    .news {
+        background-color: color($colors, light);
+        }
 
     .headers {
         font-weight: bold; 
