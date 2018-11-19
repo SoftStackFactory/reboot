@@ -18,13 +18,14 @@ export class ResourcesPage {
   user: any = {
     firstName : 'Peter',
     lastaname : 'Horton',
-    lowestScore: 5
+    lowestScore: 2,
+    lowScoreName: 'Finances'
     }
   
 
   resources: any = [
     {
-      title: 'Carrer',
+      title: 'Career',
       message: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve',
       number: 0
     },
