@@ -13,6 +13,7 @@ import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
+import { NewsPage } from '../pages/news/news';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,7 +38,8 @@ export class MyApp {
       { title: 'Profile', component: ProfilePage },
       { title: 'Transition', component: TransitionPage },
       { title: 'Timeline', component: TimelinePage },
-      { title: 'History', component: HistoryPage }
+      { title: 'History', component: HistoryPage },
+      { title: 'News', component: NewsPage}
     ];
 
   }

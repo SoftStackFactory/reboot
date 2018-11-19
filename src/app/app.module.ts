@@ -23,6 +23,7 @@ import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
+import { NewsPage } from '../pages/news/news';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AssessmentPage,
     TimelinePage,
     HistoryPage,
+    NewsPage,
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
@@ -61,7 +63,8 @@ import { IonicStorageModule } from '@ionic/storage';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
-    HistoryPage
+    HistoryPage,
+    NewsPage
   ],
   providers: [
     StatusBar,

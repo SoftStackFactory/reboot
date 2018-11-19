@@ -4,6 +4,7 @@ import { TimelinePage } from '../timeline/timeline';
 import { Storage } from '@ionic/storage'
 import { ChartProvider } from '../../providers/chart/chart';
 import { UserProvider } from '../../providers/user/user';
+import { NewsPage } from '../news/news';
 
 
 @Component({
@@ -43,5 +44,9 @@ export class DashboardPage {
     });
 
     toast.present();
+  }
+
+  toNews() {
+    this.navCtrl.push(NewsPage);
   }
 }
