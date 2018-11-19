@@ -24,7 +24,7 @@ timeline {
     ion-label.label.label-ios {
         overflow: visible !important;
         border-left: thick solid blue;
-    
+        padding-left: 3em;
     }
     
     
@@ -45,6 +45,7 @@ timeline {
 
   .cd-timeline__img.cd-timeline__img--5 {
     background: #64c5b1;
+    padding-left: 3em;
   }
 
   .item-ios h2:last-child, .item-ios h3:last-child, .item-ios h4:last-child, .item-ios h5:last-child, .item-ios h6:last-child, .item-ios p:last-child {
