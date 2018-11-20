@@ -12,20 +12,31 @@
     <ion-title>History</ion-title>
   </ion-navbar>
 </ion-header>
-
-
-<ion-content padding>
-  <ion-grid *ngFor="let chart of chartProvider.chartHistory">
-
-    <ion-row id="rows" align-items-center>
-      <ion-col col-3></ion-col>
-      <ion-col col-1>
-        <p id="date"> {{ chart.date }} </p>
-      </ion-col>
-      <ion-col col-8>
-        <chart [pageData]="chart.data" [belongsTo]="historyPage"></chart>
-      </ion-col>
-    </ion-row>
-
+<ion-content>
+  <ion-grid>
+   
+      <ion-toolbar>
+          <ion-row>
+        <ion-col>
+          <ion-title>Areas</ion-title>
+          <ion-select multiple="true">
+            <ion-option *ngFor="let area of areas">{{area}}</ion-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-title>Dates</ion-title>
+          <ion-select multiple="true">
+            <ion-option *ngFor="let day of dates">{{day}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      </ion-toolbar>
+      <ion-row>
+        <ion-col padding>
+          <ion-card>
+          <canvas id="lineChart" #lineChart></canvas>
+        </ion-card>
+        </ion-col>
+      </ion-row>
   </ion-grid>
 </ion-content>
