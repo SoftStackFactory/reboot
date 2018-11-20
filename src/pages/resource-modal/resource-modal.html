@@ -6,23 +6,23 @@
 -->
 <ion-header>
     <ion-navbar>
-      <div>
+      <div id='exit'>
         <button id="close" ion-button
         (click)="closeModal()" >
           <ion-icon name="close"></ion-icon>
         </button>
       </div>
-      <ion-title>Resources</ion-title>
+      <ion-title id='header-title'>{{resources.title}}</ion-title>
     </ion-navbar>
   </ion-header>
 
 <ion-content padding>
   <ion-card>
-    <ion-card-header>
-      Resource
+    <ion-card-header id='title'>
+        {{resources.title}}
     </ion-card-header>
-    <ion-card-content>
-      Information
+    <ion-card-content id='card-text'>
+        {{resources.message}}
     </ion-card-content>
   </ion-card>
 

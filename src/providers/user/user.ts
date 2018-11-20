@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
   
-import  {  ENV  }  from  '@app/env';  
-  
+import  {  ENV  }  from  '@app/env';      
+    
 /*  
   Generated class for the UserProvider provider.
 
@@ -11,7 +11,7 @@ import  {  ENV  }  from  '@app/env';
 */ 
 @Injectable()
 export class UserProvider {
-
+ 
   requestUrl: string = ENV.url
 
   constructor(public http: HttpClient) {

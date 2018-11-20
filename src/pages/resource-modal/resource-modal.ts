@@ -15,19 +15,21 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ResourceModalPage {
 
+  resources : any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public viewCtrl: ViewController) {
+    this.resources = navParams.get('data')
+  
   }
-
 
   closeModal () {
     this.viewCtrl.dismiss();
   }
 
- 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourceModalPage');
+    console.log(this.resources)
   }
 
 }
