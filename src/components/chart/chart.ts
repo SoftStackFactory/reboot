@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { ChartProvider } from '..//../providers/chart/chart';
 import { Chart } from 'chart.js';
-import 'chartjs-plugin-labels';
+import 'chartjs-plugin-labelsreboot';
 
 /**
  * Generated class for the ChartComponent component.
@@ -54,7 +54,7 @@ export class ChartComponent implements OnInit {
       console.log('2', clickedOn, clickedOn[0]._index)
     },
     plugins: {
-        labels: {
+        labelsReboot: {
         render: 'label',
         fontSize: 18,
         fontStyle: 'bold',
