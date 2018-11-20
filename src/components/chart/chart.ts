@@ -34,26 +34,30 @@ export class ChartComponent implements OnInit {
     {
       backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
       borderColor: "black",
-      data: [8,10,5,10,10,10,10,10], // This data changes depending on what page owns the component. 
-      
+      data: this.chartProvider.mostRecentChart // This data changes depending on what page owns the component. 
     }
   ]
   }
   chartOptions = {
+    //Set padding of the chart inside of the canvas element.
     layout: {
       padding: {
-        top: this.belongsTo === 'historyPage' ? 5 : 55,
-        bottom: this.belongsTo === 'historyPage' ? 5 : 55
+        top: 55,
+        bottom: 55
       }
     },
+    //Hides the chart legend.
     legend: {
       display: false
     },
+    //Generates an event whenever a section of the chart has been clicked.
     'onClick' : function(evt, item) {
       let clickedOn = this.chart.getElementAtEvent(evt)
-      console.log('2', clickedOn, clickedOn[0]._index)
+      console.log(clickedOn)
     },
     plugins: {
+      //labelsReboot is the chartjs-labels plugin that has been revised for this project
+      //to allow the labels to be anchored to the outer radius of the chart regardless of chart value
         labelsReboot: {
         render: 'label',
         fontSize: 18,
@@ -64,22 +68,23 @@ export class ChartComponent implements OnInit {
         overlap: true,
       }
     },
+    //sets the scale of the chart and each line or tick
+    scale: {
+      ticks: {
+        min: 0,
+        max: 10
+      }
+    }
   }
 
   ngOnInit() {
+    //Initializes the chart with the information referenced above
     this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: this.chartData,
       options: this.chartOptions,
       
     });
-
-    //This code down below is to fix a bug where I could not modify the scale in the options
-    //key in the above code (It threw a typescript error even though it worked)
-    this.chart.config.options.scale.ticks.min = 0;
-    this.chart.config.options.scale.ticks.max = 10;
-    this.chart.update();
-
   }
 
 }
