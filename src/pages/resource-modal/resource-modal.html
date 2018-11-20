@@ -1,0 +1,29 @@
+<!--
+  Generated template for the ResourceModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <div id='exit'>
+        <button id="close" ion-button
+        (click)="closeModal()" >
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <ion-title id='header-title'>{{resources.title}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header id='title'>
+        {{resources.title}}
+    </ion-card-header>
+    <ion-card-content id='card-text'>
+        {{resources.message}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
