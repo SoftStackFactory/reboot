@@ -34,6 +34,9 @@ export class HistoryPage {
       value: [8,8,8,8,8,8,8,8]
     }
   ]
+  dates = this.history.map(day=>{
+    return day.date
+  })
 
   lineChartData = {
     labels: ["11/19/2018", "11/18/2018","11/19/2018","11/19/2018","11/19/2018","11/19/2018","11/19/2018","11/19/2018"],

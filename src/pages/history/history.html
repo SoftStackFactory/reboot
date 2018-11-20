@@ -33,10 +33,20 @@
       </ion-toolbar>
       <ion-row>
         <ion-col padding>
-          <ion-card>
+          <ion-card padding>
           <canvas id="lineChart" #lineChart></canvas>
         </ion-card>
         </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let area of areas">
+        <ion-card padding>
+          <ion-card-header>{{area}}</ion-card-header>
+          <table *ngFor="let day of dates">
+            <tr>
+            <thead>{{day}}</thead>
+          </tr>
+          </table>
+        </ion-card>
       </ion-row>
   </ion-grid>
 </ion-content>
