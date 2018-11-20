@@ -20,6 +20,7 @@ export class TimelineComponent {
       checkmark: false,
       itemExpand: false,
       dot: true,
+      topLevel: true,
       children: [
         {
           title: 'Understanding the process of separating',
@@ -173,6 +174,7 @@ export class TimelineComponent {
       checkmark: false,
       children: [],
       itemExpand: false,
+      topLevel: true,
       dot: true
     },
     {
@@ -180,6 +182,7 @@ export class TimelineComponent {
       checkmark: false,
       itemExpand: false,
       dot: true,
+      topLevel: true,
       children: []
     },
     {
@@ -187,6 +190,7 @@ export class TimelineComponent {
       checkmark: false,
       itemExpand: false,
       dot: true,
+      topLevel: true,
       children: []
     }
   ];
