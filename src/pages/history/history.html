@@ -14,39 +14,36 @@
 </ion-header>
 <ion-content>
   <ion-grid>
-   
-      <ion-toolbar>
-          <ion-row>
-        <ion-col>
-          <ion-title>Areas</ion-title>
-          <ion-select multiple="true">
-            <ion-option *ngFor="let area of areas">{{area}}</ion-option>
-          </ion-select>
-        </ion-col>
-        <ion-col>
-          <ion-title>Dates</ion-title>
-          <ion-select multiple="true">
-            <ion-option *ngFor="let day of dates">{{day}}</ion-option>
-          </ion-select>
-        </ion-col>
-      </ion-row>
-      </ion-toolbar>
-      <ion-row>
-        <ion-col padding>
-          <ion-card padding>
-          <canvas id="lineChart" #lineChart></canvas>
-        </ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngFor="let area of areas">
+    <ion-row>
+      <ion-col padding>
         <ion-card padding>
-          <ion-card-header>{{area}}</ion-card-header>
-          <table *ngFor="let day of dates">
-            <tr>
-            <thead>{{day}}</thead>
-          </tr>
-          </table>
+          <ion-card-header ion-col align-items-center>
+          <ion-card-title >Self Assessment History</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+          <canvas id="lineChart" #lineChart></canvas>
+        </ion-card-content>
         </ion-card>
-      </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-card padding>
+          <ion-card-header>
+        <ion-card-title>Self Assessments Over Time</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <table id="self-assessment-table">
+            <tr>
+              <td></td>
+              <th scope="col" *ngFor="let label of labels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let date of history; let odd = odd; let even = even" [ngClass]="{odd: odd, even:even}">
+              <th>{{date.date}}</th>
+              <td *ngFor="let val of date.value">{{val}}</td>
+            </tr>
+          </table>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
   </ion-grid>
 </ion-content>
