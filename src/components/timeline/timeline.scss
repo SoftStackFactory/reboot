@@ -24,12 +24,7 @@ timeline {
     ion-label.label.label-ios {
         overflow: visible !important;
         padding-left: 2em;
-        padding-top: 1em;
-        border-style: groove;
-        border-left: none !important;
-        border-radius: 50px;
-        border-color: #64c5b1;
-        border-width: 7px;
+        
     }
         
 }
@@ -65,8 +60,18 @@ timeline {
       margin-left: 12%;
   }
 
+  .item-checkbox-checked {
+      opacity: .5;
+  }
+
   .button-inner {
-      flex-flow: flex;      
+      flex-flow: flex;
+      border-style: groove;
+      border-left: none !important;
+      border-radius: 50px;
+      border-color: #64c5b1;
+      border-width: 3px;
+      width: 90%;      
   }
   .input-wrapper {
       overflow: visible !important;
@@ -96,6 +101,9 @@ timeline {
         background-position: 5.79% top;
     }
 
+    .item-inner {
+        padding-right: 6em;
+    }
     .list-ios, .list-md, .item-block, .item-inner {
         border-bottom: none !important;
         border-top: none !important;
@@ -125,11 +133,22 @@ timeline {
     }
 
     .bulletItem {
-        border: none !important;
+        // padding-top: 1em;
+        // border-style: groove;
+        // border-left: none !important;
+        // border-radius: 50px;
+        // border-color: #64c5b1;
+        // border-width: 7px;
         
     }
     
-    // .subList {
-        
-    // }
+    .cd-timeline--top-level {
+        padding-top: 1em;
+        border-style: groove;
+        // border-left: none !important;
+        border-radius: 50px;
+        border-color: #64c5b1;
+        border-width: 7px;
+        background-color: #b3ccc8;
+    }
   }

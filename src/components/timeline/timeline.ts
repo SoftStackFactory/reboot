@@ -120,6 +120,7 @@ export class TimelineComponent {
     {
       title: 'Starting Up',
       checkmark: false,
+      topLevel: true,
       itemExpand: false,
       dot: true,
       children: [
