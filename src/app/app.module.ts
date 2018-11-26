@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -24,6 +25,7 @@ import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { NewsPage } from '../pages/news/news';
+import { RssProvider } from '../providers/rss/rss';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { NewsPage } from '../pages/news/news';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,7 +74,8 @@ import { NewsPage } from '../pages/news/news';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    ChartProvider
+    ChartProvider,
+    RssProvider
   ]
 })
 export class AppModule {}
