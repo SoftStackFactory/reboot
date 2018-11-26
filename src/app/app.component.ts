@@ -13,6 +13,9 @@ import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
+import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -36,6 +39,7 @@ export class MyApp {
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Transition', component: TransitionPage },
+      { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage }
     ];
