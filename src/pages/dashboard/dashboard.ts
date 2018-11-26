@@ -29,6 +29,8 @@ export class DashboardPage {
     this.storage.get('chartData').then((val) => {
       this.date = val ? val.Date : '';
     }).then(() => this.lastDate())
+    let daysTilSep = this.user.calcDate();
+
   }
 
   toTimeline() {
