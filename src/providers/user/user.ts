@@ -18,10 +18,10 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
 
-  sendReg(user) {
-    console.log('sendReg() runs', user)
-    return this.http.post(this.requestUrl + '/appUsers', user)
-  }
+  // sendReg(user) {
+  //   console.log('sendReg() runs', user)
+  //   return this.http.post(this.requestUrl + '/appUsers', user)
+  // }
   //update data from wizard page and patch user model
   updateUserModel(data: any, id) {
     console.log(data, "#1-updateUserModel") 
