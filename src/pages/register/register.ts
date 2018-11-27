@@ -5,7 +5,7 @@ import { PasswordValidator } from '../../validators/password.validator';
 import { UserProvider } from '../../providers/user/user';
 import { WizardPage } from '../wizard/wizard'
 import { LoginPage } from '../login/login';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-register',
@@ -22,7 +22,7 @@ export class RegisterPage {
               public navParams: NavParams, 
               private formBuilder: FormBuilder, 
               public _userService: UserProvider, 
-              private storage: Storage,
+             // private storage: Storage,
               private toastCtrl: ToastController) {
     
     this.validate = this.formBuilder.group({
@@ -49,19 +49,19 @@ export class RegisterPage {
       password: this.validate.value.pass.password
     }
     this.submitAttempt = true
-    this._userService.sendReg(this.registerUser)
-      .subscribe( (data: any) => {
-        this.storage.remove('userData')
-        this.storage.set('userData', data)
-        console.log('data from submitReg()', data)
-      },
-      err => {
-      console.error('err from register:', err)
-      },
-      () => {
-        this.goWizard()
-      }
-      ) 
+    // this._userService.sendReg(this.registerUser)
+    //   .subscribe( (data: any) => {
+    //     this.storage.remove('userData')
+    //     this.storage.set('userData', data)
+   // console.log('data from submitReg()', data)
+    //   },
+    //   err => {
+    // console.error('err from register:', err)
+    //   },
+    //   () => {
+     this.goWizard()
+    //   }
+    //   ) 
   }
 
   goLogin() {

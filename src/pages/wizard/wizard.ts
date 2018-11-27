@@ -252,11 +252,11 @@ export class WizardPage {
       MOS: this.thirdForm.value.MOS
     }
     console.log(userData, this.LockSwipeToPrev)
-    this.user.updateUserModel(userData, window.sessionStorage.getItem('userId'))
-      .subscribe( 
-        (data) => {
-          console.log(data, "YEY!!!!!!")
-      })
+    // this.user.updateUserModel(userData, window.sessionStorage.getItem('userId'))
+    //   .subscribe( 
+    //     (data) => {
+    //       console.log(data, "YEY!!!!!!")
+    //   })
     this.shouldLockSwipeToNext = false;
     this.lockNextSlide()
     this.next();

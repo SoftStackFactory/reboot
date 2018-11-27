@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { ChartComponent } from '../../components/chart/chart';
 import { ChartProvider } from '../../providers/chart/chart';
-import { Storage } from '@ionic/storage'
+//import { Storage } from '@ionic/storage'
 
 /**
  * Generated class for the TransitionPage page.
@@ -24,7 +24,7 @@ export class TransitionPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public chartProvider: ChartProvider, 
-              private storage: Storage, 
+             // private storage: Storage, 
               private toastCtrl: ToastController) {
 
     this.areas = [
@@ -90,10 +90,10 @@ export class TransitionPage {
   }
 
   ionViewWillLoad() {
-    this.storage.get('chartData').then((val) => {
-      this.date = val ? val.Date : '';
-      // console.log('this.date:', this.date, 'val.Date:', val.Date)
-    }).then(() => this.lastDate())
+    // this.storage.get('chartData').then((val) => {
+    //   this.date = val ? val.Date : '';
+    //   // console.log('this.date:', this.date, 'val.Date:', val.Date)
+    // }).then(() => this.lastDate())
   }
 
   toggleSection(area) {
