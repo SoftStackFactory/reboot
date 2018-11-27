@@ -31,6 +31,7 @@ export class NewsPage {
     this.rss.getRSS().subscribe(
       data => {
         this.rssArray = data;
+        this.rss.array = this.rssArray;
         console.log(data);
       })
   }

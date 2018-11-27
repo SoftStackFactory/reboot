@@ -1,0 +1,29 @@
+<!-- Generated template for the NewsWidgetComponent component -->
+
+<div id="news">
+  <ion-card>
+
+    <ion-item *ngIf="this.rssArray.length > 0" text-wrap>
+      <h1 class="title">{{this.rssArray[0].title}}</h1>
+      <h4 class="timestamp">{{this.rssArray[0].pubDate}}</h4>
+    </ion-item>
+    <ion-row>
+
+      <!-- <img src="https://i.redd.it/09mxaus7lt6x.png" alt="mock news picture" style="width:25%;height:25%"> -->
+
+      <ion-col>
+        <ion-card-content *ngIf="this.rssArray.length > 0">
+          <div [innerHTML]="this.rssArray[0].description"></div >
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row justify-content-end>
+      <a id="separationLink" (click)="openLink(data.link)">Read full article
+        <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+      </a>
+    </ion-row> -->
+
+  </ion-card>
+
+</div>

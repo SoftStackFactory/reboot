@@ -27,6 +27,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { NewsWidgetComponent } from '../components/news-widget/news-widget';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
-    ChartComponent
+    ChartComponent,
+    NewsWidgetComponent
   ],
   imports: [
     BrowserModule,
