@@ -14,6 +14,7 @@ export class DashboardPage {
 
   name: any
   date: any
+  daysTilSep: any
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -31,6 +32,8 @@ export class DashboardPage {
     }).then(() => this.lastDate())
     let daysTilSep = this.user.calcDate();
 
+    this.daysTilSep = this.user.calcDate()
+    
   }
 
   toTimeline() {

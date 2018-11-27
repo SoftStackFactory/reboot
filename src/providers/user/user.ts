@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 import  {  ENV  }  from  '@app/env';
 
@@ -42,6 +43,11 @@ export class UserProvider {
   
   getUser(id) {
     return this.http.get(this.requestUrl + '/appUsers/' + id)
-
+  }
+  calcDate() {
+    let sepDate = moment(this.userData.separationDate, "YYYY-MM-DD").toDate().getTime();
+    let now = new Date().getTime();
+    let diff = sepDate - now;
+    return Math.ceil(diff/86400000);
   }
 }
