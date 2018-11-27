@@ -32,10 +32,10 @@ export class UserProvider {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
   }
 
-  logoutUser(token:any) {
-    console.log('onservice-logout')
-    return this.http.post(this.requestUrl + "/appUsers/logout", token )
-  }
+  // logoutUser(token:any) {
+  //   console.log('onservice-logout')
+  //   return this.http.post(this.requestUrl + "/appUsers/logout", token )
+  // }
   
   getUser(id) {
     return this.http.get(this.requestUrl + '/appUsers/' + id)
