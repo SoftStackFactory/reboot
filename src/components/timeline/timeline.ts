@@ -173,10 +173,110 @@ export class TimelineComponent {
     {
       title: 'Taking care of myself',
       checkmark: false,
-      children: [],
       itemExpand: false,
       topLevel: true,
-      dot: true
+      dot: true,
+      children: [
+        {
+          title: 'Recognizing and addressing mental health needs',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Mental Health Care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'PTS services',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Psychological rehabilitation & recovery services',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Veteran Crisis Line',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'MST counseling',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Social work',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'VA Health Care',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Managing primary care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Preventative care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Chronic health issues',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Prescription services',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'Seeking support for acute health event',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Emergency Care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Specialized Care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Pharmacy',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        }    
+      ]
     },
     {
       title: 'Reinventing myself',
@@ -184,7 +284,76 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
-      children: []
+      children: [
+        {
+          title: 'Acquiring the appropriate education, new skills, and credentials',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Skills Translater - translating my military skills',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Career Center',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Resume builder services',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'GI Bill',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Vocational Rehab, Education & Employment Counseling',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Build my professional network',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'Finding the right job',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Veterans Job Bank',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'VA employment',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Building my professional reputation',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        }
+      ]
     },
     {
       title: 'Putting down roots',
@@ -192,8 +361,236 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
-      children: []
-    }
+      children: [
+        {
+          title: 'Maintaining my financial, social, and emotional health',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'VA Mental Health Center',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: "Veteran's pension",
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Disability compensation',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Engaging VA to access benefits and services',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'Starting, growing, or taking care of my family',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Revisit Housing',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'VA Home Loan/Refinancing',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Planning and saving for my retirement',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Life Insurance',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'Connecting with, and serving my community',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'myVA Communities',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: "VSO's",
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Retiring',
+      checkmark: false,
+      itemExpand: false,
+      dot: true,
+      topLevel: true,
+      children: [
+        {
+          title: 'Taking care of my own heath',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'VA Health Center',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: "Audiology",
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Blind & Vision Rehab',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Specialized care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: "Participating in meaningful activities",
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'Finding additional sources of income',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: "VA Veteran's Pension",
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: "Disability Compensation",
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Aging',
+      checkmark: false,
+      itemExpand: false,
+      dot: true,
+      topLevel: true,
+      children: [
+        {
+          title: 'Managing my declining heath',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Planning for longer term care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Holistic end of the planning',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        },
+        {
+          title: 'Adapting my support network to my new needs',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Home health care',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Geriatric & extended health',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: 'Caregiver services',
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Dying',
+      checkmark: false,
+      itemExpand: false,
+      dot: true,
+      topLevel: true,
+      children: [
+        {
+          title: 'Deciding how and where to be memorialized',
+          dot: true,
+          checkmark: false,
+          children: [
+            {
+              title: 'Burial benefits/allowances',
+              checkmark: true,
+              completed: false,
+              children: []
+            },
+            {
+              title: "Survivor's benefits, grief counseling",
+              checkmark: true,
+              completed: false,
+              children: []
+            }
+          ]
+        }
+      ]
+    }                  
   ];
 
   @Input('endIcon') endIcon = "ionic";
