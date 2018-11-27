@@ -15,9 +15,9 @@ export class UserProvider {
   requestUrl: string = ENV.url
 
   constructor(public http: HttpClient) {
-    console.log('Hello UserProvider Provider');  
-  }  
- 
+    console.log('Hello UserProvider Provider');
+  }
+    testing: any;
   sendReg(user) {
     console.log('sendReg() runs', user)
     return this.http.post(this.requestUrl + '/appUsers', user)

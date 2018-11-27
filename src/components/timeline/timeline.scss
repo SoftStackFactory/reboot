@@ -4,8 +4,11 @@ timeline {
         padding-bottom: 15px;
     }
 
+    //Item/Label Header styling
     .item-ios h2 {
         font-size: 2rem !important;
+        margin-left: 20px;
+        border-left: none !important;
     }
 
     .item-md h2 {
@@ -16,20 +19,24 @@ timeline {
         margin-left: 6%;
     }
 
+    //List and sub-list headings
+    //Not able to isolate styling 
     ion-label.label.label-ios {
         overflow: visible !important;
+        padding-left: 2em;
+        padding-right: 21px;
     }
-    
+        
 }
 
 .cd-timeline__img {
     position: absolute;
-    top: 10px;
-    left: 0;
+    top: 0px;
+    left: 12px;
     width: 25px;
-    height: 25px;
+    height: 32px;
     z-index: 1000;
-    border-radius: 50%;
+    border-radius: 10%;
     // -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
     //         box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
   }
@@ -37,6 +44,7 @@ timeline {
 
   .cd-timeline__img.cd-timeline__img--5 {
     background: #64c5b1;
+    padding-left: 2em;
   }
 
   .item-ios h2:last-child, .item-ios h3:last-child, .item-ios h4:last-child, .item-ios h5:last-child, .item-ios h6:last-child, .item-ios p:last-child {
@@ -52,8 +60,18 @@ timeline {
       margin-left: 12%;
   }
 
+  .item-checkbox-checked {
+      opacity: .5;
+  }
+
   .button-inner {
       flex-flow: flex;
+      border-style: groove;
+      border-left: none !important;
+      border-radius: 50px;
+      border-color: #64c5b1;
+      border-width: 3px;
+      width: 94%;      
   }
   .input-wrapper {
       overflow: visible !important;
@@ -61,6 +79,7 @@ timeline {
 
 .border-thingy {
     padding-left: 5%;
+    
 }
 .timeline {
     margin-top: 30px;
@@ -82,6 +101,9 @@ timeline {
         background-position: 5.79% top;
     }
 
+    .item-inner {
+        padding-right: 6em;
+    }
     .list-ios, .list-md, .item-block, .item-inner {
         border-bottom: none !important;
         border-top: none !important;
@@ -109,5 +131,24 @@ timeline {
     h1:first-child,h2:first-child,h3:first-child,h4:first-child, h5:first-child, h6:first-child {
         margin-left: 2%;
     }
+
+    .bulletItem {
+        // padding-top: 1em;
+        // border-style: groove;
+        // border-left: none !important;
+        // border-radius: 50px;
+        // border-color: #64c5b1;
+        // border-width: 7px;
         
+    }
+    
+    .cd-timeline--top-level {
+        padding-top: 1em;
+        border-style: groove;
+        // border-left: none !important;
+        border-radius: 50px;
+        border-color: #64c5b1;
+        border-width: 7px;
+        background-color: #b3ccc8;
+    }
   }
