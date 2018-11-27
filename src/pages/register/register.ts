@@ -49,6 +49,7 @@ export class RegisterPage {
       password: this.validate.value.pass.password
     }
     this.submitAttempt = true
+    this._userService.userName = this.registerUser.firstName;
     // this._userService.sendReg(this.registerUser)
     //   .subscribe( (data: any) => {
     //     this.storage.remove('userData')

@@ -3,6 +3,7 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { TimelinePage } from '../timeline/timeline';
 import { Storage } from '@ionic/storage'
 import { ChartProvider } from '../../providers/chart/chart';
+import { UserProvider} from '../../providers/user/user';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class DashboardPage {
   name: any
   date: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public chartProvider: ChartProvider, private toastCtrl: ToastController, private storage: Storage) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams,public chartProvider: ChartProvider, private toastCtrl: ToastController, 
+    //private storage: Storage,
+    public user: UserProvider) { }
 
   /* commenting out for demo
 
