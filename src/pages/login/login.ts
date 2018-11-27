@@ -13,6 +13,7 @@ import { ChartProvider } from '../../providers/chart/chart';
 })
 export class LoginPage {
 
+  /* Commenting out for demo 
   dummyChart: any = {
     Date: "10/29/2018",
     Data: [8, 2, 5, 10, 3, 5, 6, 8]
@@ -21,10 +22,12 @@ export class LoginPage {
   getDummyChart: any
   user: any
   userId: any
-
-  private loginCreds : FormGroup;
   loginResponse: any;
 
+  End comment for demo */
+
+  private loginCreds : FormGroup;
+  
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public _userService: UserProvider, 
@@ -46,6 +49,8 @@ export class LoginPage {
   */
 
   login() {
+    /* Commenting out for the demo
+
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
@@ -85,11 +90,17 @@ export class LoginPage {
           toast.present()
         }
       )
+
+      Comment end for demo */
+
+      this.toDashboard();
   }
 
   toRegisterPage() {
     this.navCtrl.push(RegisterPage)
   }
+
+  /*Commenting out for demo
 
   getChartData() {
     this.chartProvider.getChartHistory()
@@ -103,6 +114,8 @@ export class LoginPage {
 
       );
   }
+
+  End comment for demo */
 
   toDashboard() {
     let toast = this.toastCtrl.create({
