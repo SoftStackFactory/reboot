@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as moment from 'moment';
 
 import  {  ENV  }  from  '@app/env';
 
@@ -28,9 +27,11 @@ export class UserProvider {
   }
   //update data from wizard page and patch user model
   updateUserModel(data: any, id) {
+    let token = window.sessionStorage.getItem('token');
     console.log(data, "#1-updateUserModel") 
-    return this.http.patch(this.requestUrl + '/appUsers/' + id , data)
+    return this.http.patch(this.requestUrl + '/appUsers/' + id + '?access_token=' + token , data)
   }
+
 
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
@@ -42,12 +43,8 @@ export class UserProvider {
   }
   
   getUser(id) {
-    return this.http.get(this.requestUrl + '/appUsers/' + id)
+    let token = window.sessionStorage.getItem('token');
+    return this.http.get(this.requestUrl + '/appUsers/' + id + '?access_token=' + token)
   }
-  calcDate() {
-    let sepDate = moment(this.userData.separationDate, "YYYY-MM-DD").toDate().getTime();
-    let now = new Date().getTime();
-    let diff = sepDate - now;
-    return Math.ceil(diff/86400000);
-  }
+
 }

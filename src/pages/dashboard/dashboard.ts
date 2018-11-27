@@ -4,6 +4,7 @@ import { TimelinePage } from '../timeline/timeline';
 import { Storage } from '@ionic/storage'
 import { ChartProvider } from '../../providers/chart/chart';
 import { UserProvider } from '../../providers/user/user';
+import * as moment from 'moment';
 
 
 @Component({
@@ -24,16 +25,21 @@ export class DashboardPage {
     public user: UserProvider) { }
 
   ionViewWillLoad() {
-    this.storage.get('userInfo').then((val) => {
-      this.name = val ? `${val.firstName} ${val.lastName}` : '';
-    })
+    // this.storage.get('userInfo').then((val) => {
+    //   this.name = val ? `${val.firstName} ${val.lastName}` : '';
+    // })
     this.storage.get('chartData').then((val) => {
       this.date = val ? val.Date : '';
     }).then(() => this.lastDate())
-    let daysTilSep = this.user.calcDate();
-
-    this.daysTilSep = this.user.calcDate()
-    
+  
+    this.user.getUser(window.sessionStorage.getItem('userId'))
+    .subscribe(data => {
+      this.name = data.firstName;
+      let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
+      let now = new Date().getTime();
+      this.daysTilSep = Math.ceil((sepDate - now)/86400000);
+      console.log(this.daysTilSep, this.name)
+    })
   }
 
   toTimeline() {
