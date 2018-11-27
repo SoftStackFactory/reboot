@@ -26,6 +26,7 @@ import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 @NgModule({
@@ -75,7 +76,9 @@ import { RssProvider } from '../providers/rss/rss';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     ChartProvider,
-    RssProvider
+    RssProvider,
+    InAppBrowser
+
   ]
 })
 export class AppModule {}

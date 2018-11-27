@@ -14,13 +14,13 @@
   <div id="news">
     <ion-card *ngFor="let data of rssArray.items">
 
-      <ion-item>
+      <ion-item text-wrap>
         <h1 class="title">{{data.title}}</h1>
         <p class="timestamp">{{data.pubDate}}</p>
       </ion-item>
       <ion-row>
 
-        <img src="https://i.redd.it/09mxaus7lt6x.png" alt="mock news picture" style="width:25%;height:25%">
+        <!-- <img src="https://i.redd.it/09mxaus7lt6x.png" alt="mock news picture" style="width:25%;height:25%"> -->
 
         <ion-col>
           <ion-card-content>
@@ -30,7 +30,7 @@
       </ion-row>
 
       <ion-row justify-content-end>
-        <a id="separationLink" (click)="toNews()">Read full article
+        <a id="separationLink" (click)="openLink(data.link)">Read full article
           <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
         </a>
       </ion-row>
@@ -39,15 +39,5 @@
 
   </div>
 
-  <!-- <ion-list>
-    <ion-item *ngFor="let data of rssArray.items"> -->
-      <!-- <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
-      </ion-thumbnail> -->
-      <!-- <h2>{{data.title}}</h2>
-      <p [innerHTML] = "data.description"></p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-  </ion-list> -->
   
 </ion-content>

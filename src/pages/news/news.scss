@@ -19,8 +19,12 @@ page-news {
   .timestamp {
       font-size: 12px
   }
-  #title {
-      flex-wrap: wrap;
+  .title {
+
+  }
+
+  h1 {
+    word-wrap:break-word;
   }
     
 }

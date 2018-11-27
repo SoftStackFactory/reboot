@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RssProvider } from '../../providers/rss/rss';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 /**
  * Generated class for the NewsPage page.
@@ -17,7 +19,7 @@ import { RssProvider } from '../../providers/rss/rss';
 export class NewsPage {
   rssArray: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rss: RssProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rss: RssProvider, private browser: InAppBrowser) {
   }
 
   ionViewDidLoad() {
@@ -30,8 +32,11 @@ export class NewsPage {
       data => {
         this.rssArray = data;
         console.log(data);
-      }
-    )
+      })
+  }
+
+  openLink(url) {
+    const link = this.browser.create(url);
   }
 
 }
