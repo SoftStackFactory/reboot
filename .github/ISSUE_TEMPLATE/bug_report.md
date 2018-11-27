@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Submit a bug report or issue on an existing feature
 
 ---
 

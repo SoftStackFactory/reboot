@@ -15,7 +15,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
+import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { HistoryPage } from '../pages/history/history';
+import { ResourcesPage } from '../pages/resources/resources';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
@@ -37,11 +39,13 @@ import { IonicStorageModule } from '@ionic/storage';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
+    SelfAssessmentPage,
     HistoryPage,
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
-    ChartComponent
+    ChartComponent,
+    ResourcesPage,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { IonicStorageModule } from '@ionic/storage';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
-    HistoryPage
+    HistoryPage,
+    SelfAssessmentPage,
+    ResourcesPage,
   ],
   providers: [
     StatusBar,
