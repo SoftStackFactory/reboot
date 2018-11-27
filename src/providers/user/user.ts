@@ -13,6 +13,7 @@ import  {  ENV  }  from  '@app/env';
 export class UserProvider {
 
   requestUrl: string = ENV.url
+  userName: any = "Maurice";
 
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
@@ -28,17 +29,18 @@ export class UserProvider {
   //   return this.http.patch(this.requestUrl + '/appUsers/' + id , data)
   // }
 
-  login(creds) {
-    return this.http.post(this.requestUrl + '/appUsers/login', creds);
-  }
+  // login(creds) {
+  //   return this.http.post(this.requestUrl + '/appUsers/login', creds);
+  // }
 
   // logoutUser(token:any) {
   //   console.log('onservice-logout')
   //   return this.http.post(this.requestUrl + "/appUsers/logout", token )
   // }
   
-  getUser(id) {
-    return this.http.get(this.requestUrl + '/appUsers/' + id)
+  // getUser(id) {
+  //   return this.http.get(this.requestUrl + '/appUsers/' + id)
 
-  }
+  // }
 }
+
