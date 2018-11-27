@@ -1,15 +1,7 @@
 page-news {
-    .fixed-header {
-        margin-top: 56px;
-        position: absolute;
-         background-color: rgb(26, 39, 71);
-         width: 100%;
-         height: 4vw;
-         min-height: 40px;
-         z-index: 3;
-    }
+ 
     ion-content {
-        margin-top: 56px;
+        // margin-top: 56px;
     }
     .social-cards ion-col {
         padding: 0;
@@ -26,6 +18,9 @@ page-news {
   }
   .timestamp {
       font-size: 12px
+  }
+  #title {
+      flex-wrap: wrap;
   }
     
 }
