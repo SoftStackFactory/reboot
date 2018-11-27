@@ -1,11 +1,20 @@
 page-history {
-
-    #rows {
-        border-bottom: 1px solid black; 
-        padding: 20px 0px;
+    ion-card-title {
+        text-align: center;
     }
-
-    #date {
-        font-size: 25px;
+    #self-assessment-table td, #self-assessment-table th {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        text-align: center;
+        padding: 1rem;
+        width: 11.11%;
+    }
+    #self-assessment-table td {
+        font-weight: 600;
+    }
+    #self-assessment-table th {
+        font-weight: 900;
+    }
+    #self-assessment-table .odd {
+        background: lightgray;
     }
 }
