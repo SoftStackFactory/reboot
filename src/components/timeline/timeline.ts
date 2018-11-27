@@ -28,13 +28,13 @@ export class TimelineComponent {
             {
               title: 'Find out your separation date',
               checkmark: true,
-              completed: false,
+              completed: true,
               children: []
             },
             {
               title: 'Complete Pre-Separation Counseling',
               checkmark: true,
-              completed: false,
+              completed: true,
               children: []
             }
           ]

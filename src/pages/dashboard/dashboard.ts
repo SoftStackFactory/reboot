@@ -16,6 +16,8 @@ export class DashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public chartProvider: ChartProvider, private toastCtrl: ToastController, private storage: Storage) { }
 
+  /* commenting out for demo
+
   ionViewWillLoad() {
     this.storage.get('userInfo').then((val) => {
       this.name = val ? `${val.firstName} ${val.lastName}` : '';
@@ -25,13 +27,15 @@ export class DashboardPage {
     }).then(() => this.lastDate())
   }
 
+  End of comment for demo */
+
   toTimeline() {
     this.navCtrl.setRoot(TimelinePage);
   }
 
   lastDate() {
     let toast = this.toastCtrl.create({
-      message: `Your last assessment was ${this.date}`,
+      message: `Your last assessment was on 11/17/2018`,
       duration: 2500,
       position: 'middle'
     });
