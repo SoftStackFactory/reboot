@@ -10,9 +10,7 @@ page-news {
         padding: 20px;
         font-size: 15px;
     }
-    img {
-        padding: 10px;
-    }
+    
   #news {
       padding-bottom: 5%;
   }
@@ -26,5 +24,11 @@ page-news {
   h1 {
     word-wrap:break-word;
   }
+  img {
+      max-height: 200px;
+      max-width: 200px;
+  }
+ 
+
     
 }
