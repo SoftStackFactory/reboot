@@ -3,6 +3,8 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { TimelinePage } from '../timeline/timeline';
 import { Storage } from '@ionic/storage'
 import { ChartProvider } from '../../providers/chart/chart';
+import { UserProvider } from '../../providers/user/user';
+import * as moment from 'moment';
 
 
 @Component({
@@ -13,16 +15,31 @@ export class DashboardPage {
 
   name: any
   date: any
+  daysTilSep: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public chartProvider: ChartProvider, private toastCtrl: ToastController, private storage: Storage) { }
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public chartProvider: ChartProvider, 
+    private toastCtrl: ToastController, 
+    private storage: Storage,
+    public user: UserProvider) { }
 
   ionViewWillLoad() {
-    this.storage.get('userInfo').then((val) => {
-      this.name = val ? `${val.firstName} ${val.lastName}` : '';
-    })
+    // this.storage.get('userInfo').then((val) => {
+    //   this.name = val ? `${val.firstName} ${val.lastName}` : '';
+    // })
     this.storage.get('chartData').then((val) => {
       this.date = val ? val.Date : '';
     }).then(() => this.lastDate())
+  
+    this.user.getUser(window.sessionStorage.getItem('userId'))
+    .subscribe(data => {
+      this.name = data.firstName;
+      let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
+      let now = new Date().getTime();
+      this.daysTilSep = Math.ceil((sepDate - now)/86400000);
+      console.log(this.daysTilSep, this.name)
+    })
   }
 
   toTimeline() {
