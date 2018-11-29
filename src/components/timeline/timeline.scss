@@ -29,12 +29,12 @@ timeline {
 
 .cd-timeline__img {
     position: absolute;
-    top: 0px;
-    left: 12px;
-    width: 25px;
-    height: 32px;
+    top: 37px;
+    left: 2px;
+    width: 65px;
+    height: 20px;
     z-index: 1000;
-    border-radius: 10%;
+    border-radius: 25%;
     // -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
     //         box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
@@ -143,7 +143,7 @@ padding-left: 2em;
     .cd-timeline--top-level {
         padding-top: 1em;
         border-style: groove;
-        // border-left: none !important;
+        border-left: none !important;
         border-radius: 50px;
         border-color: #64c5b1;
         border-width: 7px;
