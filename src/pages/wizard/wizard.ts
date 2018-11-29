@@ -241,19 +241,18 @@ export class WizardPage {
 
   onSubmit() {
     this.user.userData = {
-      branch: this.firstForm.value.branch,
+      militaryBranch: this.firstForm.value.branch,
       veteranOrActive: this.firstForm.value.vetOrActive,
       separationDate: this.firstForm.value.separationDate,
       disabilityStatus: this.firstForm.value.disability,
-      disabilityPercent: this.firstForm.value.percentQuestion,
+      disabilityPercentage: this.firstForm.value.percentQuestion,
       employmentStatus: this.secondForm.value.employment,
       lastEmployed: this.secondForm.value.lastEmployed,
       maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
-      insignia: this.thirdForm.value.insignia,
-      enlistedPay: this.thirdForm.value.enlistedPay,
-      MOS: this.thirdForm.value.MOS,
-      daysTilSep: this.calcDate()
+      officerRank: this.thirdForm.value.insignia,
+      enlistingPay: this.thirdForm.value.enlistedPay,
+      codeIdentifier: this.thirdForm.value.MOS,
     }
     console.log(this.user.userData, this.LockSwipeToPrev)
     this.user.updateUserModel(this.user.userData, window.sessionStorage.getItem('userId'))
