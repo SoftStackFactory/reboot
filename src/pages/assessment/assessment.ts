@@ -27,8 +27,7 @@ export class AssessmentPage {
     "August",
     "September",
     "October",
-    "November",
-    "December"
+    "November"
   ];
 
   constructor() {}
@@ -58,9 +57,9 @@ export class AssessmentPage {
    * @return {Array}
    *
    */
-  returnMonthsOfTheYear(): any {
-    return this._MONTHS;
-  }
+    returnMonthsOfTheYear(): any {
+      return this._MONTHS;
+    }
 
   /**
    *
@@ -71,11 +70,11 @@ export class AssessmentPage {
    * @return {String}
    *
    */
-  returnCurrentMonth(): any {
-    let currDate: any = new Date(),
-      currMonth: any = this._MONTHS[currDate.getMonth()];
-    return currMonth;
-  }
+    returnCurrentMonth(): any {
+      let currDate: any = new Date(),
+        currMonth: any = this._MONTHS[currDate.getMonth()];
+      return currMonth;
+    }
 
   /**
    *
