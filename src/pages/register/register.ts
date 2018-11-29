@@ -74,7 +74,7 @@ export class RegisterPage {
       message: 'Thank you for registering. Welcome to InTransition!',
       duration: 2500,
       position: 'middle',
-      cssClass: 'wizardToast',
+      cssClass: 'toasts', // You can find the css class in app.scss
     });
   
     toast.present();

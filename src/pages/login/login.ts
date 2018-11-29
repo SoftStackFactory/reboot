@@ -122,7 +122,7 @@ export class LoginPage {
       message: "Login successful! Your last assessment was on 11/26/2018.",
       duration: 2500,
       position: 'middle',
-      cssClass: 'wizardToast'
+      cssClass: 'toasts' // You can find the css class in app.scss
     });
   
     toast.present();
