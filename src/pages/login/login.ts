@@ -119,15 +119,13 @@ export class LoginPage {
 
   toDashboard() {
     let toast = this.toastCtrl.create({
-      message: "Login successful!",
+      message: "Login successful! Your last assessment was on 11/26/2018.",
       duration: 2500,
-      position: 'middle'
-    });
-  
-    toast.onDidDismiss(() => {
-      this.navCtrl.setRoot(DashboardPage)
+      position: 'middle',
+      cssClass: 'wizardToast'
     });
   
     toast.present();
+    this.navCtrl.setRoot(DashboardPage)
   }
 }

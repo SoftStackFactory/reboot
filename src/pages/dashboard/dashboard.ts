@@ -35,14 +35,4 @@ export class DashboardPage {
   toTimeline() {
     this.navCtrl.setRoot(TimelinePage);
   }
-
-  lastDate() {
-    let toast = this.toastCtrl.create({
-      message: `Your last assessment was on 11/17/2018`,
-      duration: 2500,
-      position: 'middle'
-    });
-
-    toast.present();
-  }
 }
