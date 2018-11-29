@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/* Commenting out for demo
 import  {  ENV  }  from  '@app/env';
+End of comment for demo */
 
 /* 
   Generated class for the UserProvider provider.
@@ -12,7 +14,10 @@ import  {  ENV  }  from  '@app/env';
 @Injectable()
 export class UserProvider {
 
+  /* commenting out for demo
   requestUrl: string = ENV.url
+  end of commenting for demo */
+  
   userName: any = "Maurice";
 
   constructor(public http: HttpClient) {

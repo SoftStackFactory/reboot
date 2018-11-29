@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { ENV } from '@app/env';
+/* Commenting out for demo
+import  {  ENV  }  from  '@app/env';
+End of comment for demo */
 
 @Injectable()
 export class ChartProvider {
