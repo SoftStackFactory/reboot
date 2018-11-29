@@ -16,6 +16,10 @@
     font-size: 20px;
 }
 
+.wizardToast {
+    text-align: center !important;
+  }
+
 @media screen and (min-width: 765px)  {
     .branchRadio .alert-wrapper{
         font-size: 30px;
@@ -29,6 +33,11 @@
     .alert-button{
         font-size: 25px!important;
     }
+
+    .wizardToast {
+        text-align: center !important;
+      }
+
 }
 
 

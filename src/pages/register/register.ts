@@ -71,16 +71,14 @@ export class RegisterPage {
 
   goWizard() {
     let toast = this.toastCtrl.create({
-      message: 'Welcome to InTransition!',
+      message: 'Thank you for registering. Welcome to InTransition!',
       duration: 2500,
-      position: 'middle'
-    });
-  
-    toast.onDidDismiss(() => {
-      this.navCtrl.setRoot(WizardPage, {registered: this.registerUser})
+      position: 'middle',
+      cssClass: 'wizardToast',
     });
   
     toast.present();
+    this.navCtrl.setRoot(WizardPage, {registered: this.registerUser});
   }
 
 }
