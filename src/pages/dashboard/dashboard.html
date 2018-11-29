@@ -1,9 +1,7 @@
-<!--
-  Generated template for the DashboardPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<head>
+  <script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array(); fg_widgets.push("fgid_6df9b0bc92d7670f82a1d8650");</script>
+  <script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
+</head>
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -39,7 +37,7 @@
       <ion-col>
         <ion-card class="sep">
           <ion-card-header class="headers" text-center>
-            {{user.userData.daysTilSep}} Days Until Separation!
+            {{daysTilSep}} Days Until Separation!
           </ion-card-header>
           <ion-card-content id="separationContent">
             You're getting close to your separation day! Are you preparing for the transition? Have you checked the
@@ -58,12 +56,12 @@
       <ion-col>
         <ion-card class="news">
           <ion-card-header class="headers" text-center>
-            News Widget
+            Veterans Affairs News
           </ion-card-header>
           <ion-card-content id="separationContent">
-              <!-- <iframe width="500" height="250" style="border:none;" src="http://output13.rssinclude.com/output?type=iframe&amp;id=1199417&amp;hash=d614eb84e170d78e8f42bd5be7e5255a"></iframe> -->
               <news-widget></news-widget>
             <a id="separationLink" (click)="toNews()">More news
+
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
           </ion-card-content>
@@ -112,8 +110,10 @@
             </a>
           </ion-card-content>
         </ion-card>
-      </ion-col>
+      </ion-col>\              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
+
     </ion-row>
+    <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
   </ion-grid>
 </ion-content>

@@ -14,6 +14,8 @@ import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
 import { NewsPage } from '../pages/news/news';
+import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
+import { ResourcesPage } from '../pages/resources/resources';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,9 +39,11 @@ export class MyApp {
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Transition', component: TransitionPage },
+      { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage },
       { title: 'News', component: NewsPage}
+      { title: 'Resources', component: ResourcesPage }
     ];
 
   }

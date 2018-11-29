@@ -176,6 +176,7 @@
                     displayFormat="MM/DD/YYYY" 
                     pickerFormat="MMMM DD YYYY" 
                     max="2050"
+                    [min]="today"
                   >
                   </ion-datetime>
                   <ion-datetime *ngIf="firstForm.value.vetOrActive == 'Veteran'"
