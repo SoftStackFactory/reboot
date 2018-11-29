@@ -11,6 +11,22 @@ import  {  ENV  }  from  '@app/env';
 */ 
 @Injectable()
 export class UserProvider {
+
+  user: any = {
+    first: "Peter",
+    last: "Horton",
+    email: "peter@email.com",
+    maritalStatus: "Widowed",
+    employmentStatus: "Unemployed",
+    lastEmployed: "1/1/2010",
+    branch: "",
+    activeStatus: "",
+    separationDate: "",
+    serviceDisability: "",
+    disabilityRating: "",
+    militaryRank: "",
+    mosNec: "",
+  }
  
   requestUrl: string = ENV.url
 
