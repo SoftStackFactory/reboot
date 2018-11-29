@@ -1,7 +1,7 @@
 <!-- Generated template for the TimelineComponent component -->
 
 <div class="timeline">
-
+    <p class="lastSave"><strong>Your last save:</strong> Blah Blah Blah</p>
     <ion-list class="border-thingy" text-wrap>
         <ng-template #recursiveList let-list>
           <ion-list *ngFor="let item of list">
@@ -27,5 +27,6 @@
         </ng-template>
         <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
     </ion-list>
+
 
 </div>
