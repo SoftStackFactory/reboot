@@ -13,6 +13,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RssProvider {
 
+  newsArray = [];
+
 
   constructor(public http: HttpClient) {
     console.log('Hello RssProvider Provider');

@@ -17,25 +17,21 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'news.html',
 })
 export class NewsPage {
-  rssArray: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rss: RssProvider, private browser: InAppBrowser) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public rss: RssProvider, 
+    private browser: InAppBrowser) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsPage');
-    this.getData();
+    console.log('news array', this.rss.newsArray)
   }
 
-  getData() {
-    this.rss.getRSS().subscribe(
-      data => {
-        this.rssArray = data;
-        this.rss.array = this.rssArray;
-        console.log(data);
-      })
-  }
-
+ 
+//function to open link in new page (not in use because current rss feed already has link in description)
   openLink(url) {
     const link = this.browser.create(url);
   }
