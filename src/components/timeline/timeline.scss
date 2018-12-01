@@ -1,5 +1,15 @@
 timeline {
 
+    .saveButton {
+        border: none !important;
+    }
+
+    .button-ios {
+        background-color: #b3ccc8;
+        color: darkslategray;
+        margin-left: 7%;
+    }
+    
     .lastSave {
         margin-left: 7%;
     }
@@ -66,7 +76,7 @@ padding-left: 2em;
     opacity: .5;
 }
 
-.button-inner {
+.bulletItem .button-inner {
     flex-flow: flex;
     border-style: groove;
     border-left: none !important;

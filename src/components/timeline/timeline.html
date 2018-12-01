@@ -1,6 +1,11 @@
 <!-- Generated template for the TimelineComponent component -->
 
+<div class ="saveButton">
+    <button ion-button round [color]="primary">Save Progress</button>
+  </div>
+
 <div class="timeline">
+    
     <p class="lastSave"><strong>Your last save:</strong> Blah Blah Blah</p>
     <ion-list class="border-thingy" text-wrap>
         <ng-template #recursiveList let-list>
@@ -15,8 +20,8 @@
 
             <!-- Bullet items -->
             <ion-item *ngIf="item.checkmark" no-padding text-wrap>
-              <ion-label class="bulletItem">{{item.title}}</ion-label>
-              <ion-checkbox color="dark" checked="false"></ion-checkbox>
+              <ion-label >{{item.title}}</ion-label>
+              <ion-checkbox color="dark" class="bulletItem" checked="false"></ion-checkbox>
             </ion-item>
 
             <ion-item *ngIf="item.itemExpand && item.children.length > 0 && !item.checkmark" text-wrap>

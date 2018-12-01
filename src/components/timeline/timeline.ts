@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Item } from 'ionic-angular';
 
 /**
  * Generated class for the TimelineComponent component.
@@ -11,8 +12,23 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'timeline.html'
 })
 export class TimelineComponent {
+  constructor() {
+    console.log('Hello TimelineComponent Component');
+    this.text = 'Hello World';
+    this.printCheck()
+  }
+  
+  printCheck() {
+    for(let i=0; i < this.list.length; i++){
+      for(let u=0; u <this.list[i].children.length; u++){
+        for(let y=0; y <this.list[i].children[u].children.length; y++){
+          console.log(this.list[i].children[u].children[y].completed)
+        }
+      }
+    } 
 
-  text: string;
+  }
+    text: string;
 
   public list = [
     {
@@ -576,10 +592,6 @@ export class TimelineComponent {
 
   @Input('endIcon') endIcon = "ionic";
 
-  constructor() {
-    console.log('Hello TimelineComponent Component');
-    this.text = 'Hello World';
-  }
   
   toggleItem(item){
     if(item.itemExpand){
