@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { HistoryPage } from '../history/history';
+// import { HistoryPage } from '../history/history';
+import * as moment from 'moment';
+import { ChartProvider } from '../../providers/chart/chart'
+
 
 /**
  * Generated class for the SelfAssessmentPage page.
@@ -18,10 +21,12 @@ import { HistoryPage } from '../history/history';
 export class SelfAssessmentPage {
   areas: Array<any>;
   date: any;
+  currentAssessment = { date: '', data: {}, appUserId: ''};
+  addAssessment;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              // public chartProvider: ChartProvider, 
+              public chartProvider: ChartProvider, 
               private storage: Storage, 
               private toastCtrl: ToastController) {
               
@@ -83,9 +88,11 @@ export class SelfAssessmentPage {
                     number: 0
                   }
                 ];
-            
+                this.currentAssessment.date = moment().format('YYYY-MM-DD');
+                this.currentAssessment.appUserId = sessionStorage.getItem('userId');
             
               }
+              
             
               ionViewWillLoad() {
                 this.storage.get('chartData').then((val) => {
@@ -102,14 +109,25 @@ export class SelfAssessmentPage {
                   area.expand = true;
                 }
               }
+            
+              changeData(categoryIndex, score) {
+                this.currentAssessment.data[categoryIndex] = score;
+              }
 
               toSubmit() {
-                this.navCtrl.setRoot(HistoryPage);
+                // this.navCtrl.setRoot(HistoryPage);
+                console.log(this.currentAssessment);
+                this.chartProvider.addAssessment(this.currentAssessment)
+                  .subscribe(res => {
+                    console.log(res)
+                  }, err => console.log(err))
               }
-            
-              changeData() {
-                // this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
-                // this.chartComponent.chart.update(); categoryIndex, newNumber
+
+              getCharts() {
+                this.chartProvider.getChartHistory()
+                .subscribe(res => {
+                  console.log(res)
+                }, err => console.log(err))
               }
             
               lastDate() {

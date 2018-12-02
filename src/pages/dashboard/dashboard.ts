@@ -16,7 +16,7 @@ export class DashboardPage {
   name: any
   date: any
   daysTilSep: any
-
+  
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public chartProvider: ChartProvider, 
@@ -32,14 +32,14 @@ export class DashboardPage {
       this.date = val ? val.Date : '';
     }).then(() => this.lastDate())
   
-    this.user.getUser(window.sessionStorage.getItem('userId'))
-    .subscribe(data => {
-      this.name = data.firstName;
-      let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
-      let now = new Date().getTime();
-      this.daysTilSep = Math.ceil((sepDate - now)/86400000);
-      console.log(this.daysTilSep, this.name)
-    })
+    // this.user.getUser(window.sessionStorage.getItem('userId'))
+    // .subscribe(data => {
+    //   this.name = data.firstName;
+    //   let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
+    //   let now = new Date().getTime();
+    //   this.daysTilSep = Math.ceil((sepDate - now)/86400000);
+    //   console.log(this.daysTilSep, this.name)
+    // })
   }
 
   toTimeline() {

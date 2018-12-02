@@ -12,7 +12,11 @@ export class ChartProvider {
   requestUrl: string = ENV.url
   constructor(public http: HttpClient) { }
 
+  addAssessment(assessment) {
+    return this.http.post(this.requestUrl + '/charts/', assessment);
+  }
+
   getChartHistory() {
-    return this.http.get(this.requestUrl + '/appUsers/' + sessionStorage.getItem('userId') + '/charts')
+    return this.http.get(this.requestUrl + 'appUsers/' + sessionStorage.getItem('userId') + '/charts')
   }
 }
