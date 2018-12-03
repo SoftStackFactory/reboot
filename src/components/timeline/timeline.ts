@@ -17,6 +17,12 @@ export class TimelineComponent {
     this.text = 'Hello World';
     this.printCheck()
   }
+
+  updateCompleted(item) {
+    if (item.completed = false){
+        item.completed = true;
+    }
+  }
   
   printCheck() {
     for(let i=0; i < this.list.length; i++){

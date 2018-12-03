@@ -19,9 +19,10 @@
             </div>
 
             <!-- Bullet items -->
+            <!-- REMOVED "checked="false"-->
             <ion-item *ngIf="item.checkmark" no-padding text-wrap>
-              <ion-label >{{item.title}}</ion-label>
-              <ion-checkbox color="dark" class="bulletItem" checked="false"></ion-checkbox>
+              <ion-label>{{item.title}} {{item.completed}}</ion-label>
+              <ion-checkbox (ionChange)="updateCompleted(item)" color="dark" class="bulletItem" [checked]="item.completed" ></ion-checkbox>
             </ion-item>
 
             <ion-item *ngIf="item.itemExpand && item.children.length > 0 && !item.checkmark" text-wrap>
