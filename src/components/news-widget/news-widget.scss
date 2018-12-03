@@ -15,10 +15,12 @@ news-widget {
       }
     
       img {
-        max-height: 200px;
-        max-width: 200px;
-        box-shadow: 3px 3px 2px grey;
-      }
+        max-height: 30%;
+        max-width: 30%;
+        position: relative;
+        left: 14px;     
+        padding: 4px;
+       }
       div {
         zoom: 0.9;
       }

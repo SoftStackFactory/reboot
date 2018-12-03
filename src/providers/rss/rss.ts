@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 /*
@@ -13,10 +14,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RssProvider {
 
-  newsArray = [];
+  newsArray: any = {};
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public browser: InAppBrowser) {
     console.log('Hello RssProvider Provider');
   }
 
@@ -29,6 +30,9 @@ export class RssProvider {
     const params = { params: new HttpParams().set('rss_url', 'https://www.va.gov/health/NewsFeatures/news.xml').set('api_key', 'l7cijr37lmx6omnmg74t5wpzpbdrtc7oagvbewja').set('order_by', 'pubDate').set('order_dir', 'desc').set('count', '20')}
 
     return this.http.get(API_URL, params);
+  }
+  openLink(url) {
+    const link = this.browser.create(url);
   }
 
 }

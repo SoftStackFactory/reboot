@@ -9,13 +9,17 @@
     </ion-item>
     <ion-row>
 
-      <!-- <img src="https://i.redd.it/09mxaus7lt6x.png" alt="mock news picture" style="width:25%;height:25%"> -->
+      <img id="picture" src="" alt="news picture">
 
       <ion-col>
         <ion-card-content *ngIf="this.rss.newsArray.length > 0">
-          <div [innerHTML]="this.rss.newsArray[0].description"></div >
-        </ion-card-content>
-      </ion-col>
+          <div id="summary">{{this.sumText}}
+            <a id="separationLink" (click)="this.rss.openLink(link)">Read full article
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </a>
+          </div>
+    </ion-card-content>
+    </ion-col>
     </ion-row>
 
 
