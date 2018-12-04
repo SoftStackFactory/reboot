@@ -20,20 +20,20 @@
       </ion-item>
       <ion-row>
 
-        <!-- <img src="https://i.redd.it/09mxaus7lt6x.png" alt="mock news picture" style="width:25%;height:25%"> -->
+        <img src={{data.picture}} alt="mock news picture" style="width:20%;height:20%">
 
         <ion-col>
           <ion-card-content>
-            <p [innerHTML]="data.description"></p>
+            <p>{{data.sumText}}</p>
           </ion-card-content>
         </ion-col>
       </ion-row>
 
-      <!-- <ion-row justify-content-end>
+      <ion-row justify-content-end>
         <a id="separationLink" (click)="openLink(data.link)">Read full article
           <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
         </a>
-      </ion-row> -->
+      </ion-row>
 
     </ion-card>
 

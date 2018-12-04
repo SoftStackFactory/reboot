@@ -4,10 +4,10 @@ page-news {
     padding: 0;
   }
 
-  //   #separationLink {
-  //     padding: 20px;
-  //     font-size: 15px;
-  //   }
+    #separationLink {
+      padding: 20px;
+      font-size: 15px;
+    }
   #heading {
     padding: 100px;
   }
@@ -30,9 +30,9 @@ page-news {
   }
 
   img {
-    max-height: 200px;
-    max-width: 200px;
-    box-shadow: 3px 3px 2px grey;
+    position: relative;
+    left: 8px;
+    padding: 8px;
   }
 
 
