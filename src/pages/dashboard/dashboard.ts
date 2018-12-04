@@ -6,6 +6,10 @@ import { ChartProvider } from '../../providers/chart/chart';
 import { UserProvider } from '../../providers/user/user';
 import * as moment from 'moment';
 
+interface UserData {
+  firstName: any,
+  separationDate: any
+}
 
 @Component({
   selector: 'page-dashboard',
@@ -16,6 +20,7 @@ export class DashboardPage {
   name: any
   date: any
   daysTilSep: any
+  
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -33,7 +38,7 @@ export class DashboardPage {
     }).then(() => this.lastDate())
   
     this.user.getUser(window.sessionStorage.getItem('userId'))
-    .subscribe(data => {
+    .subscribe((data: UserData) => {
       this.name = data.firstName;
       let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
       let now = new Date().getTime();
