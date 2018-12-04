@@ -30,4 +30,49 @@ export class ProfilePage {
       })
   }
 
+  getUserInfo() {
+    let userID = sessionStorage.getItem('userId')
+    let token = sessionStorage.getItem('token')
+    this._user.getUser(userID)
+    .subscribe(response => {
+      console.log('received user data')
+      console.log(response)
+      this.userInfo = response;
+    })
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProfilePage');
+  }
+
+  allowEdit() {
+    this.editting = true;
+  }
+
+  updateProfile() {
+    this.editting = false;
+    // let loader = this.loader.create({
+    // })
+    // loader.present()
+    // this._user.updateUser()
+    //   .subscribe(_ => {
+    //     loader.dismiss();
+    //     this.editting = false;
+    //   }, err => {
+    //     console.error(err)
+    //     loader.dismiss()
+    //     let toast = this.toastCtrl.create({
+    //       message: 'Unable to update at this time',
+    //       duration: 2000,
+    //       position: 'top'
+    //     });
+    //     toast.present()
+    //   })
+  }
+
+  //todo connect backend for update user object
+  updateUser() {
+
+  }
+
 }
