@@ -23,6 +23,7 @@ export class WizardPage {
   private firstForm: FormGroup;
   private secondForm: FormGroup;
   private thirdForm: FormGroup;
+  private name: any;
   
   private today = new Date().toISOString();
 
@@ -40,6 +41,11 @@ export class WizardPage {
     public plt: Platform,
     public user: UserProvider,
   ) {
+    this.user.getUser(window.sessionStorage.getItem('userId'))
+    .subscribe(data => {
+      this.name = data.firstName;
+    })
+
     // let required = null;
     this.firstFormFunct();
     this.secondFormFunct();

@@ -62,6 +62,26 @@ export class RegisterPage {
         this.goWizard()
       }
       ) 
+
+      this._userService.login(this.registerUser)
+      .subscribe(
+        (res) => {
+          let loginResponse = res;
+          sessionStorage.setItem('userId', loginResponse.userId)
+          sessionStorage.setItem('token', loginResponse.token);
+          alert("you're logged in!")
+          //this.getChartData();
+        },
+        (err) => {
+          let toast = this.toastCtrl.create({
+            message: "Invalid credentials",
+            duration: 2500,
+            position: 'middle'
+          })
+
+          toast.present()
+        }
+      )
   }
 
   goLogin() {
