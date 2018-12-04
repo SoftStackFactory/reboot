@@ -42,7 +42,7 @@ export class MyApp {
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage },
-      { title: 'News', component: NewsPage}
+      { title: 'News', component: NewsPage},
       { title: 'Resources', component: ResourcesPage }
     ];
 

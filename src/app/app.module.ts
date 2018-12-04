@@ -51,7 +51,7 @@ import { NewsWidgetComponent } from '../components/news-widget/news-widget';
     TimelineItemComponent,
     TimelineTimeComponent,
     ChartComponent,
-    NewsWidgetComponent
+    NewsWidgetComponent,
     ResourcesPage,
   ],
   imports: [
@@ -74,7 +74,7 @@ import { NewsWidgetComponent } from '../components/news-widget/news-widget';
     AssessmentPage,
     TimelinePage,
     HistoryPage,
-    NewsPage
+    NewsPage,
     SelfAssessmentPage,
     ResourcesPage,
   ],
