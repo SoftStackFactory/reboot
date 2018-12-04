@@ -90,8 +90,10 @@ export class SelfAssessmentPage {
                 ];
                 this.currentAssessment.date = moment().format('YYYY-MM-DD');
                 this.currentAssessment.appUserId = sessionStorage.getItem('userId');
-            
+                this.areas.forEach(x => this.currentAssessment.data[x.title] = 0);
               }
+
+              
               
             
               ionViewWillLoad() {
@@ -121,13 +123,6 @@ export class SelfAssessmentPage {
                     console.log(res)
                   }, err => console.log(err))
               }
-
-              // getCharts() {
-              //   this.chartProvider.getChartHistory()
-              //   .subscribe(res => {
-              //     console.log(res)
-              //   }, err => console.log(err))
-              // }
             
               lastDate() {
                 let toast = this.toastCtrl.create({
