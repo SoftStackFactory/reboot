@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-// import { HistoryPage } from '../history/history';
 import * as moment from 'moment';
 import { ChartProvider } from '../../providers/chart/chart'
+import { ResourcesPage } from '../resources/resources'
 
 
 /**
@@ -115,20 +115,19 @@ export class SelfAssessmentPage {
               }
 
               toSubmit() {
-                // this.navCtrl.setRoot(HistoryPage);
-                console.log(this.currentAssessment);
+                this.navCtrl.setRoot(ResourcesPage);
                 this.chartProvider.addAssessment(this.currentAssessment)
                   .subscribe(res => {
                     console.log(res)
                   }, err => console.log(err))
               }
 
-              getCharts() {
-                this.chartProvider.getChartHistory()
-                .subscribe(res => {
-                  console.log(res)
-                }, err => console.log(err))
-              }
+              // getCharts() {
+              //   this.chartProvider.getChartHistory()
+              //   .subscribe(res => {
+              //     console.log(res)
+              //   }, err => console.log(err))
+              // }
             
               lastDate() {
                 let toast = this.toastCtrl.create({

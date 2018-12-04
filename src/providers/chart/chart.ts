@@ -17,6 +17,6 @@ export class ChartProvider {
   }
 
   getChartHistory() {
-    return this.http.get(this.requestUrl + 'appUsers/' + sessionStorage.getItem('userId') + '/charts')
+    return this.http.get(this.requestUrl + '/appUsers/' + sessionStorage.getItem('userId') + '/charts')
   }
 }
