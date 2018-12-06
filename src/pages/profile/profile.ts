@@ -15,7 +15,7 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public user :UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user :UserProvider) {
   }
 
   ionViewDidLoad() {
@@ -41,9 +41,7 @@ export class ProfilePage {
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
-  }
+
 
   allowEdit() {
     this.editting = true;

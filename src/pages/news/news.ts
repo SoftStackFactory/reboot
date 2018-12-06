@@ -29,22 +29,22 @@ export class NewsPage {
     console.log('ionViewDidLoad NewsPage');
     console.log('news array', this.rss.newsArray)
 
-    for (var i = 0; i < this.rss.newsArray.length; i++ ) {
-      var input = this.rss.newsArray[i].description;
-      var div = document.createElement('div');
-      div.innerHTML = input;
-      var summary = div.getElementsByTagName('p')[0];
-      var linkHTML = div.getElementsByTagName('a')[0];
-      let pic = div.getElementsByTagName('img')[0];
-      let picture = pic.getAttribute("src");
-      let link = linkHTML.getAttribute("href")
-      let text = summary.innerHTML;
-      let sumText = text.substring(0, text.indexOf('<'));
-      console.log("NEWSPAGETEXT", picture);
-      this.rss.newsArray[i].sumText = sumText;
-      this.rss.newsArray[i].link = link;
-      this.rss.newsArray[i].picture = picture; 
-    }    
+    // for (var i = 0; i < this.rss.newsArray.length; i++ ) {
+    //   var input = this.rss.newsArray[i].description;
+    //   var div = document.createElement('div');
+    //   div.innerHTML = input;
+    //   var summary = div.getElementsByTagName('p')[0];
+    //   var linkHTML = div.getElementsByTagName('a')[0];
+    //   let pic = div.getElementsByTagName('img')[0];
+    //   let picture = pic.getAttribute("src");
+    //   let link = linkHTML.getAttribute("href")
+    //   let text = summary.innerHTML;
+    //   let sumText = text.substring(0, text.indexOf('<'));
+    //   console.log("NEWSPAGETEXT", picture);
+    //   this.rss.newsArray[i].sumText = sumText;
+    //   this.rss.newsArray[i].link = link;
+    //   this.rss.newsArray[i].picture = picture; 
+    // }    
   }
 
  

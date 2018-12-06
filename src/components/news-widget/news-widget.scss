@@ -25,9 +25,13 @@ news-widget {
         zoom: 0.9;
       }
       .card {
-         background-color: rgba(255,255,255,0.5); 
+        //  background-color: rgba(255,255,255,0.5); 
          border-radius: 8px;
-
     }
+    #separationLink {
+      font-size: 12px;
+      position: absolute;
+        }
+    
      
 }

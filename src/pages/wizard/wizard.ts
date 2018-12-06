@@ -7,12 +7,9 @@ import { TransitionPage } from '../../pages/transition/transition';
 import { UserProvider } from '../../providers/user/user';
 import * as moment from 'moment';
 
-/**
- * Generated class for fthe WizardPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+interface UserData {
+  firstName: any,
+}
 
 @Component({
   selector: 'page-wizard',
@@ -42,7 +39,7 @@ export class WizardPage {
     public user: UserProvider,
   ) {
     this.user.getUser(window.sessionStorage.getItem('userId'))
-    .subscribe(data => {
+    .subscribe((data: UserData) => {
       this.name = data.firstName;
     })
 

@@ -12,9 +12,6 @@ interface NewsData {
 })
 export class NewsWidgetComponent {
 
-  sumText: string = "";
-  link: any = {};
-
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public rss: RssProvider,
@@ -29,24 +26,20 @@ export class NewsWidgetComponent {
         this.rss.newsArray = newsData.items;
         console.log('array', this.rss.newsArray)
         console.log(newsData, "kk");
-        var input = this.rss.newsArray[0].description;
 
-        var div = document.createElement('div');
-        div.innerHTML = input;
-        console.log("inner = ", div);
+        for (var i = 0; i < this.rss.newsArray.length; i++) {
+          var div = document.createElement('div');
+          div.innerHTML = this.rss.newsArray[i].description;
+          let picture = div.getElementsByTagName('img')[0].getAttribute("src");
+          let text = div.getElementsByTagName('p')[0].innerHTML;
+          let sumText = div.getElementsByTagName('p')[0].innerHTML.substring(0, text.indexOf('<'));
+          let date = this.rss.newsArray[i].pubDate.substring(0,10)
 
-        var summary = div.getElementsByTagName('p')[0];
-        let linkHTML = div.getElementsByTagName('a')[0];
-        console.log("linkHTM", linkHTML)
-        let pic = div.getElementsByTagName('img')[0];
-        let picture = pic.getAttribute("src");
-        this.link = linkHTML.getAttribute("href")
-        document.getElementById('picture').setAttribute('src', picture);
-        // document.getElementById('link').setAttribute('href', link);
-        let text = summary.innerHTML;
-        this.sumText = text.substring(0, text.indexOf('<'));
-        console.log("text", text, pic, picture, this.sumText, this.link);
-
+          this.rss.newsArray[i].sumText = sumText;
+          this.rss.newsArray[i].link = div.getElementsByTagName('a')[0].getAttribute("href");;
+          this.rss.newsArray[i].picture = picture; 
+          this.rss.newsArray[i].date = date;
+        }    
       })
   }
 }
