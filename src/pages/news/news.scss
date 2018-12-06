@@ -1,15 +1,26 @@
 page-news {
 
   .social-cards ion-col {
-    padding: 0;
   }
 
-    #separationLink {
-      padding: 20px;
-      font-size: 15px;
-    }
+  #separationLink {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  #linkArrow {
+    position: relative;
+    padding: 2px;
+    top: 6px;
+    font-size: 30px;
+  }
+
   #heading {
     padding: 100px;
+  }
+
+  #newsTitle {
+    text-align: center;
   }
 
   #news {
@@ -33,8 +44,14 @@ page-news {
     position: relative;
     left: 8px;
     padding: 8px;
+    border-radius: 20px;
+    width: 25%;
+    height: 25%;
   }
- 
+
+  .article {
+    border-radius: 20px;
+  }
 
 
 

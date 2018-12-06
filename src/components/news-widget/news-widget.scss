@@ -1,37 +1,42 @@
 news-widget {
 
-   
-      .timestamp {
-        font-size: 12px;
-        text-indent: 13px;
-      }
-    
-      .title {
-        text-indent: 12px;
-      }
-    
-      h1 {
-        word-wrap: break-word;
-      }
-    
-      img {
-        max-height: 30%;
-        max-width: 30%;
-        position: relative;
-        left: 14px;     
-        padding: 4px;
-       }
-      div {
-        zoom: 0.9;
-      }
-      .card {
-        //  background-color: rgba(255,255,255,0.5); 
-         border-radius: 8px;
-    }
-    #separationLink {
-      font-size: 12px;
-      position: absolute;
-        }
-    
-     
+  #content {
+    // min-height: 176px;
+  }
+
+  .timestamp {
+    font-size: 15px;
+    // text-indent: 13px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  h1 {
+    word-wrap: break-word;
+  }
+  
+  img {
+    width: 100%;
+    position: relative;
+    right: 10px;
+    margin: 4px;
+  }
+
+  div {
+    zoom: 0.9;
+  }
+
+  #separationLink {
+    position: absolute;
+    text-align: center;
+  }
+
+  #summary {
+    font-size: 20px;
+  }
+
+
+
 }

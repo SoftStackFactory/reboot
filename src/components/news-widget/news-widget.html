@@ -1,28 +1,29 @@
 <!-- Generated template for the NewsWidgetComponent component -->
-
+<ion-row style="margin-bottom: 4px" id="content">
 <div id="news">
-  <ion-card *ngIf="this.rss.newsArray.length > 0">
+  <div *ngIf="this.rss.newsArray.length > 0">
+    <h1 class="title">{{this.rss.newsArray[0].title}}</h1>
+    <h4 class="timestamp">Date Published: {{this.rss.newsArray[0].date}}</h4>
 
-    <ion-item  text-wrap>
-      <h1 class="title">{{this.rss.newsArray[0].title}}</h1>
-      <h4 class="timestamp">{{this.rss.newsArray[0].date}}</h4>
-    </ion-item>
     <ion-row>
-
-      <img src={{this.rss.newsArray[0].picture}} alt="news picture">
+      <ion-col col-4 id="pictureCol">
+    <img src={{this.rss.newsArray[0].picture}} alt="news picture">
+      </ion-col>
 
       <ion-col>
-        <ion-card-content *ngIf="this.rss.newsArray.length > 0">
-          <div id="summary">{{this.rss.newsArray[0].sumText}}
-          </div>
-          <a justify-content-start id="separationLink" (click)="this.rss.openLink(this.rss.newsArray[0].link)" style="font-size: 12px">Read full article
-              <!-- <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon> -->
+    <div *ngIf="this.rss.newsArray.length > 0">
+      <p id="summary">{{this.rss.newsArray[0].sumText}}
+        <ion-row style="margin-bottom: 20px">
+          <a justify-content-start id="separationLink" (click)="this.rss.openLink(this.rss.newsArray[0].link)" style="font-size: 22px;">Read
+              full article
+              <ion-icon class ="linkIcons" name="paper"></ion-icon>
             </a>
-    </ion-card-content>
+            </ion-row>
+      </p>
+   
+    </div>
     </ion-col>
-    </ion-row>
-
-
-  </ion-card>
-
+  </ion-row>
+  </div>
 </div>
+</ion-row>

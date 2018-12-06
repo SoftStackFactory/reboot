@@ -24,15 +24,15 @@ export class NewsWidgetComponent {
     this.rss.getRSS()
       .subscribe((newsData: NewsData) => {
         this.rss.newsArray = newsData.items;
-        console.log('array', this.rss.newsArray)
-        console.log(newsData, "kk");
+        console.log(newsData, "Data");
+        console.log('News Array', this.rss.newsArray)
 
         for (var i = 0; i < this.rss.newsArray.length; i++) {
           var div = document.createElement('div');
           div.innerHTML = this.rss.newsArray[i].description;
           let picture = div.getElementsByTagName('img')[0].getAttribute("src");
           let text = div.getElementsByTagName('p')[0].innerHTML;
-          let sumText = div.getElementsByTagName('p')[0].innerHTML.substring(0, text.indexOf('<'));
+          let sumText = text.substring(0, text.indexOf('<'));
           let date = this.rss.newsArray[i].pubDate.substring(0,10)
 
           this.rss.newsArray[i].sumText = sumText;
