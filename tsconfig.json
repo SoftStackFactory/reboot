@@ -12,14 +12,13 @@
     "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5"
-  },
-  "baseUrl": "./src",
+    "target": "es5",
+    "baseUrl": "./src",
   "paths": {
-    "@app/env": [
-      "environments/environment"
-    ]
+    "@app/env": ["environments/environment"]
+    },
   },
+  
   "include": [
     "src/**/*.ts"
   ],

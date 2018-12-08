@@ -13,7 +13,7 @@ import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
-
+import  {  ENV  }  from  '@app/env';
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,7 +26,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
+    console.log("OUR ENV", ENV)
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
