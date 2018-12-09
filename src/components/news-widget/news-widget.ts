@@ -30,7 +30,6 @@ export class NewsWidgetComponent {
         for (var i = 0; i < this.rss.newsArray.length; i++) {
           var div = document.createElement('div');
           div.innerHTML = this.rss.newsArray[i].description;
-          let picture = div.getElementsByTagName('img')[0].getAttribute("src");
           let text = div.getElementsByTagName('p')[0].innerHTML;
           let sumText = text.substring(0, text.indexOf('<'));
           let date = this.rss.newsArray[i].pubDate.substring(0,10)
@@ -38,14 +37,10 @@ export class NewsWidgetComponent {
           this.rss.newsArray[i].sumText = sumText;
           this.rss.newsArray[i].link = div.getElementsByTagName('a')[0].getAttribute("href");;
           this.rss.newsArray[i].date = date;
-          let mockText = this.rss.newsArray[i].thumbnail;
-          let newText = mockText.split('_thumb');
-          let newPic = newText[0] + "_1000" + newText[1];
-          console.log("YYEEYYYYTTTT", newPic);
-          this.rss.newsArray[i].picture = newPic; 
-
-          // https://www.va.gov/HEALTH/images/ivh-images/20180403_DeannaCallender_1000.jpg
-          // http://www.va.gov/HEALTH/images/ivh-images/20180403_DeannaCallender.jpg        
+          //splits thumbnail link to get higher resolution picture
+          let picText = this.rss.newsArray[i].thumbnail.split('_thumb');
+          let picture = picText[0] + "_1000" + picText[1];
+          this.rss.newsArray[i].picture = picture;      
         }  
       })
   }
