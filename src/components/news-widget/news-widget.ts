@@ -37,9 +37,16 @@ export class NewsWidgetComponent {
 
           this.rss.newsArray[i].sumText = sumText;
           this.rss.newsArray[i].link = div.getElementsByTagName('a')[0].getAttribute("href");;
-          this.rss.newsArray[i].picture = picture; 
           this.rss.newsArray[i].date = date;
-        }    
+          let mockText = this.rss.newsArray[i].thumbnail;
+          let newText = mockText.split('_thumb');
+          let newPic = newText[0] + "_1000" + newText[1];
+          console.log("YYEEYYYYTTTT", newPic);
+          this.rss.newsArray[i].picture = newPic; 
+
+          // https://www.va.gov/HEALTH/images/ivh-images/20180403_DeannaCallender_1000.jpg
+          // http://www.va.gov/HEALTH/images/ivh-images/20180403_DeannaCallender.jpg        
+        }  
       })
   }
 }

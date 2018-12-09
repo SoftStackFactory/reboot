@@ -14,26 +14,28 @@
   <div id="news">
     <ion-card class="article"*ngFor="let data of this.rss.newsArray">
 
-      <ion-item text-wrap>
-        <h1 class="title">{{data.title}}</h1>
-        <p class="timestamp">Date Published: {{data.date}}</p>
-      </ion-item>
+
       <ion-row>
 
         <img src={{data.picture}} alt="mock news picture" >
 
         <ion-col>
           <ion-card-content>
-            <p>{{data.sumText}}</p>
+              <ion-item text-wrap>
+                  <h1 class="title">{{data.title}}</h1>
+                  <p class="timestamp">Date Published: {{data.date}}</p>
+                </ion-item>
+            <p class="articleText">{{data.sumText}}</p>
           </ion-card-content>
+          <ion-row justify-content-end>
+              <a id="separationLink" (click)="openLink(data.link)">Read full article
+                <ion-icon id="linkArrow" class="linkIcons" name="paper"></ion-icon>
+              </a>
+            </ion-row>
         </ion-col>
       </ion-row>
 
-      <ion-row justify-content-end>
-        <a id="separationLink" (click)="openLink(data.link)">Read full article
-          <ion-icon id="linkArrow" class="linkIcons" name="paper"></ion-icon>
-        </a>
-      </ion-row>
+    
 
     </ion-card>
 
