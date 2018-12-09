@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Item } from 'ionic-angular';
+import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 
 /**
  * Generated class for the TimelineComponent component.
@@ -15,26 +16,27 @@ export class TimelineComponent {
   constructor() {
     console.log('Hello TimelineComponent Component');
     this.text = 'Hello World';
-    this.printCheck()
+    
   }
 
-  updateCompleted(item) {
-    if (item.completed = false){
-        item.completed = true;
+  // Event function to update completion status of grandchild
+  private updateCompleted(item) {
+    if (item.completed === false){
+        item.completed = true; 
+    } else {
+      item.completed = false;
     }
   }
-  
-  printCheck() {
-    for(let i=0; i < this.list.length; i++){
-      for(let u=0; u <this.list[i].children.length; u++){
-        for(let y=0; y <this.list[i].children[u].children.length; y++){
-          console.log(this.list[i].children[u].children[y].completed)
-        }
-      }
-    } 
-
+    // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child value to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling by checking boolean values of children.
+  private trackProgress() {
+    this.list.forEach((parentStep) => {
+      parentStep.areAllStepsCompleted = parentStep.children.every((childStep) => {
+        return childStep.children.every((grandChildStep => {
+          return grandChildStep.completed === true;
+        }));
+      });
+    });
   }
-    text: string;
 
   public list = [
     {
@@ -43,6 +45,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Understanding the process of separating',
@@ -51,7 +54,7 @@ export class TimelineComponent {
             {
               title: 'Find out your separation date',
               checkmark: true,
-              completed: false,
+              completed: true,
               children: []
             },
             {
@@ -142,6 +145,7 @@ export class TimelineComponent {
       topLevel: true,
       itemExpand: false,
       dot: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Find something to do',
@@ -192,6 +196,7 @@ export class TimelineComponent {
       itemExpand: false,
       topLevel: true,
       dot: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Recognizing and addressing mental health needs',
@@ -297,6 +302,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Acquiring the appropriate education, new skills, and credentials',
@@ -372,6 +378,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Maintaining my financial, social, and emotional health',
@@ -459,6 +466,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Taking care of my own heath',
@@ -522,6 +530,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Managing my declining heath',
@@ -573,6 +582,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Deciding how and where to be memorialized',
