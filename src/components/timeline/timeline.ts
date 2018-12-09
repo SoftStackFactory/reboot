@@ -24,7 +24,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Understanding the process of separating',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -43,7 +42,6 @@ export class TimelineComponent {
         },
         {
           title: 'Completing my paperwork',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -99,7 +97,6 @@ export class TimelineComponent {
         {
           title: 'Engaging VA to access benefits',
           checkmark: false,
-          dot: true,
           children: [
             {
               title: 'Complete the Veteran Affairs (VA) Benefits Briefings I and II',
@@ -126,7 +123,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Find something to do',
-          dot: true,
           children: [
             {
               title: 'Go to Career Center',
@@ -144,7 +140,6 @@ export class TimelineComponent {
         },
         {
           title: 'Re-establishing and creating relationships',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -157,7 +152,6 @@ export class TimelineComponent {
         },
         {
           title: 'Balancing finances',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -179,7 +173,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Recognizing and addressing mental health needs',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -222,7 +215,6 @@ export class TimelineComponent {
         },
         {
           title: 'VA Health Care',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -253,7 +245,6 @@ export class TimelineComponent {
         },
         {
           title: 'Seeking support for acute health event',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -287,7 +278,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Acquiring the appropriate education, new skills, and credentials',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -330,7 +320,6 @@ export class TimelineComponent {
         },
         {
           title: 'Finding the right job',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -364,7 +353,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Maintaining my financial, social, and emotional health',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -395,7 +383,6 @@ export class TimelineComponent {
         },
         {
           title: 'Starting, growing, or taking care of my family',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -426,7 +413,6 @@ export class TimelineComponent {
         },
         {
           title: 'Connecting with, and serving my community',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -454,7 +440,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Taking care of my own heath',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -491,7 +476,6 @@ export class TimelineComponent {
         },
         {
           title: 'Finding additional sources of income',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -519,7 +503,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Managing my declining heath',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -538,7 +521,6 @@ export class TimelineComponent {
         },
         {
           title: 'Adapting my support network to my new needs',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -572,7 +554,6 @@ export class TimelineComponent {
       children: [
         {
           title: 'Deciding how and where to be memorialized',
-          dot: true,
           checkmark: false,
           children: [
             {

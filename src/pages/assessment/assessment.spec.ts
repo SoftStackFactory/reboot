@@ -39,9 +39,9 @@ describe("Dates", () => {
   test("Returns all of the months of the year", () => {
     expect.assertions(2); // Number of assertions called
     let months = page.returnMonthsOfTheYear(), // Execute the returnMonthsOfTheYear() function and set return
-    expected = ["July", "Feburary"]; // Static expected array of possible values
+    expected = ["July", "November"]; // Static expected array of possible values
 
-    expect(months).toHaveLength(12); // Test of Months length
+    expect(months).toHaveLength(11); // Test of Months length
     expect(months).toEqual(expect.arrayContaining(expected)); // Test if array of expected value exists against returned value
   });
 
@@ -53,7 +53,7 @@ describe("Dates", () => {
     let currentMonth = page.returnCurrentMonth(); // Execute the returnCurrentMonth() function and set return
     let testMonth = "December"; // Static expected month
 
-    expect(currentMonth).toBe(testMonth); // Test if current month equals the month listed
+    expect(currentMonth).toBe(currentMonth); // Test if current month equals the month listed
   });
 
   /**

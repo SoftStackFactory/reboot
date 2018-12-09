@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+// import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { TransitionPage } from '../../pages/transition/transition';
 import { UserProvider } from '../../providers/user/user';
@@ -13,7 +13,9 @@ import * as moment from 'moment';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+interface UserData {
+  firstName: string;
+}
 @Component({
   selector: 'page-wizard',
   templateUrl: 'wizard.html',
@@ -23,7 +25,8 @@ export class WizardPage {
   private firstForm: FormGroup;
   private secondForm: FormGroup;
   private thirdForm: FormGroup;
-  
+  private name: string;
+
   private today = new Date().toISOString();
 
   get percentQuestion() {
@@ -40,6 +43,12 @@ export class WizardPage {
     public plt: Platform,
     public user: UserProvider,
   ) {
+    this.user.getUser(window.sessionStorage.getItem('userId'))
+    .subscribe( (data:UserData) => {
+      console.log('Name', this.name)
+      this.name = data.firstName;
+    })
+
     // let required = null;
     this.firstFormFunct();
     this.secondFormFunct();
@@ -97,7 +106,7 @@ export class WizardPage {
       })
     //sets requirements depending on the branch that users select:
     //1) the observable for branch checks if the vslue changes and runs a function in the parameter
-    //2) gets the form Control 'MOS' and set it as a local variable  
+    //2) gets the form Control 'MOS' and set it as a local variable
     //3 sets validators to the local variable depending on the condition: "setValidators"
     //4 update value and validators: 'updateValueAnValidity()'
     this.firstForm.controls.branch.valueChanges
@@ -204,7 +213,7 @@ export class WizardPage {
   lockPrevSlide() {
     this.slides.lockSwipeToPrev(this.LockSwipeToPrev)
   }
-  //the logic that determines if slide should be lockSwiped 
+  //the logic that determines if slide should be lockSwiped
   slideChanged() {
     let index = this.slides.realIndex;
     if ((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9)) {

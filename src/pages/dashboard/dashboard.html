@@ -59,10 +59,9 @@
             Veterans Affairs News
           </ion-card-header>
           <ion-card-content id="separationContent">
-              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
-            <br>
-            <br>
-            <a id="separationLink">More news
+              <news-widget></news-widget>
+            <a id="separationLink" (click)="toNews()">More news
+
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
           </ion-card-content>

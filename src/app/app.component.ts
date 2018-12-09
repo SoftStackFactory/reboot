@@ -10,11 +10,13 @@ import { WizardPage } from '../pages/wizard/wizard';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
-import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
+import { NewsPage } from '../pages/news/news';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { ResourcesPage } from '../pages/resources/resources';
+
+import { ENV } from  '@app/env';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,6 +31,7 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
+    console.log("OUR ENV", ENV)
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
@@ -41,6 +44,7 @@ export class MyApp {
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage },
+      { title: 'News', component: NewsPage},
       { title: 'Resources', component: ResourcesPage }
     ];
 
