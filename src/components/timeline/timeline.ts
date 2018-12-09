@@ -2,6 +2,30 @@ import { Component, Input } from '@angular/core';
 import { Item } from 'ionic-angular';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 
+interface IGrandChild {
+  title: string,
+  checkmark: boolean,
+  completed: boolean,
+  children?: any[]
+}
+
+interface IChild {
+  title: string,
+  checkmark: boolean,
+  children: IGrandChild[]
+}
+
+interface IParent {
+  title: string,
+  checkmark: boolean,
+  itemExpand: boolean,
+  dot: boolean,
+  topLevel: boolean,
+  areAllStepsCompleted: boolean,
+  children: IChild[]
+}
+
+
 /**
  * Generated class for the TimelineComponent component.
  *
@@ -20,7 +44,7 @@ export class TimelineComponent {
   }
 
   // Event function to update completion status of grandchild
-  private updateCompleted(item) {
+  private updateCompleted(item: IGrandChild) {
     if (item.completed === false){
         item.completed = true; 
     } else {
@@ -29,16 +53,16 @@ export class TimelineComponent {
   }
     // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child value to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling by checking boolean values of children.
   private trackProgress() {
-    this.list.forEach((parentStep) => {
-      parentStep.areAllStepsCompleted = parentStep.children.every((childStep) => {
-        return childStep.children.every((grandChildStep => {
+    this.list.forEach((parentStep: IParent): any => {
+      parentStep.areAllStepsCompleted = parentStep.children.every((childStep: IChild): boolean => {
+        return childStep.children.every((grandChildStep: IGrandChild): boolean => {
           return grandChildStep.completed === true;
-        }));
+        });
       });
     });
   }
 
-  public list = [
+  public list: IParent[] = [
     {
       title: 'Getting Out',
       checkmark: false,
