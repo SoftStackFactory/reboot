@@ -16,7 +16,7 @@
 
 <ion-content padding>
   <h1 id="title">
-    Hello, {{user.firstName}}{{user.lastName}}!
+    Hello, {{user.firstName}} {{user.lastName}}!
   </h1>
     <ion-card>
       <ion-card-content id="card-text">
@@ -37,7 +37,7 @@
 
     </ion-card>
     
-      <ion-card *ngFor="let res of resources">
+      <ion-card class="resource" *ngFor="let res of resources">
           <ion-card-header id='title'>
             {{res.title}}
           </ion-card-header>
