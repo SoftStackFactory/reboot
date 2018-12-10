@@ -15,11 +15,10 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _user :UserProvider) {
-  }
+  editting: boolean;
+  userInfo: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public user :UserProvider) {
   }
 
   onLogout() {
@@ -32,8 +31,8 @@ export class ProfilePage {
 
   getUserInfo() {
     let userID = sessionStorage.getItem('userId')
-    let token = sessionStorage.getItem('token')
-    this._user.getUser(userID)
+    // let token = sessionStorage.getItem('token')
+    this.user.getUser(userID)
     .subscribe(response => {
       console.log('received user data')
       console.log(response)
