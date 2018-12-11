@@ -106,10 +106,6 @@ export class ResourcesPage {
     this.userPro.userData.lowestScore = lowest;
     this.userPro.userData.lowScoreName = lowestProp;
     this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
-    .subscribe(
-      (data) => {
-        console.log(data, "YEY!!!!!!")
-      })
     console.log(this.values)
   });
   }
