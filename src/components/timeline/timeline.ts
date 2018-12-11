@@ -51,7 +51,9 @@ export class TimelineComponent {
       item.completed = false;
     }
   }
-    // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child value to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling by checking boolean values of children.
+    // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child boolean value
+    // to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling 
+    // by checking boolean values of children.
   private trackProgress() {
     this.list.forEach((parentStep: IParent): any => {
       parentStep.areAllStepsCompleted = parentStep.children.every((childStep: IChild): boolean => {
@@ -78,7 +80,7 @@ export class TimelineComponent {
             {
               title: 'Find out your separation date',
               checkmark: true,
-              completed: true,
+              completed: false,
               children: []
             },
             {
