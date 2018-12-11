@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChartProvider } from '../../providers/chart/chart';
 import { Chart } from 'chart.js';
 
@@ -23,7 +23,7 @@ export class HistoryPage {
   labels  = ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"];
   lineColors = ["rgba(0,0,255, .3)", "rgba(255,0,0, .3)", "rgba(128,0,128, .3)", "rgba(0,128,0, .3)", "rgba(255,165,0, .3)", "rgba(0,128,128, .3)", "rgba(255,0,255, .3)", "rgba(0,255,0, .3)"];
   dataArrays = []
-  constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider, public modalCtrl: ModalController ) {
     
   }
   history = [
@@ -111,12 +111,14 @@ export class HistoryPage {
     this.lineChartData.datasets.forEach(val => this.dataArrays.push(val.data))
     myLineChart.update()
   }
+  showChart(data) {
+    const chartModal = this.modalCtrl.create('ChartModalPage',{data:data})
+    console.log('clicked', data);
+    chartModal.present();
+  }
 
   ngOnInit() {
     this.generateChart()
-    
-    
-    console.log(this.lineChartData)
   }
 
 
