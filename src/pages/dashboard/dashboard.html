@@ -36,9 +36,15 @@
     <ion-row>
       <ion-col>
         <ion-card class="sep">
-          <ion-card-header class="headers" text-center>
+          <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
           </ion-card-header>
+          <ion-card-header class="headers" text-center *ngIf="daysTilSep == 0">
+              Your Separation Date is Today!
+            </ion-card-header>
+            <ion-card-header class="headers" text-center *ngIf="daysTilSep < 0">
+              Your Separation Was {{daysTilSepAbs}} Days Ago!
+              </ion-card-header>
           <ion-card-content id="separationContent">
             You're getting close to your separation day! Are you preparing for the transition? Have you checked the
             timeline for instructions?
