@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
+import { SelfAssessmentPage } from '../self-assessment/self-assessment';
+import { DashboardPage } from '../dashboard/dashboard';
 
 interface UserData {
   firstName: any,
@@ -29,6 +31,9 @@ export class ResourcesPage {
     lowestScore: 2,
     lowScoreName: 'Finances'
     }
+
+    lowestResource: any = {};
+
     values: Array<any> = [];
   
     //Resource tempate resources data
@@ -75,8 +80,6 @@ export class ResourcesPage {
     }
   ];
 
-
-
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public modalCtrl: ModalController,
   public userPro: UserProvider) {
@@ -100,13 +103,15 @@ export class ResourcesPage {
         }
           console.log(lowest, lowestProp);
     }
-    this.user.lowestScore = lowest;
-    this.user.lowScoreName = lowestProp;
+    this.userPro.userData.lowestScore = lowest;
+    this.userPro.userData.lowScoreName = lowestProp;
+    this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
+    .subscribe(
+      (data) => {
+        console.log(data, "YEY!!!!!!")
+      })
     console.log(this.values)
-
   });
-    
-
   }
 
 
@@ -116,6 +121,13 @@ export class ResourcesPage {
    resModal.present();
   }
 
+  openSelfAssessment() {
+    this.navCtrl.setRoot(SelfAssessmentPage);
+  }
+
+  openDashboard() {
+    this.navCtrl.setRoot(DashboardPage);
+  }
 
 
   ionViewDidLoad() {
@@ -123,4 +135,3 @@ export class ResourcesPage {
   }
 
 }
-

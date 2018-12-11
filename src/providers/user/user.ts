@@ -64,6 +64,4 @@ export class UserProvider {
     let token = window.sessionStorage.getItem('token');
     return this.http.get(this.requestUrl + '/appUsers/' + id + '/charts?access_token=' + token)
   }
-
-
 }
