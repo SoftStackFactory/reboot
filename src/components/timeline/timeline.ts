@@ -1,4 +1,30 @@
 import { Component, Input } from '@angular/core';
+import { Item } from 'ionic-angular';
+import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+
+interface IGrandChild {
+  title: string,
+  checkmark: boolean,
+  completed: boolean,
+  children?: any[]
+}
+
+interface IChild {
+  title: string,
+  checkmark: boolean,
+  children: IGrandChild[]
+}
+
+interface IParent {
+  title: string,
+  checkmark: boolean,
+  itemExpand: boolean,
+  dot: boolean,
+  topLevel: boolean,
+  areAllStepsCompleted: boolean,
+  children: IChild[]
+}
+
 
 /**
  * Generated class for the TimelineComponent component.
@@ -11,16 +37,41 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'timeline.html'
 })
 export class TimelineComponent {
+  constructor() {
+    console.log('Hello TimelineComponent Component');
+    this.text = 'Hello World';
+    
+  }
 
-  text: string;
+  // Event function to update completion status of grandchild
+  private updateCompleted(item: IGrandChild) {
+    if (item.completed === false){
+        item.completed = true; 
+    } else {
+      item.completed = false;
+    }
+  }
+    // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child boolean value
+    // to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling 
+    // by checking boolean values of children.
+  private trackProgress() {
+    this.list.forEach((parentStep: IParent): any => {
+      parentStep.areAllStepsCompleted = parentStep.children.every((childStep: IChild): boolean => {
+        return childStep.children.every((grandChildStep: IGrandChild): boolean => {
+          return grandChildStep.completed === true;
+        });
+      });
+    });
+  }
 
-  public list = [
+  public list: IParent[] = [
     {
       title: 'Getting Out',
       checkmark: false,
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Understanding the process of separating',
@@ -120,6 +171,7 @@ export class TimelineComponent {
       topLevel: true,
       itemExpand: false,
       dot: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Find something to do',
@@ -170,6 +222,7 @@ export class TimelineComponent {
       itemExpand: false,
       topLevel: true,
       dot: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Recognizing and addressing mental health needs',
@@ -275,6 +328,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Acquiring the appropriate education, new skills, and credentials',
@@ -350,6 +404,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Maintaining my financial, social, and emotional health',
@@ -437,6 +492,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Taking care of my own heath',
@@ -500,6 +556,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Managing my declining heath',
@@ -551,6 +608,7 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Deciding how and where to be memorialized',
@@ -576,10 +634,6 @@ export class TimelineComponent {
 
   @Input('endIcon') endIcon = "ionic";
 
-  constructor() {
-    console.log('Hello TimelineComponent Component');
-    this.text = 'Hello World';
-  }
   
   toggleItem(item){
     if(item.itemExpand){
