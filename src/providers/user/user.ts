@@ -27,7 +27,7 @@ export class UserProvider {
     militaryRank: "",
     mosNec: "",
   }
- 
+
   requestUrl: string = ENV.url
 
   userData: any = {};
@@ -35,6 +35,7 @@ export class UserProvider {
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
+
   sendReg(user) {
     console.log('sendReg() runs', user)
     console.log(this.requestUrl)
@@ -46,7 +47,6 @@ export class UserProvider {
     console.log(data, "#1-updateUserModel") 
     return this.http.patch(this.requestUrl + '/appUsers/' + id + '?access_token=' + token , data)
   }
-
 
   login(creds) {
     return this.http.post(this.requestUrl + '/appUsers/login', creds);
@@ -61,5 +61,8 @@ export class UserProvider {
     let token = window.sessionStorage.getItem('token');
     return this.http.get(this.requestUrl + '/appUsers/' + id + '?access_token=' + token)
   }
-
+  getUserChart(id) {
+    let token = window.sessionStorage.getItem('token');
+    return this.http.get(this.requestUrl + '/appUsers/' + id + '/charts?access_token=' + token)
+  }
 }
