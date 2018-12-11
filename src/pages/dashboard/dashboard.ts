@@ -21,6 +21,7 @@ export class DashboardPage {
   name: any
   date: any
   daysTilSep: any
+  daysTilSepAbs: any
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -44,6 +45,7 @@ export class DashboardPage {
       let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
       let now = new Date().getTime();
       this.daysTilSep = Math.ceil((sepDate - now)/86400000);
+      this.daysTilSepAbs = Math.abs(this.daysTilSep);
       console.log(this.daysTilSep, this.name)
     })
   }
