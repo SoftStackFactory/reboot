@@ -17,6 +17,8 @@ page-resources {
 }
 
 #card-text {
+    margin-left: 60px;
+    margin-right: 60px;
     font-size: 18px;
     
 }
@@ -27,4 +29,14 @@ page-resources {
 
 .yellow {
     color: yellow;
+}
+
+#resource {
+    margin-left: 20px;
+    font-size: 100px;
+}
+
+button {
+    background-color : rgb(46, 66, 86);
+
 }

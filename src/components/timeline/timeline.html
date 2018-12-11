@@ -1,7 +1,11 @@
 <!-- Generated template for the TimelineComponent component -->
 
-<div class="timeline">
+<div class ="saveButton">
+    <button ion-button round [color]="primary" (click)="trackProgress()">Save Progress</button>
+  </div>
 
+<div class="timeline">
+    
     <ion-list class="border-thingy" text-wrap>
         <ng-template #recursiveList let-list>
           <ion-list *ngFor="let item of list">
@@ -9,14 +13,14 @@
             <div class="subLists">
               <ion-item *ngIf="!item.checkmark" (click)="toggleItem(item)" no-padding text-wrap>
                   <div *ngIf="item.dot" class="cd-timeline__img cd-timeline__img--5"></div>
-                  <h2 [ngClass]="{'cd-timeline--top-level': item.topLevel === true }"><strong>{{item.title}}</strong></h2>
+                  <h2 [ngClass]="{'cd-timeline--top-level': item.topLevel, 'cd-timeline--sectionDone': item.areAllStepsCompleted}"><strong>{{item.title}}</strong></h2>
               </ion-item>
             </div>
-
+            
             <!-- Bullet items -->
             <ion-item *ngIf="item.checkmark" no-padding text-wrap>
-              <ion-label class="bulletItem">{{item.title}}</ion-label>
-              <ion-checkbox color="dark" checked="false"></ion-checkbox>
+              <ion-label>{{item.title}} {{item.completed}}</ion-label>
+              <ion-checkbox (ionChange)="updateCompleted(item)" color="dark" class="bulletItem" [checked]="item.completed" ></ion-checkbox>
             </ion-item>
 
             <ion-item *ngIf="item.itemExpand && item.children.length > 0 && !item.checkmark" text-wrap>
@@ -27,5 +31,6 @@
         </ng-template>
         <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
     </ion-list>
+
 
 </div>

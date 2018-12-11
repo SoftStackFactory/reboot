@@ -1,4 +1,30 @@
 import { Component, Input } from '@angular/core';
+import { Item } from 'ionic-angular';
+import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+
+interface IGrandChild {
+  title: string,
+  checkmark: boolean,
+  completed: boolean,
+  children?: any[]
+}
+
+interface IChild {
+  title: string,
+  checkmark: boolean,
+  children: IGrandChild[]
+}
+
+interface IParent {
+  title: string,
+  checkmark: boolean,
+  itemExpand: boolean,
+  dot: boolean,
+  topLevel: boolean,
+  areAllStepsCompleted: boolean,
+  children: IChild[]
+}
+
 
 /**
  * Generated class for the TimelineComponent component.
@@ -11,20 +37,44 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'timeline.html'
 })
 export class TimelineComponent {
+  constructor() {
+    console.log('Hello TimelineComponent Component');
+    this.text = 'Hello World';
+    
+  }
 
-  text: string;
+  // Event function to update completion status of grandchild
+  private updateCompleted(item: IGrandChild) {
+    if (item.completed === false){
+        item.completed = true; 
+    } else {
+      item.completed = false;
+    }
+  }
+    // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child boolean value
+    // to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling 
+    // by checking boolean values of children.
+  private trackProgress() {
+    this.list.forEach((parentStep: IParent): any => {
+      parentStep.areAllStepsCompleted = parentStep.children.every((childStep: IChild): boolean => {
+        return childStep.children.every((grandChildStep: IGrandChild): boolean => {
+          return grandChildStep.completed === true;
+        });
+      });
+    });
+  }
 
-  public list = [
+  public list: IParent[] = [
     {
       title: 'Getting Out',
       checkmark: false,
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Understanding the process of separating',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -43,7 +93,6 @@ export class TimelineComponent {
         },
         {
           title: 'Completing my paperwork',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -99,7 +148,6 @@ export class TimelineComponent {
         {
           title: 'Engaging VA to access benefits',
           checkmark: false,
-          dot: true,
           children: [
             {
               title: 'Complete the Veteran Affairs (VA) Benefits Briefings I and II',
@@ -123,10 +171,10 @@ export class TimelineComponent {
       topLevel: true,
       itemExpand: false,
       dot: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Find something to do',
-          dot: true,
           children: [
             {
               title: 'Go to Career Center',
@@ -144,7 +192,6 @@ export class TimelineComponent {
         },
         {
           title: 'Re-establishing and creating relationships',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -157,7 +204,6 @@ export class TimelineComponent {
         },
         {
           title: 'Balancing finances',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -176,10 +222,10 @@ export class TimelineComponent {
       itemExpand: false,
       topLevel: true,
       dot: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Recognizing and addressing mental health needs',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -222,7 +268,6 @@ export class TimelineComponent {
         },
         {
           title: 'VA Health Care',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -253,7 +298,6 @@ export class TimelineComponent {
         },
         {
           title: 'Seeking support for acute health event',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -284,10 +328,10 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Acquiring the appropriate education, new skills, and credentials',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -330,7 +374,6 @@ export class TimelineComponent {
         },
         {
           title: 'Finding the right job',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -361,10 +404,10 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Maintaining my financial, social, and emotional health',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -395,7 +438,6 @@ export class TimelineComponent {
         },
         {
           title: 'Starting, growing, or taking care of my family',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -426,7 +468,6 @@ export class TimelineComponent {
         },
         {
           title: 'Connecting with, and serving my community',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -451,10 +492,10 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Taking care of my own heath',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -491,7 +532,6 @@ export class TimelineComponent {
         },
         {
           title: 'Finding additional sources of income',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -516,10 +556,10 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Managing my declining heath',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -538,7 +578,6 @@ export class TimelineComponent {
         },
         {
           title: 'Adapting my support network to my new needs',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -569,10 +608,10 @@ export class TimelineComponent {
       itemExpand: false,
       dot: true,
       topLevel: true,
+      areAllStepsCompleted: false,
       children: [
         {
           title: 'Deciding how and where to be memorialized',
-          dot: true,
           checkmark: false,
           children: [
             {
@@ -595,10 +634,6 @@ export class TimelineComponent {
 
   @Input('endIcon') endIcon = "ionic";
 
-  constructor() {
-    console.log('Hello TimelineComponent Component');
-    this.text = 'Hello World';
-  }
   
   toggleItem(item){
     if(item.itemExpand){

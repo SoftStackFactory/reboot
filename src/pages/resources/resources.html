@@ -16,7 +16,7 @@
 
 <ion-content padding>
   <h1 id="title">
-    Hello, {{user.firstName}}{{user.lastName}}!
+    Hello, {{user.firstName}} {{user.lastName}}!
   </h1>
     <ion-card>
       <ion-card-content id="card-text">
@@ -25,14 +25,16 @@
     </ion-card>
     <ion-card>
       <ion-card-header id='title'>
-          Your lowest score on self assessment <br>
-          {{user.lowScoreName}}
+          Your lowest score on self assessment is: <br><br>
+          <b><em>{{userPro.userData.lowScoreName}}</em></b> 
       </ion-card-header>
       <ion-card-content id="title">
         <ion-card id="score-box">
-          <div (click)="openModal()" *ngIf="user.lowestScore <= 4" class="red"> {{user.lowestScore}}</div>
+          <div *ngIf="user.lowestScore <= 4" class="red"> {{userPro.userData.lowestScore}}</div>
         </ion-card>
-        Maybe you can start here?
+        Maybe you can start there? <br>
+        <button ion-button color="secondary" (click)="openSelfAssessment()">Retake the self assessment test</button>
+        <button ion-button color="secondary" (click)="openDashboard()">Go to the Dashboard</button>
       </ion-card-content>
 
     </ion-card>

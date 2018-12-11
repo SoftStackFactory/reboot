@@ -6,6 +6,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { UserProvider } from '../../providers/user/user'
 import { Storage } from '@ionic/storage';
 import { ChartProvider } from '../../providers/chart/chart';
+import { WizardPage } from '../wizard/wizard';
 
 @Component({
   selector: 'page-login',
@@ -35,7 +36,7 @@ export class LoginPage {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
-      password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9 ]*'), Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9!@#$%&*?]*'), Validators.required])],
     });
   }
 
@@ -72,7 +73,8 @@ export class LoginPage {
           this.loginResponse = res;
           sessionStorage.setItem('userId', this.loginResponse.userId)
           sessionStorage.setItem('token', this.loginResponse.token);
-          alert("you're logged in!")
+          alert("you're logged in!");
+          this.navCtrl.setRoot(WizardPage);
           //this.getChartData();
         },
         (err) => {
