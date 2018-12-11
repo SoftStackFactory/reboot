@@ -13,10 +13,11 @@ export class ChartProvider {
   constructor(public http: HttpClient) { }
 
   addAssessment(assessment) {
-    return this.http.post(this.requestUrl + '/charts/', assessment);
+    let token = window.sessionStorage.getItem("token");
+    return this.http.post(this.requestUrl + '/charts?access_token=ff' + token, assessment);
   }
 
   getChartHistory() {
-    return this.http.get(this.requestUrl + '/appUsers/' + sessionStorage.getItem('userId') + '/charts')
+    return this.http.get(this.requestUrl + '/appUsers/' + sessionStorage.getItem('userId') + '/charts?access_token=ff' + sessionStorage.getItem('token'))
   }
 }
