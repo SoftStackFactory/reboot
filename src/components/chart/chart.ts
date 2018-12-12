@@ -1,5 +1,5 @@
 import { ChartProvider } from './../../providers/chart/chart';
-import { Component, ViewChild, Input} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Chart } from 'chart.js';
 import 'chartjs-plugin-labelsreboot';
 

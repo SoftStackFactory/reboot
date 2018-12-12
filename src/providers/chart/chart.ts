@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 import { ENV } from '@app/env';
 
@@ -16,9 +17,13 @@ export class ChartProvider {
   constructor(public http: HttpClient) { }
 
   getChartHistory() {
-    return this.http.get(this.requestUrl).subscribe((res:any[])=>{
-      
-      return res
+    return this.http.get(this.requestUrl).map((res:any[])=>{
+      let allData:any = []
+      let history = res.map(x=>{
+        allData.push({date: moment(x.date).format('MM/DD/YYYY'), value: [x.data.Career, x.data.Finance, x.data['Personal Growth'], x.data.Health, x.data.Family, x.data.Relationships, x.data["Social Life"], x.data.Attitude]})
+        return allData
+      })
+      return allData
     })
   }
   mostRecentData() {

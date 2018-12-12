@@ -38,7 +38,7 @@
               <td></td>
               <th scope="col" *ngFor="let label of labels">{{label}}</th>
             </tr>
-            <tr *ngFor="let date of history; let odd = odd; let even = even" [ngClass]="{odd: odd, even:even}" (click)="showChart(date)">
+            <tr *ngFor="let date of history; let odd = odd; let even = even" [ngClass]="{odd: odd, even:even}">
               <th>{{date.date}}</th>
               <td *ngFor="let val of date.value">{{val}}</td>
             </tr>
