@@ -1,5 +1,19 @@
 timeline {
 
+    .saveButton {
+        border: none !important;
+    }
+
+    .button-ios {
+        background-color: #b3ccc8;
+        color: darkslategray;
+        margin-left: 7%;
+    }
+    
+    .lastSave {
+        margin-left: 7%;
+    }
+
     h2{
         padding-bottom: 15px;
     }
@@ -62,7 +76,11 @@ padding-left: 2em;
     opacity: .5;
 }
 
-.button-inner {
+.cd-timeline--sectionDone {
+    opacity: .5;
+}
+
+.bulletItem .button-inner {
     flex-flow: flex;
     border-style: groove;
     border-left: none !important;

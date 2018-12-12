@@ -12,7 +12,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
-import { NewsPage } from '../pages/news/news';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { ResourcesPage } from '../pages/resources/resources';
 
@@ -44,7 +43,6 @@ export class MyApp {
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage },
-      { title: 'News', component: NewsPage},
       { title: 'Resources', component: ResourcesPage }
     ];
 
