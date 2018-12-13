@@ -48,7 +48,6 @@ export class NewsPage {
   }
 
  
-//function to open link in new page (not in use because current rss feed already has link in description)
   openLink(url) {
     const link = this.browser.create(url);
   }
