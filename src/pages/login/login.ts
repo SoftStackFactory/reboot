@@ -6,6 +6,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { UserProvider } from '../../providers/user/user'
 import { Storage } from '@ionic/storage';
 import { ChartProvider } from '../../providers/chart/chart';
+import { WizardPage } from '../wizard/wizard';
 
 @Component({
   selector: 'page-login',
@@ -72,7 +73,8 @@ export class LoginPage {
           this.loginResponse = res;
           sessionStorage.setItem('userId', this.loginResponse.userId)
           sessionStorage.setItem('token', this.loginResponse.token);
-          alert("you're logged in!")
+          alert("you're logged in!");
+          this.navCtrl.setRoot(WizardPage);
           //this.getChartData();
         },
         (err) => {

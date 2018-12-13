@@ -7,9 +7,9 @@
 <ion-header>
     <ion-navbar>
       <div id='exit'>
-        <button id="close" ion-button
+        <button id="close"
         (click)="closeModal()" >
-          <ion-icon name="close"></ion-icon>
+          <ion-icon name="close" ></ion-icon>
         </button>
       </div>
       <ion-title id='header-title'>{{resources.title}}</ion-title>
@@ -17,13 +17,13 @@
   </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header id='title'>
-        {{resources.title}}
-    </ion-card-header>
-    <ion-card-content id='card-text'>
-        {{resources.message}}
-    </ion-card-content>
-  </ion-card>
-
+    <div id='card-text'>
+        {{resources.message}}<br><br>
+        Here are some links to help you get started:<br>
+        <a href="https://www.careeronestop.org/ResourcesFor/CareerAdvisor/career-advisor.aspx">Mock Link 1</a>
+        <br>
+        <a href="https://www.princetonreview.com/quiz/career-quiz">Mock Link 2</a>
+    </div>
+    
+     
 </ion-content>

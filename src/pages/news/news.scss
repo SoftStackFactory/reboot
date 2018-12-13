@@ -1,15 +1,27 @@
 page-news {
 
   .social-cards ion-col {
-    padding: 0;
   }
 
-    #separationLink {
-      padding: 20px;
-      font-size: 15px;
-    }
+  #separationLink {
+    padding: 20px;
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  #linkArrow {
+    position: relative;
+    padding: 2px;
+    top: 6px;
+    font-size: 30px;
+  }
+
   #heading {
     padding: 100px;
+  }
+
+  #newsTitle {
+    text-align: center;
   }
 
   #news {
@@ -18,11 +30,12 @@ page-news {
 
   .timestamp {
     font-size: 12px;
-    text-indent: 7px;
+    // text-indent: 7px;
   }
 
   .title {
-    text-indent: 6px;
+    // text-indent: 6px;
+    font-size: 2vw;
   }
 
   h1 {
@@ -33,6 +46,20 @@ page-news {
     position: relative;
     left: 8px;
     padding: 8px;
+    border-radius: 20px;
+    width: 25%;
+    height: 25%;
+    min-width: 180px;
+    margin-top: 8px;
+    margin-bottom: 8px;    
+  }
+
+  .article {
+    border-radius: 20px;
+  }
+  .articleText {
+    margin-left: 16px;
+    font-size: 1.2vw;
   }
 
 
