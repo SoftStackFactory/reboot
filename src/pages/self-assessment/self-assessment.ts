@@ -91,12 +91,7 @@ export class SelfAssessmentPage {
                 this.currentAssessment.date = moment().format('YYYY-MM-DD');
                 this.currentAssessment.appUserId = sessionStorage.getItem('userId');
                 //Sets default
-                this.areas.forEach(x => {
-                  if(x.title === 'Social Life' || 'Personal Growth') {
-                    x.title = x.title.replace(/\s/g, '');
-                  }  
-                  return this.currentAssessment.data[x.title] = 0;
-                });
+                this.areas.forEach(x => this.currentAssessment.data[x.title] = 0);
               }
 
               
