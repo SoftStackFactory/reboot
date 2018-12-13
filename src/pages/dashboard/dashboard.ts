@@ -19,7 +19,7 @@ interface UserData {
 export class DashboardPage {
 
   name: any
-  date: any
+  assessDate: any
   daysTilSep: any
   daysTilSepAbs: any
 
@@ -35,9 +35,9 @@ export class DashboardPage {
     //   this.name = val ? `${val.firstName} ${val.lastName}` : '';
     // })
 
-    this.storage.get('chartData').then((val) => {
-      this.date = val ? val.Date : '';
-    }).then(() => this.lastDate())
+    // this.storage.get('chartData').then((val) => {
+    //   this.assessDate = val ? val.Date : '';
+    // }).then(() => this.lastDate())
   
     this.user.getUser(window.sessionStorage.getItem('userId'))
     .subscribe( (data:UserData)=> {
@@ -48,6 +48,14 @@ export class DashboardPage {
       this.daysTilSepAbs = Math.abs(this.daysTilSep);
       console.log(this.daysTilSep, this.name)
     })
+    this.user.getUserChart(window.sessionStorage.getItem('userId'))
+    .subscribe( (data) => {
+      this.assessDate = data[0].date.substring(0,10);
+      console.log(data);
+    }, error => {console.log("error")},
+    () => {
+      this.lastDate();
+    });
   }
 
   toTimeline() {
@@ -56,7 +64,7 @@ export class DashboardPage {
 
   lastDate() {
     let toast = this.toastCtrl.create({
-      message: `Your last assessment was ${this.date}`,
+      message: `Your last assessment was ${this.assessDate}`,
       duration: 2500,
       position: 'middle'
     });

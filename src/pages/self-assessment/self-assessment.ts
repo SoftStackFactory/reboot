@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import * as moment from 'moment';
 import { ChartProvider } from '../../providers/chart/chart'
 import { ResourcesPage } from '../resources/resources'
+import { UserProvider } from 'providers/user/user';
 
 
 /**
@@ -27,6 +28,7 @@ export class SelfAssessmentPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public chartProvider: ChartProvider, 
+              public user: UserProvider,
               private storage: Storage, 
               private toastCtrl: ToastController) {
               
@@ -97,10 +99,18 @@ export class SelfAssessmentPage {
               
             
               ionViewWillLoad() {
-                this.storage.get('chartData').then((val) => {
-                  this.date = val ? val.Date : '';
-                  // console.log('this.date:', this.date, 'val.Date:', val.Date)
-                }).then(() => this.lastDate())
+                // this.storage.get('chartData').then((val) => {
+                //   this.date = val ? val.Date : '';
+                //   // console.log('this.date:', this.date, 'val.Date:', val.Date)
+                // }).then(() => this.lastDate())
+                this.user.getUserChart(window.sessionStorage.getItem('userId'))
+                .subscribe( (data) => {
+                  this.date = data[0].date.substring(0,10);
+                  console.log(data);
+                }, error => {console.log("error")},
+                () => {
+                  this.lastDate();
+                });
               }
             
               toggleSection(area) {
