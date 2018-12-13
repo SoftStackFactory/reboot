@@ -10,13 +10,13 @@ interface UserData {
   lastName: any
 }
 interface ChartData {
-  Career: number, 
+  Career: number,
   Finance: number,
-  PersonalGrowth: number, 
-  Health: number, 
+  PersonalGrowth: number,
+  Health: number,
   Family: number,
-  Relationships: number, 
-  SocialLife: number, 
+  Relationships: number,
+  SocialLife: number,
   Attitude: number
 }
 @IonicPage()

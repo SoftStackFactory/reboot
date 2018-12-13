@@ -18,7 +18,7 @@ export class ChartProvider {
 
   addAssessment(assessment) {
     let token = window.sessionStorage.getItem("token");
-    return this.http.post(this.requestUrl + '/charts?access_token=ff' + token, assessment); 
+    return this.http.post(this.requestUrl, assessment);
   }
 
   getChartHistory() {
