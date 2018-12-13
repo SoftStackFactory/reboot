@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import * as moment from 'moment';
 import { ChartProvider } from '../../providers/chart/chart'
 import { ResourcesPage } from '../resources/resources'
-import { UserProvider } from 'providers/user/user';
+import { UserProvider } from '../../providers/user/user';
 
 
 /**
