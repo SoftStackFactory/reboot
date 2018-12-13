@@ -32,7 +32,7 @@ export class ChartComponent {
   buildChart(data){
     this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
-      data: { labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
+      data: { labels: ["Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
       datasets: [
         {
           backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],
