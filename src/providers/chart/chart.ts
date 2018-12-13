@@ -16,6 +16,11 @@ export class ChartProvider {
   testChart: any = [];
   constructor(public http: HttpClient) { }
 
+  addAssessment(assessment) {
+    let token = window.sessionStorage.getItem("token");
+    return this.http.post(this.requestUrl + '/charts?access_token=ff' + token, assessment); 
+  }
+
   getChartHistory() {
     return this.http.get(this.requestUrl).map((res:any[])=>{
       //Initialized an array to store the values.
