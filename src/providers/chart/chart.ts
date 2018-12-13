@@ -19,8 +19,8 @@ export class ChartProvider {
   getChartHistory() {
     return this.http.get(this.requestUrl).map((res:any[])=>{
       let allData:any = []
-      let history = res.map(x=>{
-        allData.push({date: moment(x.date).format('MM/DD/YYYY'), value: [x.data.Career, x.data.Finance, x.data['Personal Growth'], x.data.Health, x.data.Family, x.data.Relationships, x.data["Social Life"], x.data.Attitude]})
+      res.map(x=>{
+        allData.push({date: moment(x.date).format('MM/DD/YYYY'), value: [x.data.Career, x.data.Finance, x.data.PersonalGrowth, x.data.Health, x.data.Family, x.data.Relationships, x.data.SocialLife, x.data.Attitude]})
         return allData
       })
       return allData
@@ -32,7 +32,7 @@ export class ChartProvider {
       //Returns all data, recent gets the last or most recent item from the DB
       let recent = res[res.length-1].data
       //destructures the response object and places it into an array so that the chart can consume it.
-      let mostRecentChart = [recent.Career, recent.Finance, recent['Personal Growth'], recent.Health, recent.Family, recent.Relationships, recent["Social Life"], recent.Attitude]
+      let mostRecentChart = [recent.Career, recent.Finance, recent.PersonalGrowth, recent.Health, recent.Family, recent.Relationships, recent.SocialLife, recent.Attitude]
       return mostRecentChart
     })
   }
