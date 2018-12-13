@@ -31,7 +31,7 @@
         <div id="range">
           <p text-center id="instructions"> DRAG SLIDER TO RATE FROM 0 - 10
             HOW WELL YOU ARE DOING IN "{{area.title | uppercase}}" </p>
-          <ion-range pin="true" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(i, area.number)">
+          <ion-range pin="true" min="0" max="10" step="1" snaps="true" [(ngModel)]="area.number" (ionChange)="changeData(area.title, area.number)">
             <ion-label class="rangeLabels" range-left>0</ion-label>
             <ion-label class="rangeLabels" range-right>10</ion-label>
           </ion-range>

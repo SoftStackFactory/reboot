@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
+import { SelfAssessmentPage } from '../self-assessment/self-assessment';
+import { DashboardPage } from '../dashboard/dashboard';
 
-/**
- * Generated class for the ResourcesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+interface UserData {
+  firstName: any,
+  lastName: any
+}
+interface ChartData {
+  Career: number, 
+  Finance: number,
+  PersonalGrowth: number, 
+  Health: number, 
+  Family: number,
+  Relationships: number, 
+  SocialLife: number, 
+  Attitude: number
+}
 @IonicPage()
 @Component({
   selector: 'page-resources',
@@ -21,13 +31,17 @@ export class ResourcesPage {
     lowestScore: 2,
     lowScoreName: 'Finances'
     }
+
+    lowestResource: any = {};
+
+    values: Array<any> = [];
   
     //Resource tempate resources data
   resources: any = [
     {
       title: 'Career',
-      message: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve',
-      modalMessage: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve'
+      message: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve?',
+      modalMessage: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve?'
     },
     {
       title: 'Finances',
@@ -66,12 +80,34 @@ export class ResourcesPage {
     }
   ];
 
-
-
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public modalCtrl: ModalController) {
-
-    
+  public modalCtrl: ModalController,
+  public userPro: UserProvider) {
+      this.userPro.getUser(window.sessionStorage.getItem('userId'))
+    .subscribe((data: UserData) => {
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
+    });
+    this.userPro.getUserChart(window.sessionStorage.getItem('userId'))
+    .subscribe( (data: ChartData) => {
+      console.log(data);
+      this.values = data[0].data;
+      let lowest = 10;
+      let lowestProp: any;
+      console.log("values",this.values);
+      console.log(lowest);
+      for (var prop in this.values) {
+        if (this.values[prop] < lowest) {
+          lowest = this.values[prop];
+          lowestProp = prop;
+        }
+          console.log(lowest, lowestProp);
+    }
+    this.userPro.userData.lowestScore = lowest;
+    this.userPro.userData.lowScoreName = lowestProp;
+    this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
+    console.log(this.values)
+  });
   }
 
 
@@ -79,11 +115,15 @@ export class ResourcesPage {
   const resModal = this.modalCtrl.create('ResourceModalPage',{data:data})
 
    resModal.present();
-   
-   
-
   }
 
+  openSelfAssessment() {
+    this.navCtrl.setRoot(SelfAssessmentPage);
+  }
+
+  openDashboard() {
+    this.navCtrl.setRoot(DashboardPage);
+  }
 
 
   ionViewDidLoad() {
