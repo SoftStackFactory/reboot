@@ -50,7 +50,10 @@ export class DashboardPage {
     })
     this.user.getUserChart(window.sessionStorage.getItem('userId'))
     .subscribe( (data) => {
-      this.assessDate = data[0].date.substring(0,10);
+      this.assessDate = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
+      let now = new Date().getTime();
+      this.assessDate = Math.ceil((this.assessDate - now)/86400000);
+      this.assessDate = Math.abs(this.assessDate);
       console.log(data);
     }, error => {console.log("error")},
     () => {
@@ -64,9 +67,10 @@ export class DashboardPage {
 
   lastDate() {
     let toast = this.toastCtrl.create({
-      message: `Your last assessment was ${this.assessDate}`,
+      message: `Your last assessment was ${this.assessDate} day(s) ago`,
       duration: 2500,
-      position: 'middle'
+      position: 'middle',
+      cssClass: 'toaster',
     });
 
     toast.present();

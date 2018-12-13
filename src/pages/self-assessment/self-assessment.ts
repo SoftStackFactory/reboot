@@ -105,7 +105,10 @@ export class SelfAssessmentPage {
                 // }).then(() => this.lastDate())
                 this.user.getUserChart(window.sessionStorage.getItem('userId'))
                 .subscribe( (data) => {
-                  this.date = data[0].date.substring(0,10);
+                  this.date = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
+                  let now = new Date().getTime();
+                  this.date = Math.ceil((this.date - now)/86400000);
+                  this.date = Math.abs(this.date);
                   console.log(data);
                 }, error => {console.log("error")},
                 () => {
@@ -136,7 +139,7 @@ export class SelfAssessmentPage {
             
               lastDate() {
                 let toast = this.toastCtrl.create({
-                  message: `Your last assessment was ${this.date}`,
+                  message: `Your last assessment was ${this.date} day(s) ago`,
                   duration: 2500,
                   position: 'middle'
                 });
