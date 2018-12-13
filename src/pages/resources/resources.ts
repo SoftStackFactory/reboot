@@ -9,20 +9,6 @@ interface UserData {
   firstName: any,
   lastName: any
 }
-<<<<<<< Updated upstream
-interface ChartData {
-  Career: number, 
-  Finance: number,
-  PersonalGrowth: number, 
-  Health: number, 
-  Family: number,
-  Relationships: number, 
-  SocialLife: number, 
-  Attitude: number
-}
-=======
-
->>>>>>> Stashed changes
 @IonicPage()
 @Component({
   selector: 'page-resources',
