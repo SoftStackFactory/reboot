@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { UserProvider } from '../../providers/user/user';
 import { SelfAssessmentPage } from '../self-assessment/self-assessment';
 import { DashboardPage } from '../dashboard/dashboard';
+import { HistoryPage } from '../history/history';
 
 interface UserData {
   firstName: any,
@@ -25,12 +26,7 @@ interface ChartData {
 })
 export class ResourcesPage {
 
-  user: any = {
-    firstName : 'Peter',
-    lastaname : 'Horton',
-    lowestScore: 2,
-    lowScoreName: 'Finances'
-    }
+  user: any = {};
 
     lowestResource: any = {};
 
@@ -121,10 +117,13 @@ export class ResourcesPage {
     this.navCtrl.setRoot(SelfAssessmentPage);
   }
 
+  openChartHistory() {
+    this.navCtrl.setRoot(HistoryPage);
+  }
+
   openDashboard() {
     this.navCtrl.setRoot(DashboardPage);
   }
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourcesPage');
