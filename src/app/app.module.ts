@@ -25,6 +25,7 @@ import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
+import { TimelineProvider } from '../providers/timeline/timeline';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    ChartProvider
+    ChartProvider,
+    TimelineProvider
   ]
 })
 export class AppModule {}

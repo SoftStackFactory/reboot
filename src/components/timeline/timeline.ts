@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Item } from 'ionic-angular';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+import { TimelineProvider } from '../../providers/timeline/timeline';
 
 interface IGrandChild {
   title: string,
@@ -37,10 +38,21 @@ interface IParent {
   templateUrl: 'timeline.html'
 })
 export class TimelineComponent {
-  constructor() {
+  constructor( public _timePro: TimelineProvider ) {
     console.log('Hello TimelineComponent Component');
     this.text = 'Hello World';
     
+    
+  }
+
+  timelineResponse: any;
+
+  saveTimeline(){
+    this._timePro.saveTimeline(this.timelineResponse)
+    .subscribe(
+      (res => {console.log(res)
+      })
+    )
   }
 
   // Event function to update completion status of grandchild
