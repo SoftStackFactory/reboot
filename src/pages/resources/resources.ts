@@ -9,6 +9,7 @@ interface UserData {
   firstName: any,
   lastName: any
 }
+<<<<<<< Updated upstream
 interface ChartData {
   Career: number, 
   Finance: number,
@@ -19,6 +20,9 @@ interface ChartData {
   SocialLife: number, 
   Attitude: number
 }
+=======
+
+>>>>>>> Stashed changes
 @IonicPage()
 @Component({
   selector: 'page-resources',
@@ -85,13 +89,14 @@ export class ResourcesPage {
       this.user.lastName = data.lastName;
     });
     this.userPro.getUserChart(window.sessionStorage.getItem('userId'))
-    .subscribe( (data: ChartData) => {
+    .subscribe( (data: Array<any>) => {
       console.log(data);
-      this.values = data[0].data;
+      this.values = data[data.length-1].data;
       let lowest = 10;
       let lowestProp: any;
       console.log("values",this.values);
       console.log(lowest);
+      console.log("CHARTS",data)
       for (var prop in this.values) {
         if (this.values[prop] < lowest) {
           lowest = this.values[prop];
