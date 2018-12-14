@@ -10,7 +10,8 @@ import { Subscription } from 'rxjs';
 @Injectable()
 export class NetworkProvider {
 
-  disconnectSubscription : Subscription
+  disconnectSubscription : Subscription;
+  connectSubscription : Subscription;
 
   constructor(private network: Network) { }
 
@@ -20,24 +21,26 @@ export class NetworkProvider {
       console.log('network was disconnected :-(');
     });
   }
+
   // stop disconnect watch
   endDisconnectSubscription(){
     this.disconnectSubscription.unsubscribe();
   }
   
-  
   // watch network for a connection
-  connectSubscription = this.network.onConnect().subscribe(() => {
-    console.log('network connected!');
-    // We just got a connection but we need to wait briefly
-     // before we determine the connection type. Might need to wait.
-    // prior to doing any api requests as well.
-    setTimeout(() => {
-      if (this.network.type === 'wifi') {
-        console.log('we got  wifi connection, woohoo!');
-      }
-    }, 3000);
-  });
+  onNetworkConnect(){
+    this.connectSubscription = this.network.onConnect().subscribe(() => {
+      console.log('network connected!');
+      // We just got a connection but we need to wait briefly
+       // before we determine the connection type. Might need to wait.
+      // prior to doing any api requests as well.
+      setTimeout(() => {
+        if (this.network.type === 'wifi') {
+          console.log('we got  wifi connection, woohoo!');
+        }
+      }, 3000);
+    });
+}  
   
   // stop connect watch
   endConnectSubscript(){
