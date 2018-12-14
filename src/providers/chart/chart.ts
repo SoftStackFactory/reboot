@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 
 import { ENV } from '@app/env';
+import { StorageProvider } from '../storage/storage'
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
 
 
 
@@ -19,11 +22,17 @@ export class ChartProvider {
   assessmentChartData;
 
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private storage: StorageProvider) { }
 
   addAssessment(assessment) {
-    let token = window.sessionStorage.getItem("token");
-    return this.http.post(this.requestUrl, assessment);
+    if(ENV.mode === 'Development') {
+      let storageObservable = Observable.fromPromise(this.storage.addToItem('assessement', assessment))
+      console.log(storageObservable)
+      return storageObservable;
+    } else {
+      let token = window.sessionStorage.getItem("token");
+      return this.http.post(this.requestUrl, assessment);
+    }
   }
 
   getChartHistory() {
@@ -38,6 +47,7 @@ export class ChartProvider {
       return allData
     })
   }
+
   mostRecentData() {
     //calls the API to get the assesments from the db
     return this.http.get(this.requestUrl).map((res:any[])=>{

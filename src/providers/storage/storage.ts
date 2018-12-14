@@ -13,7 +13,22 @@ export class StorageProvider {
 
   retrieveFromLocalStorage(key) {
     this.storage.get(key).then((val) => {
-      console.log(val + ' is retrieved')
+      console.log(val)
+    })
+  }
+
+  addToItem(key, value): any {
+    this.storage.get(key).then((val) => {
+      if(val) {
+        console.log(val)
+        value = val.concat([value])
+        return this.storage.set(key, value)
+      }
+      console.log('i ran')
+      
+      return this.storage.set(key, [value])
+    }).catch((e) => {
+      console.log(e)
     })
   }
 
