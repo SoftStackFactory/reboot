@@ -14,17 +14,16 @@ export class NetworkProvider {
 
   constructor(private network: Network) { }
 
-
-  
   // watch network for a disconnection
-
   watchDisconnect(){
     this.disconnectSubscription = this.network.onDisconnect().subscribe(() => {
       console.log('network was disconnected :-(');
     });
   }
   // stop disconnect watch
-  //disconnectSubscription.unsubscribe();
+  endDisconnectSubscription(){
+    this.disconnectSubscription.unsubscribe();
+  }
   
   
   // watch network for a connection
@@ -35,7 +34,7 @@ export class NetworkProvider {
     // prior to doing any api requests as well.
     setTimeout(() => {
       if (this.network.type === 'wifi') {
-        console.log('we got a wifi connection, woohoo!');
+        console.log('we got  wifi connection, woohoo!');
       }
     }, 3000);
   });
