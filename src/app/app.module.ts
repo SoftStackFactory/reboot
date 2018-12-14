@@ -16,9 +16,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
-import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
+//import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { HistoryPage } from '../pages/history/history';
-import { ResourcesPage } from '../pages/resources/resources';
+//import { ResourcesPage } from '../pages/resources/resources';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
@@ -26,7 +26,7 @@ import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
-import { NewsPage } from '../pages/news/news';
+//import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
@@ -46,15 +46,15 @@ import { NetworkProvider } from '../providers/network/network';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
-    SelfAssessmentPage,
+   // SelfAssessmentPage,
     HistoryPage,
-    NewsPage,
+   // NewsPage,
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
     ChartComponent,
     NewsWidgetComponent,
-    ResourcesPage,
+    //ResourcesPage,
   ],
   imports: [
     BrowserModule,
@@ -76,9 +76,9 @@ import { NetworkProvider } from '../providers/network/network';
     AssessmentPage,
     TimelinePage,
     HistoryPage,
-    NewsPage,
-    SelfAssessmentPage,
-    ResourcesPage,
+   // NewsPage,
+    //SelfAssessmentPage,
+    //ResourcesPage,
   ],
   providers: [
     StatusBar,
