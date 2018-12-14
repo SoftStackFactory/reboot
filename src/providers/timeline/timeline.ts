@@ -20,13 +20,20 @@ export class TimelineProvider {
     console.log('Hello TimelineProvider Provider');
   }
 
-  saveTimeline(timeCompList){
-    console.log(timeCompList);
-    return this.http.post(this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines', timeCompList);
-    
+  saveTimeline(timeCompList, hasEntry: boolean = false){
+    const link = this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines';
+    if (hasEntry) {
+      return this.http.put(link, timeCompList); 
+    } else {
+      return this.http.post(link, timeCompList);
+    }
   }
 
-  
+  getTimeline(){
+    console.log("hasTimeline");
+    return this.http.get(this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines');
+
+  } 
  
 
 

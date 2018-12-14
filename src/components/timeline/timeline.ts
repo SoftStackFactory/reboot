@@ -44,8 +44,23 @@ export class TimelineComponent {
     
   }
 
-  
-  
+  hasTimeline(){
+    this._timePro.getTimeline()
+    .subscribe(
+      (complete) => {
+        console.log(complete);
+        return true;
+      },
+      (error) => {
+        return false;
+      });   
+    
+  }
+
+  ngOnInit(){ 
+    this.hasTimeline();
+    console.log(this.hasTimeline);
+  }
   
 
   saveTimeline(){
