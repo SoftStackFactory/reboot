@@ -31,6 +31,7 @@ import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
 import { Network } from "@ionic-native/network";
+import { NetworkProvider } from '../providers/network/network';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { Network } from "@ionic-native/network";
     ChartProvider,
     RssProvider,
     InAppBrowser,
-    Network
+    Network,
+    NetworkProvider
 
   ]
 })
