@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Item } from 'ionic-angular';
-import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+
 import { TimelineProvider } from '../../providers/timeline/timeline';
 
 interface IGrandChild {
@@ -45,10 +44,19 @@ export class TimelineComponent {
     
   }
 
-  timelineResponse: any;
+  
+  
+  
 
   saveTimeline(){
-    this._timePro.saveTimeline(this.timelineResponse)
+    
+    let lastSaveObj = new Date();
+    let timelineData = {
+      "lastModified": lastSaveObj.toISOString(),
+      "content": this.list,      
+    }
+    // console.log(timelineData);
+    this._timePro.saveTimeline(timelineData)
     .subscribe(
       (res => {console.log(res)
       })
@@ -66,7 +74,7 @@ export class TimelineComponent {
     // Returns boolean value of granchild to child-level (one false g-child returns overall false value),returns child boolean value
     // to parent (one false child returns overall false value), changes parent's "areAllStepsCompleted" value to true for ngClass/styling 
     // by checking boolean values of children.
-  private trackProgress() {
+  public trackProgress() {
     this.list.forEach((parentStep: IParent): any => {
       parentStep.areAllStepsCompleted = parentStep.children.every((childStep: IChild): boolean => {
         return childStep.children.every((grandChildStep: IGrandChild): boolean => {

@@ -20,9 +20,9 @@ export class TimelineProvider {
     console.log('Hello TimelineProvider Provider');
   }
 
-  saveTimeline(timeline){
-    console.log('saveTimeline', this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines');
-    return this.http.post(this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines', timeline);
+  saveTimeline(timeCompList){
+    console.log(timeCompList);
+    return this.http.post(this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines', timeCompList);
     
   }
 
