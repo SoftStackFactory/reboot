@@ -3,6 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Providers
+import { NetworkProvider } from '../providers/network/network';
+
+//Pages
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -15,7 +19,9 @@ import { HistoryPage } from '../pages/history/history';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { ResourcesPage } from '../pages/resources/resources';
 
+// Env Variables
 import { ENV } from  '@app/env';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +33,12 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    private _network: NetworkProvider
+    ) {
     this.initializeApp();
 
     console.log("OUR ENV", ENV)
@@ -54,6 +65,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      //this._network.onNetworkConnect();
+     // this._network.watchDisconnect();
     });
   }
 
