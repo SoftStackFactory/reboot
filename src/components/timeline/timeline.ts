@@ -25,6 +25,13 @@ interface IParent {
   children: IChild[]
 }
 
+interface ITimelineResponseWrapper {
+  lastModified: string;
+  content: IParent[];
+  id?: string;
+  appUserId?: string;
+}
+
 
 /**
  * Generated class for the TimelineComponent component.
@@ -37,45 +44,49 @@ interface IParent {
   templateUrl: 'timeline.html'
 })
 export class TimelineComponent {
+  public hasTimelineData: boolean;
+
   constructor( public _timePro: TimelineProvider ) {
     console.log('Hello TimelineComponent Component');
     this.text = 'Hello World';
-    
+    this.hasTimelineData = false;
     
   }
 
   hasTimeline(){
     this._timePro.getTimeline()
     .subscribe(
-      (complete) => {
+      (complete: ITimelineResponseWrapper) => {
         console.log(complete);
-        return true;
-      },
-      (error) => {
-        return false;
-      });   
-    
+        
+        this.list = complete.content;
+        this.hasTimelineData = true;
+        console.log(this.list);
+      })       
   }
 
   ngOnInit(){ 
     this.hasTimeline();
-    console.log(this.hasTimeline);
+    
+    console.log(this.hasTimeline());
   }
   
 
   saveTimeline(){
     
     let lastSaveObj = new Date();
-    let timelineData = {
-      "lastModified": lastSaveObj.toISOString(),
-      "content": this.list,      
+    let timelineData: ITimelineResponseWrapper = {
+      lastModified: lastSaveObj.toISOString(),
+      content: this.list,      
     }
     // console.log(timelineData);
-    this._timePro.saveTimeline(timelineData)
+    this._timePro.saveTimeline(timelineData, this.hasTimelineData)
     .subscribe(
-      (res => {console.log(res)
+      (complete: ITimelineResponseWrapper) => {
+        console.log(complete);
+        this.hasTimelineData = true;
       })
-    )
+    
   }
 
   // Event function to update completion status of grandchild
