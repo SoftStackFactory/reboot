@@ -13,7 +13,10 @@ export class NetworkProvider {
   disconnectSubscription : Subscription;
   connectSubscription : Subscription;
 
-  constructor(private network: Network) { }
+  constructor(private network: Network) { 
+   this.onNetworkConnect()
+
+  }
 
   // watch network for a disconnection
   watchDisconnect(){
