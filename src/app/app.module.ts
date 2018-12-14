@@ -30,6 +30,7 @@ import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
+import { Network } from "@ionic-native/network";
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { NewsWidgetComponent } from '../components/news-widget/news-widget';
     UserProvider,
     ChartProvider,
     RssProvider,
-    InAppBrowser
+    InAppBrowser,
+    Network
 
   ]
 })
