@@ -14,6 +14,7 @@ export class ChartProvider {
   chartSections: any;
   requestUrl: string = ENV.url + '/charts?access_token=' + sessionStorage.getItem('token')
   testChart: any = [];
+  chartHistory;
   constructor(public http: HttpClient) { }
 
   addAssessment(assessment) {

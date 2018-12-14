@@ -39,7 +39,7 @@ interface IParent {
 export class TimelineComponent {
   constructor() {
     console.log('Hello TimelineComponent Component');
-    this.text = 'Hello World';
+    // this.text = 'Hello World';
     
   }
 
@@ -175,6 +175,7 @@ export class TimelineComponent {
       children: [
         {
           title: 'Find something to do',
+          checkmark: false,
           children: [
             {
               title: 'Go to Career Center',
