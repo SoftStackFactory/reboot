@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Network } from '@ionic-native/network';
-
+import { Subscription } from 'rxjs';
 /*
   Generated class for the NetworkProvider provider.
 
@@ -10,7 +10,8 @@ import { Network } from '@ionic-native/network';
 @Injectable()
 export class NetworkProvider {
 
-  
+  disconnectSubscription : Subscription
+
   constructor(private network: Network) { }
 
 
