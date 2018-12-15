@@ -66,7 +66,7 @@ export class MyApp {
     
     this.platform.ready().then(() => {
        
-      this._networkProvider.initializeNetworkEvents();
+      // this._networkProvider.initializeNetworkEvents();
 
      // Offline event
   this.events.subscribe('network:offline', () => {

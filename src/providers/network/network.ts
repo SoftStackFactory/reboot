@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Network } from '@ionic-native/network';
-import { Subscription } from 'rxjs';
-import { AlertController, Events } from 'ionic-angular';
-
+// import { Subscription } from 'rxjs';
+import { AlertController, Events, ToastController } from 'ionic-angular';
 /*
   Generated class for the NetworkProvider provider.
 
@@ -24,28 +23,49 @@ export class NetworkProvider {
 
   constructor(public alertCtrl: AlertController, 
               public network: Network,
-              public eventCtrl: Events) {
+              public eventCtrl: Events, public toastCtrl: ToastController) {
 
     console.log('Hello NetworkProvider Provider');
 
-    this.previousStatus = ConnectionStatusEnum.Online;
+    //this.previousStatus = ConnectionStatusEnum.Online;
+
+    this.network.onConnect().subscribe(() => {
+        console.log('network connected!');
+        this.toastCtrl.create({
+          message: 'Network connected',
+          duration: 2000
+        }).present();
+      });
+  
+      this.network.onDisconnect().subscribe(() => {
+        console.log('network was disconnected :-(');
+        this.toastCtrl.create({
+          message: 'Network disconnected',
+          duration: 2000
+        }).present();
+      });
+
+
+
     
   }
 
-    public initializeNetworkEvents(): void {
-        this.network.onDisconnect().subscribe(() => {
-            if (this.previousStatus === ConnectionStatusEnum.Online) {
-                this.eventCtrl.publish('network:offline');
-            }
-            this.previousStatus = ConnectionStatusEnum.Offline;
-        });
-        this.network.onConnect().subscribe(() => {
-            if (this.previousStatus === ConnectionStatusEnum.Offline) {
-                this.eventCtrl.publish('network:online');
-            }
-            this.previousStatus = ConnectionStatusEnum.Online;
-        });
-    }
+    // public initializeNetworkEvents(): void {
+    //     this.network.onDisconnect().subscribe(() => {
+    //         if (this.previousStatus === ConnectionStatusEnum.Online) {
+    //             this.eventCtrl.publish('network:offline');
+    //         }
+    //         this.previousStatus = ConnectionStatusEnum.Offline;
+    //     });
+    //     this.network.onConnect().subscribe(() => {
+    //         if (this.previousStatus === ConnectionStatusEnum.Offline) {
+    //             this.eventCtrl.publish('network:online');
+    //         }
+    //         this.previousStatus = ConnectionStatusEnum.Online;
+    //     });
+    // }
+
+
 
 
 
