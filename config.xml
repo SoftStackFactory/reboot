@@ -94,4 +94,5 @@
         <variable name="ROLLBACK_TIMEOUT" value="10" />
         <variable name="MIN_BACKGROUND_DURATION" value="30" />
     </plugin>
+    <plugin name="cordova-plugin-network-information" spec="2.0.1" />
 </widget>

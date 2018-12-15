@@ -48,6 +48,10 @@
 		3CA3572CB6FC496B8581859A /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 600A88CB4C864376A0195470 /* CDVAssetLibraryFilesystem.m */; };
 		399E1859F9BC46BDB11051CD /* CDVSplashScreen+IonicCordovaCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F96FF670DD4523876836C1 /* CDVSplashScreen+IonicCordovaCommon.m */; };
 		5487F8EBB66E4A8DA0514FEE /* IonicCordovaCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A0421746C425C91864AC2 /* IonicCordovaCommon.m */; };
+		DC8D76D850E243F7A0E6E82E /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C87F572F1C2B42A7B6548A31 /* CDVConnection.m */; };
+		4C4605AE0F244F27B0D9689A /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2BDDE29BD45B1A4AFAB44 /* CDVReachability.m */; };
+		27388F15A13648B396A0430F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD21379BAE0486CA1D586F9 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		391A56065D514148AB17F513 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1AEEE3C80B4D85A26B4348 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +156,12 @@
 		FD9A0421746C425C91864AC2 /* IonicCordovaCommon.m */ = {isa = PBXFileReference; name = "IonicCordovaCommon.m"; path = "cordova-plugin-ionic/IonicCordovaCommon.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		ED07526104664D3B9289F851 /* CDVSplashScreen+IonicCordovaCommon.h */ = {isa = PBXFileReference; name = "CDVSplashScreen+IonicCordovaCommon.h"; path = "cordova-plugin-ionic/CDVSplashScreen+IonicCordovaCommon.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		4722206A5D044D6E800A59A7 /* IonicCordovaCommon.h */ = {isa = PBXFileReference; name = "IonicCordovaCommon.h"; path = "cordova-plugin-ionic/IonicCordovaCommon.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C87F572F1C2B42A7B6548A31 /* CDVConnection.m */ = {isa = PBXFileReference; name = "CDVConnection.m"; path = "cordova-plugin-network-information/CDVConnection.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		6AA2BDDE29BD45B1A4AFAB44 /* CDVReachability.m */ = {isa = PBXFileReference; name = "CDVReachability.m"; path = "cordova-plugin-network-information/CDVReachability.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		BC02E4998F66469B97CB66D0 /* CDVConnection.h */ = {isa = PBXFileReference; name = "CDVConnection.h"; path = "cordova-plugin-network-information/CDVConnection.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		9E0A418175494688B1914792 /* CDVReachability.h */ = {isa = PBXFileReference; name = "CDVReachability.h"; path = "cordova-plugin-network-information/CDVReachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		DCD21379BAE0486CA1D586F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		5B1AEEE3C80B4D85A26B4348 /* CoreTelephony.framework */ = {isa = PBXFileReference; name = "CoreTelephony.framework"; path = "System/Library/Frameworks/CoreTelephony.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +172,8 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				AD7F08FDC4594B9BB3E38850 /* WebKit.framework in Frameworks */,
 				BC3D2D2D49F24BFD9DFA58F4 /* libz.tbd in Frameworks */,
+				27388F15A13648B396A0430F /* SystemConfiguration.framework in Frameworks */,
+				391A56065D514148AB17F513 /* CoreTelephony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +246,8 @@
 			children = (
 				5B705CBDDF7943A7ADE566FB /* WebKit.framework */,
 				0659EB85D1AE46E5AC9F5859 /* libz.tbd */,
+				DCD21379BAE0486CA1D586F9 /* SystemConfiguration.framework */,
+				5B1AEEE3C80B4D85A26B4348 /* CoreTelephony.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -321,6 +335,10 @@
 				FD9A0421746C425C91864AC2 /* IonicCordovaCommon.m */,
 				ED07526104664D3B9289F851 /* CDVSplashScreen+IonicCordovaCommon.h */,
 				4722206A5D044D6E800A59A7 /* IonicCordovaCommon.h */,
+				C87F572F1C2B42A7B6548A31 /* CDVConnection.m */,
+				6AA2BDDE29BD45B1A4AFAB44 /* CDVReachability.m */,
+				BC02E4998F66469B97CB66D0 /* CDVConnection.h */,
+				9E0A418175494688B1914792 /* CDVReachability.h */,
 			);
 			name = Plugins;
 			path = "reboot/Plugins";
@@ -463,6 +481,8 @@
 				3CA3572CB6FC496B8581859A /* CDVAssetLibraryFilesystem.m in Sources */,
 				399E1859F9BC46BDB11051CD /* CDVSplashScreen+IonicCordovaCommon.m in Sources */,
 				5487F8EBB66E4A8DA0514FEE /* IonicCordovaCommon.m in Sources */,
+				DC8D76D850E243F7A0E6E82E /* CDVConnection.m in Sources */,
+				4C4605AE0F244F27B0D9689A /* CDVReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,6 +38,9 @@
       "ROLLBACK_TIMEOUT": "10",
       "MIN_BACKGROUND_DURATION": "30",
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {

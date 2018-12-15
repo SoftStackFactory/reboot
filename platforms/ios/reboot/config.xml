@@ -117,4 +117,7 @@
     <feature name="IonicCordovaCommon">
         <param name="ios-package" onload="true" value="IonicCordovaCommon" />
     </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
 </widget>
