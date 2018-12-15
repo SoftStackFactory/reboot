@@ -34,5 +34,5 @@ export class HomePage {
         duration: 2000
       }).present();
     });
- 
+  }
 }
