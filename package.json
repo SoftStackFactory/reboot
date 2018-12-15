@@ -68,7 +68,12 @@
     "description": "An Ionic project",
     "cordova": {
         "plugins": {
-            "cordova-plugin-network-information": {}
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-ionic": {
+                "APP_ID": "8391f3cc",
+                "CHANNEL_NAME": "Demo",
+                "UPDATE_METHOD": "background"
+            }
         }
     }
 }
