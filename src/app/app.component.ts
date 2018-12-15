@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
@@ -39,7 +39,8 @@ export class MyApp {
     public splashScreen: SplashScreen,
     private _networkProvider: NetworkProvider,
     public events: Events,
-    public network: Network
+    public network: Network,
+    public toastCtrl: ToastController
     ) {
     this.initializeApp();
 
@@ -62,24 +63,42 @@ export class MyApp {
   }
 
   initializeApp() {
-
+    
     this.platform.ready().then(() => {
-
+       
       this._networkProvider.initializeNetworkEvents();
 
      // Offline event
   this.events.subscribe('network:offline', () => {
-      alert('network:offline ==> '+this.network.type);    
+     // alert('network:offline ==> '+this.network.type); 
+      this.presentToast("No Network");
+    
+      
   });
 
   // Online event
   this.events.subscribe('network:online', () => {
-      alert('network:online ==> '+this.network.type);        
+     // alert('network:online ==> '+this.network.type);  
+     this.presentToast("online")     
   });
 
     });
 }
 
+
+presentToast( message ) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000,
+    position: 'top'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 
 
   
