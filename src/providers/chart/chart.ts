@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-
 import { ENV } from '@app/env';
 import { StorageProvider } from '../storage/storage'
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromPromise';
-
-
+import { toObservable } from '@angular/forms/src/validators';
+import { of as observableOf } from 'rxjs/observable/of'
 
 
 @Injectable()
@@ -25,10 +22,9 @@ export class ChartProvider {
   constructor(public http: HttpClient, private storage: StorageProvider) { }
 
   addAssessment(assessment) {
+
     if(ENV.mode === 'Development') {
-      let storageObservable = Observable.fromPromise(this.storage.addToItem('assessement', assessment))
-      console.log(storageObservable)
-      return storageObservable;
+      return this.storage.addToItem('assessment', assessment)
     } else {
       let token = window.sessionStorage.getItem("token");
       return this.http.post(this.requestUrl, assessment);
