@@ -9,6 +9,14 @@ import { ToastController } from 'ionic-angular';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
+
+export enum ConnectionStatusEnum {
+  Online,
+  Offline
+}
+
+
 @Injectable()
 export class NetworkProvider {
 
