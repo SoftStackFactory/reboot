@@ -84,15 +84,4 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-sqlite-storage" spec="~2.5.0" />
     <engine name="ios" spec="~4.5.5" />
-    <plugin name="cordova-plugin-ionic" spec="4.2.0">
-        <variable name="APP_ID" value="8391f3cc" />
-        <variable name="CHANNEL_NAME" value="Demo" />
-        <variable name="UPDATE_METHOD" value="background" />
-        <variable name="WARN_DEBUG" value="true" />
-        <variable name="UPDATE_API" value="https://api.ionicjs.com" />
-        <variable name="MAX_STORE" value="2" />
-        <variable name="ROLLBACK_TIMEOUT" value="10" />
-        <variable name="MIN_BACKGROUND_DURATION" value="30" />
-    </plugin>
-    <plugin name="cordova-plugin-network-information" spec="2.0.1" />
 </widget>
