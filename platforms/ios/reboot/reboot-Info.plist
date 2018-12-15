@@ -67,5 +67,19 @@
     </dict>
     <key>UILaunchStoryboardName</key>
     <string>CDVLaunchScreen</string>
+    <key>IonAppId</key>
+    <string>8391f3cc</string>
+    <key>IonDebug</key>
+    <string>true</string>
+    <key>IonChannelName</key>
+    <string>Demo</string>
+    <key>IonApi</key>
+    <string>https://api.ionicjs.com</string>
+    <key>IonUpdateMethod</key>
+    <string>background</string>
+    <key>IonMaxVersions</key>
+    <string>2</string>
+    <key>IonMinBackgroundDuration</key>
+    <string>30</string>
   </dict>
 </plist>
