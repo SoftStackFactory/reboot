@@ -11,7 +11,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private menu: MenuController, private _network: NetworkProvider) {
     menu.enable(true);
-    console.log( _network.isConnected, "##################")
+    //console.log( _network.isConnected, "##################")
   }
    
   test(){

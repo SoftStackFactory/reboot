@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Network } from '@ionic-native/network';
 // Providers
 import { NetworkProvider } from '../providers/network/network';
 
@@ -37,7 +37,9 @@ export class MyApp {
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
-    private _network: NetworkProvider
+    private _networkProvider: NetworkProvider,
+    public events: Events,
+    public network: Network
     ) {
     this.initializeApp();
 
@@ -60,15 +62,27 @@ export class MyApp {
   }
 
   initializeApp() {
+
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-      //this._network.onNetworkConnect();
-     // this._network.watchDisconnect();
+
+      this._networkProvider.initializeNetworkEvents();
+
+     // Offline event
+  this.events.subscribe('network:offline', () => {
+      alert('network:offline ==> '+this.network.type);    
+  });
+
+  // Online event
+  this.events.subscribe('network:online', () => {
+      alert('network:online ==> '+this.network.type);        
+  });
+
     });
-  }
+}
+
+
+
+  
 
   openPage(page) {
     // Reset the content nav to have just this page
