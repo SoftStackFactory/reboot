@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, ToastController } from 'ionic-angular';
-import { NetworkProvider } from '../../providers/network/network';
+// import { NetworkProvider } from '../../providers/network/network';
 import { Network } from '@ionic-native/network';
 
 

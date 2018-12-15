@@ -69,18 +69,18 @@ export class MyApp {
       // this._networkProvider.initializeNetworkEvents();
 
      // Offline event
-  this.events.subscribe('network:offline', () => {
-     // alert('network:offline ==> '+this.network.type); 
-      this.presentToast("No Network");
+  // this.events.subscribe('network:offline', () => {
+  //    // alert('network:offline ==> '+this.network.type); 
+  //     this.presentToast("No Network");
     
       
-  });
+  // });
 
-  // Online event
-  this.events.subscribe('network:online', () => {
-     // alert('network:online ==> '+this.network.type);  
-     this.presentToast("online")     
-  });
+  // // Online event
+  // this.events.subscribe('network:online', () => {
+  //    // alert('network:online ==> '+this.network.type);  
+  //    this.presentToast("online")     
+  // });
 
     });
 }
