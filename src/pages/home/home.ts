@@ -15,6 +15,6 @@ export class HomePage {
   }
    
   test(){
-    console.log(this._network)
+    console.log(this._network, "hello")
   }
 }
