@@ -65,6 +65,10 @@
         "ts-jest": "^23.10.3",
         "typescript": "^2.6.2"
     },
-    "description": "An Ionic project"
-
+    "description": "An Ionic project",
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-network-information": {}
+        }
+    }
 }
