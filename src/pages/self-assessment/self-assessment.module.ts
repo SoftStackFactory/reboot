@@ -4,11 +4,7 @@ import { SelfAssessmentPage } from './self-assessment';
 
 
 @NgModule({
-  declarations: [
-    SelfAssessmentPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(SelfAssessmentPage),
-  ],
+  declarations: [],
+  imports: [],
 })
 export class SelfAssessementPageModule {}
