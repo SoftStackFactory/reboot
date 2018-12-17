@@ -89,4 +89,5 @@
         <variable name="CHANNEL_NAME" value="Demo" />
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
 </widget>

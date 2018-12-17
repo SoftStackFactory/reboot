@@ -27,6 +27,10 @@ import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { Network } from '@ionic-native/network';
+import { NewsPage } from 'pages/news/news';
+import { NewsWidgetComponent } from 'components/news-widget/news-widget';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { RssProvider } from 'providers/rss/rss';
 
 
 @NgModule({
@@ -81,13 +85,9 @@ import { Network } from '@ionic-native/network';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     ChartProvider,
-<<<<<<< HEAD
     RssProvider,
-    InAppBrowser
-
-=======
+    InAppBrowser,
     Network
->>>>>>> 5036a61ab7f4ecf4a3a3da5688daabf0796e23dc
   ]
 })
 export class AppModule {}
