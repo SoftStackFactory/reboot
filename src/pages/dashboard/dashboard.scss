@@ -32,8 +32,12 @@ page-dashboard {
 
     #separationLink {
         float: right; 
+        float: end;
         padding-bottom: 8px;
         font-size: 20px;
+    }
+    #newsLink {
+        float: right;
     }
 
     .linkIcons {
@@ -72,4 +76,7 @@ page-dashboard {
         top: -7px;
         font-size: 20px;
     }
+    .toaster{
+        text-align: center;
+        }
 }

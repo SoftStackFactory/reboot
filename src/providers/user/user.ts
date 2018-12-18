@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
   
-import  {  ENV  }  from  '@app/env';      
+import { ENV }  from '@app/env';      
     
 /*  
   Generated class for the UserProvider provider.
@@ -38,6 +38,7 @@ export class UserProvider {
 
   sendReg(user) {
     console.log('sendReg() runs', user)
+    console.log(this.requestUrl)
     return this.http.post(this.requestUrl + '/appUsers', user)
   }
   //update data from wizard page and patch user model

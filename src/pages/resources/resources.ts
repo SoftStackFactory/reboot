@@ -9,6 +9,7 @@ interface UserData {
   firstName: any,
   lastName: any
 }
+
 @IonicPage()
 @Component({
   selector: 'page-resources',

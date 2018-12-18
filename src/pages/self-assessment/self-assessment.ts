@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { HistoryPage } from '../history/history';
+import * as moment from 'moment';
+import { ChartProvider } from '../../providers/chart/chart'
+import { ResourcesPage } from '../resources/resources'
+import { UserProvider } from '../../providers/user/user';
+
 
 /**
  * Generated class for the SelfAssessmentPage page.
@@ -18,10 +22,13 @@ import { HistoryPage } from '../history/history';
 export class SelfAssessmentPage {
   areas: Array<any>;
   date: any;
+  currentAssessment = { date: '', data: {}, appUserId: ''};
+  addAssessment;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              // public chartProvider: ChartProvider, 
+              public chartProvider: ChartProvider, 
+              public user: UserProvider,
               private storage: Storage, 
               private toastCtrl: ToastController) {
               
@@ -83,15 +90,36 @@ export class SelfAssessmentPage {
                     number: 0
                   }
                 ];
-            
-            
+                this.currentAssessment.date = moment().format('YYYY-MM-DD');
+                this.currentAssessment.appUserId = sessionStorage.getItem('userId');
+                //Sets default
+                this.areas.forEach(x => {
+                  if(x.title === 'Social Life' || 'Personal Growth') {
+                    x.title = x.title.replace(/\s/g, '');
+                  }  
+                  return this.currentAssessment.data[x.title] = 0;
+                });
               }
+
+              
+              
             
               ionViewWillLoad() {
-                this.storage.get('chartData').then((val) => {
-                  this.date = val ? val.Date : '';
-                  // console.log('this.date:', this.date, 'val.Date:', val.Date)
-                }).then(() => this.lastDate())
+                // this.storage.get('chartData').then((val) => {
+                //   this.date = val ? val.Date : '';
+                //   // console.log('this.date:', this.date, 'val.Date:', val.Date)
+                // }).then(() => this.lastDate())
+                this.user.getUserChart(window.sessionStorage.getItem('userId'))
+                .subscribe( (data) => {
+                  this.date = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
+                  let now = new Date().getTime();
+                  this.date = Math.ceil((this.date - now)/86400000);
+                  this.date = Math.abs(this.date);
+                  console.log(data);
+                }, error => {console.log("error")},
+                () => {
+                  this.lastDate();
+                });
               }
             
               toggleSection(area) {
@@ -102,19 +130,25 @@ export class SelfAssessmentPage {
                   area.expand = true;
                 }
               }
+            
+              changeData(categoryIndex, score) {
+                this.currentAssessment.data[categoryIndex] = score;
+              }
 
               toSubmit() {
-                this.navCtrl.setRoot(HistoryPage);
-              }
-            
-              changeData() {
-                // this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
-                // this.chartComponent.chart.update(); categoryIndex, newNumber
+                this.chartProvider.addAssessment(this.currentAssessment)
+                  .subscribe(res => {
+                    console.log(res);
+                    this.navCtrl.setRoot(ResourcesPage);
+                  }, err => {
+                    console.log(err);
+                    alert('Assessment was not submitted. Please resubmit assessment.')
+                  })
               }
             
               lastDate() {
                 let toast = this.toastCtrl.create({
-                  message: `Your last assessment was ${this.date}`,
+                  message: `Your last assessment was ${this.date} day(s) ago`,
                   duration: 2500,
                   position: 'middle'
                 });
