@@ -13,15 +13,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content >
-  <ion-grid>
+<ion-content>
+  <ion-grid no-padding>
 
     <ion-row>
-        <div class="nav-start">
-          <button ion-button (click)="exit()"  class="start">Exit</button>
-          <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-          <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
-        </div>
+      <ion-col col-12 class="nav-start">
+        <button ion-button (click)="exit()"  class="start">Exit</button>
+        <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+        <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
+      </ion-col>
     </ion-row>
 
   </ion-grid>
