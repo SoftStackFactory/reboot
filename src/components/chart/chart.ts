@@ -25,7 +25,6 @@ export class ChartComponent {
       //calls the function that draws the chart on the canvas within the .html file of the component taking the response from the provider as an argument.
       this.buildChart(res)
     })
-    
   }
 
   //this builds the chart, it takes one parameter, the parameter needs to be an array with a length of 8 numbers in order for the chart to draw correctly
