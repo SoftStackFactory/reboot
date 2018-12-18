@@ -30,9 +30,12 @@ import { IonicStorageModule } from '@ionic/storage';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
+<<<<<<< HEAD
 import { Network } from "@ionic-native/network";
 import { NetworkProvider } from '../providers/network/network'
 import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
+=======
+>>>>>>> offline
 import { StorageProvider } from '../providers/storage/storage';
 
 

@@ -1,17 +1,34 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
-/*
-  Generated class for the StorageProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class StorageProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello StorageProvider Provider');
+  constructor(private storage: Storage) {
+  }
+
+  saveToLocalStorage(key, value) {
+    this.storage.set(key, value)
+  }
+
+  retrieveFromLocalStorage(key) {
+    this.storage.get(key).then((val) => {
+      console.log(val)
+    })
+  }
+
+  addToItem(key, value): any {
+    return fromPromise(this.storage.get(key)
+      .then((val) => {
+        if(val) {
+          console.log(val)
+          value = val.concat([value])
+          // this.storage.set(key, value)
+        }
+          this.storage.set(key, [value])
+      }))
   }
 
 }

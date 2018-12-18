@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import * as moment from 'moment';
 import { ChartProvider } from '../../providers/chart/chart'
 import { ResourcesPage } from '../resources/resources'
+import { StorageProvider } from 'providers/storage/storage';
 
 
 /**
@@ -28,7 +29,8 @@ export class SelfAssessmentPage {
               public navParams: NavParams,
               public chartProvider: ChartProvider, 
               private storage: Storage, 
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+            ) {
               
                 this.areas = [
                   {
@@ -125,7 +127,7 @@ export class SelfAssessmentPage {
               toSubmit() {
                 this.chartProvider.addAssessment(this.currentAssessment)
                   .subscribe(res => {
-                    console.log(res);
+                    console.log('response:', res);
                     this.navCtrl.setRoot(ResourcesPage);
                   }, err => {
                     console.log(err);

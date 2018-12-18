@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
   
-import { ENV }  from '@app/env';      
+import { ENV }  from '@app/env';
+import { StorageProvider } from '../storage/storage'
     
 /*  
   Generated class for the UserProvider provider.
@@ -32,15 +33,20 @@ export class UserProvider {
 
   userData: any = {};
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private storage: StorageProvider) {
     console.log('Hello UserProvider Provider');
   }
 
   sendReg(user) {
-    console.log('sendReg() runs', user)
-    console.log(this.requestUrl)
-    return this.http.post(this.requestUrl + '/appUsers', user)
+    if(ENV.mode === 'Development') {
+      this.storage.saveToLocalStorage('user', user)
+    } else {
+      console.log('sendReg() runs', user)
+      console.log(this.requestUrl)
+      return this.http.post(this.requestUrl + '/appUsers', user)
+    }
   }
+
   //update data from wizard page and patch user model
   updateUserModel(data: any, id) {
     let token = window.sessionStorage.getItem('token');
@@ -49,7 +55,11 @@ export class UserProvider {
   }
 
   login(creds) {
-    return this.http.post(this.requestUrl + '/appUsers/login', creds);
+    if(ENV.mode === 'Development') {
+      this.storage.saveToLocalStorage('creds', creds)
+    } else {
+      return this.http.post(this.requestUrl + '/appUsers/login', creds);
+    }
   }
   
   logoutUser(token:any) {
