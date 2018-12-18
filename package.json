@@ -40,7 +40,6 @@
         "@types/chart.js": "^2.7.36",
         "chart.js": "^2.7.2",
         "chartjs-plugin-labelsreboot": "github:brettwray/chartjs-plugin-labelsreboot",
-        "cordova-plugin-ionic": "^5.2.8",
         "express": "^4.16.3",
         "ionic-angular": "3.9.2",
         "ionicons": "3.0.0",

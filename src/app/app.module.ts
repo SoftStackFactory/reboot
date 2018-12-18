@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http'
 
 import { MyApp } from './app.component';
@@ -31,7 +31,9 @@ import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
 import { Network } from "@ionic-native/network";
-import { NetworkProvider } from '../providers/network/network';
+import { NetworkProvider } from '../providers/network/network'
+import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
+import { StorageProvider } from '../providers/storage/storage';
 
 
 @NgModule({
@@ -84,13 +86,14 @@ import { NetworkProvider } from '../providers/network/network';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: HTTP_INTERCEPTORS, useClass: OfflineInterceptor, multi: true },
     UserProvider,
     ChartProvider,
     RssProvider,
     InAppBrowser,
     Network,
-    NetworkProvider
-
+    NetworkProvider,
+    StorageProvider
   ]
 })
 export class AppModule {}

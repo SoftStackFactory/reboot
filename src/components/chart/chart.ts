@@ -1,7 +1,7 @@
 import { ChartProvider } from './../../providers/chart/chart';
 import { Component, ViewChild} from '@angular/core';
 import { Chart } from 'chart.js';
-import 'chartjs-plugin-labelsreboot';
+// import 'chartjs-plugin-labelsreboot';
 
 /**
  * Generated class for the ChartComponent component.

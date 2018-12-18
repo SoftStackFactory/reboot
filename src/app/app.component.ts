@@ -19,6 +19,7 @@ import { HistoryPage } from '../pages/history/history';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { ResourcesPage } from '../pages/resources/resources';
 
+
 // Env Variables
 import { ENV } from  '@app/env';
 
@@ -40,7 +41,7 @@ export class MyApp {
     private _networkProvider: NetworkProvider,
     public events: Events,
     public network: Network,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
     ) {
     this.initializeApp();
 
@@ -66,21 +67,21 @@ export class MyApp {
     
     this.platform.ready().then(() => {
        
-      // this._networkProvider.initializeNetworkEvents();
+      this._networkProvider.initializeNetworkEvents();
 
      // Offline event
-  // this.events.subscribe('network:offline', () => {
-  //    // alert('network:offline ==> '+this.network.type); 
-  //     this.presentToast("No Network");
+      this.events.subscribe('network:offline', () => {
+     // alert('network:offline ==> '+this.network.type); 
+      this.presentToast("No Network");
     
       
-  // });
+  });
 
   // // Online event
-  // this.events.subscribe('network:online', () => {
+  this.events.subscribe('network:online', () => {
   //    // alert('network:online ==> '+this.network.type);  
-  //    this.presentToast("online")     
-  // });
+     this.presentToast("online")     
+  });
 
     });
 }
