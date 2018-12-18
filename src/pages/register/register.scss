@@ -187,6 +187,15 @@ page-register {
       }
     }
     
+    @media screen and (orientation:portrait){
+      #title {
+        letter-spacing: 3px; 
+        font-weight: bold; 
+        font-family: proxima-nova; 
+        font-size: 40px; 
+        color: white;
+      }  
+    }
 
     @media screen and (orientation:landscape){
       #header {

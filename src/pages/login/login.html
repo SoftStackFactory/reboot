@@ -14,13 +14,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col id="header" col-12>
+          <h1 id="title">INTRANSITION</h1>
+      </ion-col>
+    </ion-row>
 
-  <div id="header">
-    <h1 id="title">INTRANSITION</h1>
-  </div>
-
-
-  <ion-grid>
     <form [formGroup]="loginCreds" (ngSubmit)="login()">
       
       <ion-row justify-content-center>
