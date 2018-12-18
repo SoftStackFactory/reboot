@@ -1,12 +1,15 @@
 timeline {
 
-    .saveButton {
-        border: none !important;
+    .saveButton{
+        // background-color: #A1D0F4;
+        padding-left: 0%;
+        margin-left: 0%;
+        
     }
 
     .button-ios {
-        background-color: #b3ccc8;
-        color: darkslategray;
+        background-color: #64c5b1;        
+        color: black;
         margin-left: 7%;
     }
     
@@ -34,7 +37,7 @@ timeline {
     }
 
     //List and sub-list headings
-    //Not able to isolate styling 
+    // 
     ion-label.label.label-ios {
         overflow: visible !important;
         padding-left: 2em;
@@ -148,16 +151,7 @@ padding-left: 2em;
         margin-left: 2%;
     }
 
-    .bulletItem {
-        // padding-top: 1em;
-        // border-style: groove;
-        // border-left: none !important;
-        // border-radius: 50px;
-        // border-color: #64c5b1;
-        // border-width: 7px;
         
-    }
-    
     .cd-timeline--top-level {
         padding-top: 1em;
         border-style: groove;

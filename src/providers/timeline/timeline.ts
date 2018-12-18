@@ -20,7 +20,7 @@ export class TimelineProvider {
     console.log('Hello TimelineProvider Provider');
   }
 
-  saveTimeline(timeCompList, hasEntry: boolean = false){
+  saveTimeline(timeCompList, hasEntry: boolean){
     const link = this.requestUrl + '/appUsers/' + window.sessionStorage.getItem('userId') + '/timelines';
     
     if (hasEntry) {
