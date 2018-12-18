@@ -14,14 +14,20 @@
 </ion-header>
 
 <ion-content >
-    <div class="nav-start">
-      <button ion-button (click)="exit()"  class="start">Exit</button>
-      <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
-    </div>
- 
-    <ion-slides  (ionSlideWillChange)="slideChanged()"  pager>
+  <ion-grid>
 
+    <ion-row>
+        <div class="nav-start">
+          <button ion-button (click)="exit()"  class="start">Exit</button>
+          <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+          <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
+        </div>
+    </ion-row>
+
+  </ion-grid>
+
+  
+  <ion-slides  (ionSlideWillChange)="slideChanged()" pager>
       <ion-slide  class="demo-slide">
         <div class='top-simple'>
           <ion-list class="simple-header list list-ios"  >
@@ -35,7 +41,7 @@
           </ion-list> 
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios">
@@ -48,7 +54,7 @@
           <img  class= "demo-img" src='../../assets/imgs/dashboard.png'>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios">
@@ -61,7 +67,7 @@
           <img class='demo-img' src='../../assets/imgs/assessment.png'>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios" >
@@ -75,7 +81,7 @@
           <img class='demo-img' src='../../assets/imgs/timeline.png'>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios" >
@@ -89,7 +95,7 @@
           <img class= 'demo-img'src='../../assets/imgs/profile.png'>
         </div>
       </ion-slide>
-
+  
       <ion-slide  class="demo-slide">
         <div class='top-simple'>
           <ion-list class="simple-header list list-ios" >
@@ -103,7 +109,7 @@
           </ion-list>
         </div>
       </ion-slide>
-
+  
       <ion-slide class='quest-slide'>
         <div class='top-question'>
           <ion-list class="question-header list list-ios" >
@@ -114,7 +120,7 @@
           </ion-list>
         
           <form [formGroup]="firstForm" class="form">
-
+  
             <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -160,7 +166,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>
-
+  
             <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValue" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -196,7 +202,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>    
-
+  
             <ion-card [class.invalid]="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -216,7 +222,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>
-
+  
             <ion-card 
               [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)"
               *ngIf="disabilityQValue == 'Disability'"
@@ -239,11 +245,11 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>   
-
+  
           </form>
         </div>
       </ion-slide>
-
+  
       <ion-slide class='quest-slide'>
         <div class='top-question'>
           <ion-list class="question-header list list-ios" >
@@ -274,7 +280,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>
-
+  
             <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="employedAnswer == 'Unemployed'" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -295,7 +301,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>    
-
+  
             <ion-card  [class.invalid]="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -322,7 +328,7 @@
           </form>
         </div> 
       </ion-slide> 
-
+  
       <ion-slide class= 'quest-slide'>
         <div class='top-question '>
           <ion-list class="question-header list list-ios" >
@@ -333,7 +339,7 @@
           </ion-list>
             
           <form [formGroup]="thirdForm" class="form">
-
+  
             <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -404,7 +410,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>     
-
+  
             <ion-card [class.invalid]="!thirdForm.controls.MOS.valid && (thirdForm.controls.MOS.dirty)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -425,11 +431,11 @@
             </ion-card>
             <br><br>
           <button ion-button id ="submit" [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
-
+  
           </form>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-simple'>
           <ion-list class="simple-header list list-ios" >
@@ -449,8 +455,8 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-
         </div>
       </ion-slide>
     </ion-slides>
+
 </ion-content>
