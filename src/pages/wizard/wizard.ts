@@ -13,9 +13,11 @@ import * as moment from 'moment';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 interface UserData {
   firstName: string;
 }
+
 @Component({
   selector: 'page-wizard',
   templateUrl: 'wizard.html',
@@ -44,8 +46,7 @@ export class WizardPage {
     public user: UserProvider,
   ) {
     this.user.getUser(window.sessionStorage.getItem('userId'))
-    .subscribe( (data:UserData) => {
-      console.log('Name', this.name)
+    .subscribe((data: UserData) => {
       this.name = data.firstName;
     })
 
