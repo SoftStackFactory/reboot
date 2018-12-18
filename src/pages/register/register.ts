@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
   selector: 'page-register',
   templateUrl: 'register.html',
 })
+
 export class RegisterPage {
 
   registerUser: any = {}
@@ -62,6 +63,15 @@ export class RegisterPage {
         this.goWizard()
       }
       ) 
+
+      this._userService.login(this.registerUser)
+      .subscribe(
+        (res) => {
+          let loginResponse: any = res;
+          sessionStorage.setItem('userId', loginResponse.userId)
+          sessionStorage.setItem('token', loginResponse.token);
+          alert("you're logged in!")
+        });
   }
 
   goLogin() {

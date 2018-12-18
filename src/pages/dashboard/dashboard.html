@@ -1,9 +1,7 @@
-<!--
-  Generated template for the DashboardPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<head>
+  <script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array(); fg_widgets.push("fgid_6df9b0bc92d7670f82a1d8650");</script>
+  <script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
+</head>
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -37,10 +35,16 @@
 
     <ion-row>
       <ion-col>
-        <ion-card class="cards">
-          <ion-card-header class="headers" text-center>
-            108 Days Until Separation!
+        <ion-card class="sep">
+          <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
+            {{daysTilSep}} Days Until Separation!
           </ion-card-header>
+          <ion-card-header class="headers" text-center *ngIf="daysTilSep == 0">
+              Your Separation Date is Today!
+            </ion-card-header>
+            <ion-card-header class="headers" text-center *ngIf="daysTilSep < 0">
+              Your Separation Was {{daysTilSepAbs}} Days Ago!
+              </ion-card-header>
           <ion-card-content id="separationContent">
             You're getting close to your separation day! Are you preparing for the transition? Have you checked the
             timeline for instructions?
@@ -54,6 +58,22 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
+
+      <ion-col>
+        <ion-card class="news">
+          <ion-card-header class="headers" text-center>
+            Veterans Affairs News
+          </ion-card-header>
+          <ion-card-content id="separationContent">
+              <news-widget></news-widget>
+            <a id="separationLink" (click)="toNews()">More news
+
+              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+            </a>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
     </ion-row>
 
     <ion-row>
@@ -63,7 +83,7 @@
             Transition Readiness Test
           </ion-card-header>
           <ion-card-content>
-            <chart [pageData] = "chartProvider.mostRecentChart"></chart>
+            <chart ></chart>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -96,8 +116,10 @@
             </a>
           </ion-card-content>
         </ion-card>
-      </ion-col>
+      </ion-col>\              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
+
     </ion-row>
+    <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
   </ion-grid>
 </ion-content>

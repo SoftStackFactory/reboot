@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title id="newsTitle">News</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="cards-bg social-cards">
+
+  <div id="news">
+    <ion-card class="article"*ngFor="let data of this.rss.newsArray">
+
+
+      <ion-row>
+
+        <img src={{data.picture}} alt="mock news picture" >
+
+        <ion-col>
+          <ion-card-content>
+              <ion-item text-wrap>
+                  <h1 class="title">{{data.title}}</h1>
+                  <p class="timestamp">Date Published: {{data.date}}</p>
+                </ion-item>
+            <p class="articleText">{{data.sumText}}</p>
+          </ion-card-content>
+          <ion-row justify-content-end>
+              <a id="separationLink" (click)="openLink(data.link)">Read full article
+                <ion-icon id="linkArrow" class="linkIcons" name="paper"></ion-icon>
+              </a>
+            </ion-row>
+        </ion-col>
+      </ion-row>
+
+    
+
+    </ion-card>
+
+  </div>
+
+  
+</ion-content>

@@ -1,0 +1,67 @@
+page-news {
+
+  .social-cards ion-col {
+  }
+
+  #separationLink {
+    padding: 20px;
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  #linkArrow {
+    position: relative;
+    padding: 2px;
+    top: 6px;
+    font-size: 30px;
+  }
+
+  #heading {
+    padding: 100px;
+  }
+
+  #newsTitle {
+    text-align: center;
+  }
+
+  #news {
+    padding-bottom: 5%;
+  }
+
+  .timestamp {
+    font-size: 12px;
+    // text-indent: 7px;
+  }
+
+  .title {
+    // text-indent: 6px;
+    font-size: 2vw;
+  }
+
+  h1 {
+    word-wrap: break-word;
+  }
+
+  img {
+    position: relative;
+    left: 8px;
+    padding: 8px;
+    border-radius: 20px;
+    width: 25%;
+    height: 25%;
+    min-width: 180px;
+    margin-top: 8px;
+    margin-bottom: 8px;    
+  }
+
+  .article {
+    border-radius: 20px;
+  }
+  .articleText {
+    margin-left: 16px;
+    font-size: 1.2vw;
+  }
+
+
+
+}
