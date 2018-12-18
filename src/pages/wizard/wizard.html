@@ -287,6 +287,9 @@
                     class='date'
                     displayFormat="MM/YYYY" 
                     formControlName="lastEmployed"
+                    displayFormat="MM/DD/YYYY" 
+                    pickerFormat="MMMM DD YYYY" 
+                    [max]="today"
                   >
                   </ion-datetime>
                 </ion-item>

@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import * as moment from 'moment';
 import { ChartProvider } from '../../providers/chart/chart'
 import { ResourcesPage } from '../resources/resources'
+import { UserProvider } from '../../providers/user/user';
 
 
 /**
@@ -27,6 +28,7 @@ export class SelfAssessmentPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public chartProvider: ChartProvider, 
+              public user: UserProvider,
               private storage: Storage, 
               private toastCtrl: ToastController) {
               
@@ -103,10 +105,21 @@ export class SelfAssessmentPage {
               
             
               ionViewWillLoad() {
-                this.storage.get('chartData').then((val) => {
-                  this.date = val ? val.Date : '';
-                  // console.log('this.date:', this.date, 'val.Date:', val.Date)
-                }).then(() => this.lastDate())
+                // this.storage.get('chartData').then((val) => {
+                //   this.date = val ? val.Date : '';
+                //   // console.log('this.date:', this.date, 'val.Date:', val.Date)
+                // }).then(() => this.lastDate())
+                this.user.getUserChart(window.sessionStorage.getItem('userId'))
+                .subscribe( (data) => {
+                  this.date = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
+                  let now = new Date().getTime();
+                  this.date = Math.ceil((this.date - now)/86400000);
+                  this.date = Math.abs(this.date);
+                  console.log(data);
+                }, error => {console.log("error")},
+                () => {
+                  this.lastDate();
+                });
               }
             
               toggleSection(area) {
@@ -135,7 +148,7 @@ export class SelfAssessmentPage {
             
               lastDate() {
                 let toast = this.toastCtrl.create({
-                  message: `Your last assessment was ${this.date}`,
+                  message: `Your last assessment was ${this.date} day(s) ago`,
                   duration: 2500,
                   position: 'middle'
                 });
