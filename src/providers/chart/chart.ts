@@ -23,12 +23,11 @@ export class ChartProvider {
 
   addAssessment(assessment) {
 
-    if(ENV.mode === 'Development') {
-      return this.storage.addToItem('assessment', assessment)
-    } else {
-      let token = window.sessionStorage.getItem("token");
+    // if(ENV.mode === 'Development') {
+    //   return this.storage.addToItem('assessment', assessment)
+    // } else {
       return this.http.post(this.requestUrl, assessment);
-    }
+    // }
   }
 
   getChartHistory() {

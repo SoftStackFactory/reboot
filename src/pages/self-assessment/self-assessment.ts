@@ -6,7 +6,6 @@ import { ChartProvider } from '../../providers/chart/chart'
 import { ResourcesPage } from '../resources/resources'
 import { StorageProvider } from 'providers/storage/storage';
 
-
 /**
  * Generated class for the SelfAssessmentPage page.
  *
@@ -14,7 +13,6 @@ import { StorageProvider } from 'providers/storage/storage';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-self-assessment',
   templateUrl: 'self-assessment.html',
@@ -130,6 +128,10 @@ export class SelfAssessmentPage {
                     console.log('response:', res);
                     this.navCtrl.setRoot(ResourcesPage);
                   }, err => {
+                    if (err.error === 'Operating on offline mode') {
+                      this.storage.set('assesment', this.currentAssessment);
+                      return this.navCtrl.setRoot(ResourcesPage);
+                    }
                     console.log(err);
                     alert('Assessment was not submitted. Please resubmit assessment.')
                   })

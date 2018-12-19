@@ -16,9 +16,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
-//import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
+import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { HistoryPage } from '../pages/history/history';
-//import { ResourcesPage } from '../pages/resources/resources';
+import { ResourcesPage } from '../pages/resources/resources';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
@@ -30,12 +30,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
-<<<<<<< HEAD
 import { Network } from "@ionic-native/network";
 import { NetworkProvider } from '../providers/network/network'
 import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
-=======
->>>>>>> offline
 import { StorageProvider } from '../providers/storage/storage';
 
 
@@ -51,7 +48,7 @@ import { StorageProvider } from '../providers/storage/storage';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
-   // SelfAssessmentPage,
+    SelfAssessmentPage,
     HistoryPage,
    // NewsPage,
     TimelineComponent,
@@ -59,7 +56,7 @@ import { StorageProvider } from '../providers/storage/storage';
     TimelineTimeComponent,
     ChartComponent,
     NewsWidgetComponent,
-    //ResourcesPage,
+    ResourcesPage,
   ],
   imports: [
     BrowserModule,
@@ -82,8 +79,8 @@ import { StorageProvider } from '../providers/storage/storage';
     TimelinePage,
     HistoryPage,
    // NewsPage,
-    //SelfAssessmentPage,
-    //ResourcesPage,
+    SelfAssessmentPage,
+    ResourcesPage,
   ],
   providers: [
     StatusBar,
