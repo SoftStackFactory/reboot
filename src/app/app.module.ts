@@ -34,6 +34,7 @@ import { Network } from "@ionic-native/network";
 import { NetworkProvider } from '../providers/network/network'
 import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 
 @NgModule({
@@ -86,7 +87,7 @@ import { StorageProvider } from '../providers/storage/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    { provide: HTTP_INTERCEPTORS, useClass: OfflineInterceptor, multi: true },
+    httpInterceptorProviders,
     UserProvider,
     ChartProvider,
     RssProvider,
