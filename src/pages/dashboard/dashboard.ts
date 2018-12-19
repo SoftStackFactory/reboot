@@ -18,10 +18,10 @@ interface UserData {
 })
 export class DashboardPage {
 
-  name: any
-  date: any
-  daysTilSep: any
-  daysTilSepAbs: any
+  name: any;
+  date: any;
+  daysTilSep: number;
+  daysTilSepAbs: number;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,

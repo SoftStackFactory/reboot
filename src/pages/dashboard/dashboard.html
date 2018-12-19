@@ -22,7 +22,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-8 offset-2>
         <ion-card class="cards">
           <ion-card-content id="welcome" text-center>
             Welcome to the Military and Veteran's "InTransition" Personal Transition Assistant. Your personal guide to
@@ -34,7 +34,47 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-4 offset-2>
+        <ion-card class="news">
+          <ion-card-header class="headers" text-center>
+            Veterans Affairs News
+          </ion-card-header>
+          <ion-card-content id="separationContent">
+            <ion-row>
+              <ion-col col-12>
+                <news-widget></news-widget>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-12>
+                <a id="separationLink" (click)="toNews()">More news
+                  <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                </a>
+              </ion-col>
+            </ion-row>
+
+            <!-- <ion-grid>
+              <ion-row>
+                <ion-col col-12>
+                  <news-widget></news-widget>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                   <a id="separationLink" (click)="toNews()">More news
+                    <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                   </a>
+                </ion-col>
+              </ion-row>
+            </ion-grid> -->
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+      
+      <ion-col col-4>
         <ion-card class="sep">
           <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
@@ -58,37 +98,10 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-
-      <ion-col>
-        <ion-card class="news">
-          <ion-card-header class="headers" text-center>
-            Veterans Affairs News
-          </ion-card-header>
-          <ion-card-content id="separationContent">
-            <ion-grid>
-              <ion-row>
-                <ion-col col-12>
-                  <news-widget></news-widget>
-                </ion-col>
-              </ion-row>
-
-              <ion-row>
-                <ion-col col-12>
-                   <a id="separationLink" (click)="toNews()">More news
-                    <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-                   </a>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-
-          </ion-card-content>
-        </ion-card>
-
-      </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col>
+    <!-- <ion-row>
+      <ion-col col-8 offset-2>
         <ion-card class="cards">
           <ion-card-header class="headers" text-center>
             Transition Readiness Test
@@ -98,10 +111,21 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
     <ion-row>
-      <ion-col>
+      <ion-col col-4 offset-2>
+        <ion-card class="cards">
+          <ion-card-header class="headers" text-center>
+            Transition Readiness Test
+          </ion-card-header>
+          <ion-card-content>
+            <chart ></chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-4>
         <ion-card class="cards">
           <ion-card-header id="networkHeader" class="headers" text-center>
             Build Your Network
@@ -109,12 +133,13 @@
 
           <ion-card-content>
             <ion-row>
-              <ion-col col-12 col-sm-12 col-md-6 col-lg-6>
-                <img src="../../assets/imgs/Networking.jpg">
+              <ion-col col-12>
+                <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
               </ion-col>
 
-              <ion-col col-12 col-sm-12 col-md-6 col-lg-6>
-                <p id="networkingAdvice">People who are truly successful commit themselves continuously to learning and
+              <ion-col col-12>
+                <p id="networkingAdvice">
+                  People who are truly successful commit themselves continuously to learning and
                   improving themselves. Are you
                   a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
                   opportunities?
