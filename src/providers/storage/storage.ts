@@ -42,19 +42,17 @@ export class StorageProvider {
   }
 
 
-
-
-
-
-
   saveToLocalStorage(key, value) {
-    this.storage.set(key, value)
+    return this.storage.set(key, value)
   }
 
   retrieveFromLocalStorage(key) {
-    this.storage.get(key).then((val) => {
-      console.log(val)
+    return this.storage.get(key).then((val) => {
     })
+  }
+
+  deleteFromLocalStorage (key) {
+    return this.storage.remove(key)
   }
 
   addToItem(key, value): any {
