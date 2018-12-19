@@ -28,12 +28,14 @@ export class DemoInterceptor implements HttpInterceptor {
     id: 1,
   }
 
+  charts = [];
+
   constructor(private toastCtrl: ToastController, private storage: StorageProvider){}
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
       if (req.url === 'https://api.rss2json.com/v1/api.json') return next.handle(req);
-      
+
       if (ENV.mode === 'Development') {
         let data;
         if (req.method === 'POST') {
@@ -50,14 +52,14 @@ export class DemoInterceptor implements HttpInterceptor {
             data = req.body;
           } else {
             this.storage.addToItem('assesment', req.body)
-            this.defaultUser = req.body;
             data = req.body;
+            this.charts.push(req.body);
           }
         } else if (req.method === 'GET') {
           if (req.url.includes('/charts')) {
-            data = this.storage.retrieveFromLocalStorage('assesment')
+            // data = this.storage.retrieveFromLocalStorage('assesment')
+            data = this.charts
           } else {
-            console.log(req)
             data = this.defaultUser;
           } 
         } else {
