@@ -55,11 +55,7 @@ export class UserProvider {
   }
 
   login(creds) {
-    if(ENV.mode === 'Development') {
-      this.storage.saveToLocalStorage('creds', creds)
-    } else {
       return this.http.post(this.requestUrl + '/appUsers/login', creds);
-    }
   }
   
   logoutUser(token:any) {

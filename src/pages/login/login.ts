@@ -84,7 +84,9 @@ export class LoginPage {
             duration: 2500,
             position: 'middle'
           })
-
+          if (err.error === 'Operating on offline mode') {
+            toast.setMessage('Unable to login, in offline mode.')
+          }
           toast.present()
         }
       )
