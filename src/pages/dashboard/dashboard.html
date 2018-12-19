@@ -65,11 +65,22 @@
             Veterans Affairs News
           </ion-card-header>
           <ion-card-content id="separationContent">
-              <news-widget></news-widget>
-            <a id="separationLink" (click)="toNews()">More news
+            <ion-grid>
+              <ion-row>
+                <ion-col col-12>
+                  <news-widget></news-widget>
+                </ion-col>
+              </ion-row>
 
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a>
+              <ion-row>
+                <ion-col col-12>
+                   <a id="separationLink" (click)="toNews()">More news
+                    <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                   </a>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
           </ion-card-content>
         </ion-card>
 
@@ -96,10 +107,35 @@
             Build Your Network
           </ion-card-header>
 
-          <br>
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-12 col-sm-12 col-md-6 col-lg-6>
+                <img src="../../assets/imgs/Networking.jpg">
+              </ion-col>
 
-          <ion-card-content id="networkingContent">
-            <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
+              <ion-col col-12 col-sm-12 col-md-6 col-lg-6>
+                <p id="networkingAdvice">People who are truly successful commit themselves continuously to learning and
+                  improving themselves. Are you
+                  a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
+                  opportunities?
+                  Do you regularly read to learn and grow? Are you open to improving and stretching yourself? The fact that
+                  you
+                  are reading this demonstrates a certain level of commitment to develop yourself so you are not a 1 or
+                  even
+                  a 2.
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <a id="separationLink">Learn More
+                  <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                </a>
+              </ion-col>
+            </ion-row>
+
+            <!-- <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
             <p id="networkingAdvice">People who are truly successful commit themselves continuously to learning and
               improving themselves. Are you
               a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
@@ -108,16 +144,16 @@
               you
               are reading this demonstrates a certain level of commitment to develop yourself so you are not a 1 or
               even
-              a 2.</p>
+              a 2.
+            </p>
 
             <br>
             <a id="networkingLink">Learn More
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a>
+            </a> -->
           </ion-card-content>
         </ion-card>
       </ion-col>\              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
-
     </ion-row>
     <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
