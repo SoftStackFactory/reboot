@@ -30,6 +30,7 @@ import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
+import { TimelineComponent } from '../components/timeline/timeline';
 
 
 const Pages = [
@@ -56,7 +57,8 @@ const Pages = [
     ...Pages,
     TimelineItemComponent,
     TimelineTimeComponent,
-    NewsWidgetComponent
+    NewsWidgetComponent,
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,
