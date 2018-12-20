@@ -38,30 +38,32 @@ import { httpInterceptorProviders } from './http-interceptors/index';
 
 
 
-
+const Pages = [    
+  MyApp,
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  WizardPage,
+  DashboardPage,
+  ProfilePage,
+  TransitionPage,
+  AssessmentPage,
+  TimelinePage,
+  SelfAssessmentPage,
+  HistoryPage,
+  NewsPage,
+  TimelineComponent,
+  TimelineItemComponent,
+  TimelineTimeComponent,
+  ChartComponent,
+  NewsWidgetComponent,
+  ResourcesPage,
+]
 
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    WizardPage,
-    DashboardPage,
-    ProfilePage,
-    TransitionPage,
-    AssessmentPage,
-    TimelinePage,
-    SelfAssessmentPage,
-    HistoryPage,
-    NewsPage,
-    TimelineComponent,
-    TimelineItemComponent,
-    TimelineTimeComponent,
-    ChartComponent,
-    NewsWidgetComponent,
-    ResourcesPage,
+    ...Pages
   ],
   imports: [
     BrowserModule,
@@ -72,20 +74,7 @@ import { httpInterceptorProviders } from './http-interceptors/index';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    WizardPage,
-    DashboardPage,
-    ProfilePage,
-    TransitionPage,
-    AssessmentPage,
-    TimelinePage,
-    HistoryPage,
-    NewsPage,
-    SelfAssessmentPage,
-    ResourcesPage,
+    ...Pages
   ],
   providers: [
     StatusBar,
