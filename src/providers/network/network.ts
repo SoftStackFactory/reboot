@@ -66,7 +66,7 @@ export class NetworkProvider {
             }
             this.previousStatus = ConnectionStatusEnum.Online;
         });
-        window.navigator.connection.onchange = () => {
+        window.navigator['connection'].onchange = () => {
           if(window.navigator.onLine) {
             this.eventCtrl.publish('network:online')
             return this.previousStatus = ConnectionStatusEnum.Online
