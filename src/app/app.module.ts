@@ -26,6 +26,7 @@ import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
+<<<<<<< HEAD
 //import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -35,6 +36,13 @@ import { NetworkProvider } from '../providers/network/network'
 import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
+=======
+import { Network } from '@ionic-native/network';
+import { NewsPage } from '../pages/news/news';
+import { NewsWidgetComponent } from '../components/news-widget/news-widget';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { RssProvider } from '../providers/rss/rss';
+>>>>>>> 6bef03663bdd8a43b370683fc47616b26ace8474
 
 
 @NgModule({
@@ -92,9 +100,13 @@ import { httpInterceptorProviders } from './http-interceptors/index';
     ChartProvider,
     RssProvider,
     InAppBrowser,
+<<<<<<< HEAD
     Network,
     NetworkProvider,
     StorageProvider
+=======
+    Network
+>>>>>>> 6bef03663bdd8a43b370683fc47616b26ace8474
   ]
 })
 export class AppModule {}

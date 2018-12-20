@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ResourcesPage } from './resources';
+import { SelfAssessmentPage } from './self-assessment';
+
 
 @NgModule({
   declarations: [],
   imports: [],
 })
-export class ResourcesPageModule {}
+export class SelfAssessementPageModule {}
