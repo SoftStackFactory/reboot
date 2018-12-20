@@ -43,7 +43,8 @@ export class MyApp {
     public network: Network,
     public toastCtrl: ToastController,
     ) {
-    this.initializeApp();
+      this.initializeApp()
+      
 
     console.log("OUR ENV", ENV)
     // used for an example of ngFor and navigation
@@ -66,25 +67,23 @@ export class MyApp {
   initializeApp() {
     
     this.platform.ready().then(() => {
-       
+      
       this._networkProvider.initializeNetworkEvents();
 
-     // Offline event
+      // Offline event
       this.events.subscribe('network:offline', () => {
-     // alert('network:offline ==> '+this.network.type); 
-      this.presentToast("No Network");
-    
-      
-  });
+      // alert('network:offline ==> '+this.network.type); 
+        this.presentToast("No Network");
+      });
 
-  // // Online event
-  this.events.subscribe('network:online', () => {
-  //    // alert('network:online ==> '+this.network.type);  
-     this.presentToast("online")     
-  });
+      // // Online event
+      this.events.subscribe('network:online', () => {
+      //    // alert('network:online ==> '+this.network.type);  
+        this.presentToast("online")     
+      });
 
     });
-}
+  }
 
 
 presentToast( message ) {
