@@ -47,7 +47,8 @@
         "moment": "^2.22.2",
         "rxjs": "5.5.11",
         "sw-toolbox": "3.6.0",
-        "zone.js": "0.8.26"
+        "zone.js": "0.8.26",
+        "cordova-ios": "4.5.5"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.3.1",
@@ -64,7 +65,16 @@
         "plugins": {
             "cordova-sqlite-storage": {},
             "cordova-plugin-inappbrowser": {},
-            "cordova-plugin-network-information": {}
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-device": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-ionic-webview": {},
+            "cordova-plugin-ionic-keyboard": {}
         }
-    }
+    },
+    "platforms": [
+        "ios"
+    ]
 }
