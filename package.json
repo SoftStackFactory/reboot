@@ -40,6 +40,7 @@
         "@types/chart.js": "^2.7.36",
         "chart.js": "^2.7.2",
         "chartjs-plugin-labelsreboot": "github:brettwray/chartjs-plugin-labelsreboot",
+        "cordova-plugin-network-information": "2.0.1",
         "express": "^4.16.3",
         "ionic-angular": "3.9.2",
         "ionicons": "3.0.0",
@@ -62,7 +63,8 @@
     "cordova": {
         "plugins": {
             "cordova-sqlite-storage": {},
-            "cordova-plugin-inappbrowser": {}
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-network-information": {}
         }
     }
 }
