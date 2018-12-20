@@ -51,21 +51,7 @@
 
         <ion-row>
           <ion-col col-6 *ngFor="let data of this.rss.newsArray">
-              <ion-card class="article">
-                <!-- <img src={{data.picture}} alt="mock news picture">
-                
-                <ion-card-content>
-                    <ion-item text-wrap>
-                      <h1 class="title">{{data.title}}</h1>
-                      <p class="timestamp">Date Published: {{data.date}}</p>
-                    </ion-item>
-                  <p class="articleText">{{data.sumText}}</p>
-                </ion-card-content>
-                
-                <a id="separationLink" (click)="openLink(data.link)">Read full article
-                  <ion-icon id="linkArrow" class="linkIcons" name="paper"></ion-icon>
-                </a> -->
-
+              <ion-card class="article">\
                 <ion-row>
                   <ion-col col-6>
                     <img id="image" src={{data.picture}} alt="mock news picture">
