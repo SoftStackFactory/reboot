@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import * as moment from 'moment';
 import { ChartProvider } from '../../providers/chart/chart'
 import { ResourcesPage } from '../resources/resources'
@@ -14,7 +14,6 @@ import { UserProvider } from '../../providers/user/user';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-self-assessment',
   templateUrl: 'self-assessment.html',
