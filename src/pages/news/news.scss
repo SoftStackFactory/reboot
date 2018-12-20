@@ -4,6 +4,7 @@ page-news {
   }
 
   #separationLink {
+    float: right;
     padding: 20px;
     font-size: 15px;
     margin-top: 18px;
@@ -26,6 +27,11 @@ page-news {
 
   #news {
     padding-bottom: 5%;
+  }
+
+  #image {
+    width: 100%;
+    height: 100%;
   }
 
   .timestamp {
