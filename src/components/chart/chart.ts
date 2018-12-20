@@ -25,7 +25,6 @@ export class ChartComponent {
       //calls the function that draws the chart on the canvas within the .html file of the component taking the response from the provider as an argument.
       this.buildChart(res)
     })
-    
   }
 
   //this builds the chart, it takes one parameter, the parameter needs to be an array with a length of 8 numbers in order for the chart to draw correctly
@@ -33,7 +32,7 @@ export class ChartComponent {
     if (data.length < 1) return
     this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
-      data: { labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
+      data: { labels: ["Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],
       datasets: [
         {
           backgroundColor: ["rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)"],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { RssProvider } from '../../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 interface NewsData {
@@ -19,7 +19,11 @@ export class NewsWidgetComponent {
     this.getData();
   }
 
-
+/**
+ * gets data from rss feed through the rss provider. for loop iterates through each element
+ * returned from the provider and parses the information into different variables (summary,
+ * publish date, link, and picture)
+ */
   getData() {
     this.rss.getRSS()
       .subscribe((newsData: NewsData) => {

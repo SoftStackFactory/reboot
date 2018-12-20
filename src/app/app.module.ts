@@ -19,45 +19,51 @@ import { TimelinePage } from '../pages/timeline/timeline';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { HistoryPage } from '../pages/history/history';
 import { ResourcesPage } from '../pages/resources/resources';
-import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
-//import { NewsPage } from '../pages/news/news';
+import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
 import { Network } from "@ionic-native/network";
 import { NetworkProvider } from '../providers/network/network'
 import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
+import { TimelineComponent } from '../components/timeline/timeline';
 
+
+const Pages = [
+  MyApp,
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  WizardPage,
+  DashboardPage,
+  ProfilePage,
+  TransitionPage,
+  AssessmentPage,
+  TimelinePage,
+  SelfAssessmentPage,
+  HistoryPage,
+  NewsPage,
+  ChartComponent,
+  ResourcesPage,
+  
+]
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    WizardPage,
-    DashboardPage,
-    ProfilePage,
-    TransitionPage,
-    AssessmentPage,
-    TimelinePage,
-    SelfAssessmentPage,
-    HistoryPage,
-   // NewsPage,
-    TimelineComponent,
+    ...Pages,
     TimelineItemComponent,
     TimelineTimeComponent,
-    ChartComponent,
     NewsWidgetComponent,
-    ResourcesPage,
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +85,7 @@ import { httpInterceptorProviders } from './http-interceptors/index';
     AssessmentPage,
     TimelinePage,
     HistoryPage,
-   // NewsPage,
+    NewsPage,
     SelfAssessmentPage,
     ResourcesPage,
   ],

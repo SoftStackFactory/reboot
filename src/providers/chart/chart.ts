@@ -31,7 +31,7 @@ export class ChartProvider {
       let allData:any = []
       res.map(x=>{
         //Maps the response from the API to a format that the history page will accept.
-        allData.push({date: moment(x.date).format('MM/DD/YYYY'), value: [x.data.Career, x.data.Finance, x.data['Personal Growth'], x.data.Health, x.data.Family, x.data.Relationships, x.data['Social Life'], x.data.Attitude]})
+        allData.push({date: moment(x.date).format('MM/DD/YYYY'), value: [x.data.Career, x.data.Finances, x.data.PersonalGrowth, x.data.Health, x.data.Family, x.data.Relationships, x.data.SocialLife, x.data.Attitude]})
         return allData
       })
       return allData
@@ -45,7 +45,7 @@ export class ChartProvider {
       try {
       let recent = res[res.length-1].data
       //destructures the response object and places it into an array so that the chart can consume it.
-      let mostRecentChart = [recent.Career, recent.Finance, recent['Personal Growth'], recent.Health, recent.Family, recent.Relationships, recent['Social Life'], recent.Attitude]
+      let mostRecentChart = [recent.Career, recent.Finances, recent.PersonalGrowth, recent.Health, recent.Family, recent.Relationships, recent.SocialLife, recent.Attitude]
       return mostRecentChart
       } catch(e) {
         return [];

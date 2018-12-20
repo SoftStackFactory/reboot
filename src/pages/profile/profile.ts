@@ -15,10 +15,15 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  editting: boolean;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider) {
+  }
+
+  editing: boolean;
   userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _user :UserProvider) {
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProfilePage');
   }
 
   onLogout() {
@@ -41,13 +46,12 @@ export class ProfilePage {
   }
 
 
-
   allowEdit() {
-    this.editting = true;
+    this.editing = true;
   }
 
   updateProfile() {
-    this.editting = false;
+    this.editing = false;
     // let loader = this.loader.create({
     // })
     // loader.present()

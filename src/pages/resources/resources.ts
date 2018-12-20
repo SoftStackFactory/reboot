@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import {  NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { SelfAssessmentPage } from '../self-assessment/self-assessment';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -9,30 +9,18 @@ interface UserData {
   firstName: any,
   lastName: any
 }
-interface ChartData {
-  Career: number,
-  Finance: number,
-  PersonalGrowth: number,
-  Health: number,
-  Family: number,
-  Relationships: number,
-  SocialLife: number,
-  Attitude: number
-}
-@IonicPage()
+
+
 @Component({
   selector: 'page-resources',
   templateUrl: 'resources.html',
 })
 export class ResourcesPage {
-
+  //user model to be pushed to
   user: any = {};
+  values: Array<any> = [];
 
-    lowestResource: any = {};
-
-    values: Array<any> = [];
-  
-    //Resource tempate resources data
+  //Resource tempate resources data
   resources: any = [
     {
       title: 'Career',
@@ -77,15 +65,15 @@ export class ResourcesPage {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public modalCtrl: ModalController,
-  public userPro: UserProvider) {
-      this.userPro.getUser(window.sessionStorage.getItem('userId'))
-    .subscribe((data: UserData) => {
-      this.user.firstName = data.firstName;
-      this.user.lastName = data.lastName;
-    });
+    public modalCtrl: ModalController,
+    public userPro: UserProvider) {
+    this.userPro.getUser(window.sessionStorage.getItem('userId'))
+      .subscribe((data: UserData) => {
+        this.user.firstName = data.firstName;
+        this.user.lastName = data.lastName;
+      });
     this.userPro.getUserChart(window.sessionStorage.getItem('userId'))
-    .subscribe((data: ChartData) => {
+    .subscribe((data: Array<any>) => {
       try{
         console.log(data);
         this.values = data[0].data;
@@ -113,9 +101,9 @@ export class ResourcesPage {
 
 
   openModal(data) {
-  const resModal = this.modalCtrl.create('ResourceModalPage',{data:data})
+    const resModal = this.modalCtrl.create('ResourceModalPage', { data: data })
 
-   resModal.present();
+    resModal.present();
   }
 
   openSelfAssessment() {
