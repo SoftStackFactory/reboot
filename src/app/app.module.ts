@@ -30,25 +30,30 @@ import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
+const Pages = [
+  MyApp,
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  WizardPage,
+  DashboardPage,
+  ProfilePage,
+  TransitionPage,
+  AssessmentPage,
+  TimelinePage,
+  SelfAssessmentPage,
+  HistoryPage,
+  NewsPage,
+  ChartComponent,
+  ResourcesPage,
+  
+]
+
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    WizardPage,
-    DashboardPage,
-    ProfilePage,
-    TransitionPage,
-    AssessmentPage,
-    TimelinePage,
-    SelfAssessmentPage,
-    HistoryPage,
-    NewsPage,
+    ...Pages,
     TimelineItemComponent,
     TimelineTimeComponent,
-    ChartComponent,
-    ResourcesPage,
   ],
   imports: [
     BrowserModule,
