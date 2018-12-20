@@ -94,18 +94,19 @@ export class LoginPage {
     this.navCtrl.push(RegisterPage)
   }
 
-  getChartData() {
-    this.chartProvider.getChartHistory()
-      .subscribe((res) => {
-        this.chartProvider.chartHistory = res;
-        this.chartProvider.chartHistory.reverse(); // Reversing orders array from most recent to least recent chart data
-        this.chartProvider.mostRecentChart = this.chartProvider.chartHistory[0].data;
-        this.toDashboard();
-      },
-        (err) => console.log(err)
-
-      );
-  }
+  /// Commenting out for relevancy,
+  /// TODO: Review if this is still needed.
+  // getChartData() {
+  //   this.chartProvider.getChartHistory()
+  //     .subscribe((res) => {
+  //       this.chartProvider.chartHistory = res;
+  //       this.chartProvider.chartHistory.reverse(); // Reversing orders array from most recent to least recent chart data
+  //       this.chartProvider.mostRecentChart = this.chartProvider.chartHistory[0].data;
+  //       this.toDashboard();
+  //     },
+  //       (err) => console.log(err)
+  //     );
+  // }
 
   toDashboard() {
     let toast = this.toastCtrl.create({
@@ -113,11 +114,11 @@ export class LoginPage {
       duration: 2500,
       position: 'middle'
     });
-  
+
     toast.onDidDismiss(() => {
       this.navCtrl.setRoot(DashboardPage)
     });
-  
+
     toast.present();
   }
 }

@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-  
-import  {  ENV  }  from  '@app/env';      
-    
-/*  
+
+import  {  ENV  }  from  '@app/env';
+
+/*
   Generated class for the UserProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
-*/ 
+*/
 @Injectable()
 export class UserProvider {
 
@@ -20,7 +20,7 @@ export class UserProvider {
     maritalStatus: "",
     employmentStatus: "",
     lastEmployed: "",
-  
+
     militaryBranch: "",
     veteranOrActive: "",
     separationDate: "",
@@ -31,7 +31,7 @@ export class UserProvider {
     enlistingPay: "",
     codeIdentifier: ""
   }
- 
+
   requestUrl: string = ENV.url
 
 
@@ -45,7 +45,7 @@ export class UserProvider {
   //update data from wizard page and patch user model
   updateUserModel(data: any, id) {
     let token = window.sessionStorage.getItem('token');
-    console.log(data, "#1-updateUserModel") 
+    console.log(data, "#1-updateUserModel")
     return this.http.patch(this.requestUrl + '/appUsers/' + id + '?access_token=' + token , data)
   }
 
@@ -64,10 +64,15 @@ export class UserProvider {
     console.log('onservice-logout')
     return this.http.post(this.requestUrl + "/appUsers/logout", token )
   }
-  
+
   getUser(id) {
     let token = window.sessionStorage.getItem('token');
     return this.http.get(this.requestUrl + '/appUsers/' + id + '?access_token=' + token)
+  }
+
+  getUserChart(id) {
+    let token = window.sessionStorage.getItem('token');
+    return this.http.get(this.requestUrl + '/appUsers/' + id + '/charts?access_token=' + token)
   }
 
 }
