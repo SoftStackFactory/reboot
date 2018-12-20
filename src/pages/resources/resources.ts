@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import {  NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { SelfAssessmentPage } from '../self-assessment/self-assessment';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -10,7 +10,7 @@ interface UserData {
   lastName: any
 }
 
-@IonicPage()
+
 @Component({
   selector: 'page-resources',
   templateUrl: 'resources.html',
