@@ -29,6 +29,8 @@ import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { NewsWidgetComponent } from '../components/news-widget/news-widget';
+
 
 const Pages = [
   MyApp,
@@ -54,6 +56,7 @@ const Pages = [
     ...Pages,
     TimelineItemComponent,
     TimelineTimeComponent,
+    NewsWidgetComponent
   ],
   imports: [
     BrowserModule,
