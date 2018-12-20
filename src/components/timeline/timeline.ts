@@ -176,6 +176,7 @@ export class TimelineComponent {
       children: [
         {
           title: 'Find something to do',
+          checkmark: false,
           children: [
             {
               title: 'Go to Career Center',
