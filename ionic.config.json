@@ -1,9 +1,9 @@
 {
-  "name": "reboot",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular",
-  "pro_id": "605bbeba",
-  "id": "605bbeba"
+    "name": "reboot",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "ionic-angular",
+    "pro_id": "605bbeba",
+    "id": "8391f3cc"
 }
