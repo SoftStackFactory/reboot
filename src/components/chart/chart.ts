@@ -1,7 +1,7 @@
 import { ChartProvider } from './../../providers/chart/chart';
 import { Component, ViewChild} from '@angular/core';
 import { Chart } from 'chart.js';
-import 'chartjs-plugin-labelsreboot';
+// import 'chartjs-plugin-labelsreboot';
 
 /**
  * Generated class for the ChartComponent component.
@@ -30,6 +30,7 @@ export class ChartComponent {
 
   //this builds the chart, it takes one parameter, the parameter needs to be an array with a length of 8 numbers in order for the chart to draw correctly
   buildChart(data){
+    if (data.length < 1) return
     this.chart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: { labels: ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"],

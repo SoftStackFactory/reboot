@@ -18,11 +18,11 @@ export class ProfilePage {
   editting: boolean;
   userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public user :UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user :UserProvider) {
   }
 
   onLogout() {
-    this.user.logoutUser(window.sessionStorage.getItem('token'))
+    this._user.logoutUser(window.sessionStorage.getItem('token'))
       .subscribe( response => {
         console.log('onsubscibe-logout')
         window.sessionStorage.clear()
@@ -32,7 +32,7 @@ export class ProfilePage {
   getUserInfo() {
     let userID = sessionStorage.getItem('userId')
     // let token = sessionStorage.getItem('token')
-    this.user.getUser(userID)
+    this._user.getUser(userID)
     .subscribe(response => {
       console.log('received user data')
       console.log(response)

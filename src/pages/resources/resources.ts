@@ -85,24 +85,29 @@ export class ResourcesPage {
       this.user.lastName = data.lastName;
     });
     this.userPro.getUserChart(window.sessionStorage.getItem('userId'))
-    .subscribe( (data: ChartData) => {
-      console.log(data);
-      this.values = data[0].data;
-      let lowest = 10;
-      let lowestProp: any;
-      console.log("values",this.values);
-      console.log(lowest);
-      for (var prop in this.values) {
-        if (this.values[prop] < lowest) {
-          lowest = this.values[prop];
-          lowestProp = prop;
-        }
-          console.log(lowest, lowestProp);
+    .subscribe((data: ChartData) => {
+      try{
+        console.log(data);
+        this.values = data[0].data;
+        let lowest = 10;
+        let lowestProp: any;
+        console.log("values",this.values);
+        console.log(lowest);
+        for (var prop in this.values) {
+          if (this.values[prop] < lowest) {
+            lowest = this.values[prop];
+            lowestProp = prop;
+          }
+            console.log(lowest, lowestProp);
+      }
+      this.userPro.userData.lowestScore = lowest;
+      this.userPro.userData.lowScoreName = lowestProp;
+      this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
+      console.log(this.values)
+    } catch(e) {
+      console.log('i ran')
+      return 
     }
-    this.userPro.userData.lowestScore = lowest;
-    this.userPro.userData.lowScoreName = lowestProp;
-    this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
-    console.log(this.values)
   });
   }
 

@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http'
 
 import { MyApp } from './app.component';
@@ -16,9 +16,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
-//import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
+import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { HistoryPage } from '../pages/history/history';
-//import { ResourcesPage } from '../pages/resources/resources';
+import { ResourcesPage } from '../pages/resources/resources';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
@@ -31,7 +31,10 @@ import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
 import { Network } from "@ionic-native/network";
-import { NetworkProvider } from '../providers/network/network';
+import { NetworkProvider } from '../providers/network/network'
+import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
+import { StorageProvider } from '../providers/storage/storage';
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 
 @NgModule({
@@ -46,7 +49,7 @@ import { NetworkProvider } from '../providers/network/network';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
-   // SelfAssessmentPage,
+    SelfAssessmentPage,
     HistoryPage,
    // NewsPage,
     TimelineComponent,
@@ -54,7 +57,7 @@ import { NetworkProvider } from '../providers/network/network';
     TimelineTimeComponent,
     ChartComponent,
     NewsWidgetComponent,
-    //ResourcesPage,
+    ResourcesPage,
   ],
   imports: [
     BrowserModule,
@@ -77,20 +80,21 @@ import { NetworkProvider } from '../providers/network/network';
     TimelinePage,
     HistoryPage,
    // NewsPage,
-    //SelfAssessmentPage,
-    //ResourcesPage,
+    SelfAssessmentPage,
+    ResourcesPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    httpInterceptorProviders,
     UserProvider,
     ChartProvider,
     RssProvider,
     InAppBrowser,
     Network,
-    NetworkProvider
-
+    NetworkProvider,
+    StorageProvider
   ]
 })
 export class AppModule {}

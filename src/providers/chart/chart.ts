@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-
 import { ENV } from '@app/env';
-
-
+import { StorageProvider } from '../storage/storage'
+import { toObservable } from '@angular/forms/src/validators';
+import { of as observableOf } from 'rxjs/observable/of'
 
 
 @Injectable()
@@ -19,10 +19,9 @@ export class ChartProvider {
   assessmentChartData;
 
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private storage: StorageProvider) { }
 
   addAssessment(assessment) {
-    let token = window.sessionStorage.getItem("token");
     return this.http.post(this.requestUrl, assessment);
   }
 
@@ -38,14 +37,19 @@ export class ChartProvider {
       return allData
     })
   }
+
   mostRecentData() {
     //calls the API to get the assesments from the db
     return this.http.get(this.requestUrl).map((res:any[])=>{
       //Returns all data, recent gets the last or most recent item from the DB
+      try {
       let recent = res[res.length-1].data
       //destructures the response object and places it into an array so that the chart can consume it.
       let mostRecentChart = [recent.Career, recent.Finance, recent['Personal Growth'], recent.Health, recent.Family, recent.Relationships, recent['Social Life'], recent.Attitude]
       return mostRecentChart
+      } catch(e) {
+        return [];
+      }
     })
   }
 
