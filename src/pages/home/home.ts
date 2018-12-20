@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 // import { NetworkProvider } from '../../providers/network/network';
-=======
-import {ToastController } from 'ionic-angular';
->>>>>>> 6bef03663bdd8a43b370683fc47616b26ace8474
 import { Network } from '@ionic-native/network';
 
 
@@ -14,14 +10,11 @@ import { Network } from '@ionic-native/network';
 })
 export class HomePage {
   
-<<<<<<< HEAD
 
   // constructor(public navCtrl: NavController, private menu: MenuController, private _network: NetworkProvider) {
   //   menu.enable(true);
    
   // }
-=======
->>>>>>> 6bef03663bdd8a43b370683fc47616b26ace8474
 
 
   constructor(public toast: ToastController, private network: Network) {
