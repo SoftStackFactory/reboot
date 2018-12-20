@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ChartProvider } from '../../providers/chart/chart';
 import { Chart } from 'chart.js';
 
 
-@IonicPage()
 @Component({
   selector: 'page-history',
   templateUrl: 'history.html',
@@ -14,7 +13,7 @@ export class HistoryPage {
     @ViewChild('lineChart') lineChart;
 
   historyPage: any = 'historyPage';
-  labels  = ["Career", "Finance", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"];
+  labels  = ["Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"];
   lineColors = ["rgba(0,0,255, .3)", "rgba(255,0,0, .3)", "rgba(128,0,128, .3)", "rgba(0,128,0, .3)", "rgba(255,165,0, .3)", "rgba(0,128,128, .3)", "rgba(255,0,255, .3)", "rgba(0,255,0, .3)"];
   dataArrays = []
   history:any;
