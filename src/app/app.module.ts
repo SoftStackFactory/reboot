@@ -26,7 +26,7 @@ import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
-//import { NewsPage } from '../pages/news/news';
+import { NewsPage } from '../pages/news/news';
 import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
@@ -35,6 +35,10 @@ import { NetworkProvider } from '../providers/network/network'
 import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
+
+
+
+
 
 
 @NgModule({
@@ -51,7 +55,7 @@ import { httpInterceptorProviders } from './http-interceptors/index';
     TimelinePage,
     SelfAssessmentPage,
     HistoryPage,
-   // NewsPage,
+    NewsPage,
     TimelineComponent,
     TimelineItemComponent,
     TimelineTimeComponent,
@@ -79,7 +83,7 @@ import { httpInterceptorProviders } from './http-interceptors/index';
     AssessmentPage,
     TimelinePage,
     HistoryPage,
-   // NewsPage,
+    NewsPage,
     SelfAssessmentPage,
     ResourcesPage,
   ],
