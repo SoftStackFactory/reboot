@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, ToastController } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
@@ -42,6 +42,7 @@ export class MyApp {
     public events: Events,
     public network: Network,
     public toastCtrl: ToastController,
+    public menuCtrl: MenuController,
     ) {
       this.initializeApp()
       
@@ -81,6 +82,9 @@ export class MyApp {
       //    // alert('network:online ==> '+this.network.type);  
         this.presentToast("online")     
       });
+
+      this.menuCtrl.enable(false);
+      this.menuCtrl.swipeEnable(false);
 
     });
   }

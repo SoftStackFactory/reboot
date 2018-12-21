@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { PasswordValidator } from '../../validators/password.validator';
 import { UserProvider } from '../../providers/user/user';
@@ -19,12 +19,15 @@ export class RegisterPage {
   private validate: FormGroup
   submitAttempt: boolean = false;
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              private formBuilder: FormBuilder, 
-              public _userService: UserProvider, 
-              private storage: Storage,
-              private toastCtrl: ToastController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder, 
+    public _userService: UserProvider, 
+    private storage: Storage,
+    private toastCtrl: ToastController,
+    public menuCtrl: MenuController,
+  ) {
     
     this.validate = this.formBuilder.group({
       first: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -55,6 +58,8 @@ export class RegisterPage {
         this.storage.remove('userData')
         this.storage.set('userData', data)
         console.log('data from submitReg()', data)
+        this.menuCtrl.enable(true);
+        this.menuCtrl.swipeEnable(true);
       },
       err => {
       console.error('err from register:', err)

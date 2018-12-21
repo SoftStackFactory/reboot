@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -26,13 +26,16 @@ export class LoginPage {
   private loginCreds : FormGroup;
   loginResponse: any;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public _userService: UserProvider,
-              private formBuilder: FormBuilder,
-              private storage: Storage,
-              private chartProvider: ChartProvider,
-              private toastCtrl: ToastController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public _userService: UserProvider,
+    private formBuilder: FormBuilder,
+    private storage: Storage,
+    private chartProvider: ChartProvider,
+    private toastCtrl: ToastController,
+    private menuCtrl: MenuController,
+  ) {
     this.loginCreds = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
@@ -50,6 +53,8 @@ export class LoginPage {
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
+          this.menuCtrl.enable(true);
+          this.menuCtrl.swipeEnable(true);
           // console.log('res:', res)
           // this.userId = res.userId
           // this.storage.remove('userData')
