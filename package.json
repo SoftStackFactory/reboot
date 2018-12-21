@@ -62,7 +62,7 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.3.1",
-        "@ionic/app-scripts": "^3.2.0",
+        "@ionic/app-scripts": "^3.2.1",
         "@types/jest": "^23.3.3",
         "jest": "^23.6.0",
         "ng2-charts": "^1.6.0",

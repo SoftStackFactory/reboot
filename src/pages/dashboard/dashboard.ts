@@ -67,9 +67,10 @@ export class DashboardPage {
   }
 
   lastDate() {
-    let msg = this.assessDate?
-              `Your last assessment was ${this.assessDate} day(s) ago` :
-              `You have not completed any assesments`
+    let msg = this.assessDate === undefined?
+                                  `You have not completed any assesments`:          
+                                  `Your last assessment was ${this.assessDate} day(s) ago`
+
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 2500,
