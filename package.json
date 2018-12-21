@@ -58,17 +58,17 @@
         "moment": "^2.22.2",
         "rxjs": "5.5.11",
         "sw-toolbox": "3.6.0",
-        "zone.js": "0.8.26"
+        "zone.js": "0.8.26",
+        "typescript": "^2.6.2",
+        "@ionic/app-scripts": "^3.2.1",
+        "@fortawesome/fontawesome-free": "^5.3.1",
+        "ng2-charts": "^1.6.0"
     },
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.3.1",
-        "@ionic/app-scripts": "^3.2.1",
         "@types/jest": "^23.3.3",
         "jest": "^23.6.0",
-        "ng2-charts": "^1.6.0",
         "reflect-metadata": "^0.1.12",
-        "ts-jest": "^23.10.3",
-        "typescript": "^2.6.2"
+        "ts-jest": "^23.10.3"
     },
     "description": "An Ionic project",
     "cordova": {
