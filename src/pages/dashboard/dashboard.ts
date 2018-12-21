@@ -49,7 +49,8 @@ export class DashboardPage {
       console.log(this.daysTilSep, this.name)
     })
     this.user.getUserChart(window.sessionStorage.getItem('userId'))
-    .subscribe( (data) => {
+    .subscribe( (data: Array<any>) => {
+      if (!data.length) return
       this.assessDate = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
       let now = new Date().getTime();
       this.assessDate = Math.ceil((this.assessDate - now)/86400000);
@@ -66,8 +67,11 @@ export class DashboardPage {
   }
 
   lastDate() {
+    let msg = this.assessDate?
+              `Your last assessment was ${this.assessDate} day(s) ago` :
+              `You have not completed any assesments`
     let toast = this.toastCtrl.create({
-      message: `Your last assessment was ${this.assessDate} day(s) ago`,
+      message: msg,
       duration: 2500,
       position: 'middle',
       cssClass: 'toaster',

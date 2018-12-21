@@ -94,7 +94,8 @@ presentToast( message ) {
   let toast = this.toastCtrl.create({
     message: message,
     duration: 3000,
-    position: 'top'
+    position: 'top',
+    cssClass: 'toaster'
   });
 
   toast.onDidDismiss(() => {
