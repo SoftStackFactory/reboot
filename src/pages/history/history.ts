@@ -13,7 +13,7 @@ export class HistoryPage {
     @ViewChild('lineChart') lineChart;
 
   historyPage: any = 'historyPage';
-  labels  = ["Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude"];
+  labels  = ["Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social Life", "Attitude"];
   lineColors = ["rgba(0,0,255, .3)", "rgba(255,0,0, .3)", "rgba(128,0,128, .3)", "rgba(0,128,0, .3)", "rgba(255,165,0, .3)", "rgba(0,128,128, .3)", "rgba(255,0,255, .3)", "rgba(0,255,0, .3)"];
   dataArrays = []
   history:any;
