@@ -8,13 +8,10 @@ import { NetworkProvider } from '../providers/network/network';
 import { UserProvider } from '../providers/user/user'
 
 //Pages
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
 import { WizardPage } from '../pages/wizard/wizard';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ProfilePage } from '../pages/profile/profile';
-// import { TransitionPage } from '../pages/transition/transition';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
