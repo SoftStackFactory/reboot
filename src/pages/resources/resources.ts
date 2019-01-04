@@ -76,7 +76,7 @@ export class ResourcesPage {
     .subscribe((data: Array<any>) => {
       try{
         console.log(data);
-        this.values = data[0].data;
+        this.values = data[data.length - 1].data;
         let lowest = 10;
         let lowestProp: any;
         console.log("values",this.values);

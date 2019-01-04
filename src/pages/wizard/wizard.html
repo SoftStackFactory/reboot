@@ -15,12 +15,19 @@
 
 <ion-content >
     <div class="nav-start">
-      <button ion-button (click)="exit()"  class="start">Exit</button>
-      <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
+      <button ion-button (click)="exit()" color="danger" id="end">Exit</button>
+      <!-- <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button> -->
+    </div>
+
+    <div id="leftArrow" (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </div>
+    <div id="rightArrow" (click)="next()">
+      <ion-icon name="arrow-forward"></ion-icon>
     </div>
  
-    <ion-slides  (ionSlideWillChange)="slideChanged()"  pager>
+    <ion-slides  (ionSlideWillChange)="slideChanged()" pager>
 
       <ion-slide  class="demo-slide">
         <div class='top-simple'>
@@ -33,6 +40,9 @@
               <strong> Swipe to the right to begin &#x27A4;</strong> 
             </p>
           </ion-list> 
+
+          <!-- <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+          <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button> -->
         </div>
       </ion-slide>
 
@@ -40,12 +50,12 @@
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios">
             <ion-list-header class='item item-ios list-header list-header-ios'>
-              <h1 class="h1">Home Dasboard</h1>
+              <h1 class="h1">Dashboard</h1>
             </ion-list-header>
-            <p class="h2">Here you will find links to the timeline and self assessment section.
-            Usefull tips and links are also available to check out.</p>
+            <p class="h2">Here you will find links to the Timeline and Self Assessment section.
+            Useful tips and links are also available.</p>
           </ion-list>
-          <img  class= "demo-img" src='assets/imgs/dashboard.png'>
+          <img  class= "demo-img" src='assets/imgs/dashboard2.png'>
         </div>
       </ion-slide>
 
@@ -53,12 +63,12 @@
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios">
             <ion-list-header class='item item-ios list-header list-header-ios'>
-              <h1 class="h1">Life Balance Wheel</h1>
+              <h1 class="h1">Self Assessment</h1>
             </ion-list-header>
-            <p class='h2'>Here you will be promted to take your self assessment for your finances, health, family, and
-              more. This chart will display the results of your self assesment.</p>
+            <p class='h2'>Here you will be prompted to take an assessment of your finances, health, family, and
+              more. Your results will be displayed in a chart.</p>
           </ion-list>
-          <img class='demo-img' src='assets/imgs/assessment.png'>
+          <img class='demo-img' src='assets/imgs/selfassessment.png'>
         </div>
       </ion-slide>
 
@@ -68,11 +78,11 @@
             <ion-list-header class='item item-ios list-header list-header-ios'> 
               <h1 class="h1">Timeline</h1>
             </ion-list-header>
-            <p class='h2'>This is a timeline that will make your transition to the civilian life smoother. Each section has a to-do
-                item that you need to accomplish.
+            <p class='h2'>This timeline will make your transition to civilian life smoother. Each section has to-do
+                items to accomplish.
             </p>
           </ion-list>
-          <img class='demo-img' src='assets/imgs/timeline.png'>
+          <img class='demo-img' src='assets/imgs/timeline2.png'>
         </div>
       </ion-slide>
 
@@ -455,5 +465,11 @@
 
         </div>
       </ion-slide>
+
+      <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
+
     </ion-slides>
+
+    
 </ion-content>

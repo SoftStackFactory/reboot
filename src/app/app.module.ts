@@ -36,6 +36,7 @@ import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { TimelineComponent } from '../components/timeline/timeline';
+import { ActionItemProvider } from '../providers/action-item/action-item';
 
 
 const Pages = [
@@ -100,7 +101,8 @@ const Pages = [
     InAppBrowser,
     Network,
     NetworkProvider,
-    StorageProvider
+    StorageProvider,
+    ActionItemProvider
   ]
 })
 export class AppModule {}

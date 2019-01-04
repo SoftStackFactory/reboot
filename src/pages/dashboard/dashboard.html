@@ -46,12 +46,11 @@
               Your Separation Was {{daysTilSepAbs}} Days Ago!
               </ion-card-header>
           <ion-card-content id="separationContent">
-            You're getting close to your separation day! Are you preparing for the transition? Have you checked the
-            timeline for instructions?
+            You're getting close to your separation day! Are you preparing for the transition? 
             Being informed and prepared will make your transition into civilization easier to see what your next steps
-            are.
+            are. The next step is:
             <br>
-            <br>
+            <h4 class="actionItemText"> {{ currentActionItem }} </h4>
             <a (click)="toTimeline()" id="separationLink">See what's next
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
