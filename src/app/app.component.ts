@@ -54,16 +54,12 @@ export class MyApp {
     console.log("OUR ENV", ENV)
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      // { title: 'Login', component: LoginPage},
-      // { title: 'Register', component: RegisterPage },
-      { title: 'Wizard', component: WizardPage },
       { title: 'Dashboard', component: DashboardPage },
+      { title: 'Wizard', component: WizardPage },
       { title: 'Profile', component: ProfilePage },
-      // { title: 'Transition', component: TransitionPage },
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
-      { title: 'History', component: HistoryPage },
+      { title: 'History', component: HistoryPage }, 
       { title: 'Resources', component: ResourcesPage },
       { title: 'Logout', component: LoginPage }
     ];
