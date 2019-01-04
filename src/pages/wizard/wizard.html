@@ -15,9 +15,16 @@
 
 <ion-content >
     <div class="nav-start">
-      <button ion-button (click)="exit()"  class="start">Exit</button>
-      <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
+      <button ion-button (click)="exit()" color="danger" id="end">Exit</button>
+      <!-- <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
+      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button> -->
+    </div>
+
+    <div id="leftArrow" (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </div>
+    <div id="rightArrow" (click)="next()">
+      <ion-icon name="arrow-forward"></ion-icon>
     </div>
  
     <ion-slides  (ionSlideWillChange)="slideChanged()" pager>
