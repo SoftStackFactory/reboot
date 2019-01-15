@@ -81,8 +81,12 @@
           <ion-card-header class="headers" text-center>
             Transition Readiness Test
           </ion-card-header>
-          <ion-card-content>
-            <chart ></chart>
+          <ion-card-content *ngIf="!prevAssess">
+              Please complete a Self Assessment
+              <button class="button1" (click)="toSelfAssessment()" ion-button>Self Assessment</button>              
+          </ion-card-content>
+          <ion-card-content *ngIf="prevAssess">
+            <chart></chart>
           </ion-card-content>
         </ion-card>
       </ion-col>
