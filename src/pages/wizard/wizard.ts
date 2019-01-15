@@ -220,6 +220,7 @@ export class WizardPage {
   }
   back() {
     this.slides.slidePrev(500);
+    if(this.slides.getActiveIndex()  === 0) this.leftArrowVisible = false;
     console.log(this.slides.getActiveIndex())
   }
   //shouldLockSwipeToNext variable can be either true/false depending on condition
