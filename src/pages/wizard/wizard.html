@@ -14,17 +14,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid no-padding>
-
-    <ion-row>
-      <ion-col col-12 class="nav-start">
-        <button ion-button [disabled]='LockSwipeToPrev' (click)="back()" class="start">Back</button>
-        <button ion-button (click)="exit()" class="leave-wizard">Exit</button>
-        <button ion-button [disabled]='nextButtonDisabled' (click)="next()" class="start">Next</button>
-      </ion-col>
-    </ion-row>
-
-  </ion-grid>
 
   
   <ion-slides  (ionSlideWillChange)="slideChanged()" pager>
@@ -458,5 +447,17 @@
         </div>
       </ion-slide>
     </ion-slides>
+    
+    <ion-grid no-padding>
+  
+      <ion-row>
+        <ion-col col-12 class="nav-start">
+          <button ion-button [disabled]='LockSwipeToPrev' (click)="back()" class="start">Back</button>
+          <button ion-button (click)="exit()" class="leave-wizard">Exit</button>
+          <button ion-button [disabled]='nextButtonDisabled' (click)="next()" class="start">Next</button>
+        </ion-col>
+      </ion-row>
+  
+    </ion-grid>
 
 </ion-content>
