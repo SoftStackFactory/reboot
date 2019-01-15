@@ -36,6 +36,9 @@ export class WizardPage {
   }
   // index: number;
 
+  leftArrowVisible: boolean = false;
+  rightArrowVisible: boolean = true;
+
   @ViewChild(Slides) slides: Slides;
 
   constructor(public alertCtrl: AlertController,
@@ -54,6 +57,7 @@ export class WizardPage {
     this.firstFormFunct();
     this.secondFormFunct();
     this.thirdFormFunct();
+    
   }
 
   ionViewDidLoad() {
@@ -203,9 +207,20 @@ export class WizardPage {
   }
   next() {
     this.slides.slideNext(500);
+    console.log(this.slides.getActiveIndex())
+
+    if(this.slides.getActiveIndex() === 8) {
+      this.leftArrowVisible = false;
+      this.rightArrowVisible = false;
+    } else if (this.slides.getActiveIndex()  === 5) {
+      this.leftArrowVisible = false;
+    } else if (this.slides.getActiveIndex()  !== 5 || 8) {
+      this.leftArrowVisible = true;
+    }
   }
   back() {
     this.slides.slidePrev(500);
+    console.log(this.slides.getActiveIndex())
   }
   //shouldLockSwipeToNext variable can be either true/false depending on condition
   lockNextSlide() {
@@ -289,6 +304,17 @@ export class WizardPage {
     let diff = sepDate - now;
     return Math.ceil(diff/86400000);
   }
+
+  // yesOrNoArrow() {
+  //   if(this.slides.getActiveIndex() === 8) {
+  //     this.leftArrowVisible = false;
+  //     this.rightArrowVisible = false;
+  //   } else if (this.slides.getActiveIndex() === 0) {
+  //     this.leftArrowVisible = false;
+  //   } else if (this.slides.getActiveIndex()  === 5) {
+  //     this.leftArrowVisible = false;
+  //   }
+  // }
 
 }
 

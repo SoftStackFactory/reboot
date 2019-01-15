@@ -16,14 +16,19 @@
 <ion-content >
     <div class="nav-start">
       <button ion-button (click)="exit()" color="danger" id="end">Exit</button>
-      <!-- <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button> -->
     </div>
 
-    <div id="leftArrow" (click)="back()">
+    <!-- <div id="leftArrow" (click)="back()">
       <ion-icon name="arrow-back"></ion-icon>
     </div>
     <div id="rightArrow" (click)="next()">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </div> -->
+
+    <div id="leftArrow" *ngIf="leftArrowVisible" (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </div>
+    <div id="rightArrow" *ngIf="rightArrowVisible" (click)="next()">
       <ion-icon name="arrow-forward"></ion-icon>
     </div>
  
@@ -40,9 +45,6 @@
               <strong> Swipe to the right to begin &#x27A4;</strong> 
             </p>
           </ion-list> 
-
-          <!-- <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-          <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button> -->
         </div>
       </ion-slide>
 
@@ -86,7 +88,7 @@
         </div>
       </ion-slide>
 
-      <ion-slide class="demo-slide">
+      <!-- <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios" >
             <ion-list-header class='item item-ios list-header list-header-ios'>
@@ -96,9 +98,9 @@
              In your profile page you can see your information or update it at any time .
             </p>
           </ion-list>
-          <!-- <img class= 'demo-img'src='assets/imgs/profile.png'> -->
+          <img class= 'demo-img'src='assets/imgs/profile.png'> 
         </div>
-      </ion-slide>
+      </ion-slide> -->
 
       <ion-slide  class="demo-slide">
         <div class='top-simple'>
@@ -447,9 +449,9 @@
         <div class='top-simple'>
           <ion-list class="simple-header list list-ios" >
             <ion-list-header class='item item-ios list-header list-header-ios'>
-              <h1 id="end-wizard-h" class="h1">Thank you for using the Wizard</h1>
+              <h1 id="end-wizard-h" class="h1">Thank you for completing the InTransition Questionnaire.</h1>
             </ion-list-header>
-            <p class="h2">You may go to your dashboard or to the transition page to take the assessmentc.</p>
+            <p class="h2">You may go to your Dashboard or take the Self Assessment.</p>
           </ion-list >
         
           <ion-grid>
@@ -465,10 +467,6 @@
 
         </div>
       </ion-slide>
-
-      <button ion-button [disabled]='LockSwipeToPrev' (click)="back()"class="start">Back</button>
-      <button ion-button [disabled]='nextButtonDisabled' (click)="next()" id="end">Next</button>
-
     </ion-slides>
 
     
