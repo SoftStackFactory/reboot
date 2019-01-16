@@ -37,7 +37,7 @@ export class DashboardPage {
      this.currentActionItem = this.actionItem.currentItem;
     }
 
-  /* commenting out for demo
+  //  commenting out for demo
 
   ionViewWillLoad() {
     // this.storage.get('userInfo').then((val) => {
@@ -76,7 +76,7 @@ export class DashboardPage {
     this.navCtrl.setRoot(SelfAssessmentPage);
   }
 
-  End of comment for demo */
+  // End of comment for demo */
 
   toTimeline() {
     this.navCtrl.setRoot(TimelinePage);

@@ -14,21 +14,21 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <h1 id="title">
     Hello, {{user.firstName}}!
   </h1>
-    <ion-card>
+    <ion-card col-8 offset-2>
       <ion-card-content id="card-text">
           This page will provide helpful resources to aid in your transition. Based on your self assessment, here are some areas which might need more help than others.
       </ion-card-content>
     </ion-card>
-    <ion-card padding>
+    <ion-card col-8 offset-2>
       <ion-card-content >
           <chart></chart>
         </ion-card-content>
         </ion-card>
-    <ion-card>
+    <ion-card col-8 offset-2>
       <ion-card-header id='title'>
           Your lowest score on self assessment is: <br><br>
           <b><em>{{userPro.userData.lowScoreName}}</em></b> 
@@ -45,7 +45,7 @@
 
     </ion-card>
     
-      <ion-card *ngFor="let res of resources">
+      <ion-card *ngFor="let res of resources" col-8 offset-2>
           <ion-card-header id='title'>
             {{res.title}}
           </ion-card-header>
