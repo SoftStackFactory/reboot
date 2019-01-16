@@ -34,6 +34,7 @@ export class UserProvider {
   }
 
   requestUrl: string = ENV.url
+  userName: any = "Maurice";
 
 
   constructor(public http: HttpClient, private storage: StorageProvider) {
@@ -78,3 +79,4 @@ export class UserProvider {
   }
 
 }
+

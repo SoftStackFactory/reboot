@@ -5,7 +5,7 @@ import { PasswordValidator } from '../../validators/password.validator';
 import { UserProvider } from '../../providers/user/user';
 import { WizardPage } from '../wizard/wizard'
 import { LoginPage } from '../login/login';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-register',
