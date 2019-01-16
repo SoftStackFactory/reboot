@@ -17,12 +17,13 @@
 
     <ion-row>
       <ion-col>
-        <h1 id="hello" text-center>Hello, {{ this.name }}!</h1>
+        <h1 id="hello" text-center>Hello, Peter!</h1>
+        <!-- <h1 id="hello" text-center>Hello, {{ this.name }}!</h1> -->
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-8 offset-2>
         <ion-card class="cards">
           <ion-card-content id="welcome" text-center>
             Welcome to the Military and Veteran's "InTransition" Personal Transition Assistant. Your personal guide to
@@ -34,8 +35,8 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
-        <ion-card class="sep">
+      <ion-col col-4 offset-2>
+        <ion-card class="sep row2">
           <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
           </ion-card-header>
@@ -58,8 +59,8 @@
         </ion-card>
       </ion-col>
 
-      <ion-col>
-        <ion-card class="news">
+      <ion-col col-4>
+        <ion-card class="news row2">
           <ion-card-header class="headers" text-center>
             Veterans Affairs News
           </ion-card-header>
@@ -76,7 +77,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-8 offset-2>
         <ion-card class="cards">
           <ion-card-header class="headers" text-center>
             Transition Readiness Test
@@ -95,7 +96,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-8 offset-2>
         <ion-card class="cards">
           <ion-card-header id="networkHeader" class="headers" text-center>
             Build Your Network
