@@ -140,16 +140,16 @@ export class WizardPage {
     //2) sets validators if 'active'; clears validators if 'veteran'
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe(val => {
-        const enlistedPay = this.thirdForm.get('enlistedPay')
+        // const enlistedPay = this.thirdForm.get('enlistedPay')
         if (val == "Active") {
           this.SeparationQuestion = "When is your separation date?"
-          enlistedPay.setValidators(Validators.compose([Validators.required,]));
+          // enlistedPay.setValidators(Validators.compose([Validators.required,]));
         } else if (val == "Veteran") {
           this.SeparationQuestion = "When was your separation date?"
-          enlistedPay.clearValidators();
+          // enlistedPay.clearValidators();
         }
         this.vetValue = val;
-        enlistedPay.updateValueAndValidity()
+        // enlistedPay.updateValueAndValidity()
       })
     //when value changes for disability question change validator requirements for percentQuestion depending on condition
     this.firstForm.controls.disability.valueChanges
@@ -262,8 +262,8 @@ export class WizardPage {
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
   unemployedOptions = this.customizeSelectOptions("Employment Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status", "Select one");
-  insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
-  enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
+  // insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
+  // enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
 
   onSubmit() {
     this.user.userData = {
@@ -295,7 +295,7 @@ export class WizardPage {
     this.navCtrl.setRoot(DashboardPage)
   }
 
-  setAssestmentPage() {
+  setAssessmentPage() {
     this.navCtrl.setRoot(SelfAssessmentPage)
   }
 

@@ -23,9 +23,7 @@
     <div id="rightArrow" *ngIf="rightArrowVisible" (click)="next()">
       <ion-icon name="arrow-forward"></ion-icon>
     </div>
- 
-    <ion-slides  (ionSlideWillChange)="slideChanged()" pager>
-
+  <ion-slides (ionSlideWillChange)="slideChanged()" pager>
       <ion-slide  class="demo-slide">
         <div class='top-simple'>
           <ion-list class="simple-header list list-ios"  >
@@ -39,7 +37,7 @@
           </ion-list> 
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios">
@@ -52,7 +50,7 @@
           <img  class= "demo-img" src='assets/imgs/dashboard2.png'>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios">
@@ -65,7 +63,7 @@
           <img class='demo-img' src='assets/imgs/selfassessment.png'>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-demo'>
           <ion-list class="demo-header list list-ios" >
@@ -107,7 +105,7 @@
           </ion-list>
         </div>
       </ion-slide>
-
+  
       <ion-slide class='quest-slide'>
         <div class='top-question'>
           <ion-list class="question-header list list-ios" >
@@ -118,7 +116,7 @@
           </ion-list>
         
           <form [formGroup]="firstForm" class="form">
-
+  
             <ion-card [class.invalid]="!firstForm.controls.branch.valid && (firstForm.controls.branch.touched || submitIntent)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -165,7 +163,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>
-
+  
             <ion-card [class.invalid]="!firstForm.controls.separationDate.valid && (firstForm.controls.separationDate.touched ||submitIntent)" *ngIf="vetValue" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -201,7 +199,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>    
-
+  
             <ion-card [class.invalid]="!firstForm.controls.disability.valid && (firstForm.controls.disability.touched || submitIntent)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -221,7 +219,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>
-
+  
             <ion-card 
               [class.invalid]="!firstForm.controls.percentQuestion.valid && (firstForm.controls.percentQuestion.dirty || submitIntent)"
               *ngIf="disabilityQValue == 'Disability'"
@@ -244,11 +242,11 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>   
-
+  
           </form>
         </div>
       </ion-slide>
-
+  
       <ion-slide class='quest-slide'>
         <div class='top-question'>
           <ion-list class="question-header list list-ios" >
@@ -279,7 +277,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>
-
+  
             <ion-card  [class.invalid]="!secondForm.controls.lastEmployed.valid && (secondForm.controls.lastEmployed.touched)" *ngIf="employedAnswer == 'Unemployed'" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -303,7 +301,7 @@
                 </ion-item>
               </ion-item-group>
             </ion-card>    
-
+  
             <ion-card  [class.invalid]="!secondForm.controls.marital.valid && (secondForm.controls.marital.touched)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -330,7 +328,7 @@
           </form>
         </div> 
       </ion-slide> 
-
+  
       <ion-slide class= 'quest-slide'>
         <div class='top-question '>
           <ion-list class="question-header list list-ios" >
@@ -341,7 +339,7 @@
           </ion-list>
             
           <form [formGroup]="thirdForm" class="form">
-
+  
             <ion-card [class.invalid]="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)" class="card-wrapper">
               <ion-item-group>
                 <ion-item-divider class='q-group' color="light">
@@ -433,11 +431,11 @@
             </ion-card>
             <br><br>
           <button ion-button id ="submit" [disabled]="!thirdForm.valid" (click)="onSubmit()" >Submit</button>
-
+  
           </form>
         </div>
       </ion-slide>
-
+  
       <ion-slide class="demo-slide">
         <div class='top-simple'>
           <ion-list class="simple-header list list-ios" >
@@ -453,14 +451,11 @@
                 <button class="button1" (click)="setDashboardPage()" ion-button>Dashboard</button>
               </ion-col>
               <ion-col col-12 col-sm-5 col-md-auto> 
-                <button class='button1' (click)="setAssestmentPage()" ion-button>Assessment</button> 
+                <button class='button1' (click)="setAssessmentPage()" ion-button>Assessment</button> 
               </ion-col>
             </ion-row>
           </ion-grid>
-
         </div>
       </ion-slide>
     </ion-slides>
-
-    
 </ion-content>
