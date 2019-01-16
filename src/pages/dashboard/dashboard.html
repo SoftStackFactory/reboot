@@ -83,7 +83,9 @@
           </ion-card-header>
           <ion-card-content *ngIf="!prevAssess">
               Please complete a Self Assessment
-              <button class="button1" (click)="toSelfAssessment()" ion-button>Self Assessment</button>              
+              <a (click)="toSelfAssessment()" id="separationLink">Complete an assessment
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </a>  
           </ion-card-content>
           <ion-card-content *ngIf="prevAssess">
             <chart></chart>
