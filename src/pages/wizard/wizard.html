@@ -346,16 +346,38 @@
                   What is your military rank?
                 </ion-item-divider>
                 <ion-item>
-                  <ion-input 
+                  <!-- <ion-input 
                   type="text"
                   placeholder='Input Answer here..'
                   formControlName="rank"
                   >
-                  </ion-input>
-                </ion-item>
-                <ion-item class="input" *ngIf="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
+                  </ion-input> -->
+                  <ion-select 
+                    placeholder="Select&#x25BC;"
+                    formControlName="rank"
+                  [selectOptions] = 'rankOptions'>
+                    <ion-option value="O1">O1</ion-option>
+                    <ion-option value="O2">O2</ion-option>
+                    <ion-option value="O3">O3</ion-option>
+                    <ion-option value="O4">O4</ion-option>
+                    <ion-option value="O5">O5</ion-option>
+                    <ion-option value="O6">O6</ion-option>
+                    <ion-option value="O7">O7</ion-option>
+                    <ion-option value="E1">E1</ion-option>
+                    <ion-option value="E2">E2</ion-option>
+                    <ion-option value="E3">E3</ion-option>
+                    <ion-option value="E4">E4</ion-option>
+                    <ion-option value="E5">E5</ion-option>
+                    <ion-option value="E6">E6</ion-option>
+                    <ion-option value="E7">E7</ion-option>
+                    <ion-option value="E8">E8</ion-option>
+                    <ion-option value="E9">E9</ion-option>
+                  </ion-select>
+                  </ion-item>               
+                
+                <!-- <ion-item class="input" *ngIf="!thirdForm.controls.rank.valid && (thirdForm.controls.rank.dirty)">
                   <p class="invalid-text" invalid-text>Enter only letters</p>
-                </ion-item>
+                </ion-item> -->
               </ion-item-group>
             </ion-card>
             

@@ -205,24 +205,41 @@ export class WizardPage {
   exit() {
     this.navCtrl.setRoot(DashboardPage)
   }
+  leftOrRightArrow() {
+    if(this.slides.getActiveIndex()  === 0){
+      this.leftArrowVisible = false; 
+    } 
+    else if (this.slides.getActiveIndex() === 8) {
+      this.leftArrowVisible = false;
+      this.rightArrowVisible = false;
+    } 
+    else if (this.slides.getActiveIndex()  === 5) {
+      this.leftArrowVisible = false;
+    } 
+    else if (this.slides.getActiveIndex() === 7) {
+      this.rightArrowVisible = false;
+    } 
+    else if (this.slides.getActiveIndex()  !== 5 || 8) {
+      this.leftArrowVisible = true;
+    } 
+    else if (this.slides.getActiveIndex()  === 6) {
+      this.rightArrowVisible = true;
+    } 
+  }
+
   next() {
     this.slides.slideNext(500);
     console.log(this.slides.getActiveIndex())
-
-    if(this.slides.getActiveIndex() === 8) {
-      this.leftArrowVisible = false;
-      this.rightArrowVisible = false;
-    } else if (this.slides.getActiveIndex()  === 5) {
-      this.leftArrowVisible = false;
-    } else if (this.slides.getActiveIndex()  !== 5 || 8) {
-      this.leftArrowVisible = true;
-    }
+    this.leftOrRightArrow();
   }
+
   back() {
     this.slides.slidePrev(500);
-    if(this.slides.getActiveIndex()  === 0) this.leftArrowVisible = false;
     console.log(this.slides.getActiveIndex())
+    this.leftOrRightArrow();
   }
+
+  
   //shouldLockSwipeToNext variable can be either true/false depending on condition
   lockNextSlide() {
     this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
@@ -262,6 +279,8 @@ export class WizardPage {
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
   unemployedOptions = this.customizeSelectOptions("Employment Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status", "Select one");
+  rankOptions = this.customizeSelectOptions("Military Rank", "Select one");
+
   // insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
   // enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
 
