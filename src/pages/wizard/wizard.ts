@@ -3,7 +3,7 @@ import { NavController, NavParams, Slides, AlertController, Platform } from 'ion
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 // import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
-import { TransitionPage } from '../../pages/transition/transition';
+import { SelfAssessmentPage } from '../../pages/self-assessment/self-assessment';
 import { UserProvider } from '../../providers/user/user';
 import * as moment from 'moment';
 
@@ -129,7 +129,7 @@ export class WizardPage {
         } else if (val == "Navy") {
           codeNumber.setValidators(Validators.compose([Validators.maxLength(3), Validators.required, Validators.pattern('[a-zA-Z ]+$')]));
           this.codeErrorMessage = "Enter a maximum of 3 letters"
-        } else if (val == 'Coast Guards') {
+        } else if (val == 'Coast Guard') {
           codeNumber.setValidators(Validators.compose([Validators.maxLength(9), Validators.required, Validators.pattern('[A-Za-z0-9]+$')]))
           this.codeErrorMessage = "Max 9 characters"
         }
@@ -145,7 +145,7 @@ export class WizardPage {
           this.SeparationQuestion = "When is your separation date?"
           enlistedPay.setValidators(Validators.compose([Validators.required,]));
         } else if (val == "Veteran") {
-          this.SeparationQuestion = "When was your sepatation date?"
+          this.SeparationQuestion = "When was your separation date?"
           enlistedPay.clearValidators();
         }
         this.vetValue = val;
@@ -195,9 +195,9 @@ export class WizardPage {
   //declare thirdForm; set contol names; set validators
   thirdFormFunct() {
     this.thirdForm = this.formBuilder.group({
-      rank: ["", Validators.compose([Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
-      insignia: ['', Validators.compose([Validators.required])],
-      enlistedPay: [''],
+      rank: ["", Validators.compose([Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9 ]*')])],
+      // insignia: ['', Validators.compose([Validators.required])],
+      // enlistedPay: [''],
       MOS: ["", Validators.compose([Validators.required])]
     });
   };
@@ -260,7 +260,7 @@ export class WizardPage {
   branchOption = this.customizeSelectOptions("Military Branch", "Select a branch");
   vetOrActiveOptions = this.customizeSelectOptions("Military Status", "Select one");
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
-  unemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
+  unemployedOptions = this.customizeSelectOptions("Employment Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status", "Select one");
   insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
   enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
@@ -276,8 +276,8 @@ export class WizardPage {
       lastEmployed: this.secondForm.value.lastEmployed,
       maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
-      officerRank: this.thirdForm.value.insignia,
-      enlistingPay: this.thirdForm.value.enlistedPay,
+      // officerRank: this.thirdForm.value.insignia,
+      // enlistingPay: this.thirdForm.value.enlistedPay,
       codeIdentifier: this.thirdForm.value.MOS,
     }
     console.log(this.user.userData, this.LockSwipeToPrev)
@@ -296,7 +296,7 @@ export class WizardPage {
   }
 
   setAssestmentPage() {
-    this.navCtrl.setRoot(TransitionPage)
+    this.navCtrl.setRoot(SelfAssessmentPage)
   }
 
   calcDate() {
@@ -305,17 +305,5 @@ export class WizardPage {
     let diff = sepDate - now;
     return Math.ceil(diff/86400000);
   }
-
-  // yesOrNoArrow() {
-  //   if(this.slides.getActiveIndex() === 8) {
-  //     this.leftArrowVisible = false;
-  //     this.rightArrowVisible = false;
-  //   } else if (this.slides.getActiveIndex() === 0) {
-  //     this.leftArrowVisible = false;
-  //   } else if (this.slides.getActiveIndex()  === 5) {
-  //     this.leftArrowVisible = false;
-  //   }
-  // }
-
 }
 
