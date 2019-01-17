@@ -19,6 +19,7 @@ export class ResourcesPage {
   //user model to be pushed to
   user: any = {};
   values: Array<any> = [];
+  assessmentCompleted: boolean = false;
 
   //Resource tempate resources data
   resources: any = [
@@ -92,6 +93,7 @@ export class ResourcesPage {
       this.userPro.userData.lowScoreName = lowestProp;
       this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
       console.log(this.values)
+      this.assessmentCompleted = true;
     } catch(e) {
       console.log('i ran')
       return 

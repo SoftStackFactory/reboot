@@ -1,42 +1,48 @@
 page-resources {
 
-}
+    .linkIcons {
+        font-weight: bold; 
+        font-size: 40px; 
+        position: relative; 
+        top: 10px; 
+        padding-left: 5px
+    }
 
-#title {
-    font-size: 24px;
-    text-align: center;
-}
+    #title {
+        font-size: 24px;
+        text-align: center;
+    }
 
-#score-box {
-    margin: auto;
-    width: 50px;
-    height: 30px;
-    font-size: 20px;
-    border-radius: 10%;
+    #score-box {
+        margin: auto;
+        width: 50px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 10%;
 
-}
+    }
 
-#card-text {
-    margin-left: 60px;
-    margin-right: 60px;
-    font-size: 18px;
-    
-}
+    #card-text {
+        margin-left: 60px;
+        margin-right: 60px;
+        font-size: 18px;
+        
+    }
 
-.red {
-    color: red;
-}
+    .red {
+        color: red;
+    }
 
-.yellow {
-    color: yellow;
-}
+    .yellow {
+        color: yellow;
+    }
 
-#resource {
-    margin-left: 20px;
-    font-size: 100px;
-}
+    #resource {
+        margin-left: 20px;
+        font-size: 100px;
+    }
 
-button {
-    background-color : rgb(46, 66, 86);
-
+    button {
+        background-color : rgb(46, 66, 86);
+    }
 }
