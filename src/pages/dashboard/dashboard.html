@@ -84,7 +84,9 @@
             Transition Readiness Test
           </ion-card-header>
           <ion-card-content *ngIf="!prevAssess">
-              Please complete a Self Assessment
+              
+              <h4 class="actionItemText">Please complete a Self Assessment</h4>
+
               <a (click)="toSelfAssessment()" id="separationLink">Complete an assessment
                 <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
               </a>  
@@ -97,10 +99,8 @@
     </ion-row>
 
     <ion-row>
-      <ion-col col-8 offset-2>
-        <!-- <ion-card class="cards" id="networkCard"> -->
+      <ion-col col-8 offset-2>  
         <ion-card class="cards">
-
           <ion-card-header id="networkHeader" class="headers" text-center>
             Build Your Network
           </ion-card-header>
@@ -125,7 +125,7 @@
             </a>
           </ion-card-content>
         </ion-card>
-      </ion-col>\              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
+      </ion-col>              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
     </ion-row>
     <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>

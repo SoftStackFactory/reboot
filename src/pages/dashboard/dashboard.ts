@@ -24,7 +24,7 @@ export class DashboardPage {
   assessDate: any
   daysTilSep: any
   daysTilSepAbs: any
-  currentActionItem
+  currentActionItem: String;
   prevAssess: boolean = false;
 
   constructor(public navCtrl: NavController, 
