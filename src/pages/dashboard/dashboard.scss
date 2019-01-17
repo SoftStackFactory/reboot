@@ -17,7 +17,8 @@ page-dashboard {
     }
 
     .cards {
-        background-color: color($colors, light)
+        background-color: color($colors, light);
+        position: relative;
     }
 
     .sep {
@@ -64,6 +65,12 @@ page-dashboard {
         min-height: 35vh;
     }
 
+    .dashboardLinks {
+        position:absolute;
+        bottom:0;
+        right: 1vw;
+    }
+
     #networkingContent {
         padding: 0px 16px; 
         display: flex; 
@@ -86,18 +93,20 @@ page-dashboard {
         padding-left: 20px;
     }
 
-    // .dashboardLink {
-    //     padding-top: 0px; 
-    //     position: relative; 
-    //     top: -7px;
-    //     font-size: 20px;
-    // }
+    
 
-    #networkingLink {
+    .dashboardLink {
         padding-top: 0px; 
         position: relative; 
         top: -7px;
         font-size: 20px;
+    }
+
+     #networkingLink {
+       padding-top: 0px; 
+       position: relative; 
+       top: -7px;
+       font-size: 20px;
     }
 }
 

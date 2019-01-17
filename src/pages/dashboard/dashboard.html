@@ -36,7 +36,7 @@
 
     <ion-row>
       <ion-col col-4 offset-2>
-        <ion-card class="sep row2">
+        <ion-card class="sep cards row2">
           <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
           </ion-card-header>
@@ -51,8 +51,9 @@
             Being informed and prepared will make your transition into civilization easier to see what your next steps
             are. The next step is:
             <br>
+            <br>
             <h4 class="actionItemText"> {{ currentActionItem }} </h4>
-            <a (click)="toTimeline()" id="separationLink">See what's next
+            <a (click)="toTimeline()" class="dashboardLinks" id="separationLink">See what's next
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
           </ion-card-content>
@@ -60,13 +61,13 @@
       </ion-col>
 
       <ion-col col-4>
-        <ion-card class="news row2">
+        <ion-card class="news cards row2">
           <ion-card-header class="headers" text-center>
             Veterans Affairs News
           </ion-card-header>
           <ion-card-content id="separationContent">
               <news-widget></news-widget>
-            <a id="separationLink" (click)="toNews()">More news
+            <a id="separationLink" class="dashboardLinks" (click)="toNews()">More news
 
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
@@ -97,7 +98,9 @@
 
     <ion-row>
       <ion-col col-8 offset-2>
+        <!-- <ion-card class="cards" id="networkCard"> -->
         <ion-card class="cards">
+
           <ion-card-header id="networkHeader" class="headers" text-center>
             Build Your Network
           </ion-card-header>
@@ -117,7 +120,7 @@
               a 2.</p>
 
             <br>
-            <a id="networkingLink">Learn More
+            <a class="dashboardLinks" id="networkingLink">Learn More
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
           </ion-card-content>
