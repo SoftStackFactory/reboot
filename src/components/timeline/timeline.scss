@@ -171,13 +171,27 @@ background: #64c5b1;
         border-width: 7px;
         background-color: #b3ccc8;
 
-        @media screen and (max-width: 834px) {
+        @media screen 
+            and (min-width: 1200px)
+            and (max-width: 1600px) {
+                padding-left: 2em;
+            }
+
+        @media screen and (max-width: 1200px) {
             padding-left: 2.5em;
         }
 
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 834px) {
             padding-left: 3em;
         }
+
+        @media screen and (max-width: 450px) {
+            padding-left: 3.5em;
+        }
+    }
+
+    .bullet-item-label {
+        padding-right: 30px;
     }
   }
 }
