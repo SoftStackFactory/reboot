@@ -81,14 +81,14 @@ export class WizardPage {
     this.shouldLockSwipeToNext = true;
   }
 
-  eneableSwipe() {
+  enableSwipe() {
     this.nextButtonDisabled = false;
     this.shouldLockSwipeToNext = false;
   }
   //callled when status changes for forms
   statusChangeFunct(valid: boolean) {
     if (valid == true) {
-      this.eneableSwipe()
+      this.enableSwipe()
     } else if (valid == false) {
       this.disableSwipe()
     }
@@ -229,14 +229,10 @@ export class WizardPage {
 
   next() {
     this.slides.slideNext(500);
-    console.log(this.slides.getActiveIndex())
-    this.leftOrRightArrow();
   }
 
   back() {
     this.slides.slidePrev(500);
-    console.log(this.slides.getActiveIndex())
-    this.leftOrRightArrow();
   }
 
   
@@ -249,16 +245,22 @@ export class WizardPage {
   }
   //the logic that determines if slide should be lockSwiped
   slideChanged() {
+    this.leftOrRightArrow();
     let index = this.slides.realIndex;
-    if ((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9)) {
+    console.log(index);
+    if ((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7)) {
       this.disableSwipe()
     } else {
-      this.eneableSwipe()
+      this.enableSwipe()
     }
-    if (index == 6 || index == 9) {
-      this.LockSwipeToPrev = true
+    if (index == 5) {
+      this.LockSwipeToPrev = true;
       this.lockPrevSlide()
-    } else {
+    } else if (index == 8) {
+      this.slides.lockSwipes(true);
+      this.disableSwipe();
+    }
+    else {
       this.LockSwipeToPrev = false;
       this.lockPrevSlide()
     }
