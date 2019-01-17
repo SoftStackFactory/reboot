@@ -34,9 +34,10 @@
         </ion-row>     
       </ion-card-content>
     </ion-card>
-    <ion-card *ngIf="assessmentCompleted" col-xl-8 offset-xl-2>
+    <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2>
+    <!-- <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2> -->
       <ion-card-content>        
-        <chart ></chart>
+        <chart></chart>
       </ion-card-content>
     </ion-card>
     <ion-card col-xl-8 offset-xl-2 *ngIf="assessmentCompleted">
