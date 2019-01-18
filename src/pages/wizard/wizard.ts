@@ -53,7 +53,6 @@ export class WizardPage {
       this.name = data.firstName;
     })
 
-    // let required = null;
     this.firstFormFunct();
     this.secondFormFunct();
     this.thirdFormFunct();
@@ -70,32 +69,35 @@ export class WizardPage {
   vetValue: string = "";
   SeparationQuestion: string = "";
   disabilityQValue: string = "";
-  nextButtonDisabled: boolean = false;
-  shouldLockSwipeToNext: boolean = false;
-  LockSwipeToPrev: boolean = false;
+  LockSwipeToPrev: boolean = true;
   employedAnswer: string = "";
   codeErrorMessage: string = "";
 
-  disableSwipe() {
-    this.nextButtonDisabled = true;
-    this.shouldLockSwipeToNext = true;
-  }
-
-  enableSwipe() {
-    this.nextButtonDisabled = false;
-    this.shouldLockSwipeToNext = false;
-  }
-  //callled when status changes for forms
-  statusChangeFunct(valid: boolean) {
-    if (valid == true) {
-      this.enableSwipe()
-    } else if (valid == false) {
-      this.disableSwipe()
+   //the logic that determines if slide should be locked from swiping and in which direction
+  slideChanged() {
+    this.leftOrRightArrow();
+    let index = this.slides.realIndex;
+    if(index == 0) {
+      this.slides.lockSwipeToPrev(true);
+    } 
+    else if ((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || index == 7) {
+      index == 5 ? this.slides.lockSwipeToPrev(true) : this.slides.lockSwipeToPrev(false);
+      this.slides.lockSwipeToNext(true)
+    } 
+    else if(index == 8) {
+      this.slides.lockSwipes(true);
     }
-    this.lockNextSlide()
+    else {
+      if(index == 5) {
+        this.slides.lockSwipeToPrev(true);
+        this.slides.lockSwipeToNext(false);
+      } else {
+        this.slides.lockSwipes(false);      
+      }
+    }
   }
-  //declare firstForm; set contol names; set validators
 
+  //declare firstForm; set contol names; set validators
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       branch: ['', Validators.compose([Validators.required])],
@@ -104,11 +106,7 @@ export class WizardPage {
       disability: ['', Validators.compose([Validators.required])],
       percentQuestion: ["",]
     });
-    //observable called when status of firstForm changes => calls function that enables or disabled swipe if conditions are met
-    this.firstForm.statusChanges
-      .subscribe(val => {
-        this.statusChangeFunct(this.firstForm.valid)
-      })
+
     //sets requirements depending on the branch that users select:
     //1) the observable for branch checks if the vslue changes and runs a function in the parameter
     //2) gets the form Control 'MOS' and set it as a local variable
@@ -172,11 +170,6 @@ export class WizardPage {
       lastEmployed: [''],
       marital: ['', Validators.compose([Validators.required])],
     });
-    //when status changes call function to lock or unlock swipe dependign if form is valid
-    this.secondForm.statusChanges
-      .subscribe(val => {
-        this.statusChangeFunct(this.secondForm.valid)
-      })
     //if error 'infinite loop' comment out .upadateValueAndValidity()'
     //when value changes for employment question, set validators for lastEmployment question and update form depending if marked as unemployed
     this.secondForm.controls.employment.valueChanges
@@ -205,6 +198,7 @@ export class WizardPage {
   exit() {
     this.navCtrl.setRoot(DashboardPage)
   }
+  // Determines if the left and right arrows should be displayed
   leftOrRightArrow() {
     if(this.slides.getActiveIndex()  === 0){
       this.leftArrowVisible = false; 
@@ -225,51 +219,14 @@ export class WizardPage {
     }
   }
 
-  next() {
-    this.slides.slideNext(500);
-  }
-
+  //Transitions to prev slide
   back() {
     this.slides.slidePrev(500);
   }
 
-  
-  //shouldLockSwipeToNext variable can be either true/false depending on condition
-  lockNextSlide() {
-    this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
-  }
-  lockPrevSlide() {
-    this.slides.lockSwipeToPrev(this.LockSwipeToPrev)
-  }
-  //the logic that determines if slide should be lockSwiped
-  slideChanged() {
-    this.leftOrRightArrow();
-    let index = this.slides.realIndex;
-    console.log(index);
-    // Slide 0 no slide left
-    // Slides 1 - 4 swipe both directions
-
-    // Slide 5 & 6 need a valid form can't swipe 
-
-
-    
-    if ((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7)) {
-      this.disableSwipe()
-    } else {
-      this.enableSwipe()
-    }
-    if (index == 5) {
-      this.LockSwipeToPrev = true;
-      this.lockPrevSlide()
-    } else if (index == 8) {
-      this.slides.lockSwipes(true);
-      this.disableSwipe();
-    }
-    else {
-      this.LockSwipeToPrev = false;
-      this.lockPrevSlide()
-    }
-    this.lockNextSlide();
+  //Transitions to next slide
+  next() {
+    this.slides.slideNext(500);
   }
 
   customizeSelectOptions(title: string, message: string) {
@@ -311,10 +268,14 @@ export class WizardPage {
       .subscribe(
         (data) => {
           console.log(data, "YEY!!!!!!")
+          this.slides.lockSwipeToNext(false);
+          this.next();
+
+        },
+        (err) => {
+          console.log(err);
+          alert("Please try submitting again.")
         })
-    this.shouldLockSwipeToNext = false;
-    this.lockNextSlide()
-    this.next();
   }
 
   setDashboardPage() {
