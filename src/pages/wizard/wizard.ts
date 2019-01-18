@@ -270,7 +270,6 @@ export class WizardPage {
           console.log(data, "YEY!!!!!!")
           this.slides.lockSwipeToNext(false);
           this.next();
-
         },
         (err) => {
           console.log(err);
