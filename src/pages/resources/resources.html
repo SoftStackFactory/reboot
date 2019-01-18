@@ -56,17 +56,35 @@
       </ion-card-content>
 
     </ion-card>
-    <ion-card *ngFor="let res of resources" col-xl-8 offset-xl-2>
-      <ion-card-header id='title'>
-        {{res.title}}
-      </ion-card-header>
-        <ion-card-content id="card-text">
-          {{res.message}}
-          <ion-item id="card-text">
-            <span item-end>
-              <a (click)="openModal(res)">Learn more...</a>
-            </span>
-          </ion-item>
-        </ion-card-content>
-    </ion-card>
+    <div *ngIf="!assessmentCompleted">
+      <ion-card *ngFor="let res of resources" col-xl-8 offset-xl-2>
+        <ion-card-header id='title'>
+          {{res.title}}
+        </ion-card-header>
+          <ion-card-content id="card-text">
+            {{res.message}}
+            <ion-item id="card-text">
+              <span item-end>
+                <a (click)="openModal(res)">Learn more...</a>
+              </span>
+            </ion-item>
+          </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngIf="assessmentCompleted">
+      <ion-card *ngFor="let res of sortedResources" col-xl-8 offset-xl-2>
+        <ion-card-header id='title'>
+          {{res.title}}
+        </ion-card-header>
+          <ion-card-content id="card-text">
+            {{res.message}}
+            <ion-item id="card-text">
+              <span item-end>
+                <a (click)="openModal(res)">Learn more...</a>
+              </span>
+            </ion-item>
+          </ion-card-content>
+      </ion-card>
+    </div>
+    
 </ion-content>

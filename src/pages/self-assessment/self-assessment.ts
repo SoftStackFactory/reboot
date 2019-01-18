@@ -137,6 +137,7 @@ export class SelfAssessmentPage {
               toSubmit() {
                 this.chartProvider.addAssessment(this.currentAssessment)
                   .subscribe(res => {
+                    console.log(this.currentAssessment);
                     console.log('response:', res);
                     this.navCtrl.setRoot(ResourcesPage);
                   }, err => {
