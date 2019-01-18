@@ -27,11 +27,11 @@ export class ProfilePage {
   }
 
   onLogout() {
-    this.user.logoutUser(window.sessionStorage.getItem('token'))
-      .subscribe( response => {
-        console.log('onsubscibe-logout')
-        window.sessionStorage.clear()
-      })
+    // this.user.logoutUser(window.sessionStorage.getItem('token'))
+    //   .subscribe( response => {
+    //     console.log('onsubscibe-logout')
+    //     window.sessionStorage.clear()
+    //   })
   }
 
   getUserInfo() {

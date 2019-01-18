@@ -17,12 +17,13 @@
 
     <ion-row>
       <ion-col>
-        <h1 id="hello" text-center>Hello, {{ this.name }}!</h1>
+        <h1 id="hello" text-center>Hello, Peter!</h1>
+        <!-- <h1 id="hello" text-center>Hello, {{ this.name }}!</h1> -->
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-xl-8 offset-xl-2>
         <ion-card class="cards">
           <ion-card-content id="welcome" text-center>
             Welcome to the Military and Veteran's "InTransition" Personal Transition Assistant. Your personal guide to
@@ -34,8 +35,8 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
-        <ion-card class="sep">
+      <ion-col col-xl-4 offset-xl-2>
+        <ion-card class="sep cards row2">
           <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
           </ion-card-header>
@@ -50,22 +51,23 @@
             Being informed and prepared will make your transition into civilization easier to see what your next steps
             are. The next step is:
             <br>
+            <br>
             <h4 class="actionItemText"> {{ currentActionItem }} </h4>
-            <a (click)="toTimeline()" id="separationLink">See what's next
+            <a (click)="toTimeline()" class="dashboardLinks" id="separationLink">See what's next
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col>
-        <ion-card class="news">
+      <ion-col col-xl-4>
+        <ion-card class="news cards row2">
           <ion-card-header class="headers" text-center>
             Veterans Affairs News
           </ion-card-header>
           <ion-card-content id="separationContent">
               <news-widget></news-widget>
-            <a id="separationLink" (click)="toNews()">More news
+            <a id="separationLink" class="dashboardLinks" (click)="toNews()">More news
 
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
@@ -76,20 +78,28 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-xl-8 offset-xl-2>
         <ion-card class="cards">
           <ion-card-header class="headers" text-center>
             Transition Readiness Test
           </ion-card-header>
-          <ion-card-content>
-            <chart ></chart>
+          <ion-card-content *ngIf="!prevAssess">
+              
+              <h4 class="actionItemText">Please complete a Self Assessment</h4>
+
+              <a (click)="toSelfAssessment()" id="separationLink">Complete an assessment
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </a>  
+          </ion-card-content>
+          <ion-card-content *ngIf="prevAssess">
+            <chart></chart>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-xl-8 offset-xl-2>  
         <ion-card class="cards">
           <ion-card-header id="networkHeader" class="headers" text-center>
             Build Your Network
@@ -110,12 +120,12 @@
               a 2.</p>
 
             <br>
-            <a id="networkingLink">Learn More
+            <a class="dashboardLinks" id="networkingLink">Learn More
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a>
           </ion-card-content>
         </ion-card>
-      </ion-col>\              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
+      </ion-col>              <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
     </ion-row>
     <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>

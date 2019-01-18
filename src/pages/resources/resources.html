@@ -14,23 +14,35 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <h1 id="title">
     Hello, {{user.firstName}}!
   </h1>
-    <ion-card>
+    <ion-card col-xl-8 offset-xl-2>
       <ion-card-content id="card-text">
-          This page will provide helpful resources to aid in your transition. Based on your self assessment, here are some areas which might need more help than others.
+        <h1>This page will provide helpful resources to aid you in your transition. 
+          <span *ngIf="assessmentCompleted">Based on your self assessment, here are some areas which might require more focus than others.
+          </span>
+          <span *ngIf="!assessmentCompleted">
+            Please complete a self assessment in order to assess which resources would help you most.
+          </span>
+        </h1>
+        <ion-row center>  
+          <ion-col text-center>   
+            <button ion-button color="secondary" *ngIf="!assessmentCompleted" (click)="openSelfAssessment()">Take the Self Assessment</button>  
+          </ion-col> 
+        </ion-row>     
       </ion-card-content>
     </ion-card>
-    <ion-card padding>
-      <ion-card-content >
-          <chart></chart>
-        </ion-card-content>
-        </ion-card>
-    <ion-card>
+    <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2>
+    <!-- <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2> -->
+      <ion-card-content>        
+        <chart></chart>
+      </ion-card-content>
+    </ion-card>
+    <ion-card col-xl-8 offset-xl-2 *ngIf="assessmentCompleted">
       <ion-card-header id='title'>
-          Your lowest score on self assessment is: <br><br>
+          Your lowest score on the self assessment is: <br><br>
           <b><em>{{userPro.userData.lowScoreName}}</em></b> 
       </ion-card-header>
       <ion-card-content id="title">
@@ -38,25 +50,41 @@
           <div class="red"> {{userPro.userData.lowestScore}}</div>
         </ion-card>
         Maybe you can start there? <br>
-        <button ion-button color="secondary" (click)="openSelfAssessment()">Retake the self assessment test</button>
+        <button ion-button color="secondary" (click)="openSelfAssessment()">Retake the self assessment</button>
         <button ion-button color="secondary" (click)="openChartHistory()">View your self assessment history</button>
         <button ion-button color="secondary" (click)="openDashboard()">Go to the Dashboard</button>
       </ion-card-content>
 
     </ion-card>
-    
-      <ion-card *ngFor="let res of resources">
-          <ion-card-header id='title'>
-            {{res.title}}
-          </ion-card-header>
-            <ion-card-content id="card-text">
-              {{res.message}}
-              <ion-item id="card-text">
-                <span item-end>
-                  <a (click)="openModal(res)">Learn more...</a>
-                </span>
-              </ion-item>
-            </ion-card-content>
+    <div *ngIf="!assessmentCompleted">
+      <ion-card *ngFor="let res of resources" col-xl-8 offset-xl-2>
+        <ion-card-header id='title'>
+          {{res.title}}
+        </ion-card-header>
+          <ion-card-content id="card-text">
+            {{res.message}}
+            <ion-item id="card-text">
+              <span item-end>
+                <a (click)="openModal(res)">Learn more...</a>
+              </span>
+            </ion-item>
+          </ion-card-content>
       </ion-card>
-  
+    </div>
+    <div *ngIf="assessmentCompleted">
+      <ion-card *ngFor="let res of sortedResources" col-xl-8 offset-xl-2>
+        <ion-card-header id='title'>
+          {{res.title}}
+        </ion-card-header>
+          <ion-card-content id="card-text">
+            {{res.message}}
+            <ion-item id="card-text">
+              <span item-end>
+                <a (click)="openModal(res)">Learn more...</a>
+              </span>
+            </ion-item>
+          </ion-card-content>
+      </ion-card>
+    </div>
+    
 </ion-content>

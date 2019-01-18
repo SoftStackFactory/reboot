@@ -3,7 +3,7 @@ import { NavController, NavParams, Slides, AlertController, Platform } from 'ion
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 // import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
-import { TransitionPage } from '../../pages/transition/transition';
+import { SelfAssessmentPage } from '../../pages/self-assessment/self-assessment';
 import { UserProvider } from '../../providers/user/user';
 import * as moment from 'moment';
 
@@ -36,6 +36,9 @@ export class WizardPage {
   }
   // index: number;
 
+  leftArrowVisible: boolean = false;
+  rightArrowVisible: boolean = true;
+
   @ViewChild(Slides) slides: Slides;
 
   constructor(public alertCtrl: AlertController,
@@ -50,10 +53,10 @@ export class WizardPage {
       this.name = data.firstName;
     })
 
-    // let required = null;
     this.firstFormFunct();
     this.secondFormFunct();
     this.thirdFormFunct();
+    
   }
 
   ionViewDidLoad() {
@@ -66,32 +69,35 @@ export class WizardPage {
   vetValue: string = "";
   SeparationQuestion: string = "";
   disabilityQValue: string = "";
-  nextButtonDisabled: boolean = false;
-  shouldLockSwipeToNext: boolean = false;
-  LockSwipeToPrev: boolean = false;
+  LockSwipeToPrev: boolean = true;
   employedAnswer: string = "";
   codeErrorMessage: string = "";
 
-  disableSwipe() {
-    this.nextButtonDisabled = true;
-    this.shouldLockSwipeToNext = true;
-  }
-
-  eneableSwipe() {
-    this.nextButtonDisabled = false;
-    this.shouldLockSwipeToNext = false;
-  }
-  //callled when status changes for forms
-  statusChangeFunct(valid: boolean) {
-    if (valid == true) {
-      this.eneableSwipe()
-    } else if (valid == false) {
-      this.disableSwipe()
+   //the logic that determines if slide should be locked from swiping and in which direction
+  slideChanged() {
+    this.leftOrRightArrow();
+    let index = this.slides.realIndex;
+    if(index == 0) {
+      this.slides.lockSwipeToPrev(true);
+    } 
+    else if ((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || index == 7) {
+      index == 5 ? this.slides.lockSwipeToPrev(true) : this.slides.lockSwipeToPrev(false);
+      this.slides.lockSwipeToNext(true)
+    } 
+    else if(index == 8) {
+      this.slides.lockSwipes(true);
     }
-    this.lockNextSlide()
+    else {
+      if(index == 5) {
+        this.slides.lockSwipeToPrev(true);
+        this.slides.lockSwipeToNext(false);
+      } else {
+        this.slides.lockSwipes(false);      
+      }
+    }
   }
-  //declare firstForm; set contol names; set validators
 
+  //declare firstForm; set contol names; set validators
   firstFormFunct() {
     this.firstForm = this.formBuilder.group({
       branch: ['', Validators.compose([Validators.required])],
@@ -100,11 +106,7 @@ export class WizardPage {
       disability: ['', Validators.compose([Validators.required])],
       percentQuestion: ["",]
     });
-    //observable called when status of firstForm changes => calls function that enables or disabled swipe if conditions are met
-    this.firstForm.statusChanges
-      .subscribe(val => {
-        this.statusChangeFunct(this.firstForm.valid)
-      })
+
     //sets requirements depending on the branch that users select:
     //1) the observable for branch checks if the vslue changes and runs a function in the parameter
     //2) gets the form Control 'MOS' and set it as a local variable
@@ -125,7 +127,7 @@ export class WizardPage {
         } else if (val == "Navy") {
           codeNumber.setValidators(Validators.compose([Validators.maxLength(3), Validators.required, Validators.pattern('[a-zA-Z ]+$')]));
           this.codeErrorMessage = "Enter a maximum of 3 letters"
-        } else if (val == 'Coast Guards') {
+        } else if (val == 'Coast Guard') {
           codeNumber.setValidators(Validators.compose([Validators.maxLength(9), Validators.required, Validators.pattern('[A-Za-z0-9]+$')]))
           this.codeErrorMessage = "Max 9 characters"
         }
@@ -136,16 +138,16 @@ export class WizardPage {
     //2) sets validators if 'active'; clears validators if 'veteran'
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe(val => {
-        const enlistedPay = this.thirdForm.get('enlistedPay')
-        if (val == "Active") {
+        // const enlistedPay = this.thirdForm.get('enlistedPay')
+        if (val == "Active" || "Guard/Reserve") {
           this.SeparationQuestion = "When is your separation date?"
-          enlistedPay.setValidators(Validators.compose([Validators.required,]));
+          // enlistedPay.setValidators(Validators.compose([Validators.required,]));
         } else if (val == "Veteran") {
-          this.SeparationQuestion = "When was your sepatation date?"
-          enlistedPay.clearValidators();
+          this.SeparationQuestion = "When was your separation date?"
+          // enlistedPay.clearValidators();
         }
         this.vetValue = val;
-        enlistedPay.updateValueAndValidity()
+        // enlistedPay.updateValueAndValidity()
       })
     //when value changes for disability question change validator requirements for percentQuestion depending on condition
     this.firstForm.controls.disability.valueChanges
@@ -168,11 +170,6 @@ export class WizardPage {
       lastEmployed: [''],
       marital: ['', Validators.compose([Validators.required])],
     });
-    //when status changes call function to lock or unlock swipe dependign if form is valid
-    this.secondForm.statusChanges
-      .subscribe(val => {
-        this.statusChangeFunct(this.secondForm.valid)
-      })
     //if error 'infinite loop' comment out .upadateValueAndValidity()'
     //when value changes for employment question, set validators for lastEmployment question and update form depending if marked as unemployed
     this.secondForm.controls.employment.valueChanges
@@ -191,9 +188,9 @@ export class WizardPage {
   //declare thirdForm; set contol names; set validators
   thirdFormFunct() {
     this.thirdForm = this.formBuilder.group({
-      rank: ["", Validators.compose([Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')])],
-      insignia: ['', Validators.compose([Validators.required])],
-      enlistedPay: [''],
+      rank: ["", Validators.compose([Validators.required, Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9 ]*')])],
+      // insignia: ['', Validators.compose([Validators.required])],
+      // enlistedPay: [''],
       MOS: ["", Validators.compose([Validators.required])]
     });
   };
@@ -201,35 +198,35 @@ export class WizardPage {
   exit() {
     this.navCtrl.setRoot(DashboardPage)
   }
-  next() {
-    this.slides.slideNext(500);
+  // Determines if the left and right arrows should be displayed
+  leftOrRightArrow() {
+    if(this.slides.getActiveIndex()  === 0){
+      this.leftArrowVisible = false; 
+    } 
+    else if (this.slides.getActiveIndex() === 8) {
+      this.leftArrowVisible = false;
+      this.rightArrowVisible = false;
+    } 
+    else if (this.slides.getActiveIndex()  === 5) {
+      this.leftArrowVisible = false;
+    } 
+    else if (this.slides.getActiveIndex() === 7) {
+      this.rightArrowVisible = false;
+    } 
+    else {
+      this.leftArrowVisible = true;
+      this.rightArrowVisible = true;
+    }
   }
+
+  //Transitions to prev slide
   back() {
     this.slides.slidePrev(500);
   }
-  //shouldLockSwipeToNext variable can be either true/false depending on condition
-  lockNextSlide() {
-    this.slides.lockSwipeToNext(this.shouldLockSwipeToNext);
-  }
-  lockPrevSlide() {
-    this.slides.lockSwipeToPrev(this.LockSwipeToPrev)
-  }
-  //the logic that determines if slide should be lockSwiped
-  slideChanged() {
-    let index = this.slides.realIndex;
-    if ((index == 6 && !this.firstForm.valid) || (index == 7 && !this.secondForm.valid) || (index == 8) || (index == 9)) {
-      this.disableSwipe()
-    } else {
-      this.eneableSwipe()
-    }
-    if (index == 6 || index == 9) {
-      this.LockSwipeToPrev = true
-      this.lockPrevSlide()
-    } else {
-      this.LockSwipeToPrev = false;
-      this.lockPrevSlide()
-    }
-    this.lockNextSlide();
+
+  //Transitions to next slide
+  next() {
+    this.slides.slideNext(500);
   }
 
   customizeSelectOptions(title: string, message: string) {
@@ -244,10 +241,12 @@ export class WizardPage {
   branchOption = this.customizeSelectOptions("Military Branch", "Select a branch");
   vetOrActiveOptions = this.customizeSelectOptions("Military Status", "Select one");
   disabilityOptions = this.customizeSelectOptions("Disability Status", "Select one");
-  unemployedOptions = this.customizeSelectOptions("Employement Status", "Select one");
+  unemployedOptions = this.customizeSelectOptions("Employment Status", "Select one");
   maritalOptions = this.customizeSelectOptions("Marital Status", "Select one");
-  insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
-  enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
+  rankOptions = this.customizeSelectOptions("Military Rank", "Select one");
+
+  // insigniaOptions = this.customizeSelectOptions("Officer Rank Insignia", "Select one")
+  // enlistedPayOptions = this.customizeSelectOptions("Enlisted Pay Rank", "Select one")
 
   onSubmit() {
     this.user.userData = {
@@ -260,8 +259,8 @@ export class WizardPage {
       lastEmployed: this.secondForm.value.lastEmployed,
       maritalStatus: this.secondForm.value.marital,
       militaryRank: this.thirdForm.value.rank,
-      officerRank: this.thirdForm.value.insignia,
-      enlistingPay: this.thirdForm.value.enlistedPay,
+      // officerRank: this.thirdForm.value.insignia,
+      // enlistingPay: this.thirdForm.value.enlistedPay,
       codeIdentifier: this.thirdForm.value.MOS,
     }
     console.log(this.user.userData, this.LockSwipeToPrev)
@@ -269,18 +268,21 @@ export class WizardPage {
       .subscribe(
         (data) => {
           console.log(data, "YEY!!!!!!")
+          this.slides.lockSwipeToNext(false);
+          this.next();
+        },
+        (err) => {
+          console.log(err);
+          alert("Please try submitting again.")
         })
-    this.shouldLockSwipeToNext = false;
-    this.lockNextSlide()
-    this.next();
   }
 
   setDashboardPage() {
     this.navCtrl.setRoot(DashboardPage)
   }
 
-  setAssestmentPage() {
-    this.navCtrl.setRoot(TransitionPage)
+  setAssessmentPage() {
+    this.navCtrl.setRoot(SelfAssessmentPage)
   }
 
   calcDate() {
@@ -289,6 +291,5 @@ export class WizardPage {
     let diff = sepDate - now;
     return Math.ceil(diff/86400000);
   }
-
 }
 

@@ -1,10 +1,18 @@
 page-wizard {
     ion-slide{
-     background-color: white;
+        background-color: white;
+        // height: 85%;
      }
+    
+    // @media (min-width: 1120px) { 
+    //     .demo-slide {
+    //         height:85%;
+    //     }    
+    // }
+    
     .slide-zoom{
         height:100%;
-    }
+    }   
     .demo-slide {
         align-items: flex-start;
     }
@@ -14,7 +22,9 @@ page-wizard {
         align-items: flex-start;
     }
     .nav-start {
-        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
         background-color: rgb(26, 39, 71);
         width: 100%;
         height: 4.5vw;
@@ -29,14 +39,14 @@ page-wizard {
         width: 10vw;
         min-width: 65px;
     }
-    #end {
-        font-size:20px ;
-        min-width: 65px;
-        width: 10vw;
+    .leave-wizard{
+        font-size: 20px;
         height: 85%;
         float:right;
         color: red;
         background-color: aliceblue;
+        width: 10vw;
+        min-width: 65px;
     }
 
     #leftArrow {
@@ -54,7 +64,15 @@ page-wizard {
         font-size: 75px;
         z-index: 2;
     }
-
+    #end {
+        font-size:20px ;
+        min-width: 65px;
+        width: 10vw;
+        height: 85%;
+        float:right;
+        color: red;
+        background-color: aliceblue;
+    }
     .top-demo {
         position: relative;
         display: block;
@@ -167,9 +185,9 @@ page-wizard {
         width: 168px;
         height:42px;
     }
-    #end-wizard-h{
-        white-space: normal
-    }
+    // #end-wizard-h{
+    //     white-space: normal
+    // }
     .buttons {
         position: relative;
         margin-top: 15vw; 
@@ -190,15 +208,18 @@ page-wizard {
         }
         .start {
             font-size:25px ;
-
         }
-        #end {
-            font-size:25px ;
-         }
+        .leave-wizard{
+            font-size: 25px;
+        }
+        // #end {
+        //     font-size:25px ;
+        //  }
         .button1{
             height: 55px;
             width: 180px;
             font-size: 25px;
+            white-space: normal;
          }
         .select-placeholder, .select-text{
             font-size: 25px;
@@ -297,6 +318,19 @@ page-wizard {
             .h2 {
                 font-size: 38px;
             }
+            .slide-zoom {
+                height: 90%;
+            }
+            .top-question {
+                position: relative;
+                top: 0.5vh;
+                // margin-bottom: 25px;
+            } 
+            .demo-img {
+                height: 75vh;
+                width: 30%;
+            }
+            
        }   
        @media screen and (max-width: 850px) {
             ion-badge{
