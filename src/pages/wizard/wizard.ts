@@ -139,7 +139,7 @@ export class WizardPage {
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe(val => {
         // const enlistedPay = this.thirdForm.get('enlistedPay')
-        if (val == "Active") {
+        if (val == "Active" || "Guard/Reserve") {
           this.SeparationQuestion = "When is your separation date?"
           // enlistedPay.setValidators(Validators.compose([Validators.required,]));
         } else if (val == "Veteran") {

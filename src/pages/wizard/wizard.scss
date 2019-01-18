@@ -1,10 +1,18 @@
 page-wizard {
     ion-slide{
-     background-color: white;
+        background-color: white;
+        // height: 85%;
      }
+    
+    // @media (min-width: 1120px) { 
+    //     .demo-slide {
+    //         height:85%;
+    //     }    
+    // }
+    
     .slide-zoom{
         height:100%;
-    }
+    }   
     .demo-slide {
         align-items: flex-start;
     }
@@ -310,6 +318,19 @@ page-wizard {
             .h2 {
                 font-size: 38px;
             }
+            .slide-zoom {
+                height: 90%;
+            }
+            .top-question {
+                position: relative;
+                top: 0.5vh;
+                // margin-bottom: 25px;
+            } 
+            .demo-img {
+                height: 75vh;
+                width: 30%;
+            }
+            
        }   
        @media screen and (max-width: 850px) {
             ion-badge{

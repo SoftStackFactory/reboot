@@ -10,7 +10,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 export class NewsPage {
 
   constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navParams: NavParams,
     public rss: RssProvider, 
     private browser: InAppBrowser) {
 
