@@ -219,13 +219,10 @@ export class WizardPage {
     else if (this.slides.getActiveIndex() === 7) {
       this.rightArrowVisible = false;
     } 
-    else if (this.slides.getActiveIndex()  === 6) {
+    else {
       this.leftArrowVisible = true;
       this.rightArrowVisible = true;
-    } 
-    else if (this.slides.getActiveIndex()  !== 5 || 8) {
-      this.leftArrowVisible = true;
-    }  
+    }
   }
 
   next() {
