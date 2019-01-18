@@ -3,11 +3,14 @@ page-news {
   .social-cards ion-col {
   }
 
-  #separationLink {
+  a {
+    cursor: pointer;
+  }
+
+  #newsLink {
     float: right;
-    padding: 20px;
-    font-size: 15px;
-    margin-top: 18px;
+    padding: 1rem;
+    font-size: 15px; 
   }
 
   #linkArrow {

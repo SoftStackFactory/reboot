@@ -46,9 +46,8 @@
 
   <ion-grid>
 
-    <ion-row>
-      <ion-col col-8 offset-2>
-
+    <ion-row col-xl-8 offset-xl-2>
+      <ion-col>
         <ion-row>
           <ion-col col-6 *ngFor="let data of this.rss.newsArray">
               <ion-card class="article">
@@ -76,9 +75,13 @@
 
                 <ion-row>
                   <ion-col col-12>
-                    <a id="separationLink" (click)="openLink(data.link)">Read full article
-                      <ion-icon id="linkArrow" class="linkIcons" name="paper"></ion-icon>
-                    </a>
+                    <ion-item id="card-text">
+                      <span item-end>
+                        <a id="newsLink" (click)="openLink(data.link)">Read full article
+                          <ion-icon id="linkArrow" class="linkIcons" name="paper"></ion-icon>
+                        </a>
+                      </span>
+                    </ion-item>
                   </ion-col>
                 </ion-row>
               </ion-card>
