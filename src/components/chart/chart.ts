@@ -1,9 +1,6 @@
-import { ChartProvider } from  './../../providers/chart/chart';
-
-import { Component, ViewChild } from  '@angular/core';
-
-import { Chart } from  'chart.js';
-
+import { ChartProvider } from './../../providers/chart/chart';
+import { Component, ViewChild } from '@angular/core';
+import { Chart } from 'chart.js';
 // import 'chartjs-plugin-labelsreboot';
 
 /**
@@ -20,142 +17,142 @@ import { Chart } from  'chart.js';
 
 @Component( {
 
-  selector:  'chart',
+  selector: 'chart',
 
-  templateUrl:  'chart.html'
+  templateUrl: 'chart.html'
 
 } )
 
-export  class  ChartComponent {
+export class ChartComponent {
 
- @ViewChild( 'canvas' ) canvas;
+  @ViewChild( 'canvas' ) canvas;
 
-  chart:  any;
+  chart: any;
 
-  chartValues:  any;
+  chartValues: any;
 
-  constructor ( public  chartProvider:  ChartProvider ) {
+  constructor ( public chartProvider: ChartProvider ) {
 
-  //this subscribes to the provider which gets the data from the DB
+    //this subscribes to the provider which gets the data from the DB
 
-  this.chartProvider.mostRecentData().subscribe( res  => {
+    this.chartProvider.mostRecentData().subscribe( res => {
 
-  //calls the function that draws the chart on the canvas within the .html file of the component taking the response from the provider as an argument.
+      //calls the function that draws the chart on the canvas within the .html file of the component taking the response from the provider as an argument.
 
-  this.buildChart( res )
+      this.buildChart( res )
 
- } )
+    } )
 
- }
+  }
 
   //this builds the chart, it takes one parameter, the parameter needs to be an array with a length of 8 numbers in order for the chart to draw correctly
 
   buildChart ( data ) {
 
-  if ( data.length  <  1 ) return
+    if ( data.length < 1 ) return
 
-  this.chart  =  new  Chart( this.canvas.nativeElement, {
+    this.chart = new Chart( this.canvas.nativeElement, {
 
-  type:  'polarArea',
+      type: 'polarArea',
 
-  data: {
+      data: {
 
-  labels: [ "Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude" ],
+        labels: [ "Career", "Finances", "Personal \n Growth", "Health", "Family", "Relationships", "Social life", "Attitude" ],
 
-  datasets: [
+        datasets: [
 
- {
+          {
 
-  backgroundColor: [ "rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)" ],
+            backgroundColor: [ "rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)" ],
 
-  borderColor:  "black",
+            borderColor: "black",
 
-  //data is the argument passed into the function.
+            //data is the argument passed into the function.
 
-  data:  data
+            data: data
 
- }
+          }
 
- ]
+        ]
 
- },
+      },
 
-  options: {
+      options: {
 
-  //Set padding of the chart inside of the canvas element.
+        //Set padding of the chart inside of the canvas element.
 
-  layout: {
+        layout: {
 
-  padding: {
+          padding: {
 
-  top:  10,
+            top: 10,
 
-  bottom:  10
+            bottom: 10
 
- }
+          }
 
- },
+        },
 
-  //Hides the chart legend.
+        //Hides the chart legend.
 
-  legend: {
+        legend: {
 
-  display:  false
+          display: false
 
- },
+        },
 
-  //Generates an event whenever a section of the chart has been clicked.
+        //Generates an event whenever a section of the chart has been clicked.
 
-  'onClick':  function ( evt, item ) {
+        'onClick': function ( evt, item ) {
 
-  let  clickedOn  =  this.chart.getElementAtEvent( evt )
+          let clickedOn = this.chart.getElementAtEvent( evt )
 
-  console.log( clickedOn )
+          console.log( clickedOn )
 
- },
+        },
 
-  plugins: {
+        plugins: {
 
-  //labelsReboot is the chartjs-labels plugin that has been revised for this project
+          //labelsReboot is the chartjs-labels plugin that has been revised for this project
 
-  //to allow the labels to be anchored to the outer radius of the chart regardless of chart value
+          //to allow the labels to be anchored to the outer radius of the chart regardless of chart value
 
-  labelsReboot: {
+          labelsReboot: {
 
-  render:  'label',
+            render: 'label',
 
-  fontSize:  18,
+            fontSize: 18,
 
-  fontStyle:  'bold',
+            fontStyle: 'bold',
 
-  fontColor: [ "rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)" ],
+            fontColor: [ "rgba(0,0,255, .6)", "rgba(255,0,0, .6)", "rgba(128,0,128, .6)", "rgba(0,128,0, .6)", "rgba(255,165,0, .6)", "rgba(0,128,128, .6)", "rgba(255,0,255, .6)", "rgba(0,255,0, .6)" ],
 
-  arc:  true,
+            arc: true,
 
-  position:  "outside",
+            position: "outside",
 
-  overlap:  true,
+            overlap: true,
 
- }
+          }
 
- },
+        },
 
-  aspectRatio:  3,
+        aspectRatio: 3,
 
-  maintainAspectRatio:  true,
+        maintainAspectRatio: true,
 
- }
+      }
 
- } );
+    } );
 
-  //This sets the ticks on the chart to always start at 0 and end at 10, utilizing the global API of the local chart.
+    //This sets the ticks on the chart to always start at 0 and end at 10, utilizing the global API of the local chart.
 
-  this.chart.config.options.scale.ticks.min  =  0;
+    this.chart.config.options.scale.ticks.min = 0;
 
-  this.chart.config.options.scale.ticks.max  =  10;
+    this.chart.config.options.scale.ticks.max = 10;
 
-  this.chart.update();
+    this.chart.update();
 
- }
+  }
 
 }
