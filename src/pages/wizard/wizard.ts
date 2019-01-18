@@ -219,12 +219,13 @@ export class WizardPage {
     else if (this.slides.getActiveIndex() === 7) {
       this.rightArrowVisible = false;
     } 
-    else if (this.slides.getActiveIndex()  !== 5 || 8) {
-      this.leftArrowVisible = true;
-    } 
     else if (this.slides.getActiveIndex()  === 6) {
+      this.leftArrowVisible = true;
       this.rightArrowVisible = true;
     } 
+    else if (this.slides.getActiveIndex()  !== 5 || 8) {
+      this.leftArrowVisible = true;
+    }  
   }
 
   next() {
@@ -248,6 +249,13 @@ export class WizardPage {
     this.leftOrRightArrow();
     let index = this.slides.realIndex;
     console.log(index);
+    // Slide 0 no slide left
+    // Slides 1 - 4 swipe both directions
+
+    // Slide 5 & 6 need a valid form can't swipe 
+
+
+    
     if ((index == 5 && !this.firstForm.valid) || (index == 6 && !this.secondForm.valid) || (index == 7)) {
       this.disableSwipe()
     } else {
