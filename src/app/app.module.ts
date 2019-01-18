@@ -31,6 +31,7 @@ import { RssProvider } from '../providers/rss/rss';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NewsWidgetComponent } from '../components/news-widget/news-widget';
 import { StorageProvider } from '../providers/storage/storage';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { StorageProvider } from '../providers/storage/storage';
     ChartComponent,
     NewsWidgetComponent,
     ResourcesPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
