@@ -37,6 +37,7 @@ import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { ActionItemProvider } from '../providers/action-item/action-item';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 
 const Pages = [
@@ -65,6 +66,8 @@ const Pages = [
     TimelineTimeComponent,
     NewsWidgetComponent,
     TimelineComponent,
+    ResourcesPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
