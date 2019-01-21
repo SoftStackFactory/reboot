@@ -1,4 +1,4 @@
 export const ENV = {
   mode: 'Development',
-  url: 'https://ssf-reboot-backend.herokuapp.com/api/'
+  url: 'https://reboot-loopback.herokuapp.com/api/'
 }
