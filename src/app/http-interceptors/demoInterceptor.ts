@@ -73,6 +73,7 @@ export class DemoInterceptor implements HttpInterceptor {
         }
         return this.createNewRequest(req, data, next)
       } else {
+        console.log("else", req)
         return next.handle(req);
       }
       
