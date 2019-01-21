@@ -36,7 +36,8 @@ export class DemoInterceptor implements HttpInterceptor {
     Observable<HttpEvent<any>> {
       if (req.url === 'https://api.rss2json.com/v1/api.json') return next.handle(req);
 
-      if (ENV.mode === 'Development') {
+     // Select mode for interceptor to run
+      if (ENV.mode === 'Demo') {
         let data;
         if (req.method === 'POST') {
           if(req.url.includes('appUsers/login')) {

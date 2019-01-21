@@ -41,7 +41,7 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
   sendReg(user) {
-    console.log('sendReg() runs', user)
+    console.log('sendReg() runs', user, this.requestUrl)
     return this.http.post(this.requestUrl + '/appUsers', user)
   }
 

@@ -69,14 +69,14 @@ export class RegisterPage {
       }
       ) 
 
-      this._userService.login(this.registerUser)
-      .subscribe(
-        (res) => {
-          let loginResponse: any = res;
-          sessionStorage.setItem('userId', loginResponse.userId)
-          sessionStorage.setItem('token', loginResponse.token);
-          alert("you're logged in!")
-        });
+      // this._userService.login(this.registerUser)
+      // .subscribe(
+      //   (res) => {
+      //     let loginResponse: any = res;
+      //     sessionStorage.setItem('userId', loginResponse.userId)
+      //     sessionStorage.setItem('token', loginResponse.token);
+      //     alert("you're logged in!")
+      //t    });
   }
 
   goLogin() {
