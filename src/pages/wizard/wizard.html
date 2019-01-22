@@ -158,7 +158,7 @@
                 {{SeparationQuestion}}
                 </ion-item-divider>
                 <ion-item class="q-wrapper">
-                  <ion-datetime *ngIf="firstForm.value.vetOrActive == 'Active' || 'Guard/Reserve'"
+                  <ion-datetime *ngIf="firstForm.value.vetOrActive === 'Active'"
                     placeholder="Select&#x25BC;"
                     (ionChange)="slideChanged()"
                     #vetQuestionName
@@ -171,7 +171,20 @@
                     [min]="2018"
                   >
                   </ion-datetime>
-                  <ion-datetime *ngIf="firstForm.value.vetOrActive == 'Veteran'"
+                  <ion-datetime *ngIf="firstForm.value.vetOrActive === 'Guard/Reserve'"
+                    placeholder="Select&#x25BC;"
+                    (ionChange)="slideChanged()"
+                    #vetQuestionName
+                    type="date"
+                    formControlName="separationDate"
+                    class='date'
+                    displayFormat="MM/DD/YYYY" 
+                    pickerFormat="MMMM DD YYYY" 
+                    [max]="2050"
+                    [min]="2018"
+                  >
+                  </ion-datetime>
+                  <ion-datetime *ngIf="firstForm.value.vetOrActive === 'Veteran'"
                   (ionChange)="slideChanged()"
                   placeholder="Select&#x25BC;"
                   #vetQuestionName
