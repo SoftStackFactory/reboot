@@ -268,19 +268,20 @@ export class WizardPage {
       .subscribe(
         (data) => {
           console.log(data, "YEY!!!!!!")
-          
+          this.slides.lockSwipeToNext(false);
+          this.next();
         },
         (err) => {
           console.log(err);
           // alert("Please try submitting again.")
         })
         //Skip validation for demo purposes only
-        this.slides.lockSwipeToNext(false);
-        this.next();
+        // this.slides.lockSwipeToNext(false);
+        // this.next();
   }
 
   setDashboardPage() {
-    this.navCtrl.setRoot(DashboardPage)
+    this.navCtrl.setRoot(DashboardPage) 
   }
 
   setAssessmentPage() {
