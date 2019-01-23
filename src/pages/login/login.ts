@@ -24,7 +24,7 @@ export class LoginPage {
   userId: any
 
   private loginCreds : FormGroup;
-  loginResponse: any;
+  // loginResponse: any;
 
   constructor(
     public navCtrl: NavController,
@@ -75,10 +75,9 @@ export class LoginPage {
           // }).then(() => {
           //   this.toDashboard()
           // })
-          this.loginResponse = res;
-          sessionStorage.setItem('userId', this.loginResponse.userId)
-          sessionStorage.setItem('token', this.loginResponse.id);
-
+          // this.loginResponse = res;
+          console.log(res);
+          this._userService.getCredentials(res);
           alert("you're logged in!");
           this.navCtrl.setRoot(WizardPage);
           //this.getChartData();
@@ -94,7 +93,7 @@ export class LoginPage {
           }
           toast.present()
         }
-      )
+      )    
   }
 
   toRegisterPage() {

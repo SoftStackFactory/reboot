@@ -55,9 +55,7 @@ export class RegisterPage {
     this.submitAttempt = true
     this._userService.sendReg(this.registerUser)
       .subscribe( (data: any) => {
-        this.storage.remove('userData')
-        this.storage.set('userData', data)
-        console.log('data from submitReg()', data)
+        this._userService.getCredentials(data);
         this.menuCtrl.enable(true);
         this.menuCtrl.swipeEnable(true);
       },

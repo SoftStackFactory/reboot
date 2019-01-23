@@ -35,6 +35,10 @@ export class UserProvider {
 
   requestUrl: string = ENV.url
   userName: any = "Maurice";
+  userCreds = {
+    token : '',
+    userId: ''
+  };
 
 
   constructor(public http: HttpClient, private storage: StorageProvider) {
@@ -47,35 +51,34 @@ export class UserProvider {
 
   //update data from wizard page and patch user model
   updateUserModel(data: any, id) {
-    let token = window.sessionStorage.getItem('token');
     console.log(data, "#1-updateUserModel")
-    return this.http.patch(this.requestUrl + '/appUsers/' + id + '?access_token=' + token , data)
+    return this.http.patch(this.requestUrl + '/appUsers/' + id + '?access_token=' + this.userCreds.token , data)
   }
 
-  getCredentials(){
-    let userCredentials: any = {};
-    userCredentials.token = sessionStorage.getItem('token');
-    userCredentials.userId = sessionStorage.getItem('userId');
-    return userCredentials;
+  getCredentials(resData){
+    window.sessionStorage.setItem( "token", resData.token);
+    window.sessionStorage.setItem( "userId", resData.userId);
+    this.userCreds.token = resData.token;
+    this.userCreds.userId = resData.userId;
   }
 
   login(creds) {
-      return this.http.post(this.requestUrl + '/appUsers/login', creds);
+    return this.http.post(this.requestUrl + 'appUsers/login', creds);
   }
 
-  logoutUser(token:any) {
-    console.log('onservice-logout')
-    return this.http.post(this.requestUrl + "/appUsers/logout", token )
+  logoutUser() {
+    // console.log('onservice-logout')
+    console.log(this.userCreds.token);
+    // window.sessionStorage.clear();
+    return this.http.post(this.requestUrl + "appUsers/logout?access_token=" + this.userCreds.token, {});
   }
 
   getUser(id) {
-    let token = window.sessionStorage.getItem('token');
-    return this.http.get(this.requestUrl + '/appUsers/' + id + '?access_token=' + token)
+    return this.http.get(this.requestUrl + 'appUsers/' + id + '?access_token=' + this.userCreds.token);
   }
 
   getUserChart(id) {
-    let token = window.sessionStorage.getItem('token');
-    return this.http.get(this.requestUrl + '/appUsers/' + id + '/charts?access_token=' + token)
+    return this.http.get(this.requestUrl + 'appUsers/' + id + '/charts?access_token=' + this.userCreds.token);
   }
 
 }
