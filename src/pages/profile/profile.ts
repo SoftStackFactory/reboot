@@ -35,8 +35,6 @@ export class ProfilePage {
   }
 
   getUserInfo() {
-    let userID = sessionStorage.getItem('userId')
-    // let token = sessionStorage.getItem('token')
     this.user.getUser()
     .subscribe(response => {
       console.log('received user data')
