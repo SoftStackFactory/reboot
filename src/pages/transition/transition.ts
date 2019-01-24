@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { ChartComponent } from '../../components/chart/chart';
 import { ChartProvider } from '../../providers/chart/chart';
-//import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage'
 
 /**
  * Generated class for the TransitionPage page.
