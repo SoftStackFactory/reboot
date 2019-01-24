@@ -77,7 +77,7 @@ export class LoginPage {
           // })
           // this.loginResponse = res;
           console.log(res);
-          this._userService.getCredentials(res);
+          this._userService.setCredentials(res);
           alert("you're logged in!");
           this.navCtrl.setRoot(WizardPage);
           //this.getChartData();

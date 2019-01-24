@@ -28,7 +28,8 @@ export class ResourcesPage {
       title: 'Career',
       message: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve?',
       modalMessage: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve?',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/career-photo.jpg'
     },
     {
       title: 'Finances',
@@ -77,14 +78,16 @@ export class ResourcesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController,
     public userPro: UserProvider) {
-    this.userPro.getUser(window.sessionStorage.getItem('userId'))
+    this.userPro.getUser()
       .subscribe((data: UserData) => {
+        console.log(data)
         this.user.firstName = data.firstName;
         this.user.lastName = data.lastName;
       });
-    this.userPro.getUserChart(window.sessionStorage.getItem('userId'))
+    this.userPro.getUserChart()
     .subscribe((data: Array<any>) => {
       try{
+        console.log(data);
         this.resources.forEach(x => x.score = data['0'].data[x.title]);
         this.sortedResources = this.resources.sort((a, b) => a.score - b.score);
         console.log(data);
@@ -102,7 +105,7 @@ export class ResourcesPage {
       }
       this.userPro.userData.lowestScore = lowest;
       this.userPro.userData.lowScoreName = lowestProp;
-      this.userPro.updateUserModel(this.userPro.userData, window.sessionStorage.getItem('userId'))
+      this.userPro.updateUserModel(this.userPro.userData)
       console.log(this.values)
       this.assessmentCompleted = true;
       console.log(data);

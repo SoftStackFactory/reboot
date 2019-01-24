@@ -48,7 +48,7 @@ export class WizardPage {
     public plt: Platform,
     public user: UserProvider,
   ) {
-    this.user.getUser(window.sessionStorage.getItem('userId'))
+    this.user.getUser()
     .subscribe((data: UserData) => {
       this.name = data.firstName;
     })

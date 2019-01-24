@@ -105,7 +105,7 @@ export class SelfAssessmentPage {
                 //   this.date = val ? val.Date : '';
                 //   // console.log('this.date:', this.date, 'val.Date:', val.Date)
                 // }).then(() => this.lastDate())
-                this.user.getUserChart(window.sessionStorage.getItem('userId'))
+                this.user.getUserChart()
                 .subscribe( (data) => {
                   try {
                   this.date = moment(data[0].date, "YYYY-MM-DD").toDate().getTime();

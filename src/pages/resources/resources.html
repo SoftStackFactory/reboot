@@ -63,6 +63,11 @@
         </ion-card-header>
           <ion-card-content id="card-text">
             {{res.message}}
+            <ion-row>
+              <ion-col offset-3>
+                <img class="image" src={{res.img}} alt="">          
+              </ion-col>
+            </ion-row>
             <ion-item id="card-text">
               <span item-end>
                 <a (click)="openModal(res)">Learn more...</a>
@@ -77,7 +82,8 @@
           {{res.title}}
         </ion-card-header>
           <ion-card-content id="card-text">
-            {{res.message}}
+            <img class="image" src={{res.img}} alt="" style="width: 50%; height: 100%">          
+            <p id="resMessage">{{res.message}}</p>
             <ion-item id="card-text">
               <span item-end>
                 <a (click)="openModal(res)">Learn more...</a>

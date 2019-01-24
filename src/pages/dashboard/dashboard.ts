@@ -48,7 +48,7 @@ export class DashboardPage {
     //   this.assessDate = val ? val.Date : '';
     // }).then(() => this.lastDate())
   
-    this.user.getUser(window.sessionStorage.getItem('userId'))
+    this.user.getUser()
     .subscribe( (data:UserData)=> {
       this.name = data.firstName;
       let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
@@ -57,7 +57,7 @@ export class DashboardPage {
       this.daysTilSepAbs = Math.abs(this.daysTilSep);
       console.log(this.daysTilSep, this.name)
     })
-    this.user.getUserChart(window.sessionStorage.getItem('userId'))
+    this.user.getUserChart()
     .subscribe( (data: Array<any>) => {
       if (!data.length) return
       this.prevAssess = true;

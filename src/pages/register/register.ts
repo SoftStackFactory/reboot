@@ -55,7 +55,7 @@ export class RegisterPage {
     this.submitAttempt = true
     this._userService.sendReg(this.registerUser)
       .subscribe( (data: any) => {
-        this._userService.getCredentials(data);
+        this._userService.setCredentials(data);
         this.menuCtrl.enable(true);
         this.menuCtrl.swipeEnable(true);
       },

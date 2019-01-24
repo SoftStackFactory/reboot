@@ -35,11 +35,6 @@ export class UserProvider {
 
   requestUrl: string = ENV.url
   userName: any = "Maurice";
-  userCreds = {
-    token : '',
-    userId: ''
-  };
-
 
   constructor(public http: HttpClient, private storage: StorageProvider) {
     console.log('Hello UserProvider Provider');
@@ -50,16 +45,21 @@ export class UserProvider {
   }
 
   //update data from wizard page and patch user model
-  updateUserModel(data: any, id) {
+  updateUserModel(data: any) {
     console.log(data, "#1-updateUserModel")
-    return this.http.patch(this.requestUrl + '/appUsers/' + id + '?access_token=' + this.userCreds.token , data)
+    return this.http.patch(this.requestUrl + '/appUsers/' + this.getCredentials().userId + '?access_token=' + this.getCredentials().token, data)
   }
 
-  getCredentials(resData){
+  getCredentials() {
+    let userCreds: any = {};
+    userCreds.token = window.sessionStorage.getItem("token");
+    userCreds.userId = window.sessionStorage.getItem("userId");
+    return userCreds; 
+  }
+
+  setCredentials(resData){
     window.sessionStorage.setItem( "token", resData.token);
     window.sessionStorage.setItem( "userId", resData.userId);
-    this.userCreds.token = resData.token;
-    this.userCreds.userId = resData.userId;
   }
 
   login(creds) {
@@ -67,18 +67,16 @@ export class UserProvider {
   }
 
   logoutUser() {
-    // console.log('onservice-logout')
-    console.log(this.userCreds.token);
     // window.sessionStorage.clear();
-    return this.http.post(this.requestUrl + "appUsers/logout?access_token=" + this.userCreds.token, {});
+    return this.http.post(this.requestUrl + "appUsers/logout?access_token=" + this.getCredentials().token, {});
   }
 
-  getUser(id) {
-    return this.http.get(this.requestUrl + 'appUsers/' + id + '?access_token=' + this.userCreds.token);
+  getUser() {
+    return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '?access_token=' + this.getCredentials().token);
   }
 
-  getUserChart(id) {
-    return this.http.get(this.requestUrl + 'appUsers/' + id + '/charts?access_token=' + this.userCreds.token);
+  getUserChart() {
+    return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '/charts?access_token=' + this.getCredentials().token);
   }
 
 }
