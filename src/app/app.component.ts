@@ -29,10 +29,10 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
-  userToken = window.sessionStorage.getItem('token')
+  userToken = window.sessionStorage.getItem('token');
 
   pages: Array<{title: string, component: any}>;
-  logout: any;
+  // logout: any;
 
   constructor(
     public platform: Platform, 
@@ -104,10 +104,10 @@ presentToast( message ) {
 }
   openPage(page) {
     if(page.title === 'Logout'){
-      this._user.logoutUser(this.userToken)
+      this._user.logoutUser()
         .subscribe(res => {
           console.log(res);
-          this.nav.setRoot(page.component)
+          this.nav.setRoot(page.component);
         }, err =>  {
           console.log(err);
         })

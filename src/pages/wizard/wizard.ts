@@ -48,7 +48,7 @@ export class WizardPage {
     public plt: Platform,
     public user: UserProvider,
   ) {
-    this.user.getUser(window.sessionStorage.getItem('userId'))
+    this.user.getUser()
     .subscribe((data: UserData) => {
       this.name = data.firstName;
     })
@@ -139,11 +139,11 @@ export class WizardPage {
     this.firstForm.controls.vetOrActive.valueChanges
       .subscribe(val => {
         // const enlistedPay = this.thirdForm.get('enlistedPay')
-        if (val == "Active" || "Guard/Reserve") {
-          this.SeparationQuestion = "When is your separation date?"
-          // enlistedPay.setValidators(Validators.compose([Validators.required,]));
-        } else if (val == "Veteran") {
+        if (val == "Veteran") {
           this.SeparationQuestion = "When was your separation date?"
+          // enlistedPay.setValidators(Validators.compose([Validators.required,]));
+        } else if (val == "Active" || "Guard/Reserve") {
+          this.SeparationQuestion = "When is your separation date?"
           // enlistedPay.clearValidators();
         }
         this.vetValue = val;
@@ -273,12 +273,15 @@ export class WizardPage {
         },
         (err) => {
           console.log(err);
-          alert("Please try submitting again.")
+          // alert("Please try submitting again.")
         })
+        //Skip validation for demo purposes only
+        // this.slides.lockSwipeToNext(false);
+        // this.next();
   }
 
   setDashboardPage() {
-    this.navCtrl.setRoot(DashboardPage)
+    this.navCtrl.setRoot(DashboardPage) 
   }
 
   setAssessmentPage() {
