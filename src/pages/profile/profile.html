@@ -79,7 +79,7 @@
               <ion-item class="user-info-details">
                 <span item-start>Employment Status</span> <span item-end>{{ user.userData.employmentStatus }}</span>
               </ion-item>
-              <ion-item class="user-info-details">
+              <ion-item class="user-info-details" *ngIf="user.userData.lastEmployed.length > 1">
                 <span item-start>Last Employed</span> <span item-end>{{ user.userData.lastEmployed }}</span>
               </ion-item>
             </ion-card-content>
@@ -104,7 +104,7 @@
                 <span item-start>Branch</span> <span item-end>{{ user.userData.militaryBranch }}</span>
               </ion-item>
               <ion-item class="user-info-details">
-                <span item-start>Active Status</span> <span item-end>{{ user.userData.activeStatus }}</span>
+                <span item-start>Active Status</span> <span item-end>{{ user.userData.veteranOrActive }}</span>
               </ion-item>
               <ion-item class="user-info-details">
                 <span item-start>Separation Date</span> <span item-end>{{ user.userData.separationDate }} </span>
@@ -112,7 +112,7 @@
               <ion-item class="user-info-details">
                 <span item-start>Service Disability</span> <span item-end>{{ user.userData.disabilityStatus }} </span>
               </ion-item>
-              <ion-item class="user-info-details">
+              <ion-item class="user-info-details" *ngIf="user.userData.disabilityPercentage.length > 1">
                 <span item-start>Disability Rating</span> <span item-end>{{ user.userData.disabilityPercentage }}</span>
               </ion-item>
               <ion-item class="user-info-details">
@@ -120,7 +120,7 @@
               </ion-item>
               <ion-item class="user-info-details">
                 <span item-start>MOS/NEC</span> <span item-end>{{ user.userData.codeIdentifier }} </span>
-              </ion-item>
+              </ion-item> 
             </ion-card-content>
           </ion-card>
           <ion-card>
@@ -131,7 +131,7 @@
               </ion-item>
               <ion-item class="user-info-details">
                 <ion-label stacked>Active Status</ion-label>
-                <ion-input type="text" [(ngModel)]=" user.userData.activeStatus"></ion-input>
+                <ion-input type="text" [(ngModel)]="user.userData.veteranOrActive"></ion-input>
               </ion-item>
               <ion-item class="user-info-details">
                 <ion-label stacked>Separation Date</ion-label>
