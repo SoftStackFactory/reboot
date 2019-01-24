@@ -38,24 +38,32 @@ export class WizardPage {
 
   leftArrowVisible: boolean = false;
   rightArrowVisible: boolean = true;
+  vetValue: string = "";
+  SeparationQuestion: string = "";
+  disabilityQValue: string = "";
+  LockSwipeToPrev: boolean = true;
+  employedAnswer: string = "";
+  codeErrorMessage: string = "";
+
 
   @ViewChild(Slides) slides: Slides;
 
-  constructor(public alertCtrl: AlertController,
+  constructor(
+    public alertCtrl: AlertController,
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     public navParams: NavParams,
     public plt: Platform,
-    public user: UserProvider,
-  ) {
-    this.user.getUser()
-    .subscribe((data: UserData) => {
-      this.name = data.firstName;
-    })
+    public user: UserProvider) {
 
-    this.firstFormFunct();
-    this.secondFormFunct();
-    this.thirdFormFunct();
+    this.user.getUser()
+      .subscribe((data: UserData) => {
+        this.name = data.firstName;
+      })
+  
+      this.firstFormFunct();
+      this.secondFormFunct();
+      this.thirdFormFunct();
     
   }
 
@@ -66,12 +74,6 @@ export class WizardPage {
     }, 300);
   }
 
-  vetValue: string = "";
-  SeparationQuestion: string = "";
-  disabilityQValue: string = "";
-  LockSwipeToPrev: boolean = true;
-  employedAnswer: string = "";
-  codeErrorMessage: string = "";
 
    //the logic that determines if slide should be locked from swiping and in which direction
   slideChanged() {
@@ -263,8 +265,8 @@ export class WizardPage {
       // enlistingPay: this.thirdForm.value.enlistedPay,
       codeIdentifier: this.thirdForm.value.MOS,
     }
-    console.log(this.user.userData, this.LockSwipeToPrev)
-    this.user.updateUserModel(this.user.userData, window.sessionStorage.getItem('userId'))
+
+    this.user.updateUserModel(this.user.userData)
       .subscribe(
         (data) => {
           console.log(data, "YEY!!!!!!")
