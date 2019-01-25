@@ -107,8 +107,9 @@ presentToast( message ) {
       this._user.logoutUser()
         .subscribe(res => {
           console.log(res);
-          this.nav.setRoot(page.component);
+          this.nav.setRoot(LoginPage);
         }, err =>  {
+          this.nav.setRoot(LoginPage);
           console.log(err);
         })
     } else {
