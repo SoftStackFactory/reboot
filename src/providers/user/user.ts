@@ -46,8 +46,8 @@ export class UserProvider {
 
   //update data from wizard page and patch user model
   updateUserModel(data: any) {
-    const CREDS = this.getCredentials()
-    return this.http.patch(this.requestUrl + '/appUsers/' + CREDS.userId + '?access_token=' + CREDS.token, data)
+    const creds = this.getCredentials()
+    return this.http.patch(this.requestUrl + '/appUsers/' + creds.userId + '?access_token=' + creds.token, data)
   }
 
   getCredentials() {
@@ -67,18 +67,18 @@ export class UserProvider {
   }
 
   logoutUser() {
-    const CREDS = this.getCredentials() 
-    return this.http.post(this.requestUrl + "appUsers/logout?access_token=" + CREDS.token, {});
+    const creds = this.getCredentials() 
+    return this.http.post(this.requestUrl + "appUsers/logout?access_token=" + creds.token, {});
   }
 
   getUser() {
-    const CREDS = this.getCredentials();
-    return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '?access_token=' + CREDS.token);
+    const creds = this.getCredentials();
+    return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '?access_token=' + creds.token);
   }
 
   getUserChart() {
-    const CREDS = this.getCredentials()
-    return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '/charts?access_token=' + CREDS.token);
+    const creds = this.getCredentials()
+    return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '/charts?access_token=' + creds.token);
   }
 
 }
