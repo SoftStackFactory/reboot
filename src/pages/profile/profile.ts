@@ -18,7 +18,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public user: UserProvider) {
   }
 
-  editing: boolean;
+  editing: boolean = false;
   userInfo: any;
 
 
