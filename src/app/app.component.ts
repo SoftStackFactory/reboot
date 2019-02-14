@@ -105,7 +105,8 @@ presentToast( message ) {
   });
 
   toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
+    this.isToastPresent = false
+    // console.log('Dismissed toast');
   });
 
   toast.present();
