@@ -25,6 +25,7 @@ export class LoginPage {
 
   private loginCreds : FormGroup;
   // loginResponse: any;
+  checkResponse: any;
 
   constructor(
     public navCtrl: NavController,
@@ -79,8 +80,9 @@ export class LoginPage {
           console.log(res);
           this._userService.setCredentials(res);
           alert("you're logged in!");
-          this.navCtrl.setRoot(WizardPage);
+          // this.navCtrl.setRoot(WizardPage);
           //this.getChartData();
+          this.firstTimeUserCheck()
         },
         (err) => {
           let toast = this.toastCtrl.create({
@@ -114,17 +116,45 @@ export class LoginPage {
   //     );
   // }
 
-  toDashboard() {
-    let toast = this.toastCtrl.create({
-      message: "Login successful!",
-      duration: 2500,
-      position: 'middle'
-    });
+  // toDashboard() {
+  //   let toast = this.toastCtrl.create({
+  //     message: "Login successful!",
+  //     duration: 2500,
+  //     position: 'middle'
+  //   });
 
-    toast.onDidDismiss(() => {
-      this.navCtrl.setRoot(DashboardPage)
-    });
+  //   toast.onDidDismiss(() => {
+  //     this.navCtrl.setRoot(DashboardPage)
+  //   });
 
-    toast.present();
+  //   toast.present();
+  // }
+
+  ionViewWillEnter() {
+    this.logInCheck();
+  }
+
+  firstTimeUserCheck() {
+    this._userService.getUser()
+    .subscribe(response => {
+      this.checkResponse = response;
+      console.log(this.checkResponse)
+      if (this.checkResponse.militaryBranch) {
+        this.navCtrl.setRoot(DashboardPage);
+              } else {
+        this.navCtrl.setRoot(WizardPage);        
+      }
+    })
+  }
+
+  logInCheck() {
+    let activeId = window.sessionStorage.getItem('userId');
+    let activeToken = window.sessionStorage.getItem('token');
+
+    if (activeId != null) {
+      this.menuCtrl.enable(true);
+      this.menuCtrl.swipeEnable(true);
+      this.firstTimeUserCheck()
+    }
   }
 }

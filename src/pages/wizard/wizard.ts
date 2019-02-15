@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides, AlertController, Platform } from 'ionic-angular';
+import { NavController, NavParams, Slides, AlertController, Platform, MenuController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 // import { createOfflineCompileUrlResolver, ProviderAst } from '@angular/compiler';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { SelfAssessmentPage } from '../../pages/self-assessment/self-assessment';
 import { UserProvider } from '../../providers/user/user';
 import * as moment from 'moment';
+import { LoginPage } from '../../pages/login/login';
 
 /**
  * Generated class for fthe WizardPage page.
@@ -54,7 +55,8 @@ export class WizardPage {
     private formBuilder: FormBuilder,
     public navParams: NavParams,
     public plt: Platform,
-    public user: UserProvider) {
+    public user: UserProvider,
+    private menuCtrl: MenuController) {
 
     this.user.getUser()
       .subscribe((data: UserData) => {
@@ -198,7 +200,10 @@ export class WizardPage {
   };
   // called when users click on nav bar 'next' button; only enabled when forms are valid
   exit() {
-    this.navCtrl.setRoot(DashboardPage)
+    window.sessionStorage.clear()
+    this.menuCtrl.enable(false);
+    this.menuCtrl.swipeEnable(false); 
+    this.navCtrl.setRoot(LoginPage, {}, {animate: true, direction: "forward"});
   }
   // Determines if the left and right arrows should be displayed
   leftOrRightArrow() {

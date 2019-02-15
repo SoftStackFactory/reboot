@@ -52,13 +52,13 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
-      { title: 'Wizard', component: WizardPage },
+      // { title: 'Wizard', component: WizardPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage }, 
-      { title: 'Resources', component: ResourcesPage },
-      { title: 'Logout', component: LoginPage }
+      { title: 'Resources', component: ResourcesPage }
+      // { title: 'Logout', component: LoginPage }
     ];
 
   }
@@ -117,5 +117,12 @@ presentToast( message ) {
       // we wouldn't want the back button to show in this scenario
       this.nav.setRoot(page.component);
     }
+  }
+
+  logout() {
+    window.sessionStorage.clear()
+    this.menuCtrl.enable(false);
+    this.menuCtrl.swipeEnable(false); 
+    this.nav.setRoot(LoginPage, {}, {animate: true, direction: "forward"});
   }
 }
