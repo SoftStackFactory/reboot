@@ -149,7 +149,6 @@ export class LoginPage {
 
   logInCheck() {
     let activeId = window.sessionStorage.getItem('userId');
-    let activeToken = window.sessionStorage.getItem('token');
 
     if (activeId != null) {
       this.menuCtrl.enable(true);

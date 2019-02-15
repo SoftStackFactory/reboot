@@ -9,7 +9,6 @@ import { UserProvider } from '../providers/user/user'
 
 //Pages
 import { LoginPage } from '../pages/login/login';
-import { WizardPage } from '../pages/wizard/wizard';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TimelinePage } from '../pages/timeline/timeline';
