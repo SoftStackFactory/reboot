@@ -44,7 +44,7 @@ page-dashboard {
     }
 
     .actionItemText {
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
     }
 
@@ -59,13 +59,15 @@ page-dashboard {
     }
      // news widget title
      .title {
-        color:#2a3d4fb3;
+        color:#2a3d4f9e;
         font-weight: bold;
         font-size: 22px;
     }
-    
+
     //the smallest the timestamp can go is 22px for some reason
     .timestamp {
+        margin-top: 10px;
+        margin-bottom: 10px;
         font-size: 16px;
     }
 
@@ -125,12 +127,17 @@ page-dashboard {
     .image {
         width:70%;
         height: 100%;
+        
     }
 
     .action-item-title{
         font-weight: bold;
         font-size: 24px;
         color: #2a3d4fb3;
+    }
+
+    .currentActionItemBody {
+        font-size: 20px;
     }
 
    
