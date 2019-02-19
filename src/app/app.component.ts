@@ -34,6 +34,8 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   // logout: any;
 
+  isToastPresent:boolean = false;
+
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
@@ -71,14 +73,20 @@ export class MyApp {
 
       // Offline event
       this.events.subscribe('network:offline', () => {
-      // alert('network:offline ==> '+this.network.type); 
-        this.presentToast("No Network");
+      // alert('network:offline ==> '+this.network.type);
+        if(this.isToastPresent==false) {
+          this.isToastPresent = true
+          this.presentToast("No Network");
+        }
       });
 
       // // Online event
       this.events.subscribe('network:online', () => {
       //    // alert('network:online ==> '+this.network.type);  
-        this.presentToast("online")     
+        if(this.isToastPresent==false) {
+          this.isToastPresent = true 
+          this.presentToast("online")
+        }   
       });
 
       this.menuCtrl.enable(false);
@@ -97,7 +105,8 @@ presentToast( message ) {
   });
 
   toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
+    this.isToastPresent = false
+    // console.log('Dismissed toast');
   });
 
   toast.present();
