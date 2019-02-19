@@ -6,17 +6,17 @@
 -->
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button> -->
     <ion-title text-center>Wizard</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content >
-    <div class="nav-start">
-      <button ion-button (click)="exit()" color="danger" id="end">Exit</button>
-    </div>
+    <!-- <div class="nav-start"> -->
+      <!-- <button ion-button (click)="exit()" color="danger" id="end">Exit</button> -->
+    <!-- </div> -->
     <div id="leftArrow" *ngIf="leftArrowVisible" (click)="back()">
       <ion-icon name="arrow-back"></ion-icon>
     </div>
@@ -490,4 +490,5 @@
         </div>
       </ion-slide>
     </ion-slides>
+    <button ion-button (click)="exit()" color="danger" block>Exit</button>
 </ion-content>
