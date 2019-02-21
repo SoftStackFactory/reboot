@@ -68,7 +68,14 @@
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Marital Status</ion-label>
-                                <ion-input type="text" [(ngModel)]="user.userData.maritalStatus"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]="user.userData.maritalStatus"></ion-input> -->
+                                <ion-select [selectOptions]="maritalOptions" [(ngModel)]="user.userData.maritalStatus">
+                                    <ion-option>Married</ion-option>
+                                    <ion-option>Single</ion-option>
+                                    <ion-option>Widowed</ion-option>
+                                    <ion-option>Divorced</ion-option>
+                                    <ion-option>Separated</ion-option>
+                                </ion-select>
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
@@ -88,11 +95,17 @@
                         <ion-card-content class="user-info-content" *ngIf="editing">
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Employment Status</ion-label>
-                                <ion-input type="text" [(ngModel)]=" user.userData.employmentStatus"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]=" user.userData.employmentStatus"></ion-input> -->
+                                <ion-select [selectOptions]="unemployedOptions" [(ngModel)]="user.userData.employmentStatus">
+                                    <ion-option>Employed</ion-option>
+                                    <ion-option>Unemployed</ion-option>
+                                </ion-select>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Last Employed</ion-label>
-                                <ion-input type="text" [(ngModel)]=" user.userData.lastEmployed"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]=" user.userData.lastEmployed"></ion-input> -->
+                                <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY" [(ngModel)]=" user.userData.lastEmployed">
+                                </ion-datetime>
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
@@ -127,19 +140,37 @@
                         <ion-card-content class="user-info-content" *ngIf="editing">
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Branch edit</ion-label>
-                                <ion-input type="text" [(ngModel)]=" user.userData.militaryBranch"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]="user.userData.militaryBranch"></ion-input> -->
+                                <ion-select [selectOptions]="branchOptions" [(ngModel)]="user.userData.militaryBranch">
+                                    <ion-option>Air Force</ion-option>
+                                    <ion-option>Army</ion-option>
+                                    <ion-option>Coast Guard</ion-option>
+                                    <ion-option>Marines</ion-option>
+                                    <ion-option>Navy</ion-option>
+                                </ion-select>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Active Status</ion-label>
-                                <ion-input type="text" [(ngModel)]="user.userData.veteranOrActive"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]="user.userData.veteranOrActive"></ion-input> -->
+                                <ion-select [selectOptions]="vetOrActiveOptions" [(ngModel)]="user.userData.veteranOrActive">
+                                        <ion-option>Active</ion-option>
+                                        <ion-option>Guard/Reserve</ion-option>
+                                        <ion-option>Veteran</ion-option>
+                                    </ion-select>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Separation Date</ion-label>
-                                <ion-input type="text" [(ngModel)]=" user.userData.separationDate"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]=" user.userData.separationDate"></ion-input> -->
+                                <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY" [(ngModel)]=" user.userData.separationDate">
+                                </ion-datetime>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Service Disability</ion-label>
-                                <ion-input type="text" [(ngModel)]=" user.userData.disabilityStatus"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]=" user.userData.disabilityStatus"></ion-input> -->
+                                <ion-select [selectOptions]="disabilityOptions" [(ngModel)]="user.userData.disabilityStatus">
+                                    <ion-option>Yes</ion-option>
+                                    <ion-option>No</ion-option>
+                                </ion-select>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Disability Rating</ion-label>
@@ -147,7 +178,25 @@
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Military Rank</ion-label>
-                                <ion-input type="text" [(ngModel)]=" user.userData.militaryRank"></ion-input>
+                                <!-- <ion-input type="text" [(ngModel)]="user.userData.militaryRank"></ion-input> -->
+                                <ion-select [selectOptions]="rankOptions" [(ngModel)]="user.userData.militaryRank">
+                                    <ion-option>01</ion-option>
+                                    <ion-option>02</ion-option>
+                                    <ion-option>03</ion-option>
+                                    <ion-option>04</ion-option>
+                                    <ion-option>05</ion-option>
+                                    <ion-option>06</ion-option>
+                                    <ion-option>07</ion-option>
+                                    <ion-option>E1</ion-option>
+                                    <ion-option>E2</ion-option>
+                                    <ion-option>E3</ion-option>
+                                    <ion-option>E4</ion-option>
+                                    <ion-option>E5</ion-option>
+                                    <ion-option>E6</ion-option>
+                                    <ion-option>E7</ion-option>
+                                    <ion-option>E8</ion-option>
+                                    <ion-option>E9</ion-option>
+                                </ion-select>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>MOS/NEC</ion-label>
