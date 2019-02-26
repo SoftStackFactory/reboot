@@ -46,8 +46,11 @@ page-dashboard {
     #separationLink {
         float: right; 
         float: end;
-        padding-bottom: 8px;
+        padding-bottom: 10px;
+        // padding-right: 20px;
         font-size: 20px;
+        cursor: pointer;
+        background-color: transparent;
     }
     #newsLink {
         float: right;
@@ -59,11 +62,13 @@ page-dashboard {
         position: relative; 
         top: 10px; 
         padding-left: 5px
+
     }
 
-    .row2 {
-        min-height: 40vh;
-    }
+    // row2 causes card height issues
+    // .row2 {
+    //     min-height: 40vh;
+    // }
 
     .dashboardLinks {
         position:absolute;
@@ -114,8 +119,15 @@ page-dashboard {
     .action-item-title{
         font-weight: bold;
     }
+
+    .input-wrapper {
+        background-color: transparent;
+    }
+
+    button {
+        background-color: transparent;
+        color: #488aff;
+    }
+    
 }
 
-// .toaster{
-//     text-align: center;
-// }
