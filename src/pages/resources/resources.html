@@ -15,12 +15,9 @@
 
 
 <ion-content>
-  <h1 id="title">
-    Hello, {{user.firstName}}!
-  </h1>
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-lg-6>
+      <ion-col col-sm-12>
         <ion-card col-xl-8 offset-xl-2>
           <ion-card-content id="card-text">
             <h1>This page will provide helpful resources to aid you in your transition.
@@ -42,32 +39,40 @@
         </ion-card>
       </ion-col>
 
-      <ion-col col-12 col-lg-6 col-xl-6>
+      <ion-col col-12>
         <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2>
           <!-- <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2> -->
           <ion-card-content>
-            <chart></chart>
+            <ion-grid>
+              <ion-row justify-content-center>
+                <ion-col col-12 col-sm-5>
+                  <chart></chart>
+                </ion-col>
+                <ion-col col-12 col-sm-5 id='title'>
+                  <div id='title'>
+                    Your lowest score on the self assessment is: <br><br>
+                    <b><em>{{userPro.userData.lowScoreName}}</em></b>
+                  </div>
+                  <div id="title">
+                    <ion-card id="score-box">
+                      <div class="red"> {{userPro.userData.lowestScore}}</div>
+                    </ion-card>
+                    Maybe you can start there? <br>
+                    <button ion-button color="secondary" (click)="openSelfAssessment()">Retake the self
+                      assessment</button>
+                    <button ion-button color="secondary" (click)="openChartHistory()">View your self assessment
+                      history</button>
+                    <button ion-button color="secondary" (click)="openDashboard()">Go to the Dashboard</button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-card-content>
         </ion-card>
-      </ion-col>
-      <ion-col col-12 col-lg-6 col-xl-6 *ngIf="assessmentCompleted">
-        <ion-card col-xl-8 offset-xl-2>
-          <ion-card-header id='title'>
-            Your lowest score on the self assessment is: <br><br>
-            <b><em>{{userPro.userData.lowScoreName}}</em></b>
-          </ion-card-header>
-          <ion-card-content id="title">
-            <ion-card id="score-box">
-              <div class="red"> {{userPro.userData.lowestScore}}</div>
-            </ion-card>
-            Maybe you can start there? <br>
-            <button ion-button color="secondary" (click)="openSelfAssessment()">Retake the self assessment</button>
-            <button ion-button color="secondary" (click)="openChartHistory()">View your self assessment history</button>
-            <button ion-button color="secondary" (click)="openDashboard()">Go to the Dashboard</button>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
 
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <div *ngIf="!assessmentCompleted">
         <ion-card *ngFor="let res of resources" col-xl-8 offset-xl-2>
           <ion-card-header id='title'>
