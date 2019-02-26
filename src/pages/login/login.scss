@@ -57,10 +57,16 @@ page-login {
         font-size: 25px
     }
 
-    .invalid-text {
-        font-size: 20px;
+    .invalid-text p {
+        font-size: 12px;
         color: #ea6153;
       }
+
+    .my-div {
+        margin: 0px;
+        padding: 0px;
+        float:right;
+    }
 
     #loginbutton {
         background-color: rgb(130,180,64); 
