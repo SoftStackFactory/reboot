@@ -6,7 +6,9 @@ page-dashboard {
     }
 
     #welcome {
-        font-size: 20px;
+        font-size: 26px;
+        color:#2a3d4f;
+        font-weight: bold;
     }
 
     .button1{
@@ -17,20 +19,23 @@ page-dashboard {
     }
 
     .cards {
-        background-color: color($colors, light);
+        // background-color:#dff1d31f;
+        background-color: #5f9ad629;
+        // background-color: color($colors, light);
         position: relative;
     }
 
     .sep {
-        background-color: color($colors, light);
+        // background-color: color($colors, light);
     }
     .news {
-        background-color: color($colors, light);
+        // background-color: color($colors, light);
         }
 
     .headers {
         font-weight: bold; 
-        font-size: 30px;
+        font-size: 24px;
+        color: #2a3d4fb3;
     }
 
     #separationContent {
@@ -39,7 +44,7 @@ page-dashboard {
     }
 
     .actionItemText {
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
     }
 
@@ -51,6 +56,19 @@ page-dashboard {
     }
     #newsLink {
         float: right;
+    }
+     // news widget title
+     .title {
+        color:#2a3d4f9e;
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    //the smallest the timestamp can go is 22px for some reason
+    .timestamp {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
     }
 
     .linkIcons {
@@ -109,11 +127,20 @@ page-dashboard {
     .image {
         width:70%;
         height: 100%;
+        
     }
 
     .action-item-title{
         font-weight: bold;
+        font-size: 24px;
+        color: #2a3d4fb3;
     }
+
+    .currentActionItemBody {
+        font-size: 20px;
+    }
+
+   
 }
 
 // .toaster{
