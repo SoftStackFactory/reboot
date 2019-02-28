@@ -28,49 +28,57 @@ export class ResourcesPage {
       title: 'Career',
       message: 'Do you have you a clear idea of what you want to achieve?',
       modalMessage: 'How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve?',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/career-photo.jpg'
     },
     {
       title: 'Finances',
       message: 'Are you comfortable handling your money?',
       modalMessage: 'This is not about how much you have but rather how you relate to money. There are some millionaires who worry themselves sick about money so might score very low here and others who have just enough to get by and simply go with the flow.',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/finances-photo.jpg'
     },
     {
       title: 'Personal Growth',
-      message: 'How committed are you to learning and improving yourself',
+      message: 'How committed are you to learning and improving',
       modalMessage: 'People who are truly successful commit themselves continually to learning and improving themselves. Are you a 10 – committed to learning as much as you can about life?',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/personal-growth-photo.jpg'
     },
     {
       title: 'Health',
       message: 'We all take our health for granted until it lets us down. How is yours?',
       modalMessage: ' Do you look after yourself? Are you eating well? Do you get regular exercise? We all take our health for granted until it lets us down. How is yours? Do you look after yourself? Are you eating well? Do you get regular exercise?',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/health-photo.jpg'
     },
     {
       title: 'Family',
       message: 'Family life can be complicated, is yours?',
       modalMessage: 'Family life is very important. Although family life should be loving, caring and supportive it often is not for a variety of reasons such as crying babies, wild teenage sons or daughters or constant arguments and tension.',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/family-photo.jpg'
     },
     {
       title: 'Relationships',
       message: 'How are you close relationships going?',
       modalMessage: 'Consider the key relationship you have whether it is with your boyfriend/girlfriend husband/wife/friend or family member.',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/relationships-photo.jpg'
     },
     {
       title: 'Social Life',
       message: 'How is you social life developing?',
       modalMessage: 'This can be about the quality of your social life which can score very low for people with busy careers. However you can also decide to score it based on how you interact with people as how often you get to socialise. A vital component of life is the need to get on and interact with people.',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/social-life-photo.jpg'
     },
     {
       title: 'Attitude',
       message: 'How is your worldview, do you see thing in a positive or negative light?',
       modalMessage: 'Attitude is vital and can influence every aspect of your life. Is your glass half full or half empty?',
-      score: 0
+      score: 0,
+      img: 'assets/imgs/attitude-photo.jpg'
     }
   ];
 
