@@ -63,13 +63,10 @@
                                 <ion-input type="text" [(ngModel)]="user.userData.lastName"></ion-input>
                             </ion-item>
 
-                            <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-                                <ion-item class="user-info-details">
-                                    <ion-label stacked>E-mail</ion-label>
-                                    <ion-input type="email" name="email" #email="ngModel" [(ngModel)]="user.userData.email" email></ion-input>
-                                </ion-item>
-                                <p class="invalid-email" *ngIf="f.hasError('email', 'email')">Email is not valid!</p>
-                            </form>
+                            <ion-item class="user-info-details">
+                                <ion-label stacked>E-mail</ion-label>
+                                <ion-input type="text" [(ngModel)]="user.userData.email"></ion-input>
+                            </ion-item>
 
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Marital Status</ion-label>
