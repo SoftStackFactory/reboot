@@ -23,8 +23,12 @@ page-login {
         font-weight: bold;
     }
 
-    .labels {
-        color: rgb(96,96,96); 
+    .password-inputs {
+        position: relative;
+        border: 1px solid rgb(229, 230, 230);
+        background-color: rgb(248, 248, 248); 
+        padding-left: 60px; 
+        font-size: 25px
     }
     
     #email:before {
@@ -49,25 +53,6 @@ page-login {
         top: 10px;
     }
 
-    .inputs {
-        position: relative;
-        border: 1px solid rgb(229, 230, 230);
-        background-color: rgb(248, 248, 248); 
-        padding-left: 60px; 
-        font-size: 25px
-    }
-
-    .invalid-text p {
-        font-size: 12px;
-        color: #ea6153;
-      }
-
-    .my-div {
-        margin: 0px;
-        padding: 0px;
-        float:right;
-    }
-
     #loginbutton {
         background-color: rgb(130,180,64); 
         font-size: 25px;
@@ -78,6 +63,60 @@ page-login {
         background-color: rgb(42,61,79); 
         font-size: 25px;
         height: 2.1em;
+    }
+
+    @media only screen and (min-width: 768px) {
+        // For desktop
+        .email-col {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .email-labels {
+            color: rgb(96,96,96); 
+        }
+    
+        .password-labels {
+            color: rgb(96,96,96); 
+        }
+    
+        .invalid-text {
+            flex-basis: 50%;
+            font-size: 20px;
+            color: #ea6153;
+        }
+    
+        .email-inputs {
+            flex-basis: 100%;
+            // position: relative;
+            border: 1px solid rgb(229, 230, 230);
+            background-color: rgb(248, 248, 248); 
+            padding-left: 60px; 
+            font-size: 25px
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        // For mobile\
+        .email-labels {
+            color: rgb(96,96,96); 
+        }
+    
+        .password-labels {
+            color: rgb(96,96,96); 
+        }
+    
+        .invalid-text {
+            font-size: 20px;
+            color: #ea6153;
+        }
+    
+        .email-inputs {
+            position: relative;
+            border: 1px solid rgb(229, 230, 230);
+            background-color: rgb(248, 248, 248); 
+            padding-left: 60px; 
+            font-size: 25px
+        }
     }
 
     @media screen and (orientation:portrait){
@@ -126,13 +165,10 @@ page-login {
             width: 70%;
         }
 
-        .labels {
+        .email-labels, .password-labels {
             padding-left: 10%;
             font-size: 25px;
-
-        }
-
-        
+        }        
     }
 
 }
