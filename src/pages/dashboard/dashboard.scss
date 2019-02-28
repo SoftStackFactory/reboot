@@ -56,14 +56,6 @@ page-dashboard {
         float: right;
     }
 
-    .linkIcons {
-        font-weight: bold; 
-        font-size: 40px; 
-        position: relative; 
-        top: 10px; 
-        padding-left: 5px
-
-    }
 
     // row2 causes card height issues
     // .row2 {
@@ -71,9 +63,22 @@ page-dashboard {
     // }
 
     .dashboardLinks {
-        position:absolute;
+        // position:absolute;
         bottom:0;
         right: 1vw;
+    }
+
+    .cardLinks {
+        display: flex;
+        flex-flow: row-nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .linkIcons {
+        font-size: 40px; 
+        margin: 10px;
+
     }
 
     #networkingContent {
