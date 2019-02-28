@@ -1,10 +1,10 @@
 page-resources {
 
     .linkIcons {
-        font-weight: bold; 
-        font-size: 40px; 
-        position: relative; 
-        top: 10px; 
+        font-weight: bold;
+        font-size: 40px;
+        position: relative;
+        top: 10px;
         padding-left: 5px
     }
 
@@ -26,11 +26,11 @@ page-resources {
         margin-left: 60px;
         margin-right: 60px;
         font-size: 18px;
-        
+
     }
 
     #resMessage {
-        width: 50%; 
+        width: 50%;
         font-size: 20px;
         padding-left: 20px;
     }
@@ -50,5 +50,22 @@ page-resources {
 
     button {
         background-color : rgb(46, 66, 86);
+    }
+
+    .card{
+        border-radius: 12px;
+    }
+
+    .card-header{
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+        background-color: lightblue;
+        padding: 16px;
+
+    }
+
+    .card-body{
+        font-size: 18px;
     }
 }

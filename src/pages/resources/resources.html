@@ -75,17 +75,13 @@
     <ion-row>
       <!-- <div *ngIf="!assessmentCompleted"> -->
       <ion-col *ngFor="let res of resources" col-12 col-lg-6 col-xl-6>
-        <ion-card>
-          <ion-card-header id='title'>
+        <ion-card class='card'>
+          <ion-card-header class='card-header'>
             {{res.title}}
           </ion-card-header>
-          <ion-card-content id="card-text">
+          <img class="image" src={{res.img}} alt="">
+          <ion-card-content class='card-body'>
             {{res.message}}
-            <ion-row>
-              <ion-col offset-3>
-                <img class="image" src={{res.img}} alt="">
-              </ion-col>
-            </ion-row>
             <ion-item id="card-text">
               <span item-end>
                 <a (click)="openModal(res)">Learn more...</a>
