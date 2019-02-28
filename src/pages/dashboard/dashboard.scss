@@ -74,7 +74,7 @@ page-dashboard {
         justify-content: center;
         align-items: center;
     }
-    
+
     .linkIcons {
         font-size: 40px; 
         margin: 10px;
@@ -110,10 +110,10 @@ page-dashboard {
     }    
 
      #networkingLink {
-       padding-top: 0px; 
-       position: relative; 
-       top: -7px;
-       font-size: 20px;
+    //    padding-top: 0px; 
+    //    position: relative; 
+    //    top: -7px;
+    //    font-size: 20px;
     }
 
     .image {
@@ -133,6 +133,12 @@ page-dashboard {
         background-color: transparent;
         color: #488aff;
     }
+
+    button:hover {
+        color: #8eafe8;
+    }
+    
+   
     
 }
 

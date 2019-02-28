@@ -70,16 +70,16 @@
                 <img class="image" src="assets/imgs/transitionHealth.png" alt="">
               </ion-col>
             </ion-row>
-            
+
             <ion-item>
               <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
                 <span>See what's next</span>
                 <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </button>
-          </ion-item>
+              </button>
+            </ion-item>
 
-          <!-- class="linkIcons" -->
-          <!-- class="dashboardLinks" -->
+            <!-- class="linkIcons" -->
+            <!-- class="dashboardLinks" -->
 
           </ion-card-content>
         </ion-card>
@@ -93,12 +93,13 @@
           <ion-card-content id="separationContent">
             <news-widget></news-widget>
             <ion-item>
-             <button item-end clear class="dashboardLinks" (click)="toNews()">More news
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-             </button> 
+              <button class="cardLinks" item-end clear no-margin (click)="toNews()">
+                <span>More news</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
             </ion-item>
 
-              
+
           </ion-card-content>
         </ion-card>
 
@@ -116,11 +117,12 @@
             <h4 class="actionItemText">Please complete a Self Assessment</h4>
 
             <ion-item>
-            <button item-end (click)="toSelfAssessment()">Complete an assessment
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </button>
+              <button class="cardLinks" item-end no-margin (click)="toSelfAssessment()">
+                <span>Complete an assessment</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
             </ion-item>
-  
+
           </ion-card-content>
           <ion-card-content *ngIf="prevAssess">
             <chart></chart>
@@ -152,13 +154,14 @@
 
             <br>
 
-          <ion-item>
-            <button item-end id="networkingLink">Learn more
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </button>
-          </ion-item>
+            <ion-item>
+              <button class="cardLinks" item-end no-margin>
+                <span>Learn more</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
+            </ion-item>
 
-         
+
 
           </ion-card-content>
         </ion-card>
