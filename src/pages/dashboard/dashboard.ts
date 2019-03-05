@@ -96,6 +96,9 @@ export class DashboardPage {
 
     toast.present();
   }
+
   toNews() {
     this.navCtrl.push(NewsPage);
-  }}
+  }
+
+}

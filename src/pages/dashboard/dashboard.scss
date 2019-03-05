@@ -33,11 +33,6 @@ page-dashboard {
         font-size: 30px;
     }
 
-    #separationContent {
-        padding-bottom: 0px;
-        font-size: 20px;
-    }
-
     .actionItemText {
         font-size: 24px;
         text-align: center;
@@ -56,6 +51,42 @@ page-dashboard {
         float: right;
     }
 
+    .warningMeter {
+        display: flex; 
+        // align-items: stretch;
+        justify-content: center;
+    
+        margin-top: 40px;
+      }
+      
+      .box {
+        background-color: grey;
+        height: 100px; 
+        width: 75px; 
+        border: .2px rgb(60, 50, 50) solid;
+      }
+      
+      .good {
+        background-color: green;
+      }
+      
+      .weak {
+        background-color: yellow;
+      }
+      
+      .poor {
+        background-color: orange;
+      }
+      
+      .danger {
+        background-color: red;
+      }
+
+      .grow {
+          height: 100px; 
+        //   width: 75px;
+          transform: scale(1.5);
+      }
 
     // row2 causes card height issues
     // .row2 {
@@ -107,14 +138,7 @@ page-dashboard {
         .row2 {
             min-height: 25vh;
         }
-    }    
-
-     #networkingLink {
-    //    padding-top: 0px; 
-    //    position: relative; 
-    //    top: -7px;
-    //    font-size: 20px;
-    }
+    }  
 
     .image {
         width:70%;

@@ -37,7 +37,30 @@
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
         <ion-card class="sep cards row2">
-          <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
+        <ion-card-header class="headers" text-center>
+          Hey, it's been {{assessDate}} days since your last assessment.
+        </ion-card-header>
+
+        <div class="warningMeter">
+            <div class="box good" [ngClass]="{'grow': assessDate < 7}">
+
+            </div>
+            <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
+      
+            </div>
+            <div class="box poor" [ngClass]="{'grow': assessDate >= 12 && assessDate < 20}">
+      
+            </div>
+            <div class="box danger" [ngClass]="{'grow': assessDate >= 20}">
+      
+            </div>
+
+            <p></p>
+            <p></p>
+      
+          </div>
+
+          <!-- <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
           </ion-card-header>
           <ion-card-header class="headers" text-center *ngIf="daysTilSep == 0">
@@ -45,8 +68,10 @@
           </ion-card-header>
           <ion-card-header class="headers" text-center *ngIf="daysTilSep < 0">
             Your Separation Was {{daysTilSepAbs}} Days Ago!
-          </ion-card-header>
-          <ion-card-content id="separationContent">
+          </ion-card-header> -->
+
+          <ion-card-content>
+            
             <!-- You're getting close to your separation day! Are you preparing for the transition? 
             Being informed and prepared will make your transition into civilization easier to see what your next steps
             are. The next step is: -->
@@ -58,7 +83,7 @@
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a> -->
 
-            <ion-row>
+            <!-- <ion-row>
               <ion-col>
                 <h2 class="action-item-title">Current Action Item:</h2>
                 <p>Complete Pre-Separation Counseling</p>
@@ -69,7 +94,7 @@
               <ion-col offset-3>
                 <img class="image" src="assets/imgs/transitionHealth.png" alt="">
               </ion-col>
-            </ion-row>
+            </ion-row> -->
 
             <ion-item>
               <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
