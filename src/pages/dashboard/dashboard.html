@@ -37,13 +37,13 @@
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
         <ion-card class="sep cards row2">
-        <ion-card-header class="headers" text-center>
-          Hey, it's been {{assessDate}} days since your last assessment.
-        </ion-card-header>
+          <ion-card-header class="headers" text-center>
+              {{ this.name }}, it's been <u>{{assessDate}}</u> days since your last assessment.
+          </ion-card-header>
 
-        <div class="warningMeter">
+          <div class="warningMeter">
             <div class="box good" [ngClass]="{'grow': assessDate < 7}">
-                <p class="range">0-6</p>
+              <p class="range">0-6</p>
             </div>
             <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
               <p class="range">7-11</p>
@@ -52,27 +52,43 @@
               <p class="range">12-20</p>
             </div>
             <div class="box danger" [ngClass]="{'grow': assessDate >= 20}">
-                <p class="range">20+</p>
+              <p class="range">20+</p>
             </div>
           </div>
-          
-          
-            <div class="zoneWrapper">
-              <div class="headerWrapper" *ngIf="assessDate < 7">
-                <h3 class="zoneExHeader greenHeader">GREEN</h3>
-                <p class="zoneDescription"> Being in the green means orem ipsum dolor sit amet, id nec voluptaria complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit latine, bonorum perfecto no nam. </p>
-              </div>
 
-              <div class="headerWrapper" *ngIf="assessDate >= 7 && assessDate < 12">
-                  <h3 class="zoneExHeader yellowHeader">Yellow</h3>
-                  <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit latine, bonorum perfecto no nam. </p>
-                </div>
-               
-                <p class="zoneDescription" *ngIf="assessDate >= 12 && assessDate < 20">Orange</p>
-                <p class="zoneDescription" *ngIf="assessDate >= 20">Red</p>
+
+          <div class="zoneWrapper">
+            <div class="headerWrapper" *ngIf="assessDate < 7">
+              <h3 class="zoneExHeader greenHeader">GREEN</h3>
+              <p class="zoneDescription"> Being in the green means orem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
             </div>
-       
-       
+
+            <div class="headerWrapper" *ngIf="assessDate >= 7 && assessDate < 12">
+              <h3 class="zoneExHeader yellowHeader">YELLOW</h3>
+              <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+            </div>
+
+            <div class="headerWrapper" *ngIf="assessDate >= 12 && assessDate < 20">
+              <h3 class="zoneExHeader orangeHeader">ORANGE</h3>
+              <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+            </div>
+
+            <div class="headerWrapper" *ngIf="assessDate >= 20">
+              <h3 class="zoneExHeader orangeHeader">RED</h3>
+              <p class="zoneDescription"> Being in the red means lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+            </div>
+
+          </div>
+
+
 
           <!-- <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
@@ -85,7 +101,7 @@
           </ion-card-header> -->
 
           <ion-card-content>
-            
+
             <!-- You're getting close to your separation day! Are you preparing for the transition? 
             Being informed and prepared will make your transition into civilization easier to see what your next steps
             are. The next step is: -->

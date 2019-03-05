@@ -115,6 +115,8 @@ page-dashboard {
 
     .zoneExHeader {
         font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 
     .greenHeader {
@@ -126,11 +128,11 @@ page-dashboard {
     }
 
     .orangeHeader {
-
+        color: orange;
     }
 
     .redHeader {
-
+        color: red;
     }
 
     .zoneDescription {
