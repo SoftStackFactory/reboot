@@ -56,14 +56,15 @@ page-dashboard {
         // align-items: stretch;
         justify-content: center;
     
-        margin-top: 40px;
+        margin-top: 50px;
       }
       
       .box {
         background-color: grey;
-        height: 100px; 
-        width: 75px; 
-        border: .2px rgb(60, 50, 50) solid;
+        height: 125px; 
+        width: 80px; 
+        // border: .2px rgb(60, 50, 50) solid;
+        border-radius: 5px;
       }
       
       .good {
@@ -84,14 +85,57 @@ page-dashboard {
 
       .grow {
           height: 100px; 
-        //   width: 75px;
-          transform: scale(1.5);
+          transform: scale(1.8);
+         
       }
 
-    // row2 causes card height issues
-    // .row2 {
-    //     min-height: 40vh;
+    .range {
+        text-align: center;
+        font-weight: bold;
+        padding-top: 5px;
+    }
+
+    // .wrapper {
+    //     display: flex; 
+    //     justify-content: center;
     // }
+
+    .zoneWrapper {
+        display: flex; 
+        justify-content: center;
+        margin-top: 40px;
+        // width: 70%;
+        // background-color: lightgrey;
+    }
+
+    .headerWrapper {
+        text-align: center;
+        padding: 40px;
+    }
+
+    .zoneExHeader {
+        font-size: 30px;
+    }
+
+    .greenHeader {
+        color: green;
+    }
+
+    .yellowHeader {
+        color: yellow
+    }
+
+    .orangeHeader {
+
+    }
+
+    .redHeader {
+
+    }
+
+    .zoneDescription {
+        margin-top: 15px;
+    }
 
     .dashboardLinks {
         // position:absolute;
