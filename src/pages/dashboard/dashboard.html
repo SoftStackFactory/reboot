@@ -43,7 +43,8 @@
 
           <div class="warningMeter">
             <div class="box good" [ngClass]="{'grow': assessDate < 7}">
-              <p class="range">0-6</p>
+              <p class="range">1-6</p>
+
             </div>
             <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
               <p class="range">7-11</p>
@@ -58,7 +59,7 @@
 
 
           <div class="zoneWrapper">
-            <div class="ifUndefined" *ngIf="assesDate === undefined">
+            <div class="ifUndefined" *ngIf="assesDate == 0">
               <p class="conditionP"> To find out which range you fall within</p>
               <button class="assessment" (click)="toSelfAssessment()">take your first
                 assessment.</button>

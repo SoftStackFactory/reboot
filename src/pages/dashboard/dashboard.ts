@@ -21,7 +21,7 @@ interface UserData {
 export class DashboardPage {
 
   name: any
-  assessDate: any
+  assessDate: any;
   daysTilSep: any
   daysTilSepAbs: any
   currentActionItem: String;
@@ -84,7 +84,7 @@ export class DashboardPage {
 
   lastDate() {
     let msg = this.assessDate === undefined?
-                                  `You have not completed any assesments`:          
+                                  `You have not completed any assesments`:      
                                   `Your last assessment was ${this.assessDate} day(s) ago`
 
     let toast = this.toastCtrl.create({
@@ -93,13 +93,12 @@ export class DashboardPage {
       position: 'middle',
       cssClass: 'toaster',
     });
-
+    console.log(this.assessDate, 'yesyes');  
     toast.present();
   }
 
   toNews() {
     this.navCtrl.push(NewsPage);
   }
-
 
 }
