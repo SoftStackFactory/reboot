@@ -107,14 +107,23 @@ page-dashboard {
         font-size: 1.6em;
     }
 
-    .assessment {
+    .assessmentButton {
         font-weight: bold;
         font-size: 1.6em;
     }
 
+    .assessmentConditionMetButton {
+        font-size: 1em;
+    }
+
+    .whyTakeAssessmentHeader {
+        font-weight: bold; 
+        text-decoration: underline
+    }
+
     .headerWrapper {
         text-align: center;
-        padding: 40px;
+        padding: 20px 40px 10px 40px;
     }
 
     .ifUndefined {
