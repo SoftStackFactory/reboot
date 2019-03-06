@@ -30,7 +30,8 @@ page-dashboard {
 
     .headers {
         font-weight: bold; 
-        font-size: 30px;
+        font-size: 26px;
+        padding: 16px;
     }
 
     .actionItemText {
@@ -53,10 +54,8 @@ page-dashboard {
 
     .warningMeter {
         display: flex; 
-        // align-items: stretch;
         justify-content: center;
-    
-        margin-top: 50px;
+        margin-top: 44px;
       }
       
       .box {
@@ -95,22 +94,31 @@ page-dashboard {
         padding-top: 5px;
     }
 
-    // .wrapper {
-    //     display: flex; 
-    //     justify-content: center;
-    // }
-
     .zoneWrapper {
         display: flex; 
         justify-content: center;
         margin-top: 40px;
-        // width: 70%;
-        // background-color: lightgrey;
+    }
+    .conditionP {
+        font-size: 16px;
+    }
+
+    .card-md p {
+        font-size: 1.6em;
+    }
+
+    .assessment {
+        font-weight: bold;
+        font-size: 1.6em;
     }
 
     .headerWrapper {
         text-align: center;
         padding: 40px;
+    }
+
+    .ifUndefined {
+        text-align: center;
     }
 
     .zoneExHeader {
@@ -137,6 +145,7 @@ page-dashboard {
 
     .zoneDescription {
         margin-top: 15px;
+        line-height: 1.5;
     }
 
     .dashboardLinks {
