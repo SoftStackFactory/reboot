@@ -29,6 +29,11 @@ page-resources {
 
     }
 
+    .link-text{
+        font-size:18px;
+        text-align: end;
+    }
+
     #resMessage {
         width: 50%;
         font-size: 20px;
@@ -50,6 +55,7 @@ page-resources {
 
     button {
         background-color : rgb(46, 66, 86);
+        width: 100%;
     }
 
     .card{
@@ -67,5 +73,14 @@ page-resources {
 
     .card-body{
         font-size: 18px;
+    }
+
+    .chart{
+        max-width: 400px;
+    }
+
+    .wrapper{
+       max-width: 960px;
+       margin: auto
     }
 }
