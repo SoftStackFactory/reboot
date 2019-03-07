@@ -20,7 +20,6 @@ export class ResourcesPage {
   user: any = {};
   values: Array<any> = [];
   assessmentCompleted: boolean = false;
-  sortedResources: Array<any> = [];
 
   //Resource tempate resources data
   resources: any = [
@@ -87,35 +86,31 @@ export class ResourcesPage {
     public userPro: UserProvider ) {
     this.userPro.getUser()
       .subscribe( ( data: UserData ) => {
-        console.log( data )
         this.user.firstName = data.firstName;
         this.user.lastName = data.lastName;
       } );
     this.userPro.getUserChart()
       .subscribe( ( data: Array<any> ) => {
         try {
-          console.log( data );
-          this.resources.forEach( x => x.score = data[ '0' ].data[ x.title ] );
-          this.sortedResources = this.resources.sort( ( a, b ) => a.score - b.score );
-          console.log( data );
+          this.resources
+            .forEach( x => x.score = data[ '0' ].data[ x.title ] );
+
+          this.resources = this.resources
+            .sort( ( a, b ) => a.score - b.score );
+
           this.values = data[ data.length - 1 ].data;
           let lowest = 10;
           let lowestProp: any;
-          console.log( "values", this.values );
-          console.log( lowest );
           for ( var prop in this.values ) {
             if ( this.values[ prop ] < lowest ) {
               lowest = this.values[ prop ];
               lowestProp = prop;
             }
-            console.log( lowest, lowestProp );
           }
           this.userPro.userData.lowestScore = lowest;
           this.userPro.userData.lowScoreName = lowestProp;
           this.userPro.updateUserModel( this.userPro.userData )
-          console.log( this.values )
           this.assessmentCompleted = true;
-          console.log( data );
         } catch ( e ) {
           console.log( 'i ran' )
           return
