@@ -34,6 +34,8 @@ page-dashboard {
 
     .headers {
         font-weight: bold; 
+        font-size: 26px;
+        padding: 16px;
         font-size: 24px;
         color: #2a3d4fb3;
     }
@@ -51,8 +53,11 @@ page-dashboard {
     #separationLink {
         float: right; 
         float: end;
-        padding-bottom: 8px;
+        padding-bottom: 10px;
+        // padding-right: 20px;
         font-size: 20px;
+        cursor: pointer;
+        background-color: transparent;
     }
     #newsLink {
         float: right;
@@ -71,22 +76,138 @@ page-dashboard {
         font-size: 16px;
     }
 
-    .linkIcons {
-        font-weight: bold; 
-        font-size: 40px; 
-        position: relative; 
-        top: 10px; 
-        padding-left: 5px
+    .warningMeter {
+        display: flex; 
+        justify-content: center;
+        margin-top: 2em;
+        align-items: center;
+        align-content: center;
+        padding: 0 3em 0 3em;
+      }
+      
+      .box {
+        background-color: grey;
+        height: 125px; 
+        width: 80px; 
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 15rem;
+        // padding: 1rem;
+      }
+      
+      .good {
+        background-color: green;
+      }
+      
+      .weak {
+        background-color: yellow;
+      }
+      
+      .poor {
+        background-color: orange;
+      }
+      
+      .danger {
+        background-color: red;
+      }
+
+      .grow {
+          height: 100px; 
+          flex-basis: 25rem;
+          padding: 5rem 1rem;
+          font-size: 2.5em;
+          text-decoration: underline;
+          border-radius: 10px;
+      }
+
+    .range {
+        text-align: center;
+        font-weight: bold;
+        padding-top: 5px;
     }
 
-    .row2 {
-        min-height: 40vh;
+    .zoneWrapper {
+        display: flex; 
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .conditionP {
+        font-size: 16px;
+    }
+
+    .card-md p {
+        font-size: 1.6em;
+    }
+
+    .assessmentButton {
+        font-weight: bold;
+        font-size: 1.6em;
+    }
+
+    .assessmentConditionMetButton {
+        font-size: 1em;
+    }
+
+    .whyTakeAssessmentHeader {
+        font-weight: bold; 
+        text-decoration: underline;
+    }
+
+    .headerWrapper {
+        text-align: center;
+        padding: 20px 40px 10px 40px;
+    }
+
+    .ifUndefined {
+        text-align: center;
+    }
+
+    .zoneExHeader {
+        font-size: 26px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .greenHeader {
+        color: green;
+    }
+
+    .yellowHeader {
+        color: yellow
+    }
+
+    .orangeHeader {
+        color: orange;
+    }
+
+    .redHeader {
+        color: red;
+    }
+
+    .zoneDescription {
+        margin-top: 15px;
+        line-height: 1.5;
     }
 
     .dashboardLinks {
-        position:absolute;
+        // position:absolute;
         bottom:0;
         right: 1vw;
+    }
+
+    .cardLinks {
+        display: flex;
+        flex-flow: row-nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .linkIcons {
+        font-size: 40px; 
+        margin: 10px;
+
     }
 
     #networkingContent {
@@ -115,14 +236,7 @@ page-dashboard {
         .row2 {
             min-height: 25vh;
         }
-    }    
-
-     #networkingLink {
-       padding-top: 0px; 
-       position: relative; 
-       top: -7px;
-       font-size: 20px;
-    }
+    }  
 
     .image {
         width:70%;
@@ -136,13 +250,27 @@ page-dashboard {
         color: #2a3d4fb3;
     }
 
+    .input-wrapper {
+        background-color: transparent;
+    }
+
+    button {
+        background-color: transparent;
+        color: #488aff;
+    }
+
+    button:hover {
+        color: #8eafe8;
+    }
+    
+   
+    .card-content ion-item.item-block {
+        min-height: 2rem;
+    }
+  
     .currentActionItemBody {
         font-size: 20px;
     }
 
-   
 }
 
-// .toaster{
-//     text-align: center;
-// }
