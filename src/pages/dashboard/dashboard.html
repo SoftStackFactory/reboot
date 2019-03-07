@@ -37,7 +37,104 @@
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
         <ion-card class="sep cards row2">
-          <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
+          <div class="ifUndefined headers" *ngIf="assessDate < 0 || assessDate === undefined">
+              {{ this.name }}, please refer to the link below to take your first assessment. 
+          </div>
+
+          <div class="headers" text-center *ngIf="assessDate">
+            {{ this.name }}, it's been <u>{{assessDate}}</u> days since your last assessment.
+          </div>
+
+          <div class="warningMeter">
+            <div class="box good" [ngClass]="{'grow': assessDate < 7}">
+              <p class="range">1-6</p>
+            </div>
+            <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
+              <p class="range">7-11</p>
+            </div>
+            <div class="box poor" [ngClass]="{'grow': assessDate >= 12 && assessDate < 20}">
+              <p class="range">12-20</p>
+            </div>
+            <div class="box danger" [ngClass]="{'grow': assessDate >= 20}">
+              <p class="range">20+</p>
+            </div>
+          </div>
+
+
+          <div class="zoneWrapper">
+            <div class="ifUndefined" *ngIf="assesDate < 0 || assessDate === undefined">
+              <p class="conditionP"> To find out which range you fall within</p>
+              <button class="assessmentButton" (click)="toSelfAssessment()">take your first
+                assessment.</button>
+            </div>
+
+            <div class="headerWrapper" *ngIf="assessDate > 0 && assessDate < 7">
+              <h3 class="zoneExHeader greenHeader">GREEN</h3>
+              <p class="zoneDescription"> Being in the green means orem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+              <br>
+              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+              <br>
+              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam.</p>
+              <br>
+              <p>Take another assessment<button class="assessmentConditionMetButton"
+                  (click)="toSelfAssessment()">here.</button></p>
+            </div>
+
+            <div class="headerWrapper" *ngIf="assessDate >= 7 && assessDate < 12">
+              <h3 class="zoneExHeader yellowHeader">YELLOW</h3>
+              <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+                <br>
+              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+              <br>
+              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam.</p>
+              <br>
+              <p>Take another assessment<button class="assessmentConditionMetButton"
+                  (click)="toSelfAssessment()">here.</button></p>
+            </div>
+
+            <div class="headerWrapper" *ngIf="assessDate >= 12 && assessDate < 20">
+              <h3 class="zoneExHeader orangeHeader">ORANGE</h3>
+              <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+                <br>
+              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+              <br>
+              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam.</p>
+              <br>
+              <p>Take another assessment<button class="assessmentConditionMetButton"
+                  (click)="toSelfAssessment()">here.</button></p>
+            </div>
+
+            <div class="headerWrapper" *ngIf="assessDate >= 20">
+              <h3 class="zoneExHeader orangeHeader">RED</h3>
+              <p class="zoneDescription"> Being in the red means lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam. </p>
+                <br>
+              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+              <br>
+              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+                latine, bonorum perfecto no nam.</p>
+              <br>
+              <p>Take another assessment<button class="assessmentConditionMetButton"
+                  (click)="toSelfAssessment()">here.</button></p>
+            </div>
+          </div>
+
+
+          <!-- <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
             {{daysTilSep}} Days Until Separation!
           </ion-card-header>
           <ion-card-header class="headers" text-center *ngIf="daysTilSep == 0">
@@ -45,8 +142,10 @@
           </ion-card-header>
           <ion-card-header class="headers" text-center *ngIf="daysTilSep < 0">
             Your Separation Was {{daysTilSepAbs}} Days Ago!
-          </ion-card-header>
-          <ion-card-content id="separationContent">
+          </ion-card-header> -->
+
+          <ion-card-content>
+
             <!-- You're getting close to your separation day! Are you preparing for the transition? 
             Being informed and prepared will make your transition into civilization easier to see what your next steps
             are. The next step is: -->
@@ -58,7 +157,7 @@
               <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
             </a> -->
 
-            <ion-row>
+            <!-- <ion-row>
               <ion-col>
                 <h2 class="action-item-title">Current Action Item:</h2>
                 <p class="currentActionItemBody">Complete Pre-Separation Counseling</p>
@@ -69,7 +168,7 @@
               <ion-col offset-3>
                 <img class="image" src="assets/imgs/transitionHealth.png" alt="">
               </ion-col>
-            </ion-row>
+            </ion-row> -->
 
             <ion-item>
               <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
@@ -103,32 +202,31 @@
           </ion-card-content>
         </ion-card>
 
+
+        <ion-col col-xl-4>
+          <ion-card class="cards">
+            <ion-card-header class="headers" text-center>
+              Transition Readiness Test
+            </ion-card-header>
+            <ion-card-content *ngIf="!prevAssess">
+
+              <h4 class="actionItemText">Please complete a Self Assessment</h4>
+
+              <ion-item>
+                <button class="cardLinks" item-end no-margin (click)="toSelfAssessment()">
+                  <span>Complete an assessment</span>
+                  <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                </button>
+              </ion-item>
+
+            </ion-card-content>
+            <ion-card-content *ngIf="prevAssess">
+              <chart></chart>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
       </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col col-xl-8 offset-xl-2>
-        <ion-card class="cards">
-          <ion-card-header class="headers" text-center>
-            Transition Readiness Test
-          </ion-card-header>
-          <ion-card-content *ngIf="!prevAssess">
-
-            <h4 class="actionItemText">Please complete a Self Assessment</h4>
-
-            <ion-item>
-              <button class="cardLinks" item-end no-margin (click)="toSelfAssessment()">
-                <span>Complete an assessment</span>
-                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-              </button>
-            </ion-item>
-
-          </ion-card-content>
-          <ion-card-content *ngIf="prevAssess">
-            <chart></chart>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
     </ion-row>
 
     <ion-row>
@@ -153,22 +251,20 @@
               a 2.</p>
 
             <br>
-
             <ion-item>
               <button class="cardLinks" item-end no-margin>
                 <span>Learn more</span>
                 <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
               </button>
             </ion-item>
-
-
-
           </ion-card-content>
         </ion-card>
       </ion-col>
+
       <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
     </ion-row>
+
     <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
   </ion-grid>
