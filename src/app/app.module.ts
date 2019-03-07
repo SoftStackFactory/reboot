@@ -38,6 +38,7 @@ import { httpInterceptorProviders } from './http-interceptors/index';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { ActionItemProvider } from '../providers/action-item/action-item';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+import { TimelineProvider } from '../providers/timeline/timeline';
 
 
 const Pages = [
@@ -105,7 +106,8 @@ const Pages = [
     Network,
     NetworkProvider,
     StorageProvider,
-    ActionItemProvider
+    ActionItemProvider,
+    TimelineProvider
   ]
 })
 export class AppModule {}

@@ -8,6 +8,8 @@ import * as moment from 'moment';
 import { NewsPage } from '../news/news';
 import { ActionItemProvider } from '../../providers/action-item/action-item';
 import { SelfAssessmentPage } from '../self-assessment/self-assessment';
+import { TimelineItemComponent } from 'components/timeline/timeline';
+import { TimelineProvider } from '../../providers/timeline/timeline';
 
 interface UserData {
   firstName: any,
@@ -33,7 +35,8 @@ export class DashboardPage {
     private toastCtrl: ToastController, 
     private storage: Storage,
     public user: UserProvider,
-    public actionItem: ActionItemProvider) {
+    public actionItem: ActionItemProvider,
+    public timelineProvider: TimelineProvider) {
      this.currentActionItem = this.actionItem.currentItem;
     }
 
@@ -70,6 +73,8 @@ export class DashboardPage {
     () => {
       this.lastDate();
     });
+
+    this.timelineProvider.getTimeline()
   }
 
   toSelfAssessment() {
