@@ -31,7 +31,8 @@
               </h1>
               <ion-row center>
                 <ion-col text-center>
-                  <button ion-button color="secondary" *ngIf="!assessmentCompleted" (click)="openSelfAssessment()">Take
+                  <button ion-button class='button' color="secondary" *ngIf="!assessmentCompleted"
+                    (click)="openSelfAssessment()">Take
                     the
                     Self Assessment</button>
                 </ion-col>
@@ -42,7 +43,6 @@
 
         <ion-col col-12>
           <ion-card *ngIf="assessmentCompleted" id="chartCard">
-            <!-- <ion-card *ngIf="assessmentCompleted" id="chartCard" col-xl-8 offset-xl-2> -->
             <ion-card-content>
               <ion-grid>
                 <ion-row justify-content-around align-items-center>
@@ -61,21 +61,21 @@
                         <div class="red"> {{userPro.userData.lowestScore}}</div>
                       </ion-card>
                       Maybe you can start there? <br>
-                      <button ion-button color="secondary" (click)="openSelfAssessment()">Retake the self
-                        assessment</button>
-                      <button ion-button color="secondary" (click)="openChartHistory()">View your self assessment
-                        history</button>
+                      <button ion-button class='button' color="secondary" (click)="openSelfAssessment()">Retake
+                        assessment
+                      </button>
+                      <button ion-button class='button' color="secondary" (click)="openChartHistory()">View history
+                      </button>
                     </div>
                   </ion-col>
                 </ion-row>
               </ion-grid>
             </ion-card-content>
           </ion-card>
-
         </ion-col>
       </ion-row>
+
       <ion-row>
-        <!-- <div *ngIf="!assessmentCompleted"> -->
         <ion-col *ngFor="let res of resources" col-12 col-lg-6 col-xl-6>
           <ion-card class='card'>
             <ion-card-header class='card-header'>
@@ -90,23 +90,6 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-        <!-- </div>
-        <div *ngIf="assessmentCompleted">
-          <ion-card *ngFor="let res of sortedResources" col-xl-8 offset-xl-2>
-            <ion-card-header id='title'>
-              {{res.title}}
-            </ion-card-header>
-            <ion-card-content id="card-text">
-              <img class="image" src={{res.img}} alt="" style="width: 50%; height: 100%">
-              <p id="resMessage">{{res.message}}</p>
-              <ion-item id="card-text">
-                <span item-end>
-                  <a (click)="openModal(res)">Learn more...</a>
-                </span>
-              </ion-item>
-            </ion-card-content>
-          </ion-card>
-        </div> -->
       </ion-row>
     </ion-grid>
   </div>
