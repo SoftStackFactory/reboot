@@ -51,8 +51,11 @@ page-dashboard {
     #separationLink {
         float: right; 
         float: end;
-        padding-bottom: 8px;
+        padding-bottom: 10px;
+        // padding-right: 20px;
         font-size: 20px;
+        cursor: pointer;
+        background-color: transparent;
     }
     #newsLink {
         float: right;
@@ -71,22 +74,29 @@ page-dashboard {
         font-size: 16px;
     }
 
-    .linkIcons {
-        font-weight: bold; 
-        font-size: 40px; 
-        position: relative; 
-        top: 10px; 
-        padding-left: 5px
-    }
 
-    .row2 {
-        min-height: 40vh;
-    }
+    // row2 causes card height issues
+    // .row2 {
+    //     min-height: 40vh;
+    // }
 
     .dashboardLinks {
-        position:absolute;
+        // position:absolute;
         bottom:0;
         right: 1vw;
+    }
+
+    .cardLinks {
+        display: flex;
+        flex-flow: row-nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .linkIcons {
+        font-size: 40px; 
+        margin: 10px;
+
     }
 
     #networkingContent {
@@ -118,10 +128,10 @@ page-dashboard {
     }    
 
      #networkingLink {
-       padding-top: 0px; 
-       position: relative; 
-       top: -7px;
-       font-size: 20px;
+    //    padding-top: 0px; 
+    //    position: relative; 
+    //    top: -7px;
+    //    font-size: 20px;
     }
 
     .image {
@@ -136,13 +146,27 @@ page-dashboard {
         color: #2a3d4fb3;
     }
 
+    .input-wrapper {
+        background-color: transparent;
+    }
+
+    button {
+        background-color: transparent;
+        color: #488aff;
+    }
+
+    button:hover {
+        color: #8eafe8;
+    }
+    
+   
+    .card-content ion-item.item-block {
+        min-height: 2rem;
+    }
+  
     .currentActionItemBody {
         font-size: 20px;
     }
 
-   
 }
 
-// .toaster{
-//     text-align: center;
-// }

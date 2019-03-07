@@ -71,9 +71,16 @@
               </ion-col>
             </ion-row>
 
-            <a (click)="toTimeline()" class="dashboardLinks" id="separationLink">See what's next
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a>
+            <ion-item>
+              <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
+                <span>See what's next</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
+            </ion-item>
+
+            <!-- class="linkIcons" -->
+            <!-- class="dashboardLinks" -->
+
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -85,10 +92,14 @@
           </ion-card-header>
           <ion-card-content id="separationContent">
             <news-widget></news-widget>
-            <a id="separationLink" class="dashboardLinks" (click)="toNews()">More news
+            <ion-item>
+              <button class="cardLinks" item-end clear no-margin (click)="toNews()">
+                <span>More news</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
+            </ion-item>
 
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a>
+
           </ion-card-content>
         </ion-card>
 
@@ -105,9 +116,13 @@
 
             <h4 class="actionItemText">Please complete a Self Assessment</h4>
 
-            <a (click)="toSelfAssessment()" id="separationLink">Complete an assessment
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a>
+            <ion-item>
+              <button class="cardLinks" item-end no-margin (click)="toSelfAssessment()">
+                <span>Complete an assessment</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
+            </ion-item>
+
           </ion-card-content>
           <ion-card-content *ngIf="prevAssess">
             <chart></chart>
@@ -138,9 +153,16 @@
               a 2.</p>
 
             <br>
-            <a class="dashboardLinks" id="networkingLink">Learn More
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a>
+
+            <ion-item>
+              <button class="cardLinks" item-end no-margin>
+                <span>Learn more</span>
+                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              </button>
+            </ion-item>
+
+
+
           </ion-card-content>
         </ion-card>
       </ion-col>
