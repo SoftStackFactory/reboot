@@ -55,15 +55,22 @@ page-dashboard {
     .warningMeter {
         display: flex; 
         justify-content: center;
-        margin-top: 44px;
+        margin-top: 2em;
+        align-items: center;
+        align-content: center;
+        padding: 0 3em 0 3em;
       }
       
       .box {
         background-color: grey;
         height: 125px; 
         width: 80px; 
-        // border: .2px rgb(60, 50, 50) solid;
         border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 15rem;
+        // padding: 1rem;
       }
       
       .good {
@@ -84,8 +91,11 @@ page-dashboard {
 
       .grow {
           height: 100px; 
-          transform: scale(1.8);
-         
+          flex-basis: 25rem;
+          padding: 5rem 1rem;
+          font-size: 2.5em;
+          text-decoration: underline;
+          border-radius: 10px;
       }
 
     .range {
@@ -118,7 +128,7 @@ page-dashboard {
 
     .whyTakeAssessmentHeader {
         font-weight: bold; 
-        text-decoration: underline
+        text-decoration: underline;
     }
 
     .headerWrapper {

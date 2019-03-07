@@ -37,14 +37,17 @@
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
         <ion-card class="sep cards row2">
-          <div class="headers" text-center>
+          <div class="ifUndefined headers" *ngIf="assessDate < 0 || assessDate === undefined">
+              {{ this.name }}, please refer to the link below to take your first assessment. 
+          </div>
+
+          <div class="headers" text-center *ngIf="assessDate">
             {{ this.name }}, it's been <u>{{assessDate}}</u> days since your last assessment.
           </div>
 
           <div class="warningMeter">
             <div class="box good" [ngClass]="{'grow': assessDate < 7}">
               <p class="range">1-6</p>
-
             </div>
             <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
               <p class="range">7-11</p>
