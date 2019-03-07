@@ -101,7 +101,7 @@
                                     <ion-option>Unemployed</ion-option>
                                 </ion-select>
                             </ion-item>
-                            <ion-item class="user-info-details">
+                            <ion-item class="user-info-details" *ngIf="user.userData.employmentStatus == 'Unemployed'">
                                 <ion-label stacked>Last Employed</ion-label>
                                 <!-- <ion-input type="text" [(ngModel)]=" user.userData.lastEmployed"></ion-input> -->
                                 <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY" [(ngModel)]=" user.userData.lastEmployed">
