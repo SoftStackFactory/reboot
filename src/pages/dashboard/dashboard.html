@@ -14,14 +14,6 @@
 
 <ion-content padding>
   <ion-grid>
-
-    <ion-row>
-      <ion-col>
-        <!-- <h1 id="hello" text-center>Hello, Peter!</h1> -->
-        <h1 id="hello" text-center>Hello, {{ this.name }}!</h1>
-      </ion-col>
-    </ion-row>
-
     <ion-row>
       <ion-col col-xl-8 offset-xl-2>
         <ion-card class="cards">
@@ -38,7 +30,7 @@
       <ion-col col-xl-4 offset-xl-2>
         <ion-card class="sep cards row2">
           <div class="ifUndefined headers" *ngIf="assessDate < 0 || assessDate === undefined">
-              {{ this.name }}, please refer to the link below to take your first assessment. 
+            {{ this.name }}, please refer to the link below to take your first assessment.
           </div>
 
           <div class="headers" text-center *ngIf="assessDate">
@@ -89,7 +81,7 @@
               <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
-                <br>
+              <br>
               <p class="whyTakeAssessmentHeader">Why assessments are important</p>
               <br>
               <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
@@ -105,7 +97,7 @@
               <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
-                <br>
+              <br>
               <p class="whyTakeAssessmentHeader">Why assessments are important</p>
               <br>
               <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
@@ -121,7 +113,7 @@
               <p class="zoneDescription"> Being in the red means lorem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
-                <br>
+              <br>
               <p class="whyTakeAssessmentHeader">Why assessments are important</p>
               <br>
               <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
@@ -160,7 +152,7 @@
             <!-- <ion-row>
               <ion-col>
                 <h2 class="action-item-title">Current Action Item:</h2>
-                <p class="currentActionItemBody">Complete Pre-Separation Counseling</p>
+                <p>Complete Pre-Separation Counseling</p>
               </ion-col>
             </ion-row>
 
@@ -220,8 +212,20 @@
               </ion-item>
 
             </ion-card-content>
+
             <ion-card-content *ngIf="prevAssess">
-              <chart></chart>
+              <ion-grid>
+                <ion-row align-items-center>
+                  <ion-col col-6 align-self-center>
+                    <chart></chart>
+                  </ion-col>
+                  <ion-col class="graphDescriptionWrapper" col-6 align-self-start>
+                    <p><strong>What is this?</strong></p>
+                    <p class="graphDescription">The graph to the left is a visual depiction of your more recent self-assessment.</p>
+                    <p class="hoverOverDescripition">Hover over each area for more detail!</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
             </ion-card-content>
           </ion-card>
         </ion-col>
