@@ -62,7 +62,6 @@ export class TimelineProvider {
   postTimeline() {
     this.postNewtimelineInstance()
     .subscribe(response => {
-      let data = response;
       console.log('%c New timeline instance created.', 'background: green; color: white; display: block;')
       this.getTimeline()
     })
@@ -73,7 +72,6 @@ export class TimelineProvider {
     this.updatedTimelineObj.content = obj
     this.updateExisitingTimelineInstace()
     .subscribe(response => {
-      let data = response;
       console.log('%c Timeline instance updated.', 'background: blue; color: white; display: block;')
     })
   }

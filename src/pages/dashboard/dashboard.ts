@@ -8,7 +8,6 @@ import * as moment from 'moment';
 import { NewsPage } from '../news/news';
 import { ActionItemProvider } from '../../providers/action-item/action-item';
 import { SelfAssessmentPage } from '../self-assessment/self-assessment';
-import { TimelineItemComponent } from 'components/timeline/timeline';
 import { TimelineProvider } from '../../providers/timeline/timeline';
 
 interface UserData {
