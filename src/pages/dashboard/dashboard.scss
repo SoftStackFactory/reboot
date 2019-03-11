@@ -224,26 +224,30 @@ page-dashboard {
 
     }
 
-    #networkingContent {
-        padding: 0px 16px; 
-        display: flex; 
-        justify-content:flex-end; 
-        flex-wrap: wrap
-    }
+    // #networkingContent {
+    //     padding: 0px 16px; 
+    //     display: flex; 
+    //     justify-content:flex-end; 
+    //     flex-wrap: wrap
+    // }
 
-    #networkHeader {
-        padding: 16px 0px 0px 0px;
+    .networkImages {
+        margin-top: 15px;
+        display: flex;
+        // justify-content: center;
+        justify-content: space-around;
+
     }
 
     #networkingImage {
-        width: 50%; 
-        height: 100%;
+        width: 25%; 
+        height: 25%;
     }
 
-    #networkingAdvice {
-        width: 50%; 
+    .networkingAdvice {
+       padding: 0px 30px 10px 30px; 
         font-size: 20px;
-        padding-left: 20px;
+        text-align: center;
     }
 
     @media (max-width: 1100px) and (min-width: 700px) { 

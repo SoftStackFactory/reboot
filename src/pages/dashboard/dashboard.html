@@ -164,7 +164,7 @@
 
             <ion-item>
               <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
-                <span>Next Step</span>
+                <span>Next</span>
                 <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
               </button>
             </ion-item>
@@ -221,7 +221,8 @@
                   </ion-col>
                   <ion-col class="graphDescriptionWrapper" col-6 align-self-start>
                     <p><strong>What is this?</strong></p>
-                    <p class="graphDescription">The graph to the left is a visual depiction of your more recent self-assessment.</p>
+                    <p class="graphDescription">The graph to the left is a visual depiction of your more recent
+                      self-assessment.</p>
                     <p class="hoverOverDescripition">Hover over each area for more detail!</p>
                   </ion-col>
                 </ion-row>
@@ -234,17 +235,14 @@
     </ion-row>
 
     <ion-row>
-      <ion-col col-xl-8 offset-xl-2>
+      <ion-col col-xl-4 offset-xl-2>
         <ion-card class="cards">
-          <ion-card-header id="networkHeader" class="headers" text-center>
+          <ion-card-header class="headers" text-center>
             Build Your Network
           </ion-card-header>
 
-          <br>
-
           <ion-card-content id="networkingContent">
-            <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
-            <p id="networkingAdvice">People who are truly successful commit themselves continuously to learning and
+            <p class="networkingAdvice">People who are truly successful commit themselves continuously to learning and
               improving themselves. Are you
               a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
               opportunities?
@@ -253,6 +251,12 @@
               are reading this demonstrates a certain level of commitment to develop yourself so you are not a 1 or
               even
               a 2.</p>
+            <div class="networkImages">
+              <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
+              <img id="networkingImage" src="../../assets/imgs/Networking2.jpg">
+              <img id="networkingImage" src="../../assets/imgs/Networking3.jpg">
+              <img id="networkingImage" src="../../assets/imgs/Networking4.jpg">
+            </div>
 
             <br>
             <ion-item>
