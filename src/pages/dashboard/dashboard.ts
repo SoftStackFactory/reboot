@@ -22,7 +22,7 @@ interface UserData {
 export class DashboardPage {
 
   name: any
-  assessDate: any
+  assessDate: any;
   daysTilSep: any
   daysTilSepAbs: any
   currentActionItem: String;
@@ -55,6 +55,7 @@ export class DashboardPage {
       this.name = data.firstName;
       let sepDate = moment(data.separationDate, "YYYY-MM-DD").toDate().getTime();
       let now = new Date().getTime();
+      console.log(now, 'now');
       this.daysTilSep = Math.ceil((sepDate - now)/86400000);
       this.daysTilSepAbs = Math.abs(this.daysTilSep);
       console.log(this.daysTilSep, this.name)
@@ -64,10 +65,13 @@ export class DashboardPage {
       if (!data.length) return
       this.prevAssess = true;
       this.assessDate = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
+      console.log(this.assessDate, 'first');  
       let now = new Date().getTime();
       this.assessDate = Math.ceil((this.assessDate - now)/86400000);
+      console.log(this.assessDate, 'second');  
       this.assessDate = Math.abs(this.assessDate);
       console.log(data);
+      console.log(this.assessDate, 'third');  
     }, error => {console.log("error")},
     () => {
       this.lastDate();
@@ -88,7 +92,7 @@ export class DashboardPage {
 
   lastDate() {
     let msg = this.assessDate === undefined?
-                                  `You have not completed any assesments`:          
+                                  `You have not completed any assesments`:      
                                   `Your last assessment was ${this.assessDate} day(s) ago`
 
     let toast = this.toastCtrl.create({
@@ -97,9 +101,10 @@ export class DashboardPage {
       position: 'middle',
       cssClass: 'toaster',
     });
-
+    console.log(this.assessDate, 'fourth');  
     toast.present();
   }
+
   toNews() {
     this.navCtrl.push(NewsPage);
   }

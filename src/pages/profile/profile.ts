@@ -21,6 +21,22 @@ export class ProfilePage {
   editing: boolean = false;
   userInfo: any;
 
+  selectOptions(title: string, message: string) {
+    let obj: object = {
+      title: title,
+      message: message,
+      cssClass: 'branchRadio',
+    }
+    return obj;
+  }
+
+  branchOptions = this.selectOptions("Military Branch", "Select a branch");
+  vetOrActiveOptions = this.selectOptions("Military Status", "Select one");
+  disabilityOptions = this.selectOptions("Disability Status", "Select one");
+  unemployedOptions = this.selectOptions("Employment Status", "Select one");
+  maritalOptions = this.selectOptions("Marital Status", "Select one");
+  rankOptions = this.selectOptions("Military Rank", "Select one");
+
 
   ionViewWillEnter() {
     this.getUserInfo()
@@ -40,6 +56,8 @@ export class ProfilePage {
       console.log('received user data')
       console.log(response)
       this.user.userData = response;
+      console.log("User data");
+      console.log(this.user.userData);
     })
   }
 

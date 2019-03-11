@@ -137,7 +137,7 @@ export class ChartComponent {
 
         },
 
-        aspectRatio: 3,
+        aspectRatio: 1,
 
         maintainAspectRatio: true,
 
