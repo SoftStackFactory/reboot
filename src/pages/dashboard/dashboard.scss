@@ -5,7 +5,7 @@ page-dashboard {
         font-size: 40px;
     }
 
-    #welcome {
+    .welcome {
         font-size: 26px;
         color:#2a3d4f;
         font-weight: bold;
@@ -40,7 +40,7 @@ page-dashboard {
         color: #2a3d4fb3;
     }
 
-    #separationContent {
+    .separationContent {
         padding-bottom: 0px;
         font-size: 20px;
     }
@@ -63,11 +63,11 @@ page-dashboard {
         float: right;
     }
      // news widget title
-     .title {
-        color:#2a3d4f9e;
-        font-weight: bold;
-        font-size: 22px;
-    }
+    //  .title {
+    //     color:#2a3d4f9e;
+    //     font-weight: bold;
+    //     font-size: 22px;
+    // }
 
     //the smallest the timestamp can go is 22px for some reason
     .timestamp {
@@ -213,6 +213,9 @@ page-dashboard {
         flex-flow: row-nowrap;
         justify-content: center;
         align-items: center;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
     }
 
     .linkIcons {
@@ -281,6 +284,14 @@ page-dashboard {
   
     .currentActionItemBody {
         font-size: 20px;
+    }
+
+    .item-md [item-end]{
+        margin: 0;
+    }
+
+    .card-content-md {
+        padding: 0;
     }
 
 }

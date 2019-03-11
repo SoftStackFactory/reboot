@@ -17,7 +17,7 @@
     <ion-row>
       <ion-col col-xl-8 offset-xl-2>
         <ion-card class="cards">
-          <ion-card-content id="welcome" text-center>
+          <ion-card-content class="welcome" text-center>
             Welcome to the Military and Veteran's "InTransition" Personal Transition Assistant. Your personal guide to
             a successful transition
             from military to civilian life.
@@ -164,8 +164,8 @@
 
             <ion-item>
               <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
-                <span>See what's next</span>
-                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                <span>Next Step</span>
+                <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
               </button>
             </ion-item>
 
@@ -181,12 +181,12 @@
           <ion-card-header class="headers" text-center>
             Veterans Affairs News
           </ion-card-header>
-          <ion-card-content id="separationContent">
+          <ion-card-content class="separationContent">
             <news-widget></news-widget>
             <ion-item>
-              <button class="cardLinks" item-end clear no-margin (click)="toNews()">
-                <span>More news</span>
-                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+              <button class="cardLinks" item-end clear (click)="toNews()">
+                <span>More</span>
+                <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
               </button>
             </ion-item>
 
@@ -207,7 +207,7 @@
               <ion-item>
                 <button class="cardLinks" item-end no-margin (click)="toSelfAssessment()">
                   <span>Complete an assessment</span>
-                  <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                  <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
                 </button>
               </ion-item>
 
@@ -258,7 +258,7 @@
             <ion-item>
               <button class="cardLinks" item-end no-margin>
                 <span>Learn more</span>
-                <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
+                <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
               </button>
             </ion-item>
           </ion-card-content>
