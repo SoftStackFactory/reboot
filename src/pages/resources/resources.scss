@@ -1,11 +1,11 @@
 page-resources {
 
-    #title {
+    .title {
         font-size: 24px;
         text-align: center;
     }
 
-    #score-box {
+    .score-box {
         margin: auto;
         width: 50px;
         height: 30px;
@@ -14,26 +14,15 @@ page-resources {
 
     }
 
-    #card-text {
+    .card-text {
         margin-left: 60px;
         margin-right: 60px;
         font-size: 18px;
 
     }
 
-    #resMessage {
-        width: 50%;
-        font-size: 20px;
-        padding-left: 20px;
-    }
-
     .red {
         color: red;
-    }
-
-    #resource {
-        margin-left: 20px;
-        font-size: 100px;
     }
 
     .button-color {

@@ -20,7 +20,7 @@
       <ion-row>
         <ion-col col-12>
           <ion-card>
-            <ion-card-content id="card-text">
+            <ion-card-content class="card-text">
               <h1>This page will provide helpful resources to aid you in your transition.
                 <span *ngIf="assessmentCompleted">Based on your self assessment, here are some areas which might require
                   more focus than others.
@@ -42,7 +42,7 @@
         </ion-col>
 
         <ion-col col-12>
-          <ion-card *ngIf="assessmentCompleted" id="chartCard">
+          <ion-card *ngIf="assessmentCompleted" class="chartCard">
             <ion-card-content>
               <ion-grid>
                 <ion-row justify-content-around align-items-center>
@@ -51,11 +51,11 @@
                       <chart></chart>
                     </div>
                   </ion-col>
-                  <ion-col col-12 col-sm-5 id='title'>
-                    <div class="lowest-card" id='title'>
+                  <ion-col col-12 col-sm-5 class='title'>
+                    <div class="lowest-card" class='title'>
                       Your lowest score on the self assessment is:
                       <b><em>{{userPro.userData.lowScoreName}}</em></b>
-                      <ion-card id="score-box">
+                      <ion-card class="score-box">
                         <div class="red"> {{userPro.userData.lowestScore}}</div>
                       </ion-card>
                       Maybe you can start there? <br>
