@@ -58,6 +58,7 @@ export class DashboardPage {
       this.daysTilSepAbs = Math.abs(this.daysTilSep);
       console.log(this.daysTilSep, this.name)
     })
+    
     this.user.getUserChart()
     .subscribe( (data: Array<any>) => {
       if (!data.length) return
