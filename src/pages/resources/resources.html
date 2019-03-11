@@ -31,7 +31,7 @@
               </h1>
               <ion-row center>
                 <ion-col text-center>
-                  <button ion-button class='button' color="secondary" *ngIf="!assessmentCompleted"
+                  <button ion-button class='button-style' color="secondary" *ngIf="!assessmentCompleted"
                     (click)="openSelfAssessment()">Take
                     the
                     Self Assessment</button>
@@ -59,10 +59,10 @@
                         <div class="red"> {{userPro.userData.lowestScore}}</div>
                       </ion-card>
                       Maybe you can start there? <br>
-                      <button ion-button class='button' color="secondary" (click)="openSelfAssessment()">Retake
+                      <button ion-button class='button-style' color="secondary" (click)="openSelfAssessment()">Retake
                         assessment
                       </button>
-                      <button ion-button class='button' color="secondary" (click)="openChartHistory()">View history
+                      <button ion-button class='button-style' color="secondary" (click)="openChartHistory()">View history
                       </button>
                     </div>
                   </ion-col>
