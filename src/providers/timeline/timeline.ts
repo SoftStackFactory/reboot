@@ -48,14 +48,20 @@ export class TimelineProvider {
     this.getExisitingTimelineInstance()
     .subscribe(response => {
       this.timelineObj = response;
-      console.log('%c Timeline instance data loaded.', 'background: green; color: white; display: block;')
+      console.log('%c Timeline instance data loaded.', 'background: blue; color: white; display: block;')
       this.updatedTimelineObj.id = this.timelineObj.id
       this.checkbox = this.timelineObj.content;
     },
     error => {
       console.log('%c Timeline instance not found.', 'background: red; color: white; display: block;')
-      this.setUserId()
-      this.postTimeline()
+      if(error.status == '404') {
+        console.log('%c Error ' + error.status + ' ' + error.statusText +  ' ', 'background: red; color: white; display: block;')
+        this.setUserId()
+        this.postTimeline()
+      } else {
+        console.log('%c Error ' + error.status + ' ' + error.statusText +  ' ', 'background: red; color: white; display: block;')
+      }
+
     })
   }
 
@@ -72,7 +78,11 @@ export class TimelineProvider {
     this.updatedTimelineObj.content = obj
     this.updateExisitingTimelineInstace()
     .subscribe(response => {
-      console.log('%c Timeline instance updated.', 'background: blue; color: white; display: block;')
+      console.log('%c Timeline instance updated.', 'background: green; color: white; display: block;')
+    },
+    error => {
+      console.log('%c Error updating timeline instance.', 'background: red; color: white; display: block;')
+      console.log('%c Error ' + error.status + ' ' + error.statusText +  ' ', 'background: red; color: white; display: block;')
     })
   }
 
@@ -80,4 +90,5 @@ export class TimelineProvider {
     this.newTimelineObj.appUserId = window.sessionStorage.getItem("userId")
     this.updatedTimelineObj.appUserId = window.sessionStorage.getItem("userId")
   }
+  
 }

@@ -102,4 +102,5 @@ export class DashboardPage {
   }
   toNews() {
     this.navCtrl.push(NewsPage);
-  }}
+  }
+}
