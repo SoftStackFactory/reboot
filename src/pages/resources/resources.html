@@ -52,11 +52,9 @@
                     </div>
                   </ion-col>
                   <ion-col col-12 col-sm-5 id='title'>
-                    <div id='title'>
-                      Your lowest score on the self assessment is: <br><br>
+                    <div class="lowest-card" id='title'>
+                      Your lowest score on the self assessment is:
                       <b><em>{{userPro.userData.lowScoreName}}</em></b>
-                    </div>
-                    <div id="title">
                       <ion-card id="score-box">
                         <div class="red"> {{userPro.userData.lowestScore}}</div>
                       </ion-card>
@@ -84,9 +82,12 @@
             <img class="image" src={{res.img}} alt="">
             <ion-card-content class='card-body'>
               {{res.message}}
-              <ion-item class="link-text">
-                <a (click)="openModal(res)">Learn more...</a>
-              </ion-item>
+              <ion-row justify-content-end>
+                <button ion-button clear icon-end (click)="openModal(res)">
+                  Learn more
+                  <ion-icon name='arrow-dropright'></ion-icon>
+                </button>
+              </ion-row>
             </ion-card-content>
           </ion-card>
         </ion-col>
