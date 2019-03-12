@@ -99,7 +99,7 @@ public goals:any = [
     ]
   },
   { 
-    goalName: 'Sarting Up',
+    goalName: 'Starting Up',
     subGoal: [
       {
         subGoalName: 'Re-establishing and creating relationships',
