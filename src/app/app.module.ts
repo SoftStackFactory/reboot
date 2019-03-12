@@ -39,6 +39,7 @@ import { TimelineComponent } from '../components/timeline/timeline';
 import { ActionItemProvider } from '../providers/action-item/action-item';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { TimelineProvider } from '../providers/timeline/timeline';
+import { StyleGuidePage } from '../pages/style-guide/style-guide';
 
 
 const Pages = [
@@ -57,7 +58,7 @@ const Pages = [
   NewsPage,
   ChartComponent,
   ResourcesPage,
-  
+  StyleGuidePage
 ]
 
 @NgModule({
@@ -93,6 +94,7 @@ const Pages = [
     NewsPage,
     SelfAssessmentPage,
     ResourcesPage,
+    StyleGuidePage
   ],
   providers: [
     StatusBar,

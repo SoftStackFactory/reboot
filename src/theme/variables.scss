@@ -27,7 +27,7 @@ $range-ios-knob-width: 30px;
 $range-ios-knob-height: 30px;
 $range-ios-pin-font-size: 30px;
 $range-ios-pin-padding-bottom: -1px;
-$range-ios-slider-height: 100px; 
+$range-ios-slider-height: 100px;
 
 @import "ionic.globals";
 
@@ -61,13 +61,39 @@ $colors: (
   dark:       #222
 );
 
-// $alert-min-width: (	
-//   70%);	
+// $alert-min-width: (
+//   70%);
 // // Minimum width of the alert
 
 // $alert-max-width: (
 //   200px);
 
+/*------- DEFAULT WRAPPER STYLE -------*/
+.wrapper {
+  max-width: 960px;
+  margin: auto
+}
+
+/*------- BORDER ROW BOTTOM -------*/
+.border-row-bottom {
+  border-bottom: 2px dashed #000;
+  margin-bottom: 1.75rem;
+}
+
+/*------- IONIC ROUND CARD STYLE -------*/
+ion-card.round-card {
+  border-radius: 12px;
+}
+ion-card.round-card .card-header{
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  background-color: lightblue;
+  padding: 16px;
+}
+ion-card.round-card .card-body {
+  font-size: 18px;
+}
 
 
 // App iOS Variables

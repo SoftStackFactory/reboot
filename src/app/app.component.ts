@@ -15,7 +15,7 @@ import { TimelinePage } from '../pages/timeline/timeline';
 import { HistoryPage } from '../pages/history/history';
 import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { ResourcesPage } from '../pages/resources/resources';
-
+import { StyleGuidePage } from '../pages/style-guide/style-guide';
 
 // Env Variables
 import { ENV } from  '@app/env';
@@ -36,8 +36,8 @@ export class MyApp {
   isToastPresent:boolean = false;
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
+    public platform: Platform,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     private _networkProvider: NetworkProvider,
     public events: Events,
@@ -47,7 +47,7 @@ export class MyApp {
     private _user: UserProvider,
 
     ) {
-      this.initializeApp()      
+      this.initializeApp()
 
     console.log("OUR ENV", ENV)
     // used for an example of ngFor and navigation
@@ -57,7 +57,7 @@ export class MyApp {
       { title: 'Profile', component: ProfilePage },
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
-      { title: 'History', component: HistoryPage }, 
+      { title: 'History', component: HistoryPage },
       { title: 'Resources', component: ResourcesPage }
       // { title: 'Logout', component: LoginPage }
     ];
@@ -65,9 +65,9 @@ export class MyApp {
   }
 
   initializeApp() {
-    
+
     this.platform.ready().then(() => {
-      
+
       this._networkProvider.initializeNetworkEvents();
 
       // Offline event
@@ -81,15 +81,15 @@ export class MyApp {
 
       // // Online event
       this.events.subscribe('network:online', () => {
-      //    // alert('network:online ==> '+this.network.type);  
+      //    // alert('network:online ==> '+this.network.type);
         if(this.isToastPresent==false) {
-          this.isToastPresent = true 
+          this.isToastPresent = true
           this.presentToast("online")
-        }   
+        }
       });
 
       this.menuCtrl.enable(false);
-      this.menuCtrl.swipeEnable(false); 
+      this.menuCtrl.swipeEnable(false);
 
     });
   }
@@ -127,10 +127,14 @@ presentToast( message ) {
     }
   }
 
+  openStyleGuide () {
+    this.nav.setRoot( StyleGuidePage );
+  }
+
   logout() {
     window.sessionStorage.clear()
     this.menuCtrl.enable(false);
-    this.menuCtrl.swipeEnable(false); 
+    this.menuCtrl.swipeEnable(false);
     this.nav.setRoot(LoginPage, {}, {animate: true, direction: "forward"});
   }
 }
