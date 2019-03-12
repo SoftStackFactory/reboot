@@ -126,106 +126,75 @@
 
           </div>
 
-
-          <!-- <ion-card-header class="headers" text-center *ngIf="daysTilSep > 0">
-            {{daysTilSep}} Days Until Separation!
-          </ion-card-header>
-          <ion-card-header class="headers" text-center *ngIf="daysTilSep == 0">
-            Your Separation Date is Today!
-          </ion-card-header>
-          <ion-card-header class="headers" text-center *ngIf="daysTilSep < 0">
-            Your Separation Was {{daysTilSepAbs}} Days Ago!
-          </ion-card-header> -->
-
           <ion-card-content>
 
-            <!-- You're getting close to your separation day! Are you preparing for the transition? 
-            Being informed and prepared will make your transition into civilization easier to see what your next steps
-            are. The next step is: -->
-            <!-- <img class="image" src="assets/imgs/transitionHealth.png" alt="">
-            <br>
-            <br> -->
-            <!-- <h4 class="actionItemText"> {{ currentActionItem }} </h4> -->
-            <!-- <a (click)="toTimeline()" class="dashboardLinks" id="separationLink">See what's next
-              <ion-icon class="linkIcons" name="arrow-round-forward"></ion-icon>
-            </a> -->
-
-            <!-- <ion-row>
-              <ion-col>
-                <h2 class="action-item-title">Current Action Item:</h2>
-                <p>Complete Pre-Separation Counseling</p>
-              </ion-col>
-            </ion-row>
-
-            <ion-row>
-              <ion-col offset-3>
-                <img class="image" src="assets/imgs/transitionHealth.png" alt="">
-              </ion-col>
-            </ion-row> -->
-
-            <ion-item>
-              <button class="cardLinks" item-end clear no-margin (click)="toTimeline()">
-                <span>Next</span>
-                <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
+            <ion-row justify-content-end>
+              <button ion-button icon-end outline (click)="toTimeline()">
+                Next
+                <ion-icon name="arrow-dropright"></ion-icon>
               </button>
-            </ion-item>
+            </ion-row>
 
           </ion-card-content>
         </ion-card>
 
-          <ion-col col-xl-4 offset-xl-2>
-            <ion-card class="cards">
-              <ion-card-header class="headers" text-center>
-                Build Your Network
-              </ion-card-header>
-    
-              <ion-card-content id="networkingContent">
-                <p class="networkingAdvice">People who are truly successful commit themselves continuously to learning and
-                  improving themselves. Are you
-                  a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
-                  opportunities?
-                  Do you regularly read to learn and grow? Are you open to improving and stretching yourself? The fact that
-                  you
-                  are reading this demonstrates a certain level of commitment to develop yourself so you are not a 1 or
-                  even
-                  a 2.</p>
-                <div class="networkImages">
-                  <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
-                  <img id="networkingImage" src="../../assets/imgs/Networking2.jpg">
-                  <img id="networkingImage" src="../../assets/imgs/Networking3.jpg">
-                  <img id="networkingImage" src="../../assets/imgs/Networking4.jpg">
-                </div>
-    
-                <br>
-                <ion-item>
-                  <button class="cardLinks" item-end no-margin>
-                    <span>Learn more</span>
-                    <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
-                  </button>
-                </ion-item>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-    
-          <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
+        <ion-col col-xl-4 offset-xl-2>
+          <ion-card class="cards">
+            <ion-card-header class="headers" text-center>
+              Build Your Network
+            </ion-card-header>
+
+            <ion-card-content>
+              <p class="networkingAdvice">People who are truly successful commit themselves continuously to learning and
+                improving themselves. Are you
+                a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
+                opportunities?
+                Do you regularly read to learn and grow? Are you open to improving and stretching yourself? The fact
+                that
+                you
+                are reading this demonstrates a certain level of commitment to develop yourself so you are not a 1 or
+                even
+                a 2.</p>
+
+              <div class="networkImages">
+                <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
+                <img id="networkingImage" src="../../assets/imgs/Networking2.jpg">
+                <img id="networkingImage" src="../../assets/imgs/Networking3.jpg">
+                <img id="networkingImage" src="../../assets/imgs/Networking4.jpg">
+              </div>
+
+              <br>
+
+              <ion-row class="buttonRules" justify-content-end>
+                <button ion-button outline icon-end>
+                  Learn more
+                  <ion-icon name="arrow-dropright"></ion-icon>
+                </button>
+              </ion-row>
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+      <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
       </ion-col>
 
       <ion-col col-xl-4>
-        <ion-card class="news cards row2">
+        <ion-card class="news cards">
           <ion-card-header class="headers" text-center>
             Veterans Affairs News
           </ion-card-header>
-          <ion-card-content class="separationContent">
+          <ion-card-content>
             <news-widget></news-widget>
-            <ion-item>
-              <button class="cardLinks" item-end clear (click)="toNews()">
-                <span>More</span>
-                <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
+          <br>
+            <ion-row justify-content-end>
+              <button ion-button icon-end outline (click)="toNews()">
+                More
+                <ion-icon name="arrow-dropright"></ion-icon>
               </button>
-            </ion-item>
-
-
+            </ion-row>
           </ion-card-content>
+
         </ion-card>
 
 
@@ -238,12 +207,14 @@
 
               <h4 class="actionItemText">Please complete a Self Assessment</h4>
 
-              <ion-item>
-                <button class="cardLinks" item-end no-margin (click)="toSelfAssessment()">
-                  <span>Complete an assessment</span>
-                  <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
+              <ion-row justify-content-end>
+                <button ion-button clear icon-end (click)="toSelfAssessment()">
+                  Complete an assessment
+                  <ion-icon name="arrow-dropright"></ion-icon>
                 </button>
-              </ion-item>
+
+              </ion-row>
+
 
             </ion-card-content>
 
@@ -268,44 +239,6 @@
 
     </ion-row>
 
-    <!-- <ion-row>
-      <ion-col col-xl-4 offset-xl-2>
-        <ion-card class="cards">
-          <ion-card-header class="headers" text-center>
-            Build Your Network
-          </ion-card-header>
-
-          <ion-card-content id="networkingContent">
-            <p class="networkingAdvice">People who are truly successful commit themselves continuously to learning and
-              improving themselves. Are you
-              a 10 - committed to learning as much as you can about life? Are you constantly experiencing new
-              opportunities?
-              Do you regularly read to learn and grow? Are you open to improving and stretching yourself? The fact that
-              you
-              are reading this demonstrates a certain level of commitment to develop yourself so you are not a 1 or
-              even
-              a 2.</p>
-            <div class="networkImages">
-              <img id="networkingImage" src="../../assets/imgs/Networking.jpg">
-              <img id="networkingImage" src="../../assets/imgs/Networking2.jpg">
-              <img id="networkingImage" src="../../assets/imgs/Networking3.jpg">
-              <img id="networkingImage" src="../../assets/imgs/Networking4.jpg">
-            </div>
-
-            <br>
-            <ion-item>
-              <button class="cardLinks" item-end no-margin>
-                <span>Learn more</span>
-                <ion-icon class="linkIcons" name="arrow-dropright"></ion-icon>
-              </button>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-      <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
-
-    </ion-row> -->
 
     <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
 
