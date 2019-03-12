@@ -5,6 +5,12 @@ page-resources {
         text-align: center;
     }
 
+    h1{
+        font-size:26px;
+        color:#2a3d4f;
+
+    }
+
     .score-box {
         margin: auto;
         width: 50px;
@@ -56,7 +62,6 @@ page-resources {
     }
 
     .lowest-card{
-        display:flex;
-        flex-direction: column;
+        height: 100%;
     }
 }
