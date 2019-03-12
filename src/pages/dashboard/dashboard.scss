@@ -1,37 +1,18 @@
 page-dashboard {
 
-    #hello {
-        font-weight: bold;
-        font-size: 40px;
-    }
 
-    #welcome {
+    .welcome {
         font-size: 26px;
         color:#2a3d4f;
         font-weight: bold;
-    }
-
-    .button1{
-        width: 138px;
-        height:42px;
-        background-color: rgb(26, 39, 71);
-        padding: 0px;
     }
 
     .cards {
         // background-color:#dff1d31f;
         background-color: #5f9ad629;
         // background-color: color($colors, light);
-        position: relative;
+        // position: relative;
     }
-
-    .sep {
-        // background-color: color($colors, light);
-    }
-    .news {
-        // background-color: color($colors, light);
-        }
-
     .headers {
         font-weight: bold; 
         font-size: 26px;
@@ -40,41 +21,11 @@ page-dashboard {
         color: #2a3d4fb3;
     }
 
-    #separationContent {
-        padding-bottom: 0px;
-        font-size: 20px;
-    }
-
     .actionItemText {
         font-size: 20px;
         text-align: center;
     }
 
-    #separationLink {
-        float: right; 
-        float: end;
-        padding-bottom: 10px;
-        // padding-right: 20px;
-        font-size: 20px;
-        cursor: pointer;
-        background-color: transparent;
-    }
-    #newsLink {
-        float: right;
-    }
-     // news widget title
-     .title {
-        color:#2a3d4f9e;
-        font-weight: bold;
-        font-size: 22px;
-    }
-
-    //the smallest the timestamp can go is 22px for some reason
-    .timestamp {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 16px;
-    }
 
     .warningMeter {
         display: flex; 
@@ -85,7 +36,7 @@ page-dashboard {
         padding: 0 3em 0 3em;
       }
       
-      .box {
+    .box {
         background-color: grey;
         height: 125px; 
         width: 80px; 
@@ -94,8 +45,7 @@ page-dashboard {
         align-items: center;
         justify-content: center;
         flex-basis: 15rem;
-        // padding: 1rem;
-      }
+    }
       
       .good {
         background-color: green;
@@ -113,14 +63,14 @@ page-dashboard {
         background-color: red;
       }
 
-      .grow {
-          height: 100px; 
-          flex-basis: 25rem;
-          padding: 5rem 1rem;
-          font-size: 2.5em;
-          text-decoration: underline;
-          border-radius: 10px;
-      }
+    .grow {
+        height: 100px; 
+        flex-basis: 25rem;
+        padding: 5rem 1rem;
+        font-size: 2.5em;
+        text-decoration: underline;
+        border-radius: 10px;
+    }
 
     .range {
         text-align: center;
@@ -135,6 +85,7 @@ page-dashboard {
     }
     .conditionP {
         font-size: 16px;
+        background-color: transparent;
     }
 
     .card-md p {
@@ -144,10 +95,14 @@ page-dashboard {
     .assessmentButton {
         font-weight: bold;
         font-size: 1.6em;
+        background-color: transparent;
+        color: #488aff;
     }
 
     .assessmentConditionMetButton {
         font-size: 1em;
+        background-color: transparent;
+        color: #488aff;
     }
 
     .whyTakeAssessmentHeader {
@@ -191,10 +146,12 @@ page-dashboard {
         line-height: 1.5;
     }
 
-    .dashboardLinks {
-        // position:absolute;
-        bottom:0;
-        right: 1vw;
+    .graphDescriptionWrapper {
+        text-align: center;
+    }
+
+    .graphDescription {
+        margin-top: 5%;
     }
 
     .cardLinks {
@@ -202,6 +159,9 @@ page-dashboard {
         flex-flow: row-nowrap;
         justify-content: center;
         align-items: center;
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
     }
 
     .linkIcons {
@@ -210,54 +170,34 @@ page-dashboard {
 
     }
 
-    #networkingContent {
-        padding: 0px 16px; 
-        display: flex; 
-        justify-content:flex-end; 
-        flex-wrap: wrap
-    }
-
-    #networkHeader {
-        padding: 16px 0px 0px 0px;
+    .networkImages {
+        margin-top: 15px;
+        display: flex;
+        // justify-content: center;
+        justify-content: space-around;
     }
 
     #networkingImage {
-        width: 50%; 
-        height: 100%;
+        width: 25%; 
+        height: 25%;
     }
 
-    #networkingAdvice {
-        width: 50%; 
+    .networkingAdvice {
+       padding: 0px 30px 10px 30px; 
         font-size: 20px;
-        padding-left: 20px;
+        text-align: center;
     }
 
-    @media (max-width: 1100px) and (min-width: 700px) { 
-        .row2 {
-            min-height: 25vh;
-        }
-    }  
-
-    .image {
-        width:70%;
-        height: 100%;
-        
-    }
-
-    .action-item-title{
-        font-weight: bold;
-        font-size: 24px;
-        color: #2a3d4fb3;
-    }
 
     .input-wrapper {
         background-color: transparent;
     }
 
-    button {
-        background-color: transparent;
-        color: #488aff;
-    }
+    // button {
+    //     background-color: transparent;
+    //     color: #488aff;
+    // }
+
 
     button:hover {
         color: #8eafe8;
@@ -270,6 +210,15 @@ page-dashboard {
   
     .currentActionItemBody {
         font-size: 20px;
+    }
+
+    .item-md [item-end]{
+        margin: 0;
+    }
+
+    .button-md {
+        font-size: 18px;
+        // margin: .5em 1em;
     }
 
 }
