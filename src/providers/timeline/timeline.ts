@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { UserProvider } from '../../providers/user/user';
+import { App, MenuController } from 'ionic-angular';
+import { LoginPage } from '../../pages/login/login';
 
 @Injectable()
 export class TimelineProvider {
@@ -25,7 +27,9 @@ export class TimelineProvider {
   }
 
   constructor(public http: HttpClient,
-              public userProvider: UserProvider) {}
+              public userProvider: UserProvider, 
+              public menuCtrl: MenuController,
+              public app: App) {}
 
   getExisitingTimelineInstance() {
     const creds = this.userProvider.getCredentials()
@@ -60,6 +64,7 @@ export class TimelineProvider {
         this.postTimeline()
       } else {
         console.log('%c Error ' + error.status + ' ' + error.statusText +  ' ', 'background: red; color: white; display: block;')
+        this.logoutOnError()
       }
 
     })
@@ -89,6 +94,13 @@ export class TimelineProvider {
   setUserId() {
     this.newTimelineObj.appUserId = window.sessionStorage.getItem("userId")
     this.updatedTimelineObj.appUserId = window.sessionStorage.getItem("userId")
+  }
+
+  logoutOnError() {
+    this.app.getRootNav().setRoot(LoginPage, {}, {animate: true, direction: "forward"});
+    window.sessionStorage.clear()
+    this.menuCtrl.enable(false);
+    this.menuCtrl.swipeEnable(false); 
   }
   
 }
