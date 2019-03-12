@@ -8,10 +8,7 @@ page-dashboard {
     }
 
     .cards {
-        // background-color:#dff1d31f;
         background-color: #5f9ad629;
-        // background-color: color($colors, light);
-        // position: relative;
     }
     .headers {
         font-weight: bold; 
@@ -37,7 +34,6 @@ page-dashboard {
       }
       
     .box {
-        background-color: grey;
         height: 125px; 
         width: 80px; 
         border-radius: 5px;
@@ -167,13 +163,11 @@ page-dashboard {
     .linkIcons {
         font-size: 40px; 
         margin: 10px;
-
     }
 
     .networkImages {
         margin-top: 15px;
         display: flex;
-        // justify-content: center;
         justify-content: space-around;
     }
 
@@ -188,16 +182,9 @@ page-dashboard {
         text-align: center;
     }
 
-
     .input-wrapper {
         background-color: transparent;
     }
-
-    // button {
-    //     background-color: transparent;
-    //     color: #488aff;
-    // }
-
 
     button:hover {
         color: #8eafe8;
@@ -218,8 +205,52 @@ page-dashboard {
 
     .button-md {
         font-size: 18px;
-        // margin: .5em 1em;
     }
+
+    .card-ios p {
+        color: black;
+    }
+
+    /* Mobile Styles */
+    @media only screen and (max-width: 400px) {
+         .welcome {
+             font-size: 18px;
+         }
+
+         .headers {
+             font-size: 18px;
+         }
+
+         .headerWrapper {
+             padding: 0px 20px 0px 20px;
+         }
+
+         .warningMeter { 
+             margin-top: 1em;
+            padding: 0 1.5em 0 1.5em;
+         }
+
+         .box {
+
+            height: 75px; 
+            width: 30px;
+            flex-basis: 20rem;
+         }
+
+         .networkingAdvice {
+            font-size: 18px;
+            padding: 0px;
+         }
+         
+         
+    }
+    
+    /* Tablet Styles */
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        
+    }
+  
+
 
 }
 
