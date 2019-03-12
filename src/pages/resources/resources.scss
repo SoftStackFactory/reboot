@@ -1,19 +1,17 @@
 page-resources {
 
-    .linkIcons {
-        font-weight: bold;
-        font-size: 40px;
-        position: relative;
-        top: 10px;
-        padding-left: 5px
-    }
-
-    #title {
+    .title {
         font-size: 24px;
         text-align: center;
     }
 
-    #score-box {
+    h1{
+        font-size:26px;
+        color:#2a3d4f;
+
+    }
+
+    .score-box {
         margin: auto;
         width: 50px;
         height: 30px;
@@ -22,38 +20,18 @@ page-resources {
 
     }
 
-    #card-text {
+    .card-text {
         margin-left: 60px;
         margin-right: 60px;
         font-size: 18px;
 
     }
 
-    .link-text{
-        font-size:18px;
-        text-align: end;
-    }
-
-    #resMessage {
-        width: 50%;
-        font-size: 20px;
-        padding-left: 20px;
-    }
-
     .red {
         color: red;
     }
 
-    .yellow {
-        color: yellow;
-    }
-
-    #resource {
-        margin-left: 20px;
-        font-size: 100px;
-    }
-
-    .button {
+    .button-style {
         background-color : rgb(46, 66, 86);
         width: 100%;
     }
@@ -68,7 +46,6 @@ page-resources {
         font-weight: bold;
         background-color: lightblue;
         padding: 16px;
-
     }
 
     .card-body{
@@ -82,5 +59,9 @@ page-resources {
     .wrapper{
        max-width: 960px;
        margin: auto
+    }
+
+    .lowest-card{
+        height: 100%;
     }
 }
