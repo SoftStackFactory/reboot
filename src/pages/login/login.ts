@@ -149,11 +149,14 @@ export class LoginPage {
 
   logInCheck() {
     let activeId = window.sessionStorage.getItem('userId');
-
+    console.log('%c Checking for existing user credentials.', 'background: yellow; color: black; display: block;')
     if (activeId != null) {
       this.menuCtrl.enable(true);
       this.menuCtrl.swipeEnable(true);
       this.firstTimeUserCheck()
+      console.log('%c User credentials found.', 'background: blue; color: white; display: block;')
+    } else {
+      console.log('%c User credentials not found.', 'background: red; color: white; display: block;')
     }
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides, Content } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { TimelineProvider } from '../../providers/timeline/timeline';
 
@@ -9,7 +9,8 @@ import { TimelineProvider } from '../../providers/timeline/timeline';
 })
 export class TimelinePage {
   @ViewChild('slides') slides: Slides;
-
+  // @ViewChild(Content) content: Content;
+  
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public timelineProvider: TimelineProvider) {}
@@ -348,6 +349,7 @@ public goals:any = [
     this.slides.lockSwipes(false);
     this.slides.slideTo(x);
     this.slides.lockSwipes(true);
+    this.scrollTo(x);
   }
 
   updateProgress() {
@@ -386,6 +388,11 @@ public goals:any = [
         break
       }
     }
+  }
+
+  scrollTo(x) {
+    var elmnt = document.getElementById('seg' + x);
+    elmnt.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
   }
 
 }

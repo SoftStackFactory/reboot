@@ -80,6 +80,10 @@ page-timeline {
         }
     
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 
