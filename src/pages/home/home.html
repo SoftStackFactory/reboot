@@ -1,53 +1,54 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-grid fixed>
+    <ion-grid fixed>
 
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>Ionic Starter</ion-card-header>
-          <ion-card-content>If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the
-            way.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-card>
 
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>First Column</ion-card-header>
-          <ion-card-content>Content</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+                    <ion-card-header> Hello {{ _network?.isConnected }} </ion-card-header>
+                    <ion-card-content>If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>Second Column</ion-card-header>
-          <ion-card-content>Content</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>First Column</ion-card-header>
+                    <ion-card-content>Content</ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>Third Column</ion-card-header>
-          <ion-card-content>Content</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>Second Column</ion-card-header>
+                    <ion-card-content>Content</ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
 
-  </ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>Third Column</ion-card-header>
+                    <ion-card-content>Content</ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
 
 </ion-content>

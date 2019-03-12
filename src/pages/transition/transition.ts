@@ -21,10 +21,10 @@ export class TransitionPage {
   areas: Array<any>;
   date: any
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              public chartProvider: ChartProvider, 
-              private storage: Storage, 
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public chartProvider: ChartProvider,
+              private storage: Storage,
               private toastCtrl: ToastController) {
 
     this.areas = [
@@ -90,10 +90,10 @@ export class TransitionPage {
   }
 
   ionViewWillLoad() {
-    this.storage.get('chartData').then((val) => {
-      this.date = val ? val.Date : '';
-      // console.log('this.date:', this.date, 'val.Date:', val.Date)
-    }).then(() => this.lastDate())
+    // this.storage.get('chartData').then((val) => {
+    //   this.date = val ? val.Date : '';
+    //   // console.log('this.date:', this.date, 'val.Date:', val.Date)
+    // }).then(() => this.lastDate())
   }
 
   toggleSection(area) {
@@ -106,8 +106,8 @@ export class TransitionPage {
   }
 
   changeData(categoryIndex, newNumber) {
-    this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
-    this.chartComponent.chart.update();
+    // this.chartProvider.assessmentChartData[categoryIndex] = newNumber;
+    // this.chartComponent.chart.update();
   }
 
   lastDate() {

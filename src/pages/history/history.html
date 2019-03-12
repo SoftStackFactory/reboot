@@ -9,23 +9,43 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>History</ion-title>
+    <ion-title text-center>History</ion-title>
   </ion-navbar>
 </ion-header>
-
-
-<ion-content padding>
-  <ion-grid *ngFor="let chart of chartProvider.chartHistory">
-
-    <ion-row id="rows" align-items-center>
-      <ion-col col-3></ion-col>
-      <ion-col col-1>
-        <p id="date"> {{ chart.date }} </p>
-      </ion-col>
-      <ion-col col-8>
-        <chart [pageData]="chart.data" [belongsTo]="historyPage"></chart>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-xl-8 padding offset-xl-2>
+        <ion-card padding>
+          <ion-card-header>
+          <ion-card-title >Self Assessment History</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+          <canvas id="lineChart" #lineChart></canvas>
+        </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
-
+    <ion-row>
+      <ion-col col-xl-8 offset-xl-2>
+      <ion-card padding>
+          <ion-card-header>
+        <ion-card-title>Self Assessments Over Time</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <table id="self-assessment-table">
+            <tr>
+              <td></td>
+              <th scope="col" *ngFor="let label of labels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let date of history; let odd = odd; let even = even" [ngClass]="{odd: odd, even:even}">
+              <th>{{date.date}}</th>
+              <td *ngFor="let val of date.value">{{val}}</td>
+            </tr>
+          </table>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

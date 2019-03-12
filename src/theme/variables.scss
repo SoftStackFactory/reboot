@@ -3,6 +3,9 @@
 
 //ToastController width
 $toast-max-width: 1000px;
+.toaster{
+  text-align: center;
+}
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
@@ -28,6 +31,9 @@ $range-ios-slider-height: 100px;
 
 @import "ionic.globals";
 
+.card-content .item {
+  background-color: transparent;
+}
 
 // Shared Variables
 // --------------------------------------------------
@@ -49,11 +55,12 @@ $range-ios-slider-height: 100px;
 
 $colors: (
   primary:    #488aff,
-  secondary:  #32db64,
+  secondary:  #2e4256,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
 );
+
 // $alert-min-width: (	
 //   70%);	
 // // Minimum width of the alert

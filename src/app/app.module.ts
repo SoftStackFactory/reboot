@@ -3,7 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpModule } from '@angular/http'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,39 +16,66 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TransitionPage } from '../pages/transition/transition';
 import { AssessmentPage } from '../pages/assessment/assessment';
 import { TimelinePage } from '../pages/timeline/timeline';
+import { SelfAssessmentPage } from '../pages/self-assessment/self-assessment';
 import { HistoryPage } from '../pages/history/history';
-import { TimelineComponent } from '../components/timeline/timeline';
+import { ResourcesPage } from '../pages/resources/resources';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { ChartComponent } from '../components/chart/chart';
 import { ChartProvider } from '../providers/chart/chart';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
+import { NewsPage } from '../pages/news/news';
+import { RssProvider } from '../providers/rss/rss';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { NewsWidgetComponent } from '../components/news-widget/news-widget';
+import { Network } from "@ionic-native/network";
+import { NetworkProvider } from '../providers/network/network'
+import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
+import { StorageProvider } from '../providers/storage/storage';
+import { httpInterceptorProviders } from './http-interceptors/index';
+import { TimelineComponent } from '../components/timeline/timeline';
+import { ActionItemProvider } from '../providers/action-item/action-item';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+import { TimelineProvider } from '../providers/timeline/timeline';
+
+
+const Pages = [
+  MyApp,
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  WizardPage,
+  DashboardPage,
+  ProfilePage,
+  TransitionPage,
+  AssessmentPage,
+  TimelinePage,
+  SelfAssessmentPage,
+  HistoryPage,
+  NewsPage,
+  ChartComponent,
+  ResourcesPage,
+  
+]
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    WizardPage,
-    DashboardPage,
-    ProfilePage,
-    TransitionPage,
-    AssessmentPage,
-    TimelinePage,
-    HistoryPage,
-    TimelineComponent,
+    ...Pages,
     TimelineItemComponent,
     TimelineTimeComponent,
-    ChartComponent
+    NewsWidgetComponent,
+    TimelineComponent,
+    ResourcesPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,14 +89,25 @@ import { IonicStorageModule } from '@ionic/storage';
     TransitionPage,
     AssessmentPage,
     TimelinePage,
-    HistoryPage
+    HistoryPage,
+    NewsPage,
+    SelfAssessmentPage,
+    ResourcesPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    httpInterceptorProviders,
     UserProvider,
-    ChartProvider
+    ChartProvider,
+    RssProvider,
+    InAppBrowser,
+    Network,
+    NetworkProvider,
+    StorageProvider,
+    ActionItemProvider,
+    TimelineProvider
   ]
 })
 export class AppModule {}

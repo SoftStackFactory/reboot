@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { PasswordValidator } from '../../validators/password.validator';
 import { UserProvider } from '../../providers/user/user';
@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
   selector: 'page-register',
   templateUrl: 'register.html',
 })
+
 export class RegisterPage {
 
   registerUser: any = {}
@@ -18,12 +19,15 @@ export class RegisterPage {
   private validate: FormGroup
   submitAttempt: boolean = false;
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              private formBuilder: FormBuilder, 
-              public _userService: UserProvider, 
-              private storage: Storage,
-              private toastCtrl: ToastController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder, 
+    public _userService: UserProvider, 
+    private storage: Storage,
+    private toastCtrl: ToastController,
+    public menuCtrl: MenuController,
+  ) {
     
     this.validate = this.formBuilder.group({
       first: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -51,9 +55,9 @@ export class RegisterPage {
     this.submitAttempt = true
     this._userService.sendReg(this.registerUser)
       .subscribe( (data: any) => {
-        this.storage.remove('userData')
-        this.storage.set('userData', data)
-        console.log('data from submitReg()', data)
+        this._userService.setCredentials(data);
+        this.menuCtrl.enable(true);
+        this.menuCtrl.swipeEnable(true);
       },
       err => {
       console.error('err from register:', err)
@@ -62,6 +66,15 @@ export class RegisterPage {
         this.goWizard()
       }
       ) 
+
+      // this._userService.login(this.registerUser)
+      // .subscribe(
+      //   (res) => {
+      //     let loginResponse: any = res;
+      //     sessionStorage.setItem('userId', loginResponse.userId)
+      //     sessionStorage.setItem('token', loginResponse.token);
+      //     alert("you're logged in!")
+      //t    });
   }
 
   goLogin() {

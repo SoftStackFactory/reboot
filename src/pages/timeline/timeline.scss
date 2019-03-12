@@ -1,16 +1,89 @@
 page-timeline {
-    #content {
-        h1 {
-            text-align: center !important;
-            padding-left: 5%;
-        }
 
-        p {
-            padding: 0px 5%;
-            font-size: 1.8rem;
-            line-height: 2.8rem;
-        }
+    .grid {
+        overflow-x: auto;
     }
 
+    #outter {
+        overflow-x: hidden;
+    }
 
+    #row {
+        padding-bottom: 3.5px;
+        white-space: nowrap;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .segment-md .segment-button {
+        min-height: 40px;
+        height: auto;
+        min-width: 130px;
+        line-height: 1.5rem !important;
+        // white-space: normal;
+        margin: 0px 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .scroll-content {
+        overflow: hidden;
+        margin-bottom: 45px;
+    }
+
+    .card-title-md, .card-title-ios {
+        margin: 0;
+        padding: 0;
+    }
+
+    .slide-zoom {
+        align-self: start;
+    }
+
+    .goals {
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 15px;
+        font-weight: 450;
+        background-color: #f4f4f4;
+        text-align: start;
+
+    }
+
+    .card-header {
+        background-color: map-get($colors, secondary);
+        color: #ffffff
+    }
+
+    .card-content-md {
+        text-align: start;
+        padding: 20px 10px;
+        font-size: 1.5rem;
+    }
+
+    ion-icon {
+    vertical-align: middle;
+    font-size: xx-large;
+    }
+
+    @media only screen and (max-width: 610px) {
+        #outter {
+            overflow-x: scroll;
+            min-width: 700px;
+            margin-bottom: -5.5px;
+        }
+
+        #row {
+            margin: none;
+        }
+    
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
+
+

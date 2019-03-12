@@ -1,0 +1,43 @@
+news-widget {
+
+  #content {
+    // min-height: 176px;
+  }
+
+  .timestamp {
+    font-size: 15px;
+    // text-indent: 13px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  h1 {
+    word-wrap: break-word;
+  }
+  
+  img {
+    width: 100%;
+    position: relative;
+    right: 10px;
+    margin: 4px;
+    border-radius: 10px;
+  }
+
+  div {
+    zoom: 0.9;
+  }
+
+  #separationLink {
+    position: absolute;
+    text-align: center;
+  }
+
+  #summary {
+    font-size: 20px;
+  }
+
+
+
+}

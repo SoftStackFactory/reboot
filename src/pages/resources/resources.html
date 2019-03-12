@@ -1,0 +1,111 @@
+<!--
+  Generated template for the ResourcesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>Resources</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class='wrapper'>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-card>
+            <ion-card-content class="card-text">
+              <h1>This page will provide helpful resources to aid you in your transition.
+                <span *ngIf="assessmentCompleted">Based on your self assessment, here are some areas which might require
+                  more focus than others.
+                </span>
+                <span *ngIf="!assessmentCompleted">
+                  Please complete a self assessment in order to assess which resources would help you most.
+                </span>
+              </h1>
+              <ion-row center>
+                <ion-col text-center>
+                  <button ion-button class='button-style' color="secondary" *ngIf="!assessmentCompleted"
+                    (click)="openSelfAssessment()">Take
+                    the
+                    Self Assessment</button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-card *ngIf="assessmentCompleted" class="chartCard">
+            <ion-card-content>
+              <ion-grid>
+                <ion-row justify-content-around align-items-stretch>
+                  <ion-col col-12 col-sm-5>
+                    <div class="chart">
+                      <chart></chart>
+                    </div>
+                  </ion-col>
+                  <ion-col col-12 col-sm-5 class='title'>
+                    <ion-grid class='lowest-card'>
+                      <ion-row align-items-center class='lowest-card'>
+                        <ion-col col-12>
+                          <h1>
+                          Your lowest score on the self assessment is:
+                            <b><em>{{userPro.userData.lowScoreName}}</em></b>
+                          </h1>
+                        </ion-col>
+                        <ion-col col-12>
+                          <ion-card class="score-box">
+                            <div class="red"> {{userPro.userData.lowestScore}}</div>
+                          </ion-card>
+                        </ion-col>
+                        <ion-col col-12>
+                          <h1>
+                            Maybe you can start there?
+                          </h1>
+                        </ion-col>
+                        <ion-col col-12>
+                            <button ion-button class='button-style' color="secondary" (click)="openSelfAssessment()">Retake
+                              assessment
+                            </button>
+                            <button ion-button class='button-style' color="secondary" (click)="openChartHistory()">View history
+                            </button>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col *ngFor="let res of resources" col-12 col-lg-6 col-xl-6>
+          <ion-card class='card'>
+            <ion-card-header class='card-header'>
+              {{res.title}}
+            </ion-card-header>
+            <img class="image" src={{res.img}} alt="">
+            <ion-card-content class='card-body'>
+              {{res.message}}
+              <ion-row justify-content-end>
+                <button ion-button clear icon-end (click)="openModal(res)">
+                  Learn more
+                  <ion-icon name='arrow-dropright'></ion-icon>
+                </button>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

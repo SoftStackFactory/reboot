@@ -5,22 +5,21 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid no-padding class="my-grid">
+    <ion-row>
+      <ion-col id="header" col-12>
+          <h1 id="title">INTRANSITION</h1>
+      </ion-col>
+    </ion-row>
 
-  <div id="header">
-    <h1 id="title">INTRANSITION</h1>
-  </div>
-
-
-  <ion-grid>
     <form [formGroup]="loginCreds" (ngSubmit)="login()">
       
       <ion-row justify-content-center>
@@ -32,34 +31,38 @@
       </ion-row>
 
       <ion-row justify-content-center>
-        <ion-col col-7>
-          <ion-label class="labels"  style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
-          <ion-input formControlName="email" class="inputs" id="email" type="email"></ion-input>
+        <ion-col col-7 class="email-col">
+          <ion-label class="email-label" style="font-size: 25px" stacked>EMAIL ADDRESS</ion-label>
+          <p *ngIf="!loginCreds.controls.email.valid  && (loginCreds.controls.email.dirty || submitAttempt)" class="invalid-text">
+            Please enter a valid email
+          </p>
+          <ion-input formControlName="email" class="email-inputs" id="email" type="email"></ion-input>
         </ion-col>
       </ion-row>
 
-      <ion-row justify-content-center>
+
+      <!-- <ion-row justify-content-center>
         <ion-col col-10>
           <ion-item no-lines *ngIf="!loginCreds.controls.email.valid  && (loginCreds.controls.email.dirty || submitAttempt)">
-            <p text-center class="invalid-text">Please enter a valid email</p>
+            <p class="invalid-text">Please enter a valid email</p>
           </ion-item><br>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
       <ion-row justify-content-center>
         <ion-col col-7>
-          <ion-label class="labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
-          <ion-input formControlName="password" class="inputs" id="password" type="password"></ion-input>
+          <ion-label class="password-labels" style="font-size: 25px" stacked>PASSWORD</ion-label>
+          <ion-input formControlName="password" class="password-inputs" id="password" type="password"></ion-input>
         </ion-col>
       </ion-row>
 
-      <ion-row justify-content-center>
+      <!-- <ion-row justify-content-center>
         <ion-col col-10>
           <ion-item no-lines *ngIf="!loginCreds.controls.password.valid  && (loginCreds.controls.password.dirty || submitAttempt)">
             <p text-center class="invalid-text">Password contains 6-30 letters, numbers, or special characters</p>
           </ion-item><br>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
       <ion-row justify-content-center>
         <ion-col class="button-col" col-5>

@@ -1,27 +1,81 @@
-<!--
-  Generated template for the TimelinePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Timeline</ion-title>
-  </ion-navbar>
+        <ion-title text-center>Transition Timeline</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <ion-grid>
+        <div id='outter'>
+            <ion-row id='row'>
+                <ion-segment mode="md">
+                    <ion-segment-button id='seg0' (click)="slide(0)" value='1'>
+                        <span>Getting Out</span>
+                    </ion-segment-button>
+                    <ion-segment-button id='seg1' (click)="slide(1)" value='2'>
+                        <span>Starting Up</span>
+                    </ion-segment-button>
+                    <ion-segment-button id='seg2' (click)="slide(2)" value='3'>
+                        <span>Self Care</span> 
+                    </ion-segment-button>
+                    <ion-segment-button id='seg3' (click)="slide(3)" value='4'>
+                        <span>Reinventing Myself</span> 
+                    </ion-segment-button>
+                    <ion-segment-button id='seg4' (click)="slide(4)" value='5'>
+                        <span>Settling Down</span> 
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-row>
+        </div>
+    </ion-grid>
 
-  <div id="content">
-    <h1>Welcome to your timeline</h1>
-    <p class="p">This timeline covers the general life stages any Veteran may encounter. These life stages are organized to help you with your goals and aspirations. Each section lists out things you must do to help you move on to the next phase of your life.  </p>
-  </div>
-	
-		<timeline></timeline>
-
+    <ion-slides #slides>
+        <div *ngFor="let goal of goals; let i = index">
+            <ion-slide style='overflow-x: scroll; padding-bottom: 60px'>
+                <ion-card>
+                        <ion-grid no-padding>
+                    <ion-card-header>
+                            {{ goal.goalName }}
+                    </ion-card-header>
+                        <ion-card-title>
+                            <div *ngFor="let subgoal of goal.subGoal; let x = index">
+                                <div class='goals' (click)="subGoalToggle(i, x)">
+                                    <ion-row style="overflow:hidden; align-items:center">
+                                        <ion-col col-1 style='text-align: center' *ngIf='!subgoal.complete'>
+                                            <ion-icon name="ios-arrow-forward" *ngIf='!subgoal.toggle'></ion-icon>
+                                            <ion-icon name="ios-arrow-down" *ngIf='subgoal.toggle'></ion-icon>
+                                        </ion-col>
+                                        <ion-col col-1 *ngIf='subgoal.complete'>
+                                                <ion-icon name="checkmark" style='color: forestgreen'></ion-icon>
+                                        </ion-col>
+                                        <ion-col col-11 style='padding-left: 15px'>
+                                            {{ subgoal.subGoalName }}
+                                    </ion-col>
+                                    </ion-row>
+                                </div>
+                                <div *ngIf='subgoal.toggle'>
+                                    <ion-card-content *ngFor="let steps of subgoal.steps; let j = index">
+                                        <ion-row style="overflow:hidden; align-items:center">
+                                            <ion-col col-10>{{ steps.step }}</ion-col>
+                                            <ion-col col-2>
+                                                <ion-checkbox mode='ios' [(ngModel)]='timelineProvider.checkbox[steps.stepId]' (click)='subgoalCheck(i,x,j)' float-end></ion-checkbox>
+                                            </ion-col>
+                                        </ion-row>  
+                                    </ion-card-content>
+                                </div>
+                            </div>
+                        </ion-card-title>
+                    </ion-grid>
+                </ion-card>
+            </ion-slide>
+        </div>
+    </ion-slides>
+    
 
 </ion-content>
+
+<button ion-button color="primary" (click)="updateProgress()" style='position: fixed; bottom: 0px; height: 4rem;' block>Update Progress</button>
