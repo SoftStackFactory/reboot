@@ -28,7 +28,7 @@
 
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
-        <ion-card class="sep cards row2">
+        <ion-card class="cards">
           <div class="ifUndefined headers" *ngIf="assessDate < 0 || assessDate === undefined">
             {{ this.name }}, please refer to the link below to take your first assessment.
           </div>
@@ -208,7 +208,7 @@
               <h4 class="actionItemText">Please complete a Self Assessment</h4>
 
               <ion-row justify-content-end>
-                <button ion-button clear icon-end (click)="toSelfAssessment()">
+                <button ion-button outline icon-end (click)="toSelfAssessment()">
                   Complete an assessment
                   <ion-icon name="arrow-dropright"></ion-icon>
                 </button>
@@ -228,7 +228,8 @@
                     <p><strong>What is this?</strong></p>
                     <p class="graphDescription">The graph to the left is a visual depiction of your more recent
                       self-assessment.</p>
-                    <p class="hoverOverDescripition">Hover over each area for more detail!</p>
+                      <br>
+                    <p>Hover over each area for more detail!</p>
                   </ion-col>
                 </ion-row>
               </ion-grid>

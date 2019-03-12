@@ -85,6 +85,7 @@ page-dashboard {
     }
     .conditionP {
         font-size: 16px;
+        background-color: transparent;
     }
 
     .card-md p {
@@ -94,6 +95,8 @@ page-dashboard {
     .assessmentButton {
         font-weight: bold;
         font-size: 1.6em;
+        background-color: transparent;
+        color: #488aff;
     }
 
     .assessmentConditionMetButton {
@@ -148,10 +151,6 @@ page-dashboard {
     }
 
     .graphDescription {
-        margin-top: 5%;
-    }
-
-    .hoverOverDescripition {
         margin-top: 5%;
     }
 
