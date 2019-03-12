@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, ViewChild } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { UserProvider } from '../../providers/user/user';
 import { App, MenuController } from 'ionic-angular';
 import { LoginPage } from '../../pages/login/login';
