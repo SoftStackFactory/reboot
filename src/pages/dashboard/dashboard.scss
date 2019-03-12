@@ -63,7 +63,7 @@ page-dashboard {
         height: 100px; 
         flex-basis: 25rem;
         padding: 5rem 1rem;
-        font-size: 2.5em;
+        font-size: 20px;
         text-decoration: underline;
         border-radius: 10px;
     }
@@ -178,7 +178,7 @@ page-dashboard {
 
     .networkingAdvice {
        padding: 0px 30px 10px 30px; 
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
     }
 
@@ -209,6 +209,7 @@ page-dashboard {
 
     .card-ios p {
         color: black;
+        font-size: 18px;
     }
 
     /* Mobile Styles */
@@ -226,8 +227,12 @@ page-dashboard {
          }
 
          .warningMeter { 
-             margin-top: 1em;
+            margin-top: 1em;
             padding: 0 1.5em 0 1.5em;
+         }
+
+         .zoneExHeader {
+             font-size: 22px;
          }
 
          .box {
@@ -247,8 +252,38 @@ page-dashboard {
     
     /* Tablet Styles */
     @media only screen and (min-width: 401px) and (max-width: 960px) {
-        
+
+        .welcome {
+            font-size: 18px;
+        }
+
+        .headers {
+            font-size: 18px;
+        }
+
+        .warningMeter { 
+            margin-top: 1em;
+            padding: 0 1.5em 0 1.5em;
+         }
+
+        .box { 
+            height: 75px; 
+            width: 30px;
+            flex-basis: 20rem;
+         }
+
+
+         .zoneExHeader {
+            font-size: 22px;
+        }
+
+         .networkingAdvice {
+            padding: 0px;
+         }
+
     }
+
+
   
 
 
