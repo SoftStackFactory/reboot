@@ -59,19 +59,19 @@ page-dashboard {
         background-color: red;
       }
 
-    .grow {
-        height: 100px; 
-        flex-basis: 25rem;
-        padding: 5rem 1rem;
-        font-size: 20px;
-        text-decoration: underline;
-        border-radius: 10px;
-    }
-
     .range {
         text-align: center;
         font-weight: bold;
         padding-top: 5px;
+    }
+
+    .grow {
+        height: 150px; 
+        flex-basis: 25rem;
+        padding: 0;
+        font-size: 30px;
+        text-decoration: underline;
+        border-radius: 10px;
     }
 
     .zoneWrapper {
@@ -246,6 +246,16 @@ page-dashboard {
             font-size: 18px;
             padding: 0px;
          }
+
+         .grow {
+            height: 100px; 
+            flex-basis: 30rem;
+            padding: 0;
+         }
+
+         .card-md p {
+             font-size: 1em;
+         }
          
          
     }
@@ -279,6 +289,20 @@ page-dashboard {
 
          .networkingAdvice {
             padding: 0px;
+         }
+
+         .card-md p {
+            font-size: 1em;
+        }
+
+        .grow {
+            height: 100px; 
+            flex-basis: 30rem;
+            padding: 0;
+         }
+
+         .headerWrapper {
+             padding: 0px 15px 0px 15px;
          }
 
     }
