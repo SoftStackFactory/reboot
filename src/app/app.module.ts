@@ -36,6 +36,7 @@ import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { TimelineComponent } from '../components/timeline/timeline';
+import { MeterComponent} from '../components/meter/meter';
 import { ActionItemProvider } from '../providers/action-item/action-item';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { TimelineProvider } from '../providers/timeline/timeline';
@@ -58,7 +59,8 @@ const Pages = [
   NewsPage,
   ChartComponent,
   ResourcesPage,
-  StyleGuidePage
+  StyleGuidePage, 
+  MeterComponent
 ]
 
 @NgModule({
@@ -69,7 +71,8 @@ const Pages = [
     NewsWidgetComponent,
     TimelineComponent,
     ResourcesPage,
-    ProgressBarComponent
+    ProgressBarComponent, 
+    MeterComponent
   ],
   imports: [
     BrowserModule,
