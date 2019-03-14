@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { MeterComponent } from './meter/meter';
+import { MeterCompComponent } from './meterComp/meterComp';
 @NgModule({
-	declarations: [MeterComponent],
+	declarations: [MeterCompComponent],
 	imports: [],
-	exports: [MeterComponent]
+	exports: [MeterCompComponent]
 })
 export class ComponentsModule {}

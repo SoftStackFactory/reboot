@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserProvider } from '../../providers/user/user';
+
 
 /**
  * Generated class for the MeterComponent component.
@@ -7,16 +9,15 @@ import { Component } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'meter',
-  templateUrl: 'meter.html'
+  selector: 'meterComp',
+  templateUrl: 'meterComp.html'
 })
-export class MeterComponent {
+export class MeterCompComponent {
 
   text: string;
 
-  constructor() {
-    console.log('Hello MeterComponent Component');
-    this.text = 'Hello World';
+  constructor(public user: UserProvider,) {
+   
   }
 
 }

@@ -1,0 +1,309 @@
+meter {
+        .welcome {
+            font-size: 26px;
+            color:#2a3d4f;
+            font-weight: bold;
+        }
+    
+        .cards {
+            background-color: #5f9ad629;
+        }
+        .headers {
+            font-weight: bold; 
+            font-size: 26px;
+            padding: 16px;
+            font-size: 24px;
+            color: #2a3d4fb3;
+        }
+    
+        .actionItemText {
+            font-size: 20px;
+            text-align: center;
+        }
+    
+    
+        .warningMeter {
+            display: flex; 
+            justify-content: center;
+            margin-top: 2em;
+            align-items: center;
+            align-content: center;
+            padding: 0 3em 0 3em;
+          }
+          
+        .box {
+            height: 125px; 
+            width: 80px; 
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-basis: 15rem;
+        }
+          
+          .good {
+            background-color: green;
+          }
+          
+          .weak {
+            background-color: yellow;
+          }
+          
+          .poor {
+            background-color: orange;
+          }
+          
+          .danger {
+            background-color: red;
+          }
+    
+        .range {
+            text-align: center;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+    
+        .grow {
+            height: 150px; 
+            flex-basis: 25rem;
+            padding: 0;
+            font-size: 30px;
+            text-decoration: underline;
+            border-radius: 10px;
+        }
+    
+        .zoneWrapper {
+            display: flex; 
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .conditionP {
+            font-size: 16px;
+            background-color: transparent;
+        }
+    
+        .card-md p {
+            font-size: 1.6em;
+        }
+    
+        .assessmentButton {
+            font-weight: bold;
+            font-size: 1.6em;
+            background-color: transparent;
+            color: #488aff;
+        }
+    
+        .assessmentConditionMetButton {
+            font-size: 1em;
+            background-color: transparent;
+            color: #488aff;
+        }
+    
+        .whyTakeAssessmentHeader {
+            font-weight: bold; 
+            text-decoration: underline;
+        }
+    
+        .headerWrapper {
+            text-align: center;
+            padding: 20px 40px 10px 40px;
+        }
+    
+        .ifUndefined {
+            text-align: center;
+        }
+    
+        .zoneExHeader {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    
+        .greenHeader {
+            color: green;
+        }
+    
+        .yellowHeader {
+            color: yellow
+        }
+    
+        .orangeHeader {
+            color: orange;
+        }
+    
+        .redHeader {
+            color: red;
+        }
+    
+        .zoneDescription {
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+    
+        .graphDescriptionWrapper {
+            text-align: center;
+        }
+    
+        .graphDescription {
+            margin-top: 5%;
+        }
+    
+        .cardLinks {
+            display: flex;
+            flex-flow: row-nowrap;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+        }
+    
+        .linkIcons {
+            font-size: 40px; 
+            margin: 10px;
+        }
+    
+        .networkImages {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+        }
+    
+        #networkingImage {
+            width: 25%; 
+            height: 25%;
+        }
+    
+        .networkingAdvice {
+           padding: 0px 30px 10px 30px; 
+            font-size: 18px;
+            text-align: center;
+        }
+    
+        .input-wrapper {
+            background-color: transparent;
+        }
+    
+        button:hover {
+            color: #8eafe8;
+        }
+        
+       
+        .card-content ion-item.item-block {
+            min-height: 2rem;
+        }
+      
+        .currentActionItemBody {
+            font-size: 20px;
+        }
+    
+        .item-md [item-end]{
+            margin: 0;
+        }
+    
+        .button-md {
+            font-size: 18px;
+        }
+    
+        .card-ios p {
+            color: black;
+            font-size: 18px;
+        }
+    
+        /* Mobile Styles */
+        @media only screen and (max-width: 400px) {
+             .welcome {
+                 font-size: 18px;
+             }
+    
+             .headers {
+                 font-size: 18px;
+             }
+    
+             .headerWrapper {
+                 padding: 0px 20px 0px 20px;
+             }
+    
+             .warningMeter { 
+                margin-top: 1em;
+                padding: 0 1.5em 0 1.5em;
+             }
+    
+             .zoneExHeader {
+                 font-size: 22px;
+             }
+    
+             .box {
+    
+                height: 75px; 
+                width: 30px;
+                flex-basis: 20rem;
+                font-size: 18px;
+             }
+    
+             .networkingAdvice {
+                font-size: 18px;
+                padding: 0px;
+             }
+    
+             .grow {
+                height: 100px; 
+                flex-basis: 30rem;
+                padding: 0;
+             }
+    
+             .card-md p {
+                 font-size: 1em;
+             }
+             
+             
+        }
+        
+        /* Tablet Styles */
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+    
+            .welcome {
+                font-size: 18px;
+            }
+    
+            .headers {
+                font-size: 18px;
+            }
+    
+            .warningMeter { 
+                margin-top: 1em;
+                padding: 0 1.5em 0 1.5em;
+             }
+    
+            .box { 
+                height: 75px; 
+                width: 30px;
+                flex-basis: 20rem;
+             }
+    
+    
+             .zoneExHeader {
+                font-size: 22px;
+            }
+    
+             .networkingAdvice {
+                padding: 0px;
+             }
+    
+             .card-md p {
+                font-size: 1em;
+            }
+    
+            .grow {
+                height: 100px; 
+                flex-basis: 30rem;
+                padding: 0;
+             }
+    
+             .headerWrapper {
+                 padding: 0px 15px 0px 15px;
+             }
+    
+        }
+    }
+    

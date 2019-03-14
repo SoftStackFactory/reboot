@@ -12,7 +12,6 @@
 </ion-header>
 
 
-
 <ion-content padding>
   <ion-grid>
     <ion-row>
@@ -30,111 +29,17 @@
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
         <ion-card class="cards">
-          <div class="ifUndefined headers" *ngIf="assessDate < 0 || assessDate === undefined">
-            {{ this.name }}, please refer to the link below to take your first assessment.
+          <div class="headers" text-center *ngIf="user.assessDate">
+            {{ this.name }}, it's been <u>{{user.assessDate}}</u> days since your last assessment.
           </div>
-
-          <div class="headers" text-center *ngIf="assessDate">
-            {{ this.name }}, it's been <u>{{assessDate}}</u> days since your last assessment.
-          </div>
-
-          <div class="warningMeter">
-            <div class="box good" [ngClass]="{'grow': assessDate < 7}">
-              <span class="range">Good</span>
-            </div>
-            <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
-              <span class="range">Fair</span>
-            </div>
-            <div class="box poor" [ngClass]="{'grow': assessDate >= 12 && assessDate < 20}">
-              <span class="range">Weak</span>
-            </div>
-            <div class="box danger" [ngClass]="{'grow': assessDate >= 20}">
-              <span class="range">Danger</span>
-            </div>
-          </div>
-
-
-          <div class="zoneWrapper">
-            <div class="ifUndefined" *ngIf="assesDate < 0 || assessDate === undefined">
-              <p class="conditionP"> To find out which range you fall within</p>
-              <button class="assessmentButton" (click)="toSelfAssessment()">take your first
-                assessment.</button>
-            </div>
-
-            <div class="headerWrapper" *ngIf="assessDate > 0 && assessDate < 7">
-              <h3 class="zoneExHeader greenHeader">GOOD</h3>
-              <p class="zoneDescription"> Being in the green means orem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam. </p>
-              <br>
-              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
-              <br>
-              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam.</p>
-              <br>
-              <p>Take another assessment<button class="assessmentConditionMetButton"
-                  (click)="toSelfAssessment()">here.</button></p>
-            </div>
-
-            <div class="headerWrapper" *ngIf="assessDate >= 7 && assessDate < 12">
-              <h3 class="zoneExHeader yellowHeader">Fair</h3>
-              <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam. </p>
-              <br>
-              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
-              <br>
-              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam.</p>
-              <br>
-              <p>Take another assessment<button class="assessmentConditionMetButton"
-                  (click)="toSelfAssessment()">here.</button></p>
-            </div>
-
-            <div class="headerWrapper" *ngIf="assessDate >= 12 && assessDate < 20">
-              <h3 class="zoneExHeader orangeHeader">Weak</h3>
-              <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam. </p>
-              <br>
-              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
-              <br>
-              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam.</p>
-              <br>
-              <p>Take another assessment<button class="assessmentConditionMetButton"
-                  (click)="toSelfAssessment()">here.</button></p>
-            </div>
-
-            <div class="headerWrapper" *ngIf="assessDate >= 20">
-              <h3 class="zoneExHeader orangeHeader">Danger</h3>
-              <p class="zoneDescription"> Being in the red means lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam. </p>
-              <br>
-              <p class="whyTakeAssessmentHeader">Why assessments are important</p>
-              <br>
-              <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
-                complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
-                latine, bonorum perfecto no nam.</p>
-              <br>
-              <p>Take another assessment<button class="assessmentConditionMetButton"
-                  (click)="toSelfAssessment()">here.</button></p>
-            </div>
-          </div>
-
+          <meterComp></meterComp>
           <ion-card-content>
-
             <ion-row justify-content-end>
               <button ion-button icon-end outline (click)="toTimeline()">
                 Next
                 <ion-icon name="arrow-dropright"></ion-icon>
               </button>
             </ion-row>
-
           </ion-card-content>
         </ion-card>
 
@@ -176,7 +81,7 @@
           </ion-card>
         </ion-col>
 
-      <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
+        <div class="feedgrabbr_widget" id="fgid_6df9b0bc92d7670f82a1d8650"></div>
       </ion-col>
 
       <ion-col col-xl-4>
@@ -186,7 +91,7 @@
           </ion-card-header>
           <ion-card-content>
             <news-widget></news-widget>
-          <br>
+            <br>
             <ion-row justify-content-end>
               <button ion-button icon-end outline (click)="toNews()">
                 More
@@ -228,7 +133,7 @@
                     <p><strong>What is this?</strong></p>
                     <p class="graphDescription">The graph to the left is a visual depiction of your most recent
                       self-assessment.</p>
-                      <br>
+                    <br>
                     <p>Hover over each area for more detail!</p>
                   </ion-col>
                 </ion-row>

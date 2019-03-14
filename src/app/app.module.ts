@@ -36,7 +36,7 @@ import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { TimelineComponent } from '../components/timeline/timeline';
-import { MeterComponent} from '../components/meter/meter';
+import { MeterCompComponent} from '../components/meterComp/meterComp';
 import { ActionItemProvider } from '../providers/action-item/action-item';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { TimelineProvider } from '../providers/timeline/timeline';
@@ -60,7 +60,7 @@ const Pages = [
   ChartComponent,
   ResourcesPage,
   StyleGuidePage, 
-  MeterComponent
+  MeterCompComponent
 ]
 
 @NgModule({
@@ -72,7 +72,7 @@ const Pages = [
     TimelineComponent,
     ResourcesPage,
     ProgressBarComponent, 
-    MeterComponent
+    MeterCompComponent
   ],
   imports: [
     BrowserModule,
