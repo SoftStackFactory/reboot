@@ -8,10 +8,10 @@
       <span class="range">Good</span>
     </div>
     <div class="box weak" [ngClass]="{'grow': user.assessDate >= 7 && user.assessDate < 12}">
-      <span class="range">Fair</span>
+      <span class="range">Weak</span>
     </div>
     <div class="box poor" [ngClass]="{'grow': user.assessDate >= 12 && user.assessDate < 20}">
-      <span class="range">Week</span>
+      <span class="range">Poor</span>
     </div>
     <div class="box danger" [ngClass]="{'grow': user.assessDate >= 20}">
       <span class="range">Danger</span>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="headerWrapper" *ngIf="user.assessDate >= 7 && user.assessDate < 12">
-      <h3 class="zoneExHeader yellowHeader">Fair</h3>
+      <h3 class="zoneExHeader yellowHeader">Weak</h3>
       <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
         complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
         latine, bonorum perfecto no nam. </p>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="headerWrapper" *ngIf="user.assessDate >= 12 && user.assessDate < 20">
-      <h3 class="zoneExHeader orangeHeader">Weak</h3>
+      <h3 class="zoneExHeader orangeHeader">Poor</h3>
       <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
         complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
         latine, bonorum perfecto no nam. </p>

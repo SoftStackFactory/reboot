@@ -1,13 +1,5 @@
 meter {
-        .welcome {
-            font-size: 26px;
-            color:#2a3d4f;
-            font-weight: bold;
-        }
     
-        .cards {
-            background-color: #5f9ad629;
-        }
         .headers {
             font-weight: bold; 
             font-size: 26px;
@@ -15,12 +7,6 @@ meter {
             font-size: 24px;
             color: #2a3d4fb3;
         }
-    
-        .actionItemText {
-            font-size: 20px;
-            text-align: center;
-        }
-    
     
         .warningMeter {
             display: flex; 
@@ -77,6 +63,7 @@ meter {
             justify-content: center;
             margin-top: 40px;
         }
+
         .conditionP {
             font-size: 16px;
             background-color: transparent;
@@ -144,59 +131,13 @@ meter {
             text-align: center;
         }
     
-        .graphDescription {
-            margin-top: 5%;
-        }
-    
-        .cardLinks {
-            display: flex;
-            flex-flow: row-nowrap;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            margin: 0;
-            font-size: 20px;
-        }
-    
-        .linkIcons {
-            font-size: 40px; 
-            margin: 10px;
-        }
-    
-        .networkImages {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-around;
-        }
-    
-        #networkingImage {
-            width: 25%; 
-            height: 25%;
-        }
-    
-        .networkingAdvice {
-           padding: 0px 30px 10px 30px; 
-            font-size: 18px;
-            text-align: center;
-        }
-    
-        .input-wrapper {
-            background-color: transparent;
-        }
     
         button:hover {
             color: #8eafe8;
         }
         
-       
-        .card-content ion-item.item-block {
-            min-height: 2rem;
-        }
       
-        .currentActionItemBody {
-            font-size: 20px;
-        }
-    
+       
         .item-md [item-end]{
             margin: 0;
         }
@@ -212,9 +153,6 @@ meter {
     
         /* Mobile Styles */
         @media only screen and (max-width: 400px) {
-             .welcome {
-                 font-size: 18px;
-             }
     
              .headers {
                  font-size: 18px;
@@ -234,16 +172,10 @@ meter {
              }
     
              .box {
-    
                 height: 75px; 
                 width: 30px;
                 flex-basis: 20rem;
                 font-size: 18px;
-             }
-    
-             .networkingAdvice {
-                font-size: 18px;
-                padding: 0px;
              }
     
              .grow {
@@ -262,10 +194,6 @@ meter {
         /* Tablet Styles */
         @media only screen and (min-width: 401px) and (max-width: 960px) {
     
-            .welcome {
-                font-size: 18px;
-            }
-    
             .headers {
                 font-size: 18px;
             }
@@ -281,14 +209,9 @@ meter {
                 flex-basis: 20rem;
              }
     
-    
              .zoneExHeader {
                 font-size: 22px;
             }
-    
-             .networkingAdvice {
-                padding: 0px;
-             }
     
              .card-md p {
                 font-size: 1em;
