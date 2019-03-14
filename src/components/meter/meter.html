@@ -9,17 +9,16 @@
 
   <div class="warningMeter">
     <div class="box good" [ngClass]="{'grow': assessDate < 7}">
-      <span class="range">1-6</span>
+      <span class="range">Good</span>
     </div>
     <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
-      <span class="range">7-11</span>
+      <span class="range">Fair</span>
     </div>
     <div class="box poor" [ngClass]="{'grow': assessDate >= 12 && assessDate < 20}">
-      <span class="range">12-20</span>
+      <span class="range">Week</span>
     </div>
     <div class="box danger" [ngClass]="{'grow': assessDate >= 20}">
-      <span class="range">20+</span>
+      <span class="range">Danger</span>
     </div>
   </div>
 
-  

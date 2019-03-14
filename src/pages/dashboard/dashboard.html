@@ -40,16 +40,16 @@
 
           <div class="warningMeter">
             <div class="box good" [ngClass]="{'grow': assessDate < 7}">
-              <span class="range">1-6</span>
+              <span class="range">Good</span>
             </div>
             <div class="box weak" [ngClass]="{'grow': assessDate >= 7 && assessDate < 12}">
-              <span class="range">7-11</span>
+              <span class="range">Fair</span>
             </div>
             <div class="box poor" [ngClass]="{'grow': assessDate >= 12 && assessDate < 20}">
-              <span class="range">12-20</span>
+              <span class="range">Weak</span>
             </div>
             <div class="box danger" [ngClass]="{'grow': assessDate >= 20}">
-              <span class="range">20+</span>
+              <span class="range">Danger</span>
             </div>
           </div>
 
@@ -62,7 +62,7 @@
             </div>
 
             <div class="headerWrapper" *ngIf="assessDate > 0 && assessDate < 7">
-              <h3 class="zoneExHeader greenHeader">GREEN</h3>
+              <h3 class="zoneExHeader greenHeader">GOOD</h3>
               <p class="zoneDescription"> Being in the green means orem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="headerWrapper" *ngIf="assessDate >= 7 && assessDate < 12">
-              <h3 class="zoneExHeader yellowHeader">YELLOW</h3>
+              <h3 class="zoneExHeader yellowHeader">Fair</h3>
               <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
@@ -94,7 +94,7 @@
             </div>
 
             <div class="headerWrapper" *ngIf="assessDate >= 12 && assessDate < 20">
-              <h3 class="zoneExHeader orangeHeader">ORANGE</h3>
+              <h3 class="zoneExHeader orangeHeader">Weak</h3>
               <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
@@ -110,7 +110,7 @@
             </div>
 
             <div class="headerWrapper" *ngIf="assessDate >= 20">
-              <h3 class="zoneExHeader orangeHeader">RED</h3>
+              <h3 class="zoneExHeader orangeHeader">Danger</h3>
               <p class="zoneDescription"> Being in the red means lorem ipsum dolor sit amet, id nec voluptaria
                 complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
                 latine, bonorum perfecto no nam. </p>
