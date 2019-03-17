@@ -32,7 +32,7 @@
           <div class="headers" text-center *ngIf="user.assessDate">
             {{ this.name }}, it's been <u>{{user.assessDate}}</u> days since your last assessment.
           </div>
-          <meterComp></meterComp>
+          <warning-meter></warning-meter>
           <ion-card-content>
             <ion-row justify-content-end>
               <button ion-button icon-end outline (click)="toTimeline()">

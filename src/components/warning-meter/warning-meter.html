@@ -1,0 +1,98 @@
+ 
+  <div class="ifUndefined headers" *ngIf="user.assessDate < 0 || user.assessDate === undefined">
+    {{ this.name }}, please refer to the link below to take your first assessment.
+  </div>
+
+  <div class="warningMeter">
+    <div class="box good" [ngClass]="{'grow': user.assessDate < 7}">
+      <span class="range">Good</span>
+    </div>
+    <div class="box weak" [ngClass]="{'grow': user.assessDate >= 7 && user.assessDate < 12}">
+      <span class="range">Weak</span>
+    </div>
+    <div class="box poor" [ngClass]="{'grow': user.assessDate >= 12 && user.assessDate < 20}">
+      <span class="range">Poor</span>
+    </div>
+    <div class="box danger" [ngClass]="{'grow': user.assessDate >= 20}">
+      <span class="range">Danger</span>
+    </div>
+  </div>
+
+  <div class="zoneWrapper">
+    <div class="ifUndefined" *ngIf="user.assessDate < 0 || user.assessDate === undefined">
+      <p class="conditionP"> To find out which range you fall within</p>
+      <button class="assessmentButton" (click)="toSelfAssessment()">take your first
+        assessment.</button>
+    </div>
+
+    <div class="headerWrapper" *ngIf="user.assessDate > 0 && user.assessDate < 7">
+      <h3 class="zoneExHeader greenHeader">GOOD</h3>
+      <p class="zoneDescription"> Being in the green means orem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam. </p>
+      <br>
+      <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+      <br>
+      <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam.</p>
+      <br>
+      <p>Take another assessment<button class="assessmentConditionMetButton"
+          (click)="toSelfAssessment()">here.</button></p>
+    </div>
+
+    <div class="headerWrapper" *ngIf="user.assessDate >= 7 && user.assessDate < 12">
+      <h3 class="zoneExHeader yellowHeader">Weak</h3>
+      <p class="zoneDescription"> Being in the yellow means lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam. </p>
+      <br>
+      <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+      <br>
+      <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam.</p>
+      <br>
+      <p>Take another assessment<button class="assessmentConditionMetButton"
+          (click)="toSelfAssessment()">here.</button></p>
+    </div>
+
+    <div class="headerWrapper" *ngIf="user.assessDate >= 12 && user.assessDate < 20">
+      <h3 class="zoneExHeader orangeHeader">Poor</h3>
+      <p class="zoneDescription"> Being in the orange means lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam. </p>
+      <br>
+      <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+      <br>
+      <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam.</p>
+      <br>
+      <p>Take another assessment<button class="assessmentConditionMetButton"
+          (click)="toSelfAssessment()">here.</button></p>
+    </div>
+
+    <div class="headerWrapper" *ngIf="user.assessDate >= 20">
+      <h3 class="zoneExHeader orangeHeader">Danger</h3>
+      <p class="zoneDescription"> Being in the red means lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam. </p>
+      <br>
+      <p class="whyTakeAssessmentHeader">Why assessments are important</p>
+      <br>
+      <p>Assessments are a vital part of the process... lorem ipsum dolor sit amet, id nec voluptaria
+        complectitur concludaturque, iuvaret deleniti mea ne, mea in tractatos instructior. Per id tollit
+        latine, bonorum perfecto no nam.</p>
+      <br>
+      <p>Take another assessment<button class="assessmentConditionMetButton"
+          (click)="toSelfAssessment()">here.</button></p>
+    </div>
+  </div>
+
+
+
+
+
+
+
