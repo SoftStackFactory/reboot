@@ -22,10 +22,11 @@ export class LoginPage {
   getDummyChart: any
   user: any
   userId: any
+  bgInterval:any = ''
 
   private loginCreds : FormGroup;
-  // loginResponse: any;
-  checkResponse: any;
+  spinnerActive:any = false;
+  data:any
 
   constructor(
     public navCtrl: NavController,
@@ -51,6 +52,7 @@ export class LoginPage {
   */
 
   login() {
+    this.spinnerActive = true;
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
@@ -79,12 +81,13 @@ export class LoginPage {
           // this.loginResponse = res;
           console.log(res);
           this._userService.setCredentials(res);
-          alert("you're logged in!");
+          // alert("you're logged in!");
           // this.navCtrl.setRoot(WizardPage);
           //this.getChartData();
           this.firstTimeUserCheck()
         },
         (err) => {
+          this.spinnerActive = false;
           let toast = this.toastCtrl.create({
             message: "Invalid credentials",
             duration: 2500,
@@ -134,13 +137,32 @@ export class LoginPage {
     this.logInCheck();
   }
 
+  ionViewDidEnter() {
+    this.bkChange();
+  }
+
+
+  ionViewWillLeave() {
+    clearTimeout(this.bgInterval);
+  }
+
+  bkChange() {
+    this.bgInterval = setInterval(() => {
+      let random = Math.floor(Math.random() * 4) + 1
+      // console.log(random)
+        document.getElementById("background").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
+                                        
+        // document.getElementById("header").style.opacity = "1";
+    }, 20000)
+  }
+
   firstTimeUserCheck() {
     this._userService.getUser()
     .subscribe(response => {
-      this.checkResponse = response;
-      console.log(this.checkResponse)
-      if (this.checkResponse.militaryBranch) {
-        this.navCtrl.setRoot(DashboardPage);
+      this.data = response;
+      console.log(this.data)
+      if (this.data.militaryBranch) {
+        this.navCtrl.setRoot(DashboardPage, {}, {animate: true, direction: "forward"});
               } else {
         this.navCtrl.setRoot(WizardPage);        
       }
