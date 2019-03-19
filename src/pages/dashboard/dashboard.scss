@@ -22,125 +22,11 @@ page-dashboard {
         font-size: 20px;
         text-align: center;
     }
-
-
-    // .warningMeter {
-    //     display: flex; 
-    //     justify-content: center;
-    //     margin-top: 2em;
-    //     align-items: center;
-    //     align-content: center;
-    //     padding: 0 3em 0 3em;
-    //   }
-      
-    // .box {
-    //     height: 125px; 
-    //     width: 80px; 
-    //     border-radius: 5px;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     flex-basis: 15rem;
-    // }
-      
-    //   .good {
-    //     background-color: green;
-    //   }
-      
-    //   .weak {
-    //     background-color: yellow;
-    //   }
-      
-    //   .poor {
-    //     background-color: orange;
-    //   }
-      
-    //   .danger {
-    //     background-color: red;
-    //   }
-
-    // .range {
-    //     text-align: center;
-    //     font-weight: bold;
-    //     padding-top: 5px;
-    // }
-
-    // .grow {
-    //     height: 150px; 
-    //     flex-basis: 25rem;
-    //     padding: 0;
-    //     font-size: 30px;
-    //     text-decoration: underline;
-    //     border-radius: 10px;
-    // }
-
-    // .zoneWrapper {
-    //     display: flex; 
-    //     justify-content: center;
-    //     margin-top: 40px;
-    // }
-    // .conditionP {
-    //     font-size: 16px;
-    //     background-color: transparent;
-    // }
-
+     
     .card-md p {
         font-size: 1.6em;
     }
 
-    .assessmentButton {
-        font-weight: bold;
-        font-size: 1.6em;
-        background-color: transparent;
-        color: #488aff;
-    }
-
-    .assessmentConditionMetButton {
-        font-size: 1em;
-        background-color: transparent;
-        color: #488aff;
-    }
-
-    .whyTakeAssessmentHeader {
-        font-weight: bold; 
-        text-decoration: underline;
-    }
-
-    .headerWrapper {
-        text-align: center;
-        padding: 20px 40px 10px 40px;
-    }
-
-    .ifUndefined {
-        text-align: center;
-    }
-
-    .zoneExHeader {
-        font-size: 26px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
-
-    .greenHeader {
-        color: green;
-    }
-
-    .yellowHeader {
-        color: yellow
-    }
-
-    .orangeHeader {
-        color: orange;
-    }
-
-    .redHeader {
-        color: red;
-    }
-
-    .zoneDescription {
-        margin-top: 15px;
-        line-height: 1.5;
-    }
 
     .graphDescriptionWrapper {
         text-align: center;
@@ -190,7 +76,6 @@ page-dashboard {
         color: #8eafe8;
     }
     
-   
     .card-content ion-item.item-block {
         min-height: 2rem;
     }
@@ -221,45 +106,15 @@ page-dashboard {
          .headers {
              font-size: 18px;
          }
-
-         .headerWrapper {
-             padding: 0px 20px 0px 20px;
-         }
-
-         .warningMeter { 
-            margin-top: 1em;
-            padding: 0 1.5em 0 1.5em;
-         }
-
-         .zoneExHeader {
-             font-size: 22px;
-         }
-
-         .box {
-
-            height: 75px; 
-            width: 30px;
-            flex-basis: 20rem;
-            font-size: 16px;
-         }
-
+       
          .networkingAdvice {
             font-size: 18px;
             padding: 0px;
          }
 
-         .grow {
-            height: 100px; 
-            flex-basis: 30rem;
-            padding: 0;
-            font-size: 30px;
-         }
-
          .card-md p {
              font-size: 1em;
          }
-         
-         
     }
     
     /* Tablet Styles */
@@ -273,22 +128,6 @@ page-dashboard {
             font-size: 18px;
         }
 
-        .warningMeter { 
-            margin-top: 1em;
-            padding: 0 1.5em 0 1.5em;
-         }
-
-        .box { 
-            height: 75px; 
-            width: 30px;
-            flex-basis: 20rem;
-         }
-
-
-         .zoneExHeader {
-            font-size: 22px;
-        }
-
          .networkingAdvice {
             padding: 0px;
          }
@@ -296,18 +135,6 @@ page-dashboard {
          .card-md p {
             font-size: 1em;
         }
-
-        .grow {
-            height: 100px; 
-            flex-basis: 30rem;
-            padding: 0;
-            font-size: 26px;
-         }
-
-         .headerWrapper {
-             padding: 0px 15px 0px 15px;
-         }
-
     }
 
 
