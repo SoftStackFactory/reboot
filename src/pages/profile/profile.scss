@@ -51,8 +51,14 @@ page-profile {
         font-size: 18px;
     }
 
-    #pic-con {
+    .profIcon {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .pic-con {
         font-size: 250px;
+        align-self: center;
     }
    
     @media screen and (min-width: 768px) {

@@ -4,8 +4,8 @@
             <ion-row>
                 <ion-col>
                     <button class="title-color" ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
+                        <ion-icon name="menu"></ion-icon>
+                    </button>
                 </ion-col>
                 <ion-col pull-3 text-center>
                     <ion-title class="title-color">Profile</ion-title>
@@ -21,20 +21,22 @@
             <ion-col class="user-info-colum" align-self-center>
                 <ion-list>
                     <ion-row justify-content-center>
-                        <ion-col col-12 col-md-4 col-xl-2 text-center>
-                            <ion-icon id="pic-con" name="contact"></ion-icon>
+                        <ion-col col-12 col-md-4 col-xl-2 text-center class="profIcon">
+                            <ion-icon class="pic-con" name="contact"></ion-icon>
                         </ion-col>
                     </ion-row>
 
                     <div class="buttons-div">
-                        <button *ngIf="!editing" class="edit-button" item-end ion-button icon-only clear (click)="allowEdit()">
-              <ion-icon name="create" item-end></ion-icon>
-            </button>
+                        <button *ngIf="!editing" class="edit-button" item-end ion-button icon-only clear
+                            (click)="allowEdit()"> 
+                            <ion-icon name="create" item-end></ion-icon>
+                            edit info
+                        </button>
 
-                        <button *ngIf="editing" class="confirm-button" item-right ion-button icon-only clear (click)="updateProfile()">
-              <ion-icon name="checkbox-outline" item-end></ion-icon>
-            </button>
-
+                        <button *ngIf="editing" class="confirm-button" item-right ion-button icon-only clear
+                            (click)="updateProfile()">
+                            <ion-icon name="checkbox-outline" item-end></ion-icon>
+                        </button>
                     </div>
                     <ion-card>
                         <ion-card-content class="user-info-content" *ngIf="!editing">
@@ -48,7 +50,8 @@
                                 <span item-start>Email</span> <span item-end>{{ user.userData.email }} </span>
                             </ion-item>
                             <ion-item class="user-info-details">
-                                <span item-start>Marital Status</span> <span item-end>{{ user.userData.maritalStatus }} </span>
+                                <span item-start>Marital Status</span> <span item-end>{{ user.userData.maritalStatus }}
+                                </span>
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
@@ -86,10 +89,12 @@
                     <ion-card>
                         <ion-card-content class="user-info-content" *ngIf="!editing">
                             <ion-item class="user-info-details">
-                                <span item-start>Employment Status</span> <span item-end>{{ user.userData.employmentStatus }}</span>
+                                <span item-start>Employment Status</span> <span
+                                    item-end>{{ user.userData.employmentStatus }}</span>
                             </ion-item>
                             <ion-item class="user-info-details" *ngIf="user.userData.lastEmployed?.length">
-                                <span item-start>Last Employed</span> <span item-end>{{ user.userData.lastEmployed }}</span>
+                                <span item-start>Last Employed</span> <span
+                                    item-end>{{ user.userData.lastEmployed }}</span>
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
@@ -98,7 +103,8 @@
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Employment Status</ion-label>
                                 <!-- <ion-input type="text" [(ngModel)]=" user.userData.employmentStatus"></ion-input> -->
-                                <ion-select [selectOptions]="unemployedOptions" [(ngModel)]="user.userData.employmentStatus">
+                                <ion-select [selectOptions]="unemployedOptions"
+                                    [(ngModel)]="user.userData.employmentStatus">
                                     <ion-option>Employed</ion-option>
                                     <ion-option>Unemployed</ion-option>
                                 </ion-select>
@@ -106,7 +112,8 @@
                             <ion-item class="user-info-details" *ngIf="user.userData.employmentStatus == 'Unemployed'">
                                 <ion-label stacked>Last Employed</ion-label>
                                 <!-- <ion-input type="text" [(ngModel)]=" user.userData.lastEmployed"></ion-input> -->
-                                <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY" [(ngModel)]=" user.userData.lastEmployed">
+                                <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY"
+                                    [(ngModel)]=" user.userData.lastEmployed">
                                 </ion-datetime>
                             </ion-item>
                         </ion-card-content>
@@ -119,22 +126,28 @@
                                 <span item-start>Branch</span> <span item-end>{{ user.userData.militaryBranch }}</span>
                             </ion-item>
                             <ion-item class="user-info-details">
-                                <span item-start>Active Status</span> <span item-end>{{ user.userData.veteranOrActive }}</span>
+                                <span item-start>Active Status</span> <span
+                                    item-end>{{ user.userData.veteranOrActive }}</span>
                             </ion-item>
                             <ion-item class="user-info-details">
-                                <span item-start>Separation Date</span> <span item-end>{{ user.userData.separationDate }} </span>
+                                <span item-start>Separation Date</span> <span
+                                    item-end>{{ user.userData.separationDate }} </span>
                             </ion-item>
                             <ion-item class="user-info-details">
-                                <span item-start>Service Disability</span> <span item-end>{{ user.userData.disabilityStatus }} </span>
+                                <span item-start>Service Disability</span> <span
+                                    item-end>{{ user.userData.disabilityStatus }} </span>
                             </ion-item>
                             <ion-item class="user-info-details" *ngIf="user.userData.disabilityPercentage?.length > 1">
-                                <span item-start>Disability Rating</span> <span item-end>{{ user.userData.disabilityPercentage }}</span>
+                                <span item-start>Disability Rating</span> <span
+                                    item-end>{{ user.userData.disabilityPercentage }}</span>
                             </ion-item>
                             <ion-item class="user-info-details">
-                                <span item-start>Military Rank</span> <span item-end>{{ user.userData.militaryRank }} </span>
+                                <span item-start>Military Rank</span> <span item-end>{{ user.userData.militaryRank }}
+                                </span>
                             </ion-item>
                             <ion-item class="user-info-details">
-                                <span item-start>MOS/NEC</span> <span item-end>{{ user.userData.codeIdentifier }} </span>
+                                <span item-start>MOS/NEC</span> <span item-end>{{ user.userData.codeIdentifier }}
+                                </span>
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
@@ -154,22 +167,25 @@
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Active Status</ion-label>
                                 <!-- <ion-input type="text" [(ngModel)]="user.userData.veteranOrActive"></ion-input> -->
-                                <ion-select [selectOptions]="vetOrActiveOptions" [(ngModel)]="user.userData.veteranOrActive">
-                                        <ion-option>Active</ion-option>
-                                        <ion-option>Guard/Reserve</ion-option>
-                                        <ion-option>Veteran</ion-option>
-                                    </ion-select>
+                                <ion-select [selectOptions]="vetOrActiveOptions"
+                                    [(ngModel)]="user.userData.veteranOrActive">
+                                    <ion-option>Active</ion-option>
+                                    <ion-option>Guard/Reserve</ion-option>
+                                    <ion-option>Veteran</ion-option>
+                                </ion-select>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Separation Date</ion-label>
                                 <!-- <ion-input type="text" [(ngModel)]=" user.userData.separationDate"></ion-input> -->
-                                <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY" [(ngModel)]=" user.userData.separationDate">
+                                <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM/DD/YYYY"
+                                    [(ngModel)]=" user.userData.separationDate">
                                 </ion-datetime>
                             </ion-item>
                             <ion-item class="user-info-details">
                                 <ion-label stacked>Service Disability</ion-label>
                                 <!-- <ion-input type="text" [(ngModel)]=" user.userData.disabilityStatus"></ion-input> -->
-                                <ion-select [selectOptions]="disabilityOptions" [(ngModel)]="user.userData.disabilityStatus">
+                                <ion-select [selectOptions]="disabilityOptions"
+                                    [(ngModel)]="user.userData.disabilityStatus">
                                     <ion-option>Yes</ion-option>
                                     <ion-option>No</ion-option>
                                 </ion-select>
