@@ -58,7 +58,7 @@
                 <ion-col col-12 col-lg-6 col-xl-6>
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
-                            Personal Information
+                            Account Information
                         </ion-card-header>
                         <ion-card-content class="user-info-content" *ngIf="!editing">
                             <ion-list>
@@ -71,6 +71,9 @@
                                 </ion-item>
                                 <ion-item class="user-info-details">
                                     <span item-start>Email</span> <span item-end>{{ user.userData.email }} </span>
+                                </ion-item>
+                                <ion-item class="user-info-details">
+                                    <span item-start>Password</span> <span item-end></span>
                                 </ion-item>
                             </ion-list>
                         </ion-card-content>
@@ -92,6 +95,10 @@
                                     <ion-label stacked>E-mail</ion-label>
                                     <ion-input type="text" [(ngModel)]="user.userData.email"></ion-input>
                                 </ion-item>
+
+                                <ion-item class="user-info-details">
+                                    <span item-start>Password</span> <span item-end></span>
+                                </ion-item>
                             </ion-list>
                         </ion-card-content>
                     </ion-card>
@@ -105,7 +112,7 @@
                 <ion-col col-12 col-lg-6 col-xl-6>
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
-                            Other Info
+                            Personal Info
                         </ion-card-header>
 
                         <ion-card-content class="user-info-content" *ngIf="!editing">
@@ -191,9 +198,14 @@
 
             <ion-row>
                 <ion-col>
-                    <ion-list>
-                        <ion-card>
-                            <ion-card-content class="user-info-content" *ngIf="!editing">
+                    <ion-card class='round-card'>
+
+                        <ion-card-header class='card-header'>
+                            Military Information
+                        </ion-card-header>
+
+                        <ion-card-content class="user-info-content" *ngIf="!editing">
+                            <ion-list>
                                 <ion-item class="user-info-details">
                                     <span item-start>Branch</span> <span
                                         item-end>{{ user.userData.militaryBranch }}</span>
@@ -216,10 +228,14 @@
                                     <span item-start>MOS/NEC</span> <span item-end>{{ user.userData.codeIdentifier }}
                                     </span>
                                 </ion-item>
-                            </ion-card-content>
-                        </ion-card>
-                        <ion-card>
-                            <ion-card-content class="user-info-content" *ngIf="editing">
+
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-card>
+
+                    <ion-card>
+                        <ion-card-content class="user-info-content" *ngIf="editing">
+                            <ion-list>
                                 <ion-item class="user-info-details">
                                     <ion-label stacked>Branch edit</ion-label>
                                     <!-- <ion-input type="text" [(ngModel)]="user.userData.militaryBranch"></ion-input> -->
@@ -275,9 +291,10 @@
                                     <ion-label stacked>MOS/NEC</ion-label>
                                     <ion-input type="text" [(ngModel)]=" user.userData.codeIdentifier"></ion-input>
                                 </ion-item>
-                            </ion-card-content>
-                        </ion-card>
-                    </ion-list>
+                            </ion-list>
+                        </ion-card-content>
+
+                    </ion-card>
                 </ion-col>
             </ion-row>
         </ion-grid>
