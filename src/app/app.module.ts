@@ -36,7 +36,6 @@ import { OfflineInterceptor } from './http-interceptors/offlineInterceptor';
 import { StorageProvider } from '../providers/storage/storage';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { TimelineComponent } from '../components/timeline/timeline';
-import { MeterCompComponent} from '../components/meterComp/meterComp';
 import { ActionItemProvider } from '../providers/action-item/action-item';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { TimelineProvider } from '../providers/timeline/timeline';
@@ -61,7 +60,6 @@ const Pages = [
   ChartComponent,
   ResourcesPage,
   StyleGuidePage, 
-  MeterCompComponent, 
   WarningMeterComponent
 ]
 
@@ -74,7 +72,6 @@ const Pages = [
     TimelineComponent,
     ResourcesPage,
     ProgressBarComponent, 
-    MeterCompComponent, 
     WarningMeterComponent
   ],
   imports: [
