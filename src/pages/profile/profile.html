@@ -20,24 +20,31 @@
         <ion-row class="section" justify-content-center>
             <ion-col class="user-info-colum" align-self-center>
                 <ion-list>
+                    <!-- Prof pic image-->
                     <ion-row justify-content-center>
                         <ion-col col-12 col-md-4 col-xl-2 text-center class="profIcon">
                             <ion-icon class="pic-con" name="contact"></ion-icon>
                         </ion-col>
                     </ion-row>
 
+                    <!-- edit and save buttons -->
                     <div class="buttons-div">
+
                         <button *ngIf="!editing" class="edit-button" item-end ion-button icon-only clear
                             (click)="allowEdit()"> 
+                            edit
                             <ion-icon name="create" item-end></ion-icon>
-                            edit info
+                            
                         </button>
 
                         <button *ngIf="editing" class="confirm-button" item-right ion-button icon-only clear
                             (click)="updateProfile()">
                             <ion-icon name="checkbox-outline" item-end></ion-icon>
+                            save
                         </button>
+                    
                     </div>
+
                     <ion-card>
                         <ion-card-content class="user-info-content" *ngIf="!editing">
                             <ion-item class="user-info-details">
@@ -55,6 +62,7 @@
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
+
                     <ion-card>
                         <ion-card-content class="user-info-content" *ngIf="editing">
                             <ion-item class="user-info-details">

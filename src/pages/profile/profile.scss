@@ -5,6 +5,10 @@ page-profile {
         text-align: center;
     }
 
+    .edit-button:hover {
+        // padding-right: 15px;
+    }
+
     .name {
         font-size: 30px;
     }
@@ -18,6 +22,7 @@ page-profile {
         text-overflow: clip;
         padding: 10px;
     }
+
     .label {
         margin: auto;
         min-width: 100px;
@@ -36,6 +41,7 @@ page-profile {
        margin: auto;
        max-width: 500px;
     }
+
     .buttons {
        
         //display: block;
@@ -55,7 +61,7 @@ page-profile {
         display: flex;
         justify-content: center;
     }
-    
+
     .pic-con {
         font-size: 250px;
         align-self: center;
