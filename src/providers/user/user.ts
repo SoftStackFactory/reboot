@@ -17,6 +17,7 @@ export class UserProvider {
     firstName: "",
     lastName: "",
     email: "",
+    password: '',
 
     maritalStatus: "",
     employmentStatus: "",

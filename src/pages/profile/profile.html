@@ -73,7 +73,7 @@
                                     <span item-start>Email</span> <span item-end>{{ user.userData.email }} </span>
                                 </ion-item>
                                 <ion-item class="user-info-details">
-                                    <span item-start>Password</span> <span item-end></span>
+                                    <span item-start>Password</span><span item-end>{{ user.userData.password }}</span>
                                 </ion-item>
                             </ion-list>
                         </ion-card-content>
@@ -97,7 +97,8 @@
                                 </ion-item>
 
                                 <ion-item class="user-info-details">
-                                    <span item-start>Password</span> <span item-end></span>
+                                    <ion-label stacked>Password</ion-label>
+                                    <ion-input type="text" [(ngModel)]="user.userData.password"></ion-input>
                                 </ion-item>
                             </ion-list>
                         </ion-card-content>
@@ -112,7 +113,7 @@
                 <ion-col col-12 col-lg-6 col-xl-6>
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
-                            Personal Info
+                            Personal Information
                         </ion-card-header>
 
                         <ion-card-content class="user-info-content" *ngIf="!editing">
