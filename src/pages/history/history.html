@@ -16,8 +16,9 @@
   <ion-grid class='wrapper'>
     <ion-row>
       <ion-col col-12>
-        <ion-card>
+        <ion-card class='round-card'>
           <ion-card-content class='card-align'>
+            <h1>Self Assessment History</h1>
             <ion-grid col-6>
               <ion-row>
                 <ion-col col-6>
@@ -71,10 +72,7 @@
     </ion-row>
     <ion-row>
       <ion-col col-12>
-        <ion-card padding>
-          <ion-card-header>
-          <ion-card-title >Self Assessment History</ion-card-title>
-          </ion-card-header>
+        <ion-card class='round-card' padding>
           <ion-card-content>
           <canvas id="lineChart" #lineChart></canvas>
         </ion-card-content>
@@ -83,10 +81,7 @@
     </ion-row>
     <ion-row>
       <ion-col col-12>
-      <ion-card padding>
-          <ion-card-header>
-        <ion-card-title>Self Assessments Over Time</ion-card-title>
-        </ion-card-header>
+      <ion-card class='round-card' padding>
         <ion-card-content>
           <table id="self-assessment-table">
             <tr>
