@@ -4,7 +4,7 @@ page-profile {
         max-width: 960px;
         margin: auto
     }
-    
+
     .invalid-email {
         color: red;
         text-align: center;
@@ -45,6 +45,20 @@ page-profile {
        width: 80%; 
        margin: auto;
        max-width: 500px;
+    }
+
+    .changePassWrapper {
+        display: flex; 
+        justify-content: center;
+    }
+
+    .changePassword {
+        background-color: #2e4256;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 25px;
+        height: 50px;
     }
 
     .buttons {
