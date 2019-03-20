@@ -66,8 +66,19 @@ export class ProfilePage {
     this.editing = true;
   }
 
+
   updateProfile() {
     this.editing = false;
+
+    this.user.updateUserModel(this.user.userData)
+      .subscribe(
+        (data) => {
+          console.log(data, "YEY!!!!!!")
+        },
+        (err) => {
+          console.log(err);
+          // alert("Please try submitting again.")
+        })
     // let loader = this.loader.create({
     // })
     // loader.present()
@@ -88,8 +99,6 @@ export class ProfilePage {
   }
 
   //todo connect backend for update user object
-  updateUser() {
-
-  }
+  
 
 }
