@@ -17,6 +17,7 @@ export class HistoryPage {
   lineColors = ["rgba(0,0,255, .3)", "rgba(255,0,0, .3)", "rgba(128,0,128, .3)", "rgba(0,128,0, .3)", "rgba(255,165,0, .3)", "rgba(0,128,128, .3)", "rgba(255,0,255, .3)", "rgba(0,255,0, .3)"];
   dataArrays = []
   history:any;
+  chartSelctor:string;
   constructor(public navCtrl: NavController, public navParams: NavParams, public chartProvider: ChartProvider) {
     this.chartProvider.getChartHistory().subscribe(res=>{
       this.history = res;
