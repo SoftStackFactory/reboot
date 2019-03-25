@@ -17,8 +17,10 @@
     <ion-row>
       <ion-col col-12>
         <ion-card class='round-card'>
+          <ion-card-header>
+              <h1>Self Assessment History</h1>
+          </ion-card-header>
           <ion-card-content class='card-align'>
-            <h1>Self Assessment History</h1>
             <ion-grid col-6>
               <ion-row>
                 <ion-col col-6>
@@ -74,6 +76,18 @@
       <ion-col col-12>
         <ion-card class='round-card' padding>
           <ion-card-content>
+            <ion-grid>
+              <ion-row justify-content-end>
+                <ion-col col-5>
+                  <ion-item>
+                    <ion-label>Timeset</ion-label>
+                    <ion-select [(ngModel)]='chartSelect' interface="popover">
+                      <ion-option value=''>*placeholder*</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           <canvas id="lineChart" #lineChart></canvas>
         </ion-card-content>
         </ion-card>
