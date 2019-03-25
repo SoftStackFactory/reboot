@@ -15,6 +15,18 @@
     </ion-navbar>
 </ion-header>
 
+<!-- <ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-center>Profile</ion-title>
+    </ion-navbar>
+</ion-header> -->
+
+
+
+
 <ion-content padding>
     <div class="wrapper">
 
@@ -41,8 +53,8 @@
 
                             <button *ngIf="editing" class="confirm-button" item-right ion-button icon-only clear
                                 (click)="updateProfile()">
-                                <ion-icon name="checkbox-outline" item-end></ion-icon>
                                 save
+                                <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
 
                         </div>
@@ -102,9 +114,9 @@
                                 </ion-item>
 
                             </ion-list>
-<!-- 
-                            <div class="changePassWrapper">
-                                <button class='changePassword'>Change password</button>
+                            
+                            <!-- <div class="changePassWrapper">
+                                <button (click)="updatePassword()" class='changePassword'>Change password</button>
                             </div> -->
 
                         </ion-card-content>

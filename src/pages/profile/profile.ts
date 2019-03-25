@@ -74,7 +74,7 @@ export class ProfilePage {
       .subscribe(
         (data) => {
           console.log(data, "YEY!!!!!!")
-        },
+        }, 
         (err) => {
           console.log(err);
           // alert("Please try submitting again.")
@@ -97,6 +97,19 @@ export class ProfilePage {
     //     toast.present()
     //   })
   }
+
+  // updatePassword() {
+  //   this.editing = false;
+  //   this.user.updateUserModel(this.user.userData.password)
+  //     .subscribe(
+  //       (data) => {
+  //         console.log(data, "Password Updated")
+  //       },
+  //       (err) => {
+  //         console.log(err);
+  //         // alert("Please try submitting again.")
+  //       })
+  // }
 
   //todo connect backend for update user object
   
