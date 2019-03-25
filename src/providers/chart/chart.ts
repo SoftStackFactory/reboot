@@ -22,6 +22,7 @@ export class ChartProvider {
   constructor(public http: HttpClient, private storage: StorageProvider) { }
 
   checkSessionCredentials(){
+    //Updates the request url to reflect the current credentials in Session storage.
     this.requestUrl = ENV.url + '/appUsers/' + sessionStorage.getItem('userId') + '/charts?access_token=' + sessionStorage.getItem('token');
   }
 
