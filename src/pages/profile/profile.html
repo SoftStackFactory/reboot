@@ -42,7 +42,7 @@
                         </ion-row>
 
                         <!-- edit and save buttons -->
-                        <div class="buttons-div">
+                        <!-- <div class="buttons-div">
 
                             <button *ngIf="!editing" class="edit-button" item-end ion-button icon-only clear
                                 (click)="allowEdit()">
@@ -57,7 +57,7 @@
                                 <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
 
-                        </div>
+                        </div> -->
                     </ion-list>
                 </ion-col>
             </ion-row>
@@ -71,16 +71,22 @@
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
                             Account Information
+
+                            <button *ngIf="!accountInfoEdit" class="edit-button" item-end ion-button icon-only clear
+                                (click)="allowAccountInfoEdit()">
+                                edit
+                                <ion-icon name="create" item-end></ion-icon>
+                            </button>
+
+                            <button *ngIf="accountInfoEdit" class="confirm-button" item-right ion-button icon-only clear
+                                (click)="allowAccountInfoEdit()" >
+                                save
+                                <ion-icon name="checkbox-outline" item-end></ion-icon>
+                            </button>
+
                         </ion-card-header>
-                        <ion-card-content class="user-info-content" *ngIf="!editing">
+                        <ion-card-content class="user-info-content" *ngIf="!accountInfoEdit">
                             <ion-list>
-                                <ion-item class="user-info-details">
-                                    <span item-start>First Name</span> <span
-                                        item-end>{{ user.userData.firstName }}</span>
-                                </ion-item>
-                                <ion-item class="user-info-details">
-                                    <span item-start>Last Name</span> <span item-end>{{ user.userData.lastName }}</span>
-                                </ion-item>
                                 <ion-item class="user-info-details">
                                     <span item-start>Email</span> <span item-end>{{ user.userData.email }} </span>
                                 </ion-item>
@@ -92,17 +98,8 @@
                     </ion-card>
 
                     <ion-card class='round-card'>
-                        <ion-card-content class="user-info-content" *ngIf="editing">
+                        <ion-card-content class="user-info-content" *ngIf="accountInfoEdit">
                             <ion-list>
-                                <ion-item class="user-info-details">
-                                    <ion-label stacked>First Name</ion-label>
-                                    <ion-input type="text" [(ngModel)]="user.userData.firstName"></ion-input>
-                                </ion-item>
-                                <ion-item class="user-info-details">
-                                    <ion-label stacked>Last Name</ion-label>
-                                    <ion-input type="text" [(ngModel)]="user.userData.lastName"></ion-input>
-                                </ion-item>
-
                                 <ion-item class="user-info-details">
                                     <ion-label stacked>E-mail</ion-label>
                                     <ion-input type="text" [(ngModel)]="user.userData.email"></ion-input>
@@ -112,13 +109,7 @@
                                     <ion-label stacked>Password</ion-label>
                                     <ion-input type="text" [(ngModel)]="user.userData.password"></ion-input>
                                 </ion-item>
-
                             </ion-list>
-                            
-                            <!-- <div class="changePassWrapper">
-                                <button (click)="updatePassword()" class='changePassword'>Change password</button>
-                            </div> -->
-
                         </ion-card-content>
                     </ion-card>
 
@@ -132,10 +123,30 @@
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
                             Personal Information
+
+                            <button *ngIf="!personalInfoEdit" class="edit-button" item-end ion-button icon-only clear
+                                (click)="allowPersonalInfoEdit()">
+                                edit
+                                <ion-icon name="create" item-end></ion-icon>
+                            </button>
+
+                            <button *ngIf="personalInfoEdit" class="confirm-button" item-right ion-button icon-only
+                                clear (click)="allowPersonalInfoEdit()">
+                                save
+                                <ion-icon name="checkbox-outline" item-end></ion-icon>
+                            </button>
+
                         </ion-card-header>
 
-                        <ion-card-content class="user-info-content" *ngIf="!editing">
+                        <ion-card-content class="user-info-content" *ngIf="!personalInfoEdit">
                             <ion-list>
+                                <ion-item class="user-info-details">
+                                    <span item-start>First Name</span> <span
+                                        item-end>{{ user.userData.firstName }}</span>
+                                </ion-item>
+                                <ion-item class="user-info-details">
+                                    <span item-start>Last Name</span> <span item-end>{{ user.userData.lastName }}</span>
+                                </ion-item>
                                 <ion-item class="user-info-details">
                                     <span item-start>Employment Status</span> <span
                                         item-end>{{ user.userData.employmentStatus }}</span>
@@ -164,8 +175,16 @@
                     </ion-card>
 
                     <ion-card class='round-card'>
-                        <ion-card-content class="user-info-content" *ngIf="editing">
+                        <ion-card-content class="user-info-content" *ngIf="personalInfoEdit">
                             <ion-list>
+                                <ion-item class="user-info-details">
+                                    <ion-label stacked>First Name</ion-label>
+                                    <ion-input type="text" [(ngModel)]="user.userData.firstName"></ion-input>
+                                </ion-item>
+                                <ion-item class="user-info-details">
+                                    <ion-label stacked>Last Name</ion-label>
+                                    <ion-input type="text" [(ngModel)]="user.userData.lastName"></ion-input>
+                                </ion-item>
                                 <ion-item class="user-info-details">
                                     <ion-label stacked>Employment Status</ion-label>
                                     <!-- <ion-input type="text" [(ngModel)]=" user.userData.employmentStatus"></ion-input> -->
@@ -221,9 +240,22 @@
 
                         <ion-card-header class='card-header'>
                             Military Information
+
+                            <button *ngIf="!militaryInfoEdit" class="edit-button" item-end ion-button icon-only clear
+                                (click)="allowMilitaryInfoEdit()">
+                                edit
+                                <ion-icon name="create" item-end></ion-icon>
+                            </button>
+
+                            <button *ngIf="militaryInfoEdit" class="confirm-button" item-right ion-button icon-only
+                                clear (click)="allowMilitaryInfoEdit()">
+                                save
+                                <ion-icon name="checkbox-outline" item-end></ion-icon>
+                            </button>
+
                         </ion-card-header>
 
-                        <ion-card-content class="user-info-content" *ngIf="!editing">
+                        <ion-card-content class="user-info-content" *ngIf="!militaryInfoEdit">
                             <ion-list>
                                 <ion-item class="user-info-details">
                                     <span item-start>Branch</span> <span
@@ -253,10 +285,10 @@
                     </ion-card>
 
                     <ion-card>
-                        <ion-card-content class="user-info-content" *ngIf="editing">
+                        <ion-card-content class="user-info-content" *ngIf="militaryInfoEdit">
                             <ion-list>
                                 <ion-item class="user-info-details">
-                                    <ion-label stacked>Branch edit</ion-label>
+                                    <ion-label stacked>Branch Edit</ion-label>
                                     <!-- <ion-input type="text" [(ngModel)]="user.userData.militaryBranch"></ion-input> -->
                                     <ion-select [selectOptions]="branchOptions"
                                         [(ngModel)]="user.userData.militaryBranch">

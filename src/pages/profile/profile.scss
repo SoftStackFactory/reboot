@@ -25,12 +25,13 @@ page-profile {
         color: black;
         overflow: hidden; 
         text-overflow: clip;
-        padding: 10px;
+        // padding: 10px;
     }
 
     .label {
         margin: auto;
         min-width: 100px;
+        padding: 10px 0px;
     }
 
     .user-info {

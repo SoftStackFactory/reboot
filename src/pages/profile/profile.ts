@@ -18,8 +18,10 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public user: UserProvider) {
   }
 
-  editing: boolean = false;
+  accountInfoEdit: boolean = false;
   userInfo: any;
+  personalInfoEdit: boolean = false;
+  militaryInfoEdit: boolean = false; 
 
   selectOptions(title: string, message: string) {
     let obj: object = {
@@ -61,15 +63,7 @@ export class ProfilePage {
     })
   }
 
-
-  allowEdit() {
-    this.editing = true;
-  }
-
-
   updateProfile() {
-    this.editing = false;
-
     this.user.updateUserModel(this.user.userData)
       .subscribe(
         (data) => {
@@ -79,6 +73,8 @@ export class ProfilePage {
           console.log(err);
           // alert("Please try submitting again.")
         })
+
+
     // let loader = this.loader.create({
     // })
     // loader.present()
@@ -98,6 +94,30 @@ export class ProfilePage {
     //   })
   }
 
+
+  allowAccountInfoEdit() {
+    if (this.accountInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.accountInfoEdit = !this.accountInfoEdit;
+  }
+
+  allowPersonalInfoEdit() {
+    if (this.personalInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.personalInfoEdit = !this.personalInfoEdit;
+  }
+
+  allowMilitaryInfoEdit() {
+    if (this.militaryInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.militaryInfoEdit = !this.militaryInfoEdit;
+  }
+
+
+  
   // updatePassword() {
   //   this.editing = false;
   //   this.user.updateUserModel(this.user.userData.password)
