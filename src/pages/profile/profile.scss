@@ -10,13 +10,10 @@ page-profile {
         text-align: center;
     }
 
-    .edit-button:hover {
-        // padding-right: 15px;
-    }
-
     .name {
         font-size: 30px;
     }
+
     .section {
         // margin-top: 20px;
     }
@@ -27,6 +24,7 @@ page-profile {
         text-overflow: clip;
         // padding: 10px;
     }
+
 
     .label {
         margin: auto;
@@ -61,12 +59,25 @@ page-profile {
         margin-top: 25px;
         height: 50px;
     }
+    .card-header{
+    
+    }
+
+    ion-card.round-card .card-header {
+        padding-bottom: 0px;
+    }
 
     .buttons {
        
         //display: block;
        // margin: 10px;
     } 
+
+    .button-inner {
+        // color: black;
+        font-size: 10px;
+    }
+
     .buttons-div {
         display: flex;
         justify-content: center;
@@ -83,7 +94,7 @@ page-profile {
     }
 
     .pic-con {
-        font-size: 250px;
+        font-size: 200px;
         align-self: center;
     }
    

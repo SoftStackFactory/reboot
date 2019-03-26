@@ -74,13 +74,11 @@
 
                             <button *ngIf="!accountInfoEdit" class="edit-button" item-end ion-button icon-only clear
                                 (click)="allowAccountInfoEdit()">
-                                edit
                                 <ion-icon name="create" item-end></ion-icon>
                             </button>
 
                             <button *ngIf="accountInfoEdit" class="confirm-button" item-right ion-button icon-only clear
                                 (click)="allowAccountInfoEdit()" >
-                                save
                                 <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
 
@@ -124,17 +122,15 @@
                 <ion-col col-12 col-lg-6 col-xl-6>
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
-                            Personal Information
+                            <div>Personal Information</div>
 
                             <button *ngIf="!personalInfoEdit" class="edit-button" item-end ion-button icon-only clear
                                 (click)="allowPersonalInfoEdit()">
-                                edit
                                 <ion-icon name="create" item-end></ion-icon>
                             </button>
 
                             <button *ngIf="personalInfoEdit" class="confirm-button" item-right ion-button icon-only
                                 clear (click)="allowPersonalInfoEdit()">
-                                save
                                 <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
 
@@ -234,21 +230,20 @@
                         </ion-card-content>
                     </ion-card>
                 </ion-col>
+
+                <!--  SECTION 3 -->
+
                 <ion-col>
                     <ion-card class='round-card'>
-
                         <ion-card-header class='card-header'>
-                            Military Information
-
+                            <div>Military Information</div>
                             <button *ngIf="!militaryInfoEdit" class="edit-button" item-end ion-button icon-only clear
                                 (click)="allowMilitaryInfoEdit()">
-                                edit
                                 <ion-icon name="create" item-end></ion-icon>
                             </button>
 
                             <button *ngIf="militaryInfoEdit" class="confirm-button" item-right ion-button icon-only
                                 clear (click)="allowMilitaryInfoEdit()">
-                                save
                                 <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
 
