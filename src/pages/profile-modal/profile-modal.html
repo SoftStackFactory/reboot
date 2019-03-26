@@ -7,15 +7,62 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>profile-modal</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="closeModal()">Close</button>
-    </ion-buttons>
+    <div id='exit'>
+      <button id="close" (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </div>
+    <ion-title id='header-title'>Account Information</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-  <h3>Hello!</h3>
+
+  <ion-row>
+    <ion-col col-12 col-lg-6 col-xl-6>
+      <ion-card class='round-card'>
+        <ion-card-header class='card-header'>
+
+          <button *ngIf="!accountInfoEdit" class="edit-button" item-end ion-button icon-only clear
+            (click)="allowAccountInfoEdit()">
+            <ion-icon name="create" item-end></ion-icon>
+          </button>
+
+          <button *ngIf="accountInfoEdit" class="confirm-button" item-right ion-button icon-only clear
+            (click)="allowAccountInfoEdit()">
+            <ion-icon name="checkbox-outline" item-end></ion-icon>
+          </button>
+        </ion-card-header>
+
+        <ion-card-content class="user-info-content" *ngIf="!accountInfoEdit">
+          <ion-list>
+            <ion-item class="user-info-details">
+              <span item-start>Email</span> <span item-end>{{ user.userData.email }} </span>
+            </ion-item>
+            <ion-item class="user-info-details">
+              <span item-start>Password</span><span item-end>{{ user.userData.password }}</span>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card class='round-card'>
+        <ion-card-content class="user-info-content" *ngIf="accountInfoEdit">
+          <ion-list>
+            <ion-item class="user-info-details">
+              <ion-label stacked>E-mail</ion-label>
+              <ion-input type="text" [(ngModel)]="user.userData.email"></ion-input>
+            </ion-item>
+
+            <ion-item class="user-info-details">
+              <ion-label stacked>Password</ion-label>
+              <ion-input type="text" [(ngModel)]="user.userData.password"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

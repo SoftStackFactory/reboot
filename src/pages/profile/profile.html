@@ -41,7 +41,7 @@
                             <div>Account Information</div>
 
                             <button *ngIf="!accountInfoEdit" class="edit-button" item-end ion-button icon-only clear
-                                (click)="allowAccountInfoEdit()">
+                                (click)="openModal()">
                                 <ion-icon name="create" item-end></ion-icon>
                             </button>
 
@@ -49,8 +49,8 @@
                                 (click)="allowAccountInfoEdit()" >
                                 <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
-                            <button (click)=" openModal()">Open Modal</button>
                         </ion-card-header>
+
                         <ion-card-content class="user-info-content" *ngIf="!accountInfoEdit">
                             <ion-list>
                                 <ion-item class="user-info-details">
@@ -61,6 +61,7 @@
                                 </ion-item>
                             </ion-list>
                         </ion-card-content>
+
                     </ion-card>
 
                     <ion-card class='round-card'>
@@ -79,9 +80,9 @@
                         </ion-card-content>
                     </ion-card>
                 </ion-col>
-
-                <!--  SECTION 2 -->
             </ion-row>
+
+            <!--  SECTION 2 -->
 
             <ion-row>
                 <ion-col col-12 col-lg-6 col-xl-6>

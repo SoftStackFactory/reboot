@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, ViewController, NavParams } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
 
-/**
- * Generated class for the ProfileModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -17,8 +13,12 @@ export class ProfileModalPage {
 
   constructor(
     public view: ViewController,
-    public navParams: NavParams) {
+    public navParams: NavParams, 
+    public user: UserProvider, ) {
   }
+
+  accountInfoEdit: boolean = false;
+
 
   closeModal() {
     this.view.dismiss()
@@ -26,6 +26,25 @@ export class ProfileModalPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileModalPage');
+  }
+
+  updateProfile() {
+    this.user.updateUserModel(this.user.userData)
+      .subscribe(
+        (data) => {
+          console.log(data, "YEY!!!!!!")
+        }, 
+        (err) => {
+          console.log(err);
+          // alert("Please try submitting again.")
+        })
+  }
+
+  allowAccountInfoEdit() {
+    if (this.accountInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.accountInfoEdit = !this.accountInfoEdit;
   }
 
 }
