@@ -15,18 +15,6 @@
     </ion-navbar>
 </ion-header>
 
-<!-- <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title text-center>Profile</ion-title>
-    </ion-navbar>
-</ion-header> -->
-
-
-
-
 <ion-content padding>
     <div class="wrapper">
 
@@ -40,29 +28,9 @@
                                 <ion-icon class="pic-con" name="contact"></ion-icon>
                             </ion-col>
                         </ion-row>
-
-                        <!-- edit and save buttons -->
-                        <!-- <div class="buttons-div">
-
-                            <button *ngIf="!editing" class="edit-button" item-end ion-button icon-only clear
-                                (click)="allowEdit()">
-                                edit
-                                <ion-icon name="create" item-end></ion-icon>
-
-                            </button>
-
-                            <button *ngIf="editing" class="confirm-button" item-right ion-button icon-only clear
-                                (click)="updateProfile()">
-                                save
-                                <ion-icon name="checkbox-outline" item-end></ion-icon>
-                            </button>
-
-                        </div> -->
                     </ion-list>
                 </ion-col>
             </ion-row>
-
-
 
             <!-- SECTION 1 -->
 
@@ -70,7 +38,7 @@
                 <ion-col col-12 col-lg-6 col-xl-6 offset-lg-3>
                     <ion-card class='round-card'>
                         <ion-card-header class='card-header'>
-                            Account Information
+                            <div>Account Information</div>
 
                             <button *ngIf="!accountInfoEdit" class="edit-button" item-end ion-button icon-only clear
                                 (click)="allowAccountInfoEdit()">
@@ -81,7 +49,7 @@
                                 (click)="allowAccountInfoEdit()" >
                                 <ion-icon name="checkbox-outline" item-end></ion-icon>
                             </button>
-
+                            <button (click)=" openModal()">Open Modal</button>
                         </ion-card-header>
                         <ion-card-content class="user-info-content" *ngIf="!accountInfoEdit">
                             <ion-list>
@@ -110,10 +78,7 @@
                             </ion-list>
                         </ion-card-content>
                     </ion-card>
-
                 </ion-col>
-
-
 
                 <!--  SECTION 2 -->
             </ion-row>

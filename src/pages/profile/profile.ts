@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -15,7 +15,11 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public user: UserProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public user: UserProvider, 
+    public modal: ModalController) {
   }
 
   accountInfoEdit: boolean = false;
@@ -50,6 +54,11 @@ export class ProfilePage {
     //     console.log('onsubscibe-logout')
     //     window.sessionStorage.clear()
     //   })
+  }
+
+  openModal() {
+    const myModal = this.modal.create ('ProfileModalPage'); 
+    myModal.present();
   }
 
   getUserInfo() {
