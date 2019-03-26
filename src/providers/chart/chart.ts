@@ -9,7 +9,7 @@ import { of as observableOf } from 'rxjs/observable/of'
 
 @Injectable()
 export class ChartProvider {
-  
+
   allResults: any;
   chartSections: any;
   requestUrl: string;
@@ -26,7 +26,8 @@ export class ChartProvider {
     this.requestUrl = ENV.url + '/appUsers/' + sessionStorage.getItem('userId') + '/charts?access_token=' + sessionStorage.getItem('token');
   }
 
-  addAssessment(assessment) {
+  addAssessment ( assessment ) {
+    this.checkSessionCredentials();
     return this.http.post(this.requestUrl, assessment);
   }
 
@@ -60,5 +61,5 @@ export class ChartProvider {
     })
   }
 
-  
+
 }
