@@ -68,28 +68,12 @@ export class ProfilePage {
 
   updateProfile() {
     this.editing = false;
-    // let loader = this.loader.create({
-    // })
-    // loader.present()
-    // this._user.updateUser()
-    //   .subscribe(_ => {
-    //     loader.dismiss();
-    //     this.editting = false;
-    //   }, err => {
-    //     console.error(err)
-    //     loader.dismiss()
-    //     let toast = this.toastCtrl.create({
-    //       message: 'Unable to update at this time',
-    //       duration: 2000,
-    //       position: 'top'
-    //     });
-    //     toast.present()
-    //   })
-  }
+    console.log(this.user.userData)
 
-  //todo connect backend for update user object
-  updateUser() {
-
+    this.user.updateUserModel(this.user.userData)
+      .subscribe(response => {
+        console.log(response)
+      })
   }
 
 }
