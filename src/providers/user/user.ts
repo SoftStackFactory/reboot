@@ -81,5 +81,11 @@ export class UserProvider {
     return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '/charts?access_token=' + creds.token);
   }
 
+  passwordReset(password:any) {
+    const creds = this.getCredentials() 
+    let passwordObj:any = { newPassword: password }
+    return this.http.post(this.requestUrl + 'appUsers/reset-password?access_token=' + creds.token, passwordObj, { observe: 'response' });
+  }
+
 }
 

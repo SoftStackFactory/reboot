@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-profile',
@@ -15,7 +8,10 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public user: UserProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public user: UserProvider,
+              public alertCtrl: AlertController) {
   }
 
   editing: boolean = false;
@@ -42,14 +38,6 @@ export class ProfilePage {
     this.getUserInfo()
   }
 
-  onLogout() {
-    // this.user.logoutUser(window.sessionStorage.getItem('token'))
-    //   .subscribe( response => {
-    //     console.log('onsubscibe-logout')
-    //     window.sessionStorage.clear()
-    //   })
-  }
-
   getUserInfo() {
     this.user.getUser()
     .subscribe(response => {
@@ -60,7 +48,6 @@ export class ProfilePage {
       console.log(this.user.userData);
     })
   }
-
 
   allowEdit() {
     this.editing = true;
@@ -75,5 +62,94 @@ export class ProfilePage {
         console.log(response)
       })
   }
+
+  resetPasswordPrompt() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      inputs: [
+        {
+          name: 'new',
+          placeholder: 'New Password'
+        },
+        {
+          name: 'confirm',
+          placeholder: 'Confirm New Password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            if(data.new == data.confirm) {
+              this.resetPassword(data.new)
+            } else {
+              this.passwordMissmatch()
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  passwordMissmatch() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      message: 'Passwords do not match.',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: data => {
+            this.resetPasswordPrompt()
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  passwordError() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      message: 'There was an error resetting your password.',
+      buttons: [
+        {
+          text: 'Ok'
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  passwordSuccess() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      message: 'Passwords Sucessfully Changed.',
+      buttons: [
+        {
+          text: 'Ok'
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  resetPassword(newPassword) {
+    this.user.passwordReset(newPassword)
+      .subscribe(response => {
+        if(response.status == 204) {
+          this.passwordSuccess()
+        }
+      },
+      error => {
+        this.passwordError()
+      })
+  }
+
+
 
 }
