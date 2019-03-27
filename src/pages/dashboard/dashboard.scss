@@ -5,9 +5,6 @@ page-dashboard {
         font-weight: bold;
     }
 
-    .cards {
-        background-color: #5f9ad629;
-    }
     .headers {
         font-weight: bold; 
         font-size: 26px;
@@ -16,6 +13,9 @@ page-dashboard {
         color: #2a3d4fb3;
     }
 
+    .card-header-md + .card-content-md {
+        padding-top: 20px;
+    }
     .actionItemText {
         font-size: 20px;
         text-align: center;
@@ -25,6 +25,11 @@ page-dashboard {
         font-size: 1.6em;
     }
 
+    news-widget .title {
+        font-size: 30px; 
+        // text-transform: bold;
+        padding-bottom: 10px;
+    }
 
     .graphDescriptionWrapper {
         text-align: center;
@@ -113,6 +118,13 @@ page-dashboard {
          .card-md p {
              font-size: 1em;
          }
+         news-widget .title {
+            font-size: 25px; 
+        }
+
+        ion-card.round-card .card-header {
+            font-size: 20px;
+        }
     }
     
     /* Tablet Styles */
@@ -132,6 +144,14 @@ page-dashboard {
 
          .card-md p {
             font-size: 1em;
+        }
+
+        news-widget .title {
+            font-size: 25px; 
+        }
+
+        ion-card.round-card .card-header {
+            font-size: 20px;
         }
     }
 

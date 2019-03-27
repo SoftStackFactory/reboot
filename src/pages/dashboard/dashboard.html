@@ -28,7 +28,10 @@
 
     <ion-row>
       <ion-col col-xl-4 offset-xl-2>
-        <ion-card class="cards">
+        <ion-card class="round-card">
+          <ion-card-header class='card-header'>
+            Assessment Status
+          </ion-card-header>
           <div class="headers" text-center *ngIf="user.assessDate">
             {{ this.name }}, it's been <u>{{user.assessDate}}</u> days since your last assessment.
           </div>
@@ -44,8 +47,8 @@
         </ion-card>
 
         <ion-col col-xl-4 offset-xl-2>
-          <ion-card class="cards">
-            <ion-card-header class="headers" text-center>
+          <ion-card class="round-card">
+            <ion-card-header class='card-header'>
               Build Your Network
             </ion-card-header>
 
@@ -85,8 +88,8 @@
       </ion-col>
 
       <ion-col col-xl-4>
-        <ion-card class="news cards">
-          <ion-card-header class="headers" text-center>
+        <ion-card class="round-card">
+          <ion-card-header class="card-header">
             Veterans Affairs News
           </ion-card-header>
           <ion-card-content>
@@ -104,8 +107,8 @@
 
 
         <ion-col col-xl-4>
-          <ion-card class="cards">
-            <ion-card-header class="headers" text-center>
+          <ion-card class="round-card">
+            <ion-card-header class="card-header">
               Transition Readiness Test
             </ion-card-header>
             <ion-card-content *ngIf="!prevAssess">
