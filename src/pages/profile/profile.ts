@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -15,11 +15,17 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public user: UserProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public user: UserProvider, 
+    public modal: ModalController) {
   }
 
-  editing: boolean = false;
+  accountInfoEdit: boolean = false;
   userInfo: any;
+  personalInfoEdit: boolean = false;
+  militaryInfoEdit: boolean = false; 
 
   selectOptions(title: string, message: string) {
     let obj: object = {
@@ -50,6 +56,11 @@ export class ProfilePage {
     //   })
   }
 
+  openModal() {
+    const myModal = this.modal.create ('ProfileModalPage'); 
+    myModal.present();
+  }
+
   getUserInfo() {
     this.user.getUser()
     .subscribe(response => {
@@ -61,13 +72,18 @@ export class ProfilePage {
     })
   }
 
-
-  allowEdit() {
-    this.editing = true;
-  }
-
   updateProfile() {
-    this.editing = false;
+    this.user.updateUserModel(this.user.userData)
+      .subscribe(
+        (data) => {
+          console.log(data, "YEY!!!!!!")
+        }, 
+        (err) => {
+          console.log(err);
+          // alert("Please try submitting again.")
+        })
+
+
     // let loader = this.loader.create({
     // })
     // loader.present()
@@ -87,9 +103,44 @@ export class ProfilePage {
     //   })
   }
 
-  //todo connect backend for update user object
-  updateUser() {
 
+  allowAccountInfoEdit() {
+    if (this.accountInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.accountInfoEdit = !this.accountInfoEdit;
   }
+
+  allowPersonalInfoEdit() {
+    if (this.personalInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.personalInfoEdit = !this.personalInfoEdit;
+  }
+
+  allowMilitaryInfoEdit() {
+    if (this.militaryInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.militaryInfoEdit = !this.militaryInfoEdit;
+  }
+
+
+  
+  // updatePassword() {
+  //   this.editing = false;
+  //   this.user.updateUserModel(this.user.userData.password)
+  //     .subscribe(
+  //       (data) => {
+  //         console.log(data, "Password Updated")
+  //       },
+  //       (err) => {
+  //         console.log(err);
+  //         // alert("Please try submitting again.")
+  //       })
+  // }
+
+  //todo connect backend for update user object
+  
 
 }
