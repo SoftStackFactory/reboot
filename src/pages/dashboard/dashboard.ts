@@ -35,7 +35,8 @@ export class DashboardPage {
     private storage: Storage,
     public user: UserProvider,
     public actionItem: ActionItemProvider,
-    public timelineProvider: TimelineProvider) {
+    public timelineProvider: TimelineProvider, 
+    ) {
      this.currentActionItem = this.actionItem.currentItem;
     }
 
@@ -63,16 +64,17 @@ export class DashboardPage {
     
     this.user.getUserChart()
     .subscribe( (data: Array<any>) => {
-      if (!data.length) return
+      if (!data.length) return // if array is empty return nothing
       this.prevAssess = true;
       this.assessDate = moment(data[0].date.substring(0,10), "YYYY-MM-DD").toDate().getTime();
-      console.log(this.assessDate, 'first');  
+      console.log(moment(data[0].date.substring(0,10), "YYYY-MM-DD"), 'first');  
       let now = new Date().getTime();
       this.assessDate = Math.ceil((this.assessDate - now)/86400000);
       console.log(this.assessDate, 'second');  
       this.assessDate = Math.abs(this.assessDate);
-      console.log(data);
+      console.log(data, "chartData");
       console.log(this.assessDate, 'third');  
+      this.user.assessDate = this.assessDate;
     }, error => {console.log("error")},
     () => {
       this.lastDate();

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 @Component({
@@ -8,14 +8,18 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              public user: UserProvider,
-              public alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public user: UserProvider, 
+    public modal: ModalController,
+  public alertCtrl: AlertController) {
   }
 
-  editing: boolean = false;
+  accountInfoEdit: boolean = false;
   userInfo: any;
+  personalInfoEdit: boolean = false;
+  militaryInfoEdit: boolean = false; 
 
   selectOptions(title: string, message: string) {
     let obj: object = {
@@ -38,6 +42,20 @@ export class ProfilePage {
     this.getUserInfo()
   }
 
+
+  onLogout() {
+    // this.user.logoutUser(window.sessionStorage.getItem('token'))
+    //   .subscribe( response => {
+    //     console.log('onsubscibe-logout')
+    //     window.sessionStorage.clear()
+    //   })
+  }
+
+  openModal() {
+    const myModal = this.modal.create ('ProfileModalPage'); 
+    myModal.present();
+  }
+
   getUserInfo() {
     this.user.getUser()
     .subscribe(response => {
@@ -49,8 +67,25 @@ export class ProfilePage {
     })
   }
 
-  allowEdit() {
-    this.editing = true;
+  allowAccountInfoEdit() {
+    if (this.accountInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.accountInfoEdit = !this.accountInfoEdit;
+  }
+
+  allowPersonalInfoEdit() {
+    if (this.personalInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.personalInfoEdit = !this.personalInfoEdit;
+  }
+
+  allowMilitaryInfoEdit() {
+    if (this.militaryInfoEdit == true) {
+      this.updateProfile();
+    }
+    this.militaryInfoEdit = !this.militaryInfoEdit;
   }
 
   updateProfile() {
@@ -149,7 +184,5 @@ export class ProfilePage {
         this.passwordError()
       })
   }
-
-
 
 }
