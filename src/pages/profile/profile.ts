@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-profile',
@@ -17,15 +10,16 @@ export class ProfilePage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams, 
-    public user: UserProvider, 
-    public modal: ModalController) {
+    public navParams: NavParams,
+    public user: UserProvider,
+    public modal: ModalController,
+  public alertCtrl: AlertController) {
   }
 
   accountInfoEdit: boolean = false;
   userInfo: any;
   personalInfoEdit: boolean = false;
-  militaryInfoEdit: boolean = false; 
+  militaryInfoEdit: boolean = false;
 
   selectOptions(title: string, message: string) {
     let obj: object = {
@@ -48,6 +42,7 @@ export class ProfilePage {
     this.getUserInfo()
   }
 
+
   onLogout() {
     // this.user.logoutUser(window.sessionStorage.getItem('token'))
     //   .subscribe( response => {
@@ -57,7 +52,7 @@ export class ProfilePage {
   }
 
   openModal() {
-    const myModal = this.modal.create ('ProfileModalPage'); 
+    const myModal = this.modal.create ('ProfileModalPage');
     myModal.present();
   }
 
@@ -71,38 +66,6 @@ export class ProfilePage {
       console.log(this.user.userData);
     })
   }
-
-  updateProfile() {
-    this.user.updateUserModel(this.user.userData)
-      .subscribe(
-        (data) => {
-          console.log(data, "YEY!!!!!!")
-        }, 
-        (err) => {
-          console.log(err);
-          // alert("Please try submitting again.")
-        })
-
-
-    // let loader = this.loader.create({
-    // })
-    // loader.present()
-    // this._user.updateUser()
-    //   .subscribe(_ => {
-    //     loader.dismiss();
-    //     this.editting = false;
-    //   }, err => {
-    //     console.error(err)
-    //     loader.dismiss()
-    //     let toast = this.toastCtrl.create({
-    //       message: 'Unable to update at this time',
-    //       duration: 2000,
-    //       position: 'top'
-    //     });
-    //     toast.present()
-    //   })
-  }
-
 
   allowAccountInfoEdit() {
     if (this.accountInfoEdit == true) {
@@ -125,22 +88,103 @@ export class ProfilePage {
     this.militaryInfoEdit = !this.militaryInfoEdit;
   }
 
+  updateProfile() {
+    this.accountInfoEdit = false;
+    console.log(this.user.userData)
 
-  
-  // updatePassword() {
-  //   this.editing = false;
-  //   this.user.updateUserModel(this.user.userData.password)
-  //     .subscribe(
-  //       (data) => {
-  //         console.log(data, "Password Updated")
-  //       },
-  //       (err) => {
-  //         console.log(err);
-  //         // alert("Please try submitting again.")
-  //       })
-  // }
+    this.user.updateUserModel(this.user.userData)
+      .subscribe(response => {
+        console.log(response)
+      })
+  }
 
-  //todo connect backend for update user object
-  
+  resetPasswordPrompt() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      inputs: [
+        {
+          name: 'new',
+          placeholder: 'New Password',
+          type: 'password',
+        },
+        {
+          name: 'confirm',
+          placeholder: 'Confirm New Password',
+          type: 'password',
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            if(data.new == data.confirm) {
+              this.resetPassword(data.new)
+            } else {
+              this.passwordMissmatch()
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  passwordMissmatch() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      message: 'Passwords do not match.',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: data => {
+            this.resetPasswordPrompt()
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  passwordError() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      message: 'There was an error resetting your password.',
+      buttons: [
+        {
+          text: 'Ok'
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  passwordSuccess() {
+    const prompt = this.alertCtrl.create({
+      title: 'Reset Password',
+      message: 'Passwords Sucessfully Changed.',
+      buttons: [
+        {
+          text: 'Ok'
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  resetPassword(newPassword) {
+    this.user.passwordReset(newPassword)
+      .subscribe(response => {
+        if(response.status == 204) {
+          this.passwordSuccess()
+        }
+      },
+      error => {
+        this.passwordError()
+      })
+  }
 
 }
