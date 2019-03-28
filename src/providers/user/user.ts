@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
   
 import { ENV }  from '@app/env';
-import { StorageProvider } from '../storage/storage'
+import { StorageProvider } from '../storage/storage'; 
     
 /*  
   Generated class for the UserProvider provider.
@@ -32,6 +32,8 @@ export class UserProvider {
     enlistingPay: "",
     codeIdentifier: ""
   }
+
+  assessDate: any;
 
   requestUrl: string = ENV.url
   userName: any = "Maurice";
