@@ -10,8 +10,8 @@ export class ProfilePage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams, 
-    public user: UserProvider, 
+    public navParams: NavParams,
+    public user: UserProvider,
     public modal: ModalController,
   public alertCtrl: AlertController) {
   }
@@ -19,7 +19,7 @@ export class ProfilePage {
   accountInfoEdit: boolean = false;
   userInfo: any;
   personalInfoEdit: boolean = false;
-  militaryInfoEdit: boolean = false; 
+  militaryInfoEdit: boolean = false;
 
   selectOptions(title: string, message: string) {
     let obj: object = {
@@ -52,7 +52,7 @@ export class ProfilePage {
   }
 
   openModal() {
-    const myModal = this.modal.create ('ProfileModalPage'); 
+    const myModal = this.modal.create ('ProfileModalPage');
     myModal.present();
   }
 
@@ -89,7 +89,7 @@ export class ProfilePage {
   }
 
   updateProfile() {
-    this.editing = false;
+    this.accountInfoEdit = false;
     console.log(this.user.userData)
 
     this.user.updateUserModel(this.user.userData)
@@ -104,11 +104,13 @@ export class ProfilePage {
       inputs: [
         {
           name: 'new',
-          placeholder: 'New Password'
+          placeholder: 'New Password',
+          type: 'password',
         },
         {
           name: 'confirm',
-          placeholder: 'Confirm New Password'
+          placeholder: 'Confirm New Password',
+          type: 'password',
         }
       ],
       buttons: [
