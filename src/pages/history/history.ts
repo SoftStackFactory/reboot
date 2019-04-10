@@ -22,19 +22,22 @@ export class HistoryPage {
       this.history = res;
       this.chartData(res)
     })
-}
-chartData(res){
-  let dates = res.map(day => day.date).sort()
-  let values = (index) => {
-    let value = res.map(val => val.value[index])
-    return value
   }
-  this.generateChart(dates, values)
-}
+
+  chartData(data){
+    let dates = data.map(day => day.date).sort()
+    let values = (index) => {
+      let value = data.map(val => val.value[index])
+      return value
+    }
+    this.generateChart(dates, values)
+  }
+
   lineChartData = {
     labels: [],
     datasets:[]
   }
+
   lineChartOptions = {
     elements: {
       line:{
@@ -57,7 +60,8 @@ chartData(res){
       }]
     }
   }
-   generateChart = (dates, values) => {
+
+  generateChart = (dates, values) => {
     let ctx = this.lineChart.nativeElement;
     const myLineChart = new Chart(ctx, {
       type:'line',
@@ -76,6 +80,5 @@ chartData(res){
     this.lineChartData.datasets.forEach(val => this.dataArrays.push(val.data))
     myLineChart.update()
   }
-
 
 }
