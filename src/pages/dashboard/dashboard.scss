@@ -1,18 +1,10 @@
 page-dashboard {
-
-
     .welcome {
         font-size: 26px;
         color:#2a3d4f;
         font-weight: bold;
     }
 
-    .cards {
-        // background-color:#dff1d31f;
-        background-color: #5f9ad629;
-        // background-color: color($colors, light);
-        // position: relative;
-    }
     .headers {
         font-weight: bold; 
         font-size: 26px;
@@ -21,129 +13,22 @@ page-dashboard {
         color: #2a3d4fb3;
     }
 
+    .card-header-md + .card-content-md {
+        padding-top: 20px;
+    }
     .actionItemText {
         font-size: 20px;
         text-align: center;
     }
-
-
-    .warningMeter {
-        display: flex; 
-        justify-content: center;
-        margin-top: 2em;
-        align-items: center;
-        align-content: center;
-        padding: 0 3em 0 3em;
-      }
-      
-    .box {
-        background-color: grey;
-        height: 125px; 
-        width: 80px; 
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-basis: 15rem;
-    }
-      
-      .good {
-        background-color: green;
-      }
-      
-      .weak {
-        background-color: yellow;
-      }
-      
-      .poor {
-        background-color: orange;
-      }
-      
-      .danger {
-        background-color: red;
-      }
-
-    .grow {
-        height: 100px; 
-        flex-basis: 25rem;
-        padding: 5rem 1rem;
-        font-size: 2.5em;
-        text-decoration: underline;
-        border-radius: 10px;
-    }
-
-    .range {
-        text-align: center;
-        font-weight: bold;
-        padding-top: 5px;
-    }
-
-    .zoneWrapper {
-        display: flex; 
-        justify-content: center;
-        margin-top: 40px;
-    }
-    .conditionP {
-        font-size: 16px;
-        background-color: transparent;
-    }
-
+     
     .card-md p {
         font-size: 1.6em;
     }
 
-    .assessmentButton {
-        font-weight: bold;
-        font-size: 1.6em;
-        background-color: transparent;
-        color: #488aff;
-    }
-
-    .assessmentConditionMetButton {
-        font-size: 1em;
-        background-color: transparent;
-        color: #488aff;
-    }
-
-    .whyTakeAssessmentHeader {
-        font-weight: bold; 
-        text-decoration: underline;
-    }
-
-    .headerWrapper {
-        text-align: center;
-        padding: 20px 40px 10px 40px;
-    }
-
-    .ifUndefined {
-        text-align: center;
-    }
-
-    .zoneExHeader {
-        font-size: 26px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
-
-    .greenHeader {
-        color: green;
-    }
-
-    .yellowHeader {
-        color: yellow
-    }
-
-    .orangeHeader {
-        color: orange;
-    }
-
-    .redHeader {
-        color: red;
-    }
-
-    .zoneDescription {
-        margin-top: 15px;
-        line-height: 1.5;
+    news-widget .title {
+        font-size: 30px; 
+        // text-transform: bold;
+        padding-bottom: 10px;
     }
 
     .graphDescriptionWrapper {
@@ -167,13 +52,11 @@ page-dashboard {
     .linkIcons {
         font-size: 40px; 
         margin: 10px;
-
     }
 
     .networkImages {
         margin-top: 15px;
         display: flex;
-        // justify-content: center;
         justify-content: space-around;
     }
 
@@ -184,26 +67,18 @@ page-dashboard {
 
     .networkingAdvice {
        padding: 0px 30px 10px 30px; 
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
     }
-
 
     .input-wrapper {
         background-color: transparent;
     }
 
-    // button {
-    //     background-color: transparent;
-    //     color: #488aff;
-    // }
-
-
     button:hover {
         color: #8eafe8;
     }
     
-   
     .card-content ion-item.item-block {
         min-height: 2rem;
     }
@@ -218,8 +93,71 @@ page-dashboard {
 
     .button-md {
         font-size: 18px;
-        // margin: .5em 1em;
     }
+
+    .card-ios p {
+        color: black;
+        font-size: 18px;
+    }
+
+    /* Mobile Styles */
+    @media only screen and (max-width: 400px) {
+         .welcome {
+             font-size: 18px;
+         }
+
+         .headers {
+             font-size: 18px;
+         }
+       
+         .networkingAdvice {
+            font-size: 18px;
+            padding: 0px;
+         }
+
+         .card-md p {
+             font-size: 1em;
+         }
+         news-widget .title {
+            font-size: 25px; 
+        }
+
+        ion-card.round-card .card-header {
+            font-size: 20px;
+        }
+    }
+    
+    /* Tablet Styles */
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+
+        .welcome {
+            font-size: 18px;
+        }
+
+        .headers {
+            font-size: 18px;
+        }
+
+         .networkingAdvice {
+            padding: 0px;
+         }
+
+         .card-md p {
+            font-size: 1em;
+        }
+
+        news-widget .title {
+            font-size: 25px; 
+        }
+
+        ion-card.round-card .card-header {
+            font-size: 20px;
+        }
+    }
+
+
+  
+
 
 }
 

@@ -1,5 +1,10 @@
 page-profile {
 
+    .wrapper {
+        max-width: 960px;
+        margin: auto
+    }
+
     .invalid-email {
         color: red;
         text-align: center;
@@ -8,19 +13,23 @@ page-profile {
     .name {
         font-size: 30px;
     }
+
     .section {
-        margin-top: 20px;
+        // margin-top: 20px;
     }
     .label, user-info {
         font-size: 20px;
         color: black;
         overflow: hidden; 
         text-overflow: clip;
-        padding: 10px;
+        // padding: 10px;
     }
+
+
     .label {
         margin: auto;
         min-width: 100px;
+        padding: 10px 0px;
     }
 
     .user-info {
@@ -36,11 +45,39 @@ page-profile {
        margin: auto;
        max-width: 500px;
     }
+
+    .changePassWrapper {
+        display: flex; 
+        justify-content: center;
+    }
+
+    .changePassword {
+        background-color: #2e4256;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 25px;
+        height: 50px;
+    }
+    .card-header{
+    
+    }
+
+    ion-card.round-card .card-header {
+        padding-bottom: 0px;
+    }
+
     .buttons {
        
         //display: block;
        // margin: 10px;
     } 
+
+    .button-inner {
+        // color: black;
+        font-size: 10px;
+    }
+
     .buttons-div {
         display: flex;
         justify-content: center;
@@ -51,8 +88,14 @@ page-profile {
         font-size: 18px;
     }
 
-    #pic-con {
-        font-size: 250px;
+    .profIcon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .pic-con {
+        font-size: 200px;
+        align-self: center;
     }
    
     @media screen and (min-width: 768px) {
@@ -64,7 +107,7 @@ page-profile {
         }
 
         .section {
-            margin-top: 40px;
+            // margin-top: 40px;
         }
         .user-info-colum {
             width: 40%; 

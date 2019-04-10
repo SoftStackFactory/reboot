@@ -9,10 +9,10 @@ import { of as observableOf } from 'rxjs/observable/of'
 
 @Injectable()
 export class ChartProvider {
-  
+
   allResults: any;
   chartSections: any;
-  requestUrl: string = ENV.url + '/charts?access_token=' + sessionStorage.getItem('token')
+  requestUrl: string;
   testChart: any = [];
   chartHistory;
   mostRecentChart;
@@ -21,11 +21,18 @@ export class ChartProvider {
 
   constructor(public http: HttpClient, private storage: StorageProvider) { }
 
-  addAssessment(assessment) {
+  checkSessionCredentials(){
+    //Updates the request url to reflect the current credentials in Session storage.
+    this.requestUrl = ENV.url + '/appUsers/' + sessionStorage.getItem('userId') + '/charts?access_token=' + sessionStorage.getItem('token');
+  }
+
+  addAssessment ( assessment ) {
+    this.checkSessionCredentials();
     return this.http.post(this.requestUrl, assessment);
   }
 
   getChartHistory() {
+    this.checkSessionCredentials();
     return this.http.get(this.requestUrl).map((res:any[])=>{
       //Initialized an array to store the values.
       let allData:any = []
@@ -39,6 +46,7 @@ export class ChartProvider {
   }
 
   mostRecentData() {
+    this.checkSessionCredentials();
     //calls the API to get the assesments from the db
     return this.http.get(this.requestUrl).map((res:any[])=>{
       //Returns all data, recent gets the last or most recent item from the DB
@@ -53,5 +61,5 @@ export class ChartProvider {
     })
   }
 
-  
+
 }

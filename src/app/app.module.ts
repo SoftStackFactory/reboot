@@ -40,6 +40,7 @@ import { ActionItemProvider } from '../providers/action-item/action-item';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { TimelineProvider } from '../providers/timeline/timeline';
 import { StyleGuidePage } from '../pages/style-guide/style-guide';
+import { WarningMeterComponent } from '../components/warning-meter/warning-meter';
 
 
 const Pages = [
@@ -58,7 +59,8 @@ const Pages = [
   NewsPage,
   ChartComponent,
   ResourcesPage,
-  StyleGuidePage
+  StyleGuidePage, 
+  WarningMeterComponent
 ]
 
 @NgModule({
@@ -69,7 +71,8 @@ const Pages = [
     NewsWidgetComponent,
     TimelineComponent,
     ResourcesPage,
-    ProgressBarComponent
+    ProgressBarComponent, 
+    WarningMeterComponent
   ],
   imports: [
     BrowserModule,

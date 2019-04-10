@@ -20,7 +20,7 @@ page-history {
     }
 
     #rows {
-        border-bottom: 1px solid black; 
+        border-bottom: 1px solid black;
         padding: 20px 0px;
     }
 
@@ -31,5 +31,14 @@ page-history {
 
     #chart {
         padding-left: 10%;
+    }
+
+    .small-label{
+        font-size: 1rem;
+    }
+
+    .card-align{
+        display:flex;
+        align-items: stretch;
     }
 }
