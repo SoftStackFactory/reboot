@@ -1,14 +1,83 @@
 page-login {
+
+    * {
+       scroll-behavior: smooth; 
+    }
     
-    #header {
+    #loginGrid {
+        background: linear-gradient(to bottom, rgba(125,185,232,0) 26%,rgba(125,185,232,0.5) 56%,rgba(0,108,122,0.65) 72%,rgba(0,107,122,0.66) 73%,rgba(5,90,130,1) 93%);
+    }
+
+    #newInput {
+        position: absolute;
+        background-color: #343434c4;
+        width: 90%;
+        top: 365px;
+        margin-left: 5%;
+        border-radius: 3px;
+        padding-bottom: 2%;
+        padding-right: 5%;
+        z-index: 5;
+    }
+
+    .scroll-content{
+        overflow: hidden;
+        overflow-y: none;
+    }
+    .item-ios {
+        background-color: none;
+    }
+
+    #tologin {
+        width: 100%;
+        top: 86%;
+        position: absolute;
+        font-size: 12vh;
+        text-align: center;
+        color: #2459f88a;
+        content: "\f289";
+    }
+
+    #spinner {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        z-index: 1000;
+        stroke: #488aff;
+        fill: #488aff;
+
+        display: block;
+        margin-right: auto;
+        width: 100%;
+      }
+    
+    #background {
         display: flex;
         padding: 65px;
         justify-content: center; 
         align-items: center; 
+        z-index: -1;
+        background-image: url('../assets/imgs/bk/bk1.jpg');
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+        // width: 100vh;
+        height: 100vh;
+        transition: 4s;
+        
+    }
 
-        background-position: 0px -250px; 
-        background-size: 100% 500%; 
-        background-image: url('../assets/imgs/background.png');
+    #overlay {
+        position: fixed;
+        width: 100%; 
+        height: 100%;
+        top: 0; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 1;
     }
 
     #title {
@@ -16,19 +85,16 @@ page-login {
         font-weight: bold; 
         font-family: proxima-nova; 
         font-size: 70px; 
-        color: white;
+        color: #e3e3e3;
+        text-shadow: 4px 4px 4px #000000;
     }
 
     #lifechange {
         font-weight: bold;
     }
 
-    .password-inputs {
-        position: relative;
-        border: 1px solid rgb(229, 230, 230);
-        background-color: rgb(248, 248, 248); 
-        padding-left: 60px; 
-        font-size: 25px
+    .labels {
+        color: rgb(96,96,96); 
     }
     
     #email:before {
@@ -53,70 +119,42 @@ page-login {
         top: 10px;
     }
 
+    .inputs {
+        position: relative;
+        border: 1px solid rgb(229, 230, 230);
+        background-color: rgb(248, 248, 248); 
+        padding-left: 60px; 
+        font-size: 25px
+    }
+
+    .invalid-text {
+        font-size: 14px;
+        color: #ea6153;
+      }
+
     #loginbutton {
         background-color: rgb(130,180,64); 
-        font-size: 25px;
+        font-size: 20px;
         height: 2.1em;
+        margin-left: 3%;
+        margin-bottom: 3%;
+        margin-top: 5%;
+
+        display: block;
+        margin-right: auto;
+        width: 100%;
     }
 
     #signupbutton {
         background-color: rgb(42,61,79); 
-        font-size: 25px;
+        font-size: 20px;
         height: 2.1em;
-    }
+        margin-left: 3%;
+        margin-bottom: 3%;
 
-    @media only screen and (min-width: 768px) {
-        // For desktop
-        .email-col {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .email-labels {
-            color: rgb(96,96,96); 
-        }
-    
-        .password-labels {
-            color: rgb(96,96,96); 
-        }
-    
-        .invalid-text {
-            flex-basis: 50%;
-            font-size: 20px;
-            color: #ea6153;
-        }
-    
-        .email-inputs {
-            flex-basis: 100%;
-            // position: relative;
-            border: 1px solid rgb(229, 230, 230);
-            background-color: rgb(248, 248, 248); 
-            padding-left: 60px; 
-            font-size: 25px
-        }
-    }
-
-    @media only screen and (max-width: 768px) {
-        // For mobile\
-        .email-labels {
-            color: rgb(96,96,96); 
-        }
-    
-        .password-labels {
-            color: rgb(96,96,96); 
-        }
-    
-        .invalid-text {
-            font-size: 20px;
-            color: #ea6153;
-        }
-    
-        .email-inputs {
-            position: relative;
-            border: 1px solid rgb(229, 230, 230);
-            background-color: rgb(248, 248, 248); 
-            padding-left: 60px; 
-            font-size: 25px
-        }
+        display: block;
+        margin-right: auto;
+        width: 100%;
     }
 
     @media screen and (orientation:portrait){
@@ -159,16 +197,19 @@ page-login {
         }
 
         .invalid-text {
-            font-size: 20px;
+            font-size: 12px;
             color: #ea6153;
-            margin: auto;
+            // margin: auto;
             width: 70%;
         }
 
-        .email-labels, .password-labels {
+        .labels {
             padding-left: 10%;
             font-size: 25px;
-        }        
+
+        }
+
+        
     }
 
 }
